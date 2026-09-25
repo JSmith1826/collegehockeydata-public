@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#18453b">
   <meta name="description" content="Explore the hometowns, recruiting footprints, and geographic production of Division I college hockey players.">
   <title>Player Atlas · College Hockey Data</title>
-  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-BpWCMekW.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BJO-ne3t.css">
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-DaYec5lJ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CyRlfDb5.css">
 </head>
 <body>
   <header class="hero">
@@ -52,12 +52,14 @@
       </div>
     </section>
 
-    <section class="atlas-section" aria-labelledby="map-heading">
+    <section class="atlas-section" id="atlas-section" aria-labelledby="map-heading">
       <div class="section-head"><span class="section-num">02 / EXPLORE THE ATLAS</span><span class="section-note">Hover for a summary · select a place for the full roster</span></div>
       <div class="atlas-heading">
         <div class="map-title-block"><div id="program-mark" class="program-mark" hidden></div><div><h2 id="map-heading">Player hometowns</h2><p id="map-deck">States and provinces are shaded by the selected measure.</p></div></div>
         <div class="map-actions">
           <button id="reset-map" type="button">Reset map</button>
+          <button id="expand-map" type="button" aria-pressed="false">Expand map</button>
+          <button id="fullscreen-map" type="button" aria-pressed="false">Full screen</button>
           <select id="export-format" aria-label="PNG format"><option value="wide">Wide PNG</option><option value="mobile">Mobile PNG</option></select>
         <button id="export-map" type="button" class="primary">Download PNG ↗</button>
         </div>
