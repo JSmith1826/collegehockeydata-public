@@ -1,36 +1,37 @@
 {
-  "generated_at": "2026-09-25T04:36:34+00:00",
+  "generated_at": "2026-09-25T14:09:55+00:00",
   "domain": null,
+  "cloudflare_web_analytics": false,
   "explorers": [
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
-      "files": 9,
-      "bytes": 1454223
+      "files": 8,
+      "bytes": 229172
     },
     {
       "title": "Roster Origins",
       "slug": "roster-origins",
-      "files": 35,
-      "bytes": 10814640
+      "files": 34,
+      "bytes": 9589500
     },
     {
       "title": "Preseason Production",
       "slug": "preseason-production",
-      "files": 24,
-      "bytes": 10482882
+      "files": 23,
+      "bytes": 9257893
     },
     {
       "title": "Scoring Origins",
       "slug": "origin-production",
       "files": 137,
-      "bytes": 11039413
+      "bytes": 11042803
     },
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
-      "files": 33,
-      "bytes": 2527470
+      "files": 32,
+      "bytes": 1302384
     }
   ]
 }

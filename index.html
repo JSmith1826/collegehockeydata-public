@@ -6,12 +6,13 @@
   <meta name="theme-color" content="#18453b">
   <meta name="description" content="Interactive college hockey roster, production, team-stat, and NHL Draft visualizations built from College Hockey News and archived data.">
   <title>College Hockey Data</title>
+  <link rel="icon" href="./assets/site/chd_badge3.jpg">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
   <header class="site-header">
     <a class="wordmark" href="./" aria-label="College Hockey Data home">
-      <span class="wordmark-mark">CHD</span>
+      <span class="wordmark-mark"><img src="./assets/site/chd_badge3.jpg" alt=""></span>
       <span>College Hockey Data</span>
     </a>
     <nav aria-label="Main navigation">
@@ -23,10 +24,10 @@
   <main>
     <section class="hero">
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> Independent college hockey research</p>
-        <h1>The sport’s history,<br><em>made explorable.</em></h1>
-        <p class="intro">Interactive views of team performance, roster movement, player origins, returning production, and NHL Draft history.</p>
-        <a class="primary-action" href="#explorers">Choose an explorer <span aria-hidden="true">↓</span></a>
+        <p class="eyebrow"><span></span> College hockey records and visualizations</p>
+        <h1>College hockey<br><em>data archive.</em></h1>
+        <p class="intro">Team results, roster movement, player origins, returning production, and NHL Draft history.</p>
+        <a class="primary-action" href="#explorers">View the explorers <span aria-hidden="true">↓</span></a>
       </div>
       <div class="hero-art" aria-hidden="true"></div>
       <div class="hero-facts" aria-label="Project coverage">
@@ -36,11 +37,21 @@
       </div>
     </section>
 
+    <section class="conference-strip" aria-label="Current Division I men's hockey conferences">
+      <span>Current conferences</span>
+      <img src="./assets/conferences/atlantic.png" alt="Atlantic Hockey America">
+      <img src="./assets/conferences/big_ten.png" alt="Big Ten">
+      <img src="./assets/conferences/ccha.png" alt="CCHA">
+      <img src="./assets/conferences/ecac.png" alt="ECAC Hockey">
+      <img src="./assets/conferences/hockey_east.png" alt="Hockey East">
+      <img src="./assets/conferences/nchc.png" alt="NCHC">
+    </section>
+
     <section class="explorers" id="explorers">
       <div class="section-heading">
         <div>
           <p class="section-number">01 / EXPLORE THE DATA</p>
-          <h2>Pick a question.</h2>
+          <h2>Data explorers.</h2>
         </div>
         <p>Each tool works on desktop and mobile and can create a shareable PNG from the view you build.</p>
       </div>
@@ -86,11 +97,11 @@
     <section class="about" id="about">
       <div>
         <p class="section-number">02 / ABOUT THE PROJECT</p>
-        <h2>A record,<br>with its limits visible.</h2>
+        <h2>Sources and<br>coverage.</h2>
       </div>
       <div class="about-copy">
-        <p>College Hockey Data combines current College Hockey News records with archived season, roster, and game material. The explorers keep missing and unclassified records visible so the charts do not claim more certainty than the source supports.</p>
-        <p>Early-season coverage is partial. Modern tools use the most reliable seasons available for each question and explain their coverage inside the page.</p>
+        <p>College Hockey Data combines current College Hockey News records with archived season, roster, and game material. Missing and unclassified records remain visible in each explorer.</p>
+        <p>Early seasons are partial. Each explorer states the seasons and fields available for its analysis.</p>
         <div class="source-line"><span></span> CHN + archived data · Independent project · u/BakedMitten</div>
       </div>
     </section>

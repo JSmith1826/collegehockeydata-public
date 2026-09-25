@@ -4,16 +4,18 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18453B">
-  <title>College Hockey Team Stat Explorer</title>
-  <script type="module" crossorigin src="./assets/index-lRZ8GB-8.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BXQqeGPP.css">
+  <title>Team Performance · College Hockey Data</title>
+  <meta name="description" content="Compare college hockey teams by scoring, shots, penalties, and special teams.">
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-Bl1TtziK.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-iNh5GK6O.css">
 </head>
 <body>
   <header class="masthead">
     <div class="masthead-inner">
-      <div class="eyebrow"><span class="puck"></span> NCAA D1 MEN'S HOCKEY · DATA EXPLORER</div>
-      <h1>Where does your<br><em>team stand?</em></h1>
-      <p>Four familiar views of the season, now yours to filter. Follow a team through the year, compare its peers, then save a chart to share.</p>
+      <div class="eyebrow"><span class="puck"></span> COLLEGE HOCKEY DATA / TEAM PERFORMANCE</div>
+      <h1>Team<br><em>performance.</em></h1>
+      <p>Compare scoring, shots, penalties, and special teams for the selected season and dates.</p>
       <div class="masthead-meta"><span id="headline-season">2025–26 season</span><span class="dot">·</span><span id="headline-count">Loading data…</span></div>
     </div>
     <div class="rink-art" aria-hidden="true"><div class="rink-ring"></div><div class="rink-line rink-line-one"></div><div class="rink-line rink-line-two"></div><div class="rink-center"></div></div>
@@ -42,13 +44,13 @@
     </section>
 
     <section class="charts-section" aria-label="Team statistic charts">
-      <div class="charts-heading"><div><span class="section-index">02 / COMPARE</span><h2>The league at a glance</h2></div><p>Each dot is one team. Tap or click a dot to keep it highlighted across every chart. Dashed lines mark the median of the teams shown.</p><label class="field export-format">PNG layout<select id="export-layout"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label></div>
+      <div class="charts-heading"><div><span class="section-index">02 / COMPARE</span><h2>Team comparison</h2></div><p>Each dot is one team. Tap or click a dot to keep it highlighted across every chart. Dashed lines mark the median of the teams shown.</p><label class="field export-format">PNG layout<select id="export-layout"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label></div>
       <div id="charts-grid" class="charts-grid"></div>
     </section>
 
     <section class="method-panel" aria-labelledby="method-heading">
-      <span class="section-index">03 / HOW TO READ THIS</span>
-      <h2 id="method-heading">A clear view of the numbers</h2>
+      <span class="section-index">03 / ABOUT THE DATA</span>
+      <h2 id="method-heading">Data and calculations</h2>
       <div class="method-grid">
         <div><h3>One game, two sides</h3><p>Only scored, non-exhibition matchups between teams with CHN rosters are included. Every team's rate uses its own games in the selected date range. Games against those opponents count even when you display just one conference.</p></div>
         <div><h3>Metrics need box totals</h3><p>Goals come from final scores. Shots, penalty minutes, and power-play figures require recorded totals for both teams. Missing box fields never become zero. Each chart reports how many games support its metric.</p></div>
