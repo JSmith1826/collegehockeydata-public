@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453B">
+  <title>College Hockey Team Stat Explorer</title>
+  <script type="module" crossorigin src="./assets/index-BsmR_yuQ.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-4uD7MGu-.css">
+</head>
+<body>
+  <header class="masthead">
+    <div class="masthead-inner">
+      <div class="eyebrow"><span class="puck"></span> NCAA D1 MEN'S HOCKEY · DATA EXPLORER</div>
+      <h1>Where does your<br><em>team stand?</em></h1>
+      <p>Four familiar views of the season, now yours to filter. Follow a team through the year, compare its peers, then save a chart to share.</p>
+      <div class="masthead-meta"><span id="headline-season">2025–26 season</span><span class="dot">·</span><span id="headline-count">Loading data…</span></div>
+    </div>
+    <div class="rink-art" aria-hidden="true"><div class="rink-ring"></div><div class="rink-line rink-line-one"></div><div class="rink-line rink-line-two"></div><div class="rink-center"></div></div>
+  </header>
+
+  <main>
+    <section class="controls-panel" aria-label="Explorer controls">
+      <div class="panel-heading"><span class="section-index">01 / EXPLORE</span><span class="panel-hint">Charts update as you change the view</span></div>
+      <div class="controls-grid">
+        <label class="field field-season">Season<select id="season-select" aria-label="Season"></select></label>
+        <label class="field field-conference">Team group<select id="conference-select" aria-label="Team group"><option value="all">All conferences</option></select></label>
+        <label class="field field-date">From<input id="from-date" type="date" aria-label="Start date"></label>
+        <label class="field field-date">Through<input id="to-date" type="date" aria-label="End date"></label>
+        <button id="reset-dates" class="quiet-button" type="button">Full season</button>
+      </div>
+      <div class="team-controls">
+        <div class="team-picker">
+          <label for="team-search">Highlight teams <span class="subtle">up to six</span></label>
+          <input id="team-search" type="search" placeholder="Search and select a team…" autocomplete="off" aria-controls="search-results">
+          <div id="search-results" class="search-results" role="listbox" hidden></div>
+        </div>
+        <div id="selected-teams" class="selected-teams" aria-label="Highlighted teams"><span class="empty-selection">Click a chart point or search for a team</span></div>
+        <label class="trail-toggle"><input id="trail-toggle" type="checkbox"><span>Show monthly paths</span></label>
+      </div>
+      <div id="coverage-banner" class="coverage-banner" role="status"></div>
+    </section>
+
+    <section class="charts-section" aria-label="Team statistic charts">
+      <div class="charts-heading"><div><span class="section-index">02 / COMPARE</span><h2>The league at a glance</h2></div><p>Each dot is one team. Tap or click a dot to keep it highlighted across every chart. Dashed lines mark the median of the teams shown.</p><label class="field export-format">PNG layout<select id="export-layout"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label></div>
+      <div id="charts-grid" class="charts-grid"></div>
+    </section>
+
+    <section class="method-panel" aria-labelledby="method-heading">
+      <span class="section-index">03 / HOW TO READ THIS</span>
+      <h2 id="method-heading">A clear view of the numbers</h2>
+      <div class="method-grid">
+        <div><h3>One game, two sides</h3><p>Only scored, non-exhibition matchups between teams with CHN rosters are included. Every team's rate uses its own games in the selected date range. Games against those opponents count even when you display just one conference.</p></div>
+        <div><h3>Metrics need box totals</h3><p>Goals come from final scores. Shots, penalty minutes, and power-play figures require recorded totals for both teams. Missing box fields never become zero. Each chart reports how many games support its metric.</p></div>
+        <div><h3>Special teams</h3><p>Power play is goals divided by opportunities. Penalty kill is one minus opponents' power-play goals divided by opponents' opportunities. A team needs at least five scored games to appear, plus valid opportunities for both percentages.</p></div>
+      </div>
+      <p class="source-line">Source: <a href="https://www.collegehockeynews.com/" target="_blank" rel="noopener noreferrer">College Hockey News</a> schedules and archived/CHN box totals. This is an independent visualization by u/BakedMitten. <span id="snapshot-time"></span></p>
+    </section>
+  </main>
+  <footer class="page-footer">COLLEGE HOCKEY DATA PROJECT <span>·</span> TEAM STAT EXPLORER</footer>
+  <div id="tooltip" class="tooltip" role="status" hidden></div>
+</body>
+</html>

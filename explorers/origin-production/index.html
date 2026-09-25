@@ -1,0 +1,19 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#101f2c">
+  <title>Where the scoring comes from · College Hockey Data</title>
+  <script type="module" crossorigin src="./assets/index-ifVblrwq.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BdiaXmDP.css">
+</head>
+<body>
+  <header class="hero"><div class="hero-inner"><div class="eyebrow"><span></span> COLLEGE HOCKEY DATA / RESEARCH STUDY 04</div><h1>Where the scoring<br><em>comes from.</em></h1><p>Explore what players from each reported previous league produced in the same college season. Follow one program through time, and see where the record runs thin.</p><div class="hero-meta"><span id="hero-season">Loading…</span><span>CHN + archived rosters</span></div></div><div class="rink" aria-hidden="true"><div></div></div></header>
+  <main>
+    <section class="controls"><div class="section-head"><span class="section-number">01 / SET THE COHORT</span><span>Season totals from recorded roster players</span></div><div class="control-grid"><label>Season<select id="season"></select></label><label>Conference<select id="conference"></select></label><label>Movement<select id="movement"></select></label><label>Measure<select id="metric"><option value="points">Points</option><option value="goals">Goals</option><option value="assists">Assists</option></select></label><label>Team lens<select id="team"></select></label></div><div id="coverage" class="coverage" role="status"></div></section>
+    <section class="intro"><span class="section-number">02 / READ THE RECORD</span><div id="summary" class="summary"></div></section>
+    <section class="cohorts"><div class="section-head large"><div><span class="section-number">03 / COMPARE ORIGINS</span><h2>Production by prior league</h2><p>Rate is per 30 recorded player-game appearances. Each row shows the player count, linked count, and sample size.</p></div><button id="export" type="button">Download PNG ↗</button></div><div id="cohort-chart" class="cohort-chart"></div><p class="chart-note">Rates are descriptive. A missing stat link or game is never counted as zero production.</p></section>
+    <section class="lens"><div class="section-head large"><div><span class="section-number">04 / TEAM LENS</span><h2>Follow a program</h2><p>Pick a team and an origin group to inspect recorded seasons and the share of its roster.</p></div><label>Origin group<select id="origin"></select></label></div><div id="team-detail" class="team-detail"></div><div id="trend" class="trend"></div></section>
+    <section class="method"><span class="section-number">05 / METHOD</span><h2>A measured sample.</h2><div class="method-grid"><p><strong>Previous league</strong>The origin bin comes from each roster's reported last team and league. It is not birthplace or proof that a player transferred that year.</p><p><strong>Verified movement</strong>Returning and verified transfer require the same player ID on adjacent-season rosters. “No prior membership observed” can include first-years and gaps in the archive.</p><p><strong>Coverage</strong>A comparison is flagged when fewer than 75% of roster players have a same-season stat link, fewer than 80% of scored team games have player rows, or more than 25% have unknown origins. Individual bins under 100 player-game appearances are marked small sample.</p></div><div class="source">Source: College Hockey News and archived roster and game records · Independent project by u/BakedMitten · Exported <span id="snapshot">—</span></div></section>
+  </main><footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> ORIGIN PRODUCTION</footer>
+</body></html>

@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#18453b">
+  <meta name="description" content="Interactive college hockey roster, production, team-stat, and NHL Draft visualizations built from College Hockey News and archived data.">
+  <title>College Hockey Data</title>
+  <link rel="stylesheet" href="./styles.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="wordmark" href="./" aria-label="College Hockey Data home">
+      <span class="wordmark-mark">CHD</span>
+      <span>College Hockey Data</span>
+    </a>
+    <nav aria-label="Main navigation">
+      <a href="#explorers">Explore</a>
+      <a href="#about">About the data</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero">
+      <div class="hero-copy">
+        <p class="eyebrow"><span></span> Independent college hockey research</p>
+        <h1>The sport’s history,<br><em>made explorable.</em></h1>
+        <p class="intro">Interactive views of team performance, roster movement, player origins, returning production, and NHL Draft history.</p>
+        <a class="primary-action" href="#explorers">Choose an explorer <span aria-hidden="true">↓</span></a>
+      </div>
+      <div class="hero-art" aria-hidden="true"></div>
+      <div class="hero-facts" aria-label="Project coverage">
+        <div><strong>5</strong><span>interactive studies</span></div>
+        <div><strong>1895–96</strong><span>archive begins</span></div>
+        <div><strong>2026–27</strong><span>current season</span></div>
+      </div>
+    </section>
+
+    <section class="explorers" id="explorers">
+      <div class="section-heading">
+        <div>
+          <p class="section-number">01 / EXPLORE THE DATA</p>
+          <h2>Pick a question.</h2>
+        </div>
+        <p>Each tool works on desktop and mobile and can create a shareable PNG from the view you build.</p>
+      </div>
+
+      <div class="card-grid">
+        <a class="study-card featured" href="./explorers/team-stats/">
+          <div class="card-top"><span>Team performance</span><b>01</b></div>
+          <h3>Team Stat Explorer</h3>
+          <p>Compare scoring, shots, penalties, and special teams across a season.</p>
+          <span class="card-link">Open explorer <b aria-hidden="true">↗</b></span>
+        </a>
+
+        <a class="study-card" href="./explorers/roster-origins/">
+          <div class="card-top"><span>Roster construction</span><b>02</b></div>
+          <h3>Roster Origins</h3>
+          <p>See the leagues, schools, transfers, and other paths that built each roster.</p>
+          <span class="card-link">Open explorer <b aria-hidden="true">↗</b></span>
+        </a>
+
+        <a class="study-card" href="./explorers/preseason-production/">
+          <div class="card-top"><span>Roster movement</span><b>03</b></div>
+          <h3>Preseason Production</h3>
+          <p>Follow prior-season goals, assists, shots, and penalties as production returns, arrives, or leaves.</p>
+          <span class="card-link">Open explorer <b aria-hidden="true">↗</b></span>
+        </a>
+
+        <a class="study-card" href="./explorers/origin-production/">
+          <div class="card-top"><span>Development paths</span><b>04</b></div>
+          <h3>Scoring Origins</h3>
+          <p>Connect players’ reported previous leagues with what they produced in college.</p>
+          <span class="card-link">Open explorer <b aria-hidden="true">↗</b></span>
+        </a>
+
+        <a class="study-card draft" href="./explorers/draft-history/">
+          <div class="card-top"><span>NHL Draft</span><b>05</b></div>
+          <h3>Draft History</h3>
+          <p>Explore NHL selections on college rosters by program, position, round, and timing.</p>
+          <span class="card-link">Open explorer <b aria-hidden="true">↗</b></span>
+        </a>
+      </div>
+    </section>
+
+    <section class="about" id="about">
+      <div>
+        <p class="section-number">02 / ABOUT THE PROJECT</p>
+        <h2>A record,<br>with its limits visible.</h2>
+      </div>
+      <div class="about-copy">
+        <p>College Hockey Data combines current College Hockey News records with archived season, roster, and game material. The explorers keep missing and unclassified records visible so the charts do not claim more certainty than the source supports.</p>
+        <p>Early-season coverage is partial. Modern tools use the most reliable seasons available for each question and explain their coverage inside the page.</p>
+        <div class="source-line"><span></span> CHN + archived data · Independent project · u/BakedMitten</div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <span>College Hockey Data</span>
+    <span id="build-note">Five interactive studies</span>
+  </footer>
+  <script src="./site.js"></script>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453B">
+  <title>Roster Origins · College Hockey Data</title>
+  <script type="module" crossorigin src="./assets/index-DCkG3BOa.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-rXeeimoR.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker"><span class="kicker-line"></span><span id="hero-kicker">COLLEGE HOCKEY DATA / ROSTER STUDY 02</span></div>
+      <h1><span id="hero-line-one">Where were they</span><br><em id="hero-accent">before</em> <span id="hero-line-two">college?</span></h1>
+      <p id="hero-deck">Explore the leagues listed on each team’s season roster. Compare every program, follow one through time, and make a shareable chart with team logos.</p>
+      <div class="hero-pills"><span id="hero-season">Loading seasons…</span><span id="hero-rosters">CHN + archived rosters</span></div>
+    </div>
+    <div class="hero-mark" aria-hidden="true"><span>ORIGIN</span><i></i></div>
+  </header>
+
+  <main>
+    <section class="workspace" aria-label="Roster explorer controls">
+      <div class="section-head"><span class="section-num" id="section-one">01 / SET THE VIEW</span><span class="section-note" id="section-one-note">Change a control to redraw the comparison</span></div>
+      <div class="control-grid">
+        <label>Season<select id="season"></select></label>
+        <label>Conference<select id="conference"><option value="all">All teams</option></select></label>
+        <label class="team-search">Find a team<input id="search" type="search" placeholder="Search this season’s teams" autocomplete="off"></label>
+        <label>Show<select id="limit"><option value="15">Top 15</option><option value="30">Top 30</option><option value="all">All teams</option></select></label>
+        <label>Right-side value<select id="units"><option value="share">Roster share</option><option value="count">Player count</option></select></label>
+      </div>
+      <div class="filter-foot"><span id="filter-summary"></span><div id="coverage" class="coverage" role="status">Loading roster coverage…</div></div>
+    </section>
+
+    <section class="explorer" aria-labelledby="compare-title">
+      <div class="compare-head"><div><span class="section-num" id="section-two">02 / COMPARE PROGRAMS</span><h2 id="compare-title">A league-by-league roster</h2><p id="compare-deck">The selected ranking group moves to the front of every bar. Click a legend label to spotlight that league across all teams.</p></div><div class="export-tools"><label class="export-title-control">PNG headline<input id="export-title" type="text" placeholder="Automatic chart description"></label><label>PNG layout<select id="export-format"><option value="wide">Wide · top 18</option><option value="mobile">Mobile · up to 12</option></select></label><button id="export" type="button" class="export-button">Download wide PNG <span>↗</span></button></div></div>
+      <div id="legend" class="legend" aria-label="Previous league groups"></div>
+      <div class="table-head"><span>TEAM</span><span>REPORTED PREVIOUS LEAGUE</span><span id="value-heading">SHARE</span></div>
+      <div id="team-list" class="team-list"></div>
+    </section>
+
+    <section id="detail" class="detail" aria-labelledby="detail-title">
+      <div class="section-head"><span class="section-num" id="section-three">03 / FOLLOW A PROGRAM</span><span class="section-note" id="section-three-note">Select another team above to compare its history</span></div>
+      <div id="detail-content"></div>
+    </section>
+
+    <section class="method" aria-labelledby="method-title"><span class="section-num">04 / ABOUT THE DATA</span><h2 id="method-title">Read the roster, see the limits.</h2><div class="method-grid"><p><strong>What “origin” means</strong>The previous team and league printed on a season roster. Transfers identify reported prior NCAA Division I experience at a different program; same-program records with no earlier pathway remain visibly unknown.</p><p><strong>How draft context is used</strong>NHL selections remain visible in player tooltips, team annotations, the drafted-share ranking, and program history. The dedicated Draft History Explorer handles deeper comparisons by round and selection timing.</p><p><strong>How it stays current</strong>The page is exported from the canonical database’s derived team-construction CSV. Rebuild that CSV after a roster refresh, then regenerate the web data. Team logos come from this project’s supplied logo folder.</p></div><div class="source-line">Source: College Hockey News and archived season rosters · Classification rules v<span id="rule-version">5</span> · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div></section>
+  </main>
+  <footer><span id="footer-project">COLLEGE HOCKEY DATA PROJECT</span> <span class="footer-glyph">◆</span> <span id="footer-study">ROSTER ORIGINS</span></footer>
+</body>
+</html>

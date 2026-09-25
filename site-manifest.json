@@ -1,0 +1,36 @@
+{
+  "generated_at": "2026-09-25T02:36:34+00:00",
+  "domain": null,
+  "explorers": [
+    {
+      "title": "Team Stat Explorer",
+      "slug": "team-stats",
+      "files": 9,
+      "bytes": 1454223
+    },
+    {
+      "title": "Roster Origins",
+      "slug": "roster-origins",
+      "files": 121,
+      "bytes": 14298030
+    },
+    {
+      "title": "Preseason Production",
+      "slug": "preseason-production",
+      "files": 110,
+      "bytes": 13943681
+    },
+    {
+      "title": "Scoring Origins",
+      "slug": "origin-production",
+      "files": 223,
+      "bytes": 10060992
+    },
+    {
+      "title": "NHL Draft History",
+      "slug": "draft-history",
+      "files": 119,
+      "bytes": 5988186
+    }
+  ]
+}
