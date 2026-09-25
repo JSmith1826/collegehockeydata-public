@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T15:28:07+00:00",
+  "generated_at": "2026-09-25T18:47:29+00:00",
   "domain": null,
   "cloudflare_web_analytics": false,
   "explorers": [
@@ -32,6 +32,12 @@
       "slug": "draft-history",
       "files": 32,
       "bytes": 1303803
+    },
+    {
+      "title": "Player Atlas",
+      "slug": "player-atlas",
+      "files": 35,
+      "bytes": 7901810
     }
   ]
 }

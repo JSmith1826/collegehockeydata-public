@@ -1,0 +1,107 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453b">
+  <meta name="description" content="Explore the hometowns, recruiting footprints, and geographic production of Division I college hockey players.">
+  <title>Player Atlas · College Hockey Data</title>
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-3nPIdEJV.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CQv7Fv_8.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="kicker"><span></span><b id="hero-kicker">COLLEGE HOCKEY DATA / PLAYER ATLAS</b></div>
+      <h1><span id="hero-line">College hockey</span><br><em id="hero-accent">hometowns.</em></h1>
+      <p id="hero-deck">Where Division I players come from, where they play, and what they produce.</p>
+      <div class="hero-pills"><span id="hero-season">Loading seasons…</span><span id="hero-coverage">Checking map coverage…</span></div>
+    </div>
+    <div class="hero-mark" aria-hidden="true"><span>ATLAS</span><i></i></div>
+  </header>
+
+  <main>
+    <section class="workspace" aria-labelledby="controls-title">
+      <div class="section-head"><span class="section-num" id="controls-title">01 / SET THE VIEW</span><span class="section-note">A season, or any continuous range of seasons</span></div>
+      <div class="time-mode" role="group" aria-label="Season selection mode">
+        <button type="button" data-time-mode="single" aria-pressed="true">Single season</button>
+        <button type="button" data-time-mode="range" aria-pressed="false">Season range</button>
+      </div>
+      <div class="season-control">
+        <div class="season-labels"><strong id="season-range-label">—</strong><span id="season-range-note">One roster season</span></div>
+        <div class="dual-range" id="dual-range">
+          <div class="range-track"><i id="range-fill"></i></div>
+          <input id="season-start" type="range" aria-label="First season">
+          <input id="season-end" type="range" aria-label="Last season">
+        </div>
+      </div>
+      <div class="control-grid">
+        <label>Conference<select id="conference"><option value="all">All conferences</option></select></label>
+        <label>Program<select id="program"><option value="all">All programs</option></select></label>
+        <label>Position<select id="position"><option value="all">All positions</option><option value="F">Forwards</option><option value="D">Defense</option><option value="G">Goaltenders</option></select></label>
+        <label>Measure<select id="metric"><option value="players">Players</option><option value="points">Points</option><option value="goals">Goals</option><option value="assists">Assists</option><option value="shots">Shots</option><option value="pim">PIM</option><option value="plusMinus">Plus / minus</option><option value="timeOnIce">Time on ice</option><option value="faceoffsWon">Faceoffs won</option><option value="faceoffPct">Faceoff win %</option><option value="drafted">NHL drafted</option><option value="saves">Goalie saves</option><option value="goalsAgainst">Goals against</option><option value="savePct">Goalie save %</option></select></label>
+        <label>Display<select id="rate"><option value="total">Totals</option><option value="per30">Per 30 appearances</option><option value="per100k">Per 100,000 residents</option></select></label>
+      </div>
+      <div class="filter-summary" id="filter-summary" aria-live="polite"></div>
+      <div class="view-switcher" role="group" aria-label="Map view">
+        <button type="button" data-map-mode="territories" aria-pressed="true"><b>Territory overview</b><span>Shade states and provinces</span></button>
+        <button type="button" data-map-mode="density" aria-pressed="false"><b>Hometown density</b><span>See geographic hot spots</span></button>
+        <button type="button" data-map-mode="players" aria-pressed="false"><b>Players + logos</b><span>Find the people behind each place</span></button>
+        <button type="button" data-map-mode="recruiting" aria-pressed="false"><b>Recruiting footprint</b><span>Trace hometowns to one campus</span></button>
+      </div>
+    </section>
+
+    <section class="atlas-section" aria-labelledby="map-heading">
+      <div class="section-head"><span class="section-num">02 / EXPLORE THE ATLAS</span><span class="section-note">Hover for a summary · select a place for the full roster</span></div>
+      <div class="atlas-heading">
+        <div class="map-title-block"><div id="program-mark" class="program-mark" hidden></div><div><h2 id="map-heading">Player hometowns</h2><p id="map-deck">States and provinces are shaded by the selected measure.</p></div></div>
+        <div class="map-actions">
+          <button id="reset-map" type="button">Reset map</button>
+          <select id="export-format" aria-label="PNG format"><option value="wide">Wide PNG</option><option value="mobile">Mobile PNG</option></select>
+          <button id="export-map" type="button" class="primary">Download PNG ↗</button>
+        </div>
+      </div>
+      <div class="atlas-shell">
+        <div class="map-wrap">
+          <div id="map" role="application" aria-label="Interactive player hometown map"></div>
+          <div class="map-legend" id="map-legend"></div>
+          <div class="map-message" id="map-message" hidden></div>
+        </div>
+        <aside class="place-panel" id="place-panel" aria-live="polite">
+          <button type="button" id="close-panel" aria-label="Close place details">×</button>
+          <div id="place-content">
+            <p class="panel-eyebrow">SELECT A PLACE</p>
+            <h3>Location details</h3>
+            <p>Hover over the map for a quick read. Select a territory, hometown, or player for the full detail.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="territory-section" aria-labelledby="territory-heading">
+      <div class="section-head"><span class="section-num">03 / GEOGRAPHIC PRODUCTION</span><span class="section-note">Select a row to locate its leading hometowns</span></div>
+      <div class="territory-heading"><div><h2 id="territory-heading">Production by state, province, and country</h2><p id="territory-deck">Totals and per-30-appearance rates use the same filters as the map.</p></div><strong id="territory-measure">Players · total</strong></div>
+      <div class="table-wrap">
+        <table>
+          <thead><tr><th>#</th><th>Territory</th><th class="num">Players</th><th class="num">GP</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th><th class="num">SOG</th><th class="num">PIM</th><th class="num">+/-</th><th class="num">TOI min</th><th class="num">FO%</th><th class="num">APP</th><th class="num">SV</th><th class="num">GA</th><th class="num">SV%</th><th class="num">Drafted</th><th class="num selected-metric" id="metric-heading">Measure</th></tr></thead>
+          <tbody id="territory-body"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="method" aria-labelledby="method-heading">
+      <span class="section-num">04 / ABOUT THE DATA</span>
+      <h2 id="method-heading">Definitions and coverage.</h2>
+      <div class="method-grid">
+        <p><strong>What hometown means</strong>The hometown reported on a College Hockey News season roster. It is not presented as a verified birthplace.</p>
+        <p><strong>How ranges work</strong>Players count once for every selected season roster on which they appear. Production is summed from those selected player-seasons.</p>
+        <p><strong>Production and rates</strong>Counting statistics are divided by recorded player games and multiplied by 30. A statless current roster uses labeled cumulative prior NCAA totals; ranges omit that fallback to prevent double counting.</p>
+        <p><strong>Map coverage</strong>Only hometowns with reviewed coordinates appear on the map. Territory shading uses U.S. Census and Statistics Canada boundaries; per-capita views use 2020 U.S. and 2021 Canadian census populations.</p>
+      </div>
+      <div class="source-line">Source: College Hockey News and archived season rosters · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div>
+    </section>
+  </main>
+  <footer><span>COLLEGE HOCKEY DATA PROJECT</span><span>PLAYER ATLAS</span></footer>
+</body>
+</html>

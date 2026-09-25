@@ -52,7 +52,7 @@ h2{margin:12px 0 0;font-size:52px;line-height:.92;text-transform:uppercase;lette
 .section-heading>p{max-width:480px;margin:0;color:var(--muted);font-size:16px;line-height:1.55}
 .card-grid{display:grid;grid-template-columns:repeat(6,1fr);gap:16px}
 .study-card{grid-column:span 2;min-height:315px;display:flex;flex-direction:column;padding:27px 27px 25px;border:1px solid var(--line);border-top:6px solid var(--blue);border-radius:8px;background:#fff;text-decoration:none;box-shadow:0 12px 28px #163a3010;transition:transform .18s,box-shadow .18s}
-.study-card:nth-child(2){border-top-color:#c82752}.study-card:nth-child(3){border-top-color:#008f78}.study-card:nth-child(4){grid-column:2/span 2;border-top-color:#e8aa00}.study-card:nth-child(5){border-top-color:#6d45a4}
+.study-card:nth-child(2){border-top-color:#c82752}.study-card:nth-child(3){border-top-color:#008f78}.study-card:nth-child(4){border-top-color:#e8aa00}.study-card:nth-child(5){border-top-color:#6d45a4}.study-card:nth-child(6){border-top-color:#d1495b}
 .study-card:hover{transform:translateY(-4px);outline:1px solid #9fb8ad;box-shadow:0 18px 38px #163a3020}
 .card-top{display:flex;justify-content:space-between;align-items:center;color:#688079;text-transform:uppercase;font-size:11px;font-weight:700;letter-spacing:.11em}
 .card-top b{display:grid;place-items:center;width:32px;height:32px;border-radius:50%;background:#edf2ee;color:#31594f}
@@ -70,8 +70,8 @@ footer{display:flex;justify-content:space-between;gap:20px;padding:30px max(42px
 footer span:first-child{color:var(--lime)}
 @media (max-width:900px){
   .hero{min-height:710px}.hero-art{right:-330px}.hero-facts{left:42px;right:auto}
-  .card-grid{grid-template-columns:repeat(2,1fr)}.study-card,.study-card:nth-child(4),.study-card:nth-child(5){grid-column:span 1}
-  .study-card:last-child{grid-column:1/-1}.about{grid-template-columns:1fr;gap:30px}
+  .card-grid{grid-template-columns:repeat(2,1fr)}.study-card,.study-card:nth-child(4),.study-card:nth-child(5),.study-card:last-child{grid-column:span 1}
+  .about{grid-template-columns:1fr;gap:30px}
 }
 @media (max-width:620px){
   .site-header{height:70px;padding:0 19px}.wordmark{font-size:15px}.wordmark-mark{width:46px;height:46px}nav{display:none}
