@@ -1,4 +1,4 @@
-<!doctype html>
+﻿<!doctype html>
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -6,9 +6,9 @@
   <meta name="theme-color" content="#18453b">
   <meta name="description" content="Explore the hometowns, recruiting footprints, and geographic production of Division I college hockey players.">
   <title>Player Atlas · College Hockey Data</title>
-  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-3nPIdEJV.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CQv7Fv_8.css">
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-DAwC2aYV.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BJO-ne3t.css">
 </head>
 <body>
   <header class="hero">
@@ -29,7 +29,7 @@
         <button type="button" data-time-mode="range" aria-pressed="false">Season range</button>
       </div>
       <div class="season-control">
-        <div class="season-labels"><strong id="season-range-label">—</strong><span id="season-range-note">One roster season</span></div>
+          <div class="season-labels"><strong id="season-range-label">—</strong><span id="season-range-note">One roster season</span></div>
         <div class="dual-range" id="dual-range">
           <div class="range-track"><i id="range-fill"></i></div>
           <input id="season-start" type="range" aria-label="First season">
@@ -59,7 +59,7 @@
         <div class="map-actions">
           <button id="reset-map" type="button">Reset map</button>
           <select id="export-format" aria-label="PNG format"><option value="wide">Wide PNG</option><option value="mobile">Mobile PNG</option></select>
-          <button id="export-map" type="button" class="primary">Download PNG ↗</button>
+        <button id="export-map" type="button" class="primary">Download PNG ↗</button>
         </div>
       </div>
       <div class="atlas-shell">
@@ -69,7 +69,7 @@
           <div class="map-message" id="map-message" hidden></div>
         </div>
         <aside class="place-panel" id="place-panel" aria-live="polite">
-          <button type="button" id="close-panel" aria-label="Close place details">×</button>
+          <button type="button" id="close-panel" aria-label="Close place details">Ã—</button>
           <div id="place-content">
             <p class="panel-eyebrow">SELECT A PLACE</p>
             <h3>Location details</h3>
@@ -81,10 +81,13 @@
 
     <section class="territory-section" aria-labelledby="territory-heading">
       <div class="section-head"><span class="section-num">03 / GEOGRAPHIC PRODUCTION</span><span class="section-note">Select a row to locate its leading hometowns</span></div>
-      <div class="territory-heading"><div><h2 id="territory-heading">Production by state, province, and country</h2><p id="territory-deck">Totals and per-30-appearance rates use the same filters as the map.</p></div><strong id="territory-measure">Players · total</strong></div>
+      <div class="territory-heading">
+        <div><h2 id="territory-heading">Production by state, province, and country</h2><p id="territory-deck">Totals and per-30-appearance rates use the same filters as the map.</p></div>
+        <div class="territory-tools"><strong id="territory-measure">Players · total</strong><select id="territory-export-format" aria-label="Table PNG format"><option value="wide">Wide · top 18</option><option value="mobile">Mobile · top 15</option></select><button id="export-territories" type="button">Download table PNG ↗</button></div>
+      </div>
       <div class="table-wrap">
         <table>
-          <thead><tr><th>#</th><th>Territory</th><th class="num">Players</th><th class="num">GP</th><th class="num">G</th><th class="num">A</th><th class="num">PTS</th><th class="num">SOG</th><th class="num">PIM</th><th class="num">+/-</th><th class="num">TOI min</th><th class="num">FO%</th><th class="num">APP</th><th class="num">SV</th><th class="num">GA</th><th class="num">SV%</th><th class="num">Drafted</th><th class="num selected-metric" id="metric-heading">Measure</th></tr></thead>
+          <thead><tr><th>#</th><th><button class="sort-button" type="button" data-territory-sort="name">Territory</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="players">Players</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="gp">GP</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="goals">G</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="assists">A</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="points">PTS</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="shots">SOG</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="pim">PIM</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="plusMinus">+/-</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="timeOnIceMinutes">TOI min</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="faceoffPct">FO%</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="goalieGames">APP</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="saves">SV</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="goalsAgainst">GA</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="savePct">SV%</button></th><th class="num"><button class="sort-button" type="button" data-territory-sort="drafted">Drafted</button></th><th class="num selected-metric" id="metric-heading"><button class="sort-button" type="button" data-territory-sort="display">Measure</button></th></tr></thead>
           <tbody id="territory-body"></tbody>
         </table>
       </div>
@@ -97,7 +100,7 @@
         <p><strong>What hometown means</strong>The hometown reported on a College Hockey News season roster. It is not presented as a verified birthplace.</p>
         <p><strong>How ranges work</strong>Players count once for every selected season roster on which they appear. Production is summed from those selected player-seasons.</p>
         <p><strong>Production and rates</strong>Counting statistics are divided by recorded player games and multiplied by 30. A statless current roster uses labeled cumulative prior NCAA totals; ranges omit that fallback to prevent double counting.</p>
-        <p><strong>Map coverage</strong>Only hometowns with reviewed coordinates appear on the map. Territory shading uses U.S. Census and Statistics Canada boundaries; per-capita views use 2020 U.S. and 2021 Canadian census populations.</p>
+        <p><strong>Map coverage</strong>Only hometowns with reviewed coordinates appear on the map. Territory shading uses U.S. Census and Statistics Canada boundaries; Great Lakes masks use Natural Earth; per-capita views use 2020 U.S. and 2021 Canadian census populations.</p>
       </div>
       <div class="source-line">Source: College Hockey News and archived season rosters · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div>
     </section>

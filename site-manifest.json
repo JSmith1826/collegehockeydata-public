@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-25T18:47:29+00:00",
+  "generated_at": "2026-09-25T19:35:43+00:00",
   "domain": null,
   "cloudflare_web_analytics": false,
   "explorers": [
@@ -19,7 +19,7 @@
       "title": "Preseason Production",
       "slug": "preseason-production",
       "files": 23,
-      "bytes": 9259312
+      "bytes": 9261065
     },
     {
       "title": "Scoring Origins",
@@ -31,13 +31,13 @@
       "title": "NHL Draft History",
       "slug": "draft-history",
       "files": 32,
-      "bytes": 1303803
+      "bytes": 1305850
     },
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 35,
-      "bytes": 7901810
+      "files": 36,
+      "bytes": 8026665
     }
   ]
 }
