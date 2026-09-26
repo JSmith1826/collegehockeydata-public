@@ -7,8 +7,8 @@
   <meta name="description" content="Explore the hometowns, recruiting footprints, and geographic production of Division I college hockey players.">
   <title>Player Atlas · College Hockey Data</title>
   <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-DaYec5lJ.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CyRlfDb5.css">
+  <script type="module" crossorigin src="./assets/index-XIHK79S8.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DPLPBjF6.css">
 </head>
 <body>
   <header class="hero">
@@ -45,7 +45,7 @@
       </div>
       <div class="filter-summary" id="filter-summary" aria-live="polite"></div>
       <div class="view-switcher" role="group" aria-label="Map view">
-        <button type="button" data-map-mode="territories" aria-pressed="true"><b>Territory overview</b><span>Shade states and provinces</span></button>
+        <button type="button" data-map-mode="territories" aria-pressed="true"><b>Territory overview</b><span>Shade states, provinces, and countries</span></button>
         <button type="button" data-map-mode="density" aria-pressed="false"><b>Hometown density</b><span>See geographic hot spots</span></button>
         <button type="button" data-map-mode="players" aria-pressed="false"><b>Players + logos</b><span>Find the people behind each place</span></button>
         <button type="button" data-map-mode="recruiting" aria-pressed="false"><b>Recruiting footprint</b><span>Trace hometowns to one campus</span></button>
@@ -55,7 +55,7 @@
     <section class="atlas-section" id="atlas-section" aria-labelledby="map-heading">
       <div class="section-head"><span class="section-num">02 / EXPLORE THE ATLAS</span><span class="section-note">Hover for a summary · select a place for the full roster</span></div>
       <div class="atlas-heading">
-        <div class="map-title-block"><div id="program-mark" class="program-mark" hidden></div><div><h2 id="map-heading">Player hometowns</h2><p id="map-deck">States and provinces are shaded by the selected measure.</p></div></div>
+        <div class="map-title-block"><div id="program-mark" class="program-mark" hidden></div><div><h2 id="map-heading">Player hometowns</h2><p id="map-deck">States, provinces, and countries are shaded by the selected measure.</p></div></div>
         <div class="map-actions">
           <button id="reset-map" type="button">Reset map</button>
           <button id="expand-map" type="button" aria-pressed="false">Expand map</button>
@@ -67,6 +67,10 @@
       <div class="atlas-shell">
         <div class="map-wrap">
           <div id="map" role="application" aria-label="Interactive player hometown map"></div>
+          <div class="map-scope" role="group" aria-label="Map extent">
+            <button id="north-america-map" type="button" aria-pressed="true">North America</button>
+            <button id="world-map" type="button" aria-pressed="false">World</button>
+          </div>
           <div class="map-legend" id="map-legend"></div>
           <div class="map-message" id="map-message" hidden></div>
         </div>
@@ -102,7 +106,7 @@
         <p><strong>What hometown means</strong>The hometown reported on a College Hockey News season roster. It is not presented as a verified birthplace.</p>
         <p><strong>How ranges work</strong>Players count once for every selected season roster on which they appear. Production is summed from those selected player-seasons.</p>
         <p><strong>Production and rates</strong>Counting statistics are divided by recorded player games and multiplied by 30. A statless current roster uses labeled cumulative prior NCAA totals; ranges omit that fallback to prevent double counting.</p>
-        <p><strong>Map coverage</strong>Only hometowns with reviewed coordinates appear on the map. Territory shading uses U.S. Census and Statistics Canada boundaries; Great Lakes masks use Natural Earth; per-capita views use 2020 U.S. and 2021 Canadian census populations.</p>
+        <p><strong>Map coverage</strong>Only hometowns with reviewed coordinates appear on the map. Territory shading uses U.S. Census, Statistics Canada, and Natural Earth boundaries. Per-capita views use census populations for U.S. states and Canadian provinces and Natural Earth estimates for other countries.</p>
       </div>
       <div class="source-line">Source: College Hockey News and archived season rosters · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div>
     </section>
