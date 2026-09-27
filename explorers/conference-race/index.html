@@ -1,0 +1,83 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453B">
+  <title>Conference Race · College Hockey Data</title>
+  <meta name="description" content="Replay and explore Division I men's college hockey conference races.">
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-_mZczuko.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DgCuJ3Cb.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">COLLEGE HOCKEY DATA / CONFERENCE RACES</div>
+      <h1>THE RACE,<br><em>FRAME BY FRAME.</em></h1>
+      <p>Scrub to any night or play the season through. Every line follows a program through its conference schedule.</p>
+      <div class="hero-meta"><span id="hero-season">2025–26</span><span>·</span><span id="hero-status">Loading the race…</span></div>
+    </div>
+    <div class="hero-motion" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-label="Conference race controls">
+      <div class="section-head"><span>01 / SET THE RACE</span><small>Every control updates the chart, table, and share image</small></div>
+      <div class="control-grid">
+        <label>Season<select id="season"></select></label>
+        <label>Conference<select id="conference"></select></label>
+        <label>Measure<select id="metric"><option value="points">Conference points</option><option value="back">Points behind leader</option><option value="pace">Points above average pace</option><option value="pct">Points percentage</option></select></label>
+        <label>Playback speed<select id="speed"><option value="1200">Measured</option><option value="650" selected>Game night</option><option value="280">Fast finish</option></select></label>
+      </div>
+      <div id="quality-note" class="quality-note" role="status"></div>
+    </section>
+
+    <section class="race-section" aria-labelledby="race-title">
+      <div class="race-heading">
+        <div class="conference-lockup"><img id="conference-logo" alt=""><div><span>02 / THE RACE</span><h2 id="race-title">Conference race</h2><p id="race-deck">Loading season data…</p></div></div>
+        <div class="race-date"><small>RACE THROUGH</small><strong id="race-date">—</strong><span id="race-progress">0 of 0 games</span></div>
+      </div>
+
+      <div class="race-layout">
+        <div class="chart-shell" id="chart-shell">
+          <svg id="race-chart" role="img" aria-labelledby="chart-title chart-desc"><title id="chart-title">Conference race chart</title><desc id="chart-desc">Team progress through the selected conference season.</desc></svg>
+          <div id="tooltip" class="tooltip" hidden></div>
+        </div>
+        <aside class="standings-panel" aria-labelledby="standings-title">
+          <div class="standings-head"><div><span>LIVE TABLE</span><h3 id="standings-title">Standings at this frame</h3></div><button id="clear-focus" type="button" hidden>Show all</button></div>
+          <div class="standings-columns"><span>TEAM</span><span>GP</span><span>PTS</span></div>
+          <div id="standings" class="standings" aria-live="polite"></div>
+        </aside>
+      </div>
+
+      <div class="playback" aria-label="Race playback">
+        <button id="play" class="play-button" type="button" aria-label="Play race"><span aria-hidden="true">▶</span><b>PLAY RACE</b></button>
+        <button id="previous" class="step-button" type="button" aria-label="Previous game date">‹</button>
+        <label class="timeline-label"><span><b id="timeline-start">START</b><b id="timeline-current">—</b><b id="timeline-end">FINISH</b></span><input id="timeline" type="range" min="0" max="0" value="0"></label>
+        <button id="next" class="step-button" type="button" aria-label="Next game date">›</button>
+        <button id="final-frame" class="finish-button" type="button">Final frame</button>
+      </div>
+
+      <div class="team-key"><span>FOLLOW A PROGRAM</span><div id="team-key"></div></div>
+    </section>
+
+    <section class="moments-section" aria-labelledby="moments-title">
+      <div class="moments-heading"><span>03 / LEAD CHANGES</span><h2 id="moments-title">How the lead changed hands.</h2><p>Select a moment to jump there. A tie at the top can produce more than one leader.</p></div>
+      <div id="moments" class="moments"></div>
+    </section>
+
+    <section class="share-section" aria-labelledby="share-title">
+      <div><span>04 / SAVE A FRAME</span><h2 id="share-title">Turn any night into a graphic.</h2><p>The export uses the exact conference, measure, date, and team emphasis shown above.</p></div>
+      <div class="share-controls"><label>PNG headline<input id="export-title" type="text" placeholder="Conference race"></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download this frame <span>↗</span></button></div>
+    </section>
+
+    <section class="method-section" aria-labelledby="method-title">
+      <span>05 / ABOUT THE DATA</span><h2 id="method-title">What the lines mean.</h2>
+      <div class="method-grid"><p><b>Common scoring</b>Regulation wins are worth three points. Overtime and shootout wins are worth two; the losing team receives one.</p><p><b>Average pace</b>A three-point game produces a league average of 1.5 points per team appearance. Pace shows the distance above or below that line.</p><p><b>Historical shootouts</b>When an archived tied game identifies overtime but not its shootout winner, the three available points are split evenly and disclosed above the chart.</p></div>
+      <p class="source">Source: College Hockey News schedules and archived game detail records · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+    </section>
+  </main>
+  <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> CONFERENCE RACE</footer>
+</body>
+</html>

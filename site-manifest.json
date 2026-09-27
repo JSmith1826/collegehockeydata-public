@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-27T16:59:24+00:00",
+  "generated_at": "2026-09-27T23:02:23+00:00",
   "domain": null,
   "cloudflare_web_analytics": false,
   "explorers": [
@@ -38,6 +38,12 @@
       "slug": "player-atlas",
       "files": 37,
       "bytes": 8385850
+    },
+    {
+      "title": "Conference Race",
+      "slug": "conference-race",
+      "files": 10,
+      "bytes": 209230
     }
   ]
 }
