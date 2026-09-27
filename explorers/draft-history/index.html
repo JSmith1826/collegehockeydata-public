@@ -5,9 +5,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#18453B">
   <title>NHL Draft History · College Hockey Data</title>
-  <meta name="description" content="NHL selections listed on college hockey rosters, by program and season.">
+  <meta name="description" content="Complete NHL Draft selections connected to college hockey rosters, with exact overall picks.">
   <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-xzC-tg7R.js"></script>
+  <script type="module" crossorigin src="./assets/index-B-KEhajt.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-BZfaZQit.css">
 </head>
 <body>
@@ -15,7 +15,7 @@
     <div class="hero-inner">
       <div class="kicker"><span></span> COLLEGE HOCKEY DATA / NHL DRAFT</div>
       <h1>NHL Draft<br><em>history.</em></h1>
-      <p>NHL selections listed on college hockey rosters, by program, position, round, and season.</p>
+      <p>Official NHL Draft selections connected to college rosters, including each player’s exact overall pick.</p>
       <div class="hero-pills"><span id="hero-season">Loading…</span><span id="hero-summary">NHL selections on NCAA rosters</span></div>
     </div>
     <div class="hero-mark" aria-hidden="true"><span>DRAFT</span><i></i></div>
@@ -29,7 +29,7 @@
         <label>Conference<select id="conference"></select></label>
         <label>Position<select id="position"><option value="0">All positions</option><option value="1">Forwards</option><option value="2">Defense</option><option value="3">Goaltenders</option></select></label>
         <label>Draft timing<select id="timing"><option value="entering">Selected entering season</option><option value="later">Selected after season</option><option value="eventual">All eventual selections</option></select></label>
-        <label>Order programs by<select id="sort"><option value="total">Total selections</option><option value="share">Drafted roster share</option><option value="first">First-round selections</option><option value="top3">Top-three-round selections</option></select></label>
+        <label>Order programs by<select id="sort"><option value="total">Total selections</option><option value="share">Drafted roster share</option><option value="top10">Top-10 selections</option><option value="top32">Top-32 selections</option><option value="capital">Draft capital</option><option value="first">First-round selections</option><option value="top3">Top-three-round selections</option></select></label>
         <label>Show<select id="limit"><option value="15">Top 15</option><option value="30">Top 30</option><option value="all">All programs</option></select></label>
       </div>
       <div class="search-row"><label for="search">Find a program</label><input id="search" type="search" placeholder="Search this season’s programs" autocomplete="off"><span id="filter-summary"></span></div>
@@ -51,7 +51,7 @@
       <div id="detail-content"></div>
     </section>
 
-    <section class="method"><span class="section-num">04 / ABOUT THE DATA</span><h2>Definitions and coverage.</h2><div class="method-grid"><p><strong>Entering the season</strong>A player’s draft year is the season’s starting calendar year or earlier. This is the draft footprint the roster carried into the fall.</p><p><strong>Selected afterward</strong>A later draft year is retrospective evidence. It can help identify development paths, but the player was not yet an NHL selection during the displayed season.</p><p><strong>No selection recorded</strong>Players outside these bars are never labeled permanently undrafted. Current players may be selected later, and the 2003–04 and 2004–05 archived roster sources do not provide complete draft status.</p></div><div class="source-line">Source: College Hockey News and archived season rosters · Original drafting organization, year, and round · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div></section>
+    <section class="method"><span class="section-num">04 / ABOUT THE DATA</span><h2>Definitions and coverage.</h2><div class="method-grid"><p><strong>Entering the season</strong>A player’s draft year is the season’s starting calendar year or earlier. This is the draft footprint the roster carried into the fall.</p><p><strong>Selected afterward</strong>A later draft year is retrospective evidence. It can help identify development paths, but the player was not yet an NHL selection during the displayed season.</p><p><strong>Exact selection</strong>Year, organization, round, and overall pick come from the NHL Records draft archive. CHN roster fields remain an independent matching and audit source.</p></div><div class="source-line">Source: NHL Records, College Hockey News, and archived season rosters · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div></section>
   </main>
   <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> NHL DRAFT HISTORY</footer>
 </body>
