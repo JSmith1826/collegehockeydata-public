@@ -1,0 +1,91 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453B">
+  <title>Roster Age &amp; Experience · College Hockey Data</title>
+  <meta name="description" content="Compare the age and experience of Division I men's college hockey rosters.">
+  <script type="module" crossorigin src="./assets/index-DDxUqqiT.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-CSfeRNNn.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <div class="eyebrow">COLLEGE HOCKEY DATA / ROSTER AGE</div>
+      <h1>HOW OLD.<br><em>HOW EXPERIENCED.</em></h1>
+      <p>Compare every roster by age, academic class, and observed Division I experience.</p>
+      <div class="hero-meta"><span id="hero-season">2026–27</span><span>·</span><span id="hero-summary">Loading rosters…</span></div>
+    </div>
+    <div class="age-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-label="Roster comparison controls">
+      <div class="section-head"><span>01 / SET THE ROSTERS</span><small>Every control updates each view below</small></div>
+      <div class="control-grid">
+        <label>Season<select id="season"></select></label>
+        <label>Conference<select id="conference"></select></label>
+        <label>Position<select id="position"><option value="all">All positions</option><option value="F">Forwards</option><option value="D">Defense</option><option value="G">Goaltenders</option></select></label>
+        <label>Experience definition<select id="lens"><option value="class">Academic class</option><option value="experience">Observed D1 roster seasons</option></select></label>
+      </div>
+      <div id="coverage" class="coverage"></div>
+    </section>
+
+    <section class="field-section" aria-labelledby="field-title">
+      <div class="section-title">
+        <div><span>02 / THE ROSTER FIELD</span><h2 id="field-title">AGE MEETS EXPERIENCE.</h2><p id="field-deck">Each logo is one roster. Select a team to inspect every player and season.</p></div>
+        <div class="field-key"><b>YOUNGER</b><i></i><b>OLDER</b></div>
+      </div>
+      <div class="field-layout">
+        <div id="scatter-shell" class="scatter-shell">
+          <svg id="scatter" role="img" aria-label="Team average age and experience scatter plot"></svg>
+          <div id="tooltip" class="tooltip" hidden></div>
+        </div>
+        <aside class="rank-panel">
+          <div class="rank-head"><span>QUICK READ</span><h3>Teams at the edges</h3></div>
+          <div class="rank-tabs" role="group" aria-label="Ranking measure">
+            <button class="active" data-rank="oldest">Oldest</button><button data-rank="youngest">Youngest</button><button data-rank="veteran">Most experienced</button>
+          </div>
+          <div id="edge-list" class="edge-list"></div>
+        </aside>
+      </div>
+    </section>
+
+    <section class="mix-section" aria-labelledby="mix-title">
+      <div class="mix-heading">
+        <div><span>03 / ROSTER MIX</span><h2 id="mix-title">EVERY TEAM, PLAYER BY PLAYER.</h2><p>Click a legend category to rank by it. Select any row for its roster detail.</p></div>
+        <div class="mix-controls"><label>Order teams by<select id="sort"><option value="age_desc">Average age · oldest</option><option value="age_asc">Average age · youngest</option><option value="veteran">Experienced share</option><option value="name">Team name</option></select></label><label>Rows<select id="row-limit"><option value="0">All teams</option><option value="16">Top 16</option></select></label></div>
+      </div>
+      <div id="legend" class="legend"></div>
+      <div class="bar-head"><span>TEAM</span><span id="bar-axis-title">ACADEMIC CLASS MIX</span><span>AVG AGE</span></div>
+      <div id="team-bars" class="team-bars"></div>
+    </section>
+
+    <section class="program-section" aria-labelledby="program-title">
+      <div class="program-kicker">04 / FOLLOW A PROGRAM</div>
+      <div id="program-header" class="program-header"></div>
+      <div class="program-grid">
+        <article class="distribution-card"><div class="card-head"><div><span>THIS ROSTER</span><h3>Players by age</h3></div><small>Age on October 1</small></div><div id="age-distribution" class="age-distribution"></div></article>
+        <article class="history-card"><div class="card-head"><div><span>PROGRAM HISTORY</span><h3>How the roster changed</h3></div><label>Measure<select id="history-metric"><option value="age">Average age</option><option value="veteran">Experienced share</option><option value="freshman">First-year share</option></select></label></div><svg id="history-chart" role="img" aria-label="Selected program roster history"></svg></article>
+      </div>
+      <div class="roster-card">
+        <div class="roster-head"><div><span>PLAYER DETAIL</span><h3 id="roster-title">Roster</h3></div><small>Click a column to sort</small></div>
+        <table><thead><tr><th><button data-player-sort="name">PLAYER ↕</button></th><th><button data-player-sort="position">POS ↕</button></th><th><button data-player-sort="class">CLASS ↕</button></th><th><button data-player-sort="age">AGE ↓</button></th><th><button data-player-sort="experience">PRIOR D1 ROSTERS ↕</button></th></tr></thead><tbody id="roster-body"></tbody></table>
+      </div>
+    </section>
+
+    <section class="share-section" aria-labelledby="share-title">
+      <div><span>05 / SAVE THE VIEW</span><h2 id="share-title">A ROSTER SNAPSHOT.</h2><p>Export the active conference, position, experience definition, ranking, and emphasis.</p></div>
+      <div class="share-controls"><label>Optional PNG headline<input id="export-title" type="text" placeholder="Roster age and experience"></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download roster chart ↗</button></div>
+    </section>
+
+    <section class="method-section">
+      <span>06 / ABOUT THE DATA</span><h2>WHAT COUNTS AS EXPERIENCE.</h2>
+      <div class="method-grid"><p><b>Age</b>Calculated on October 1 of the selected roster season from the birth date reported by College Hockey News.</p><p><b>Academic class</b>The roster’s reported freshman, sophomore, junior, senior, or graduate designation.</p><p><b>Observed D1 experience</b>The number of earlier seasons in which the same player appears on a collected Division I roster. It is a roster-history measure, not an NCAA eligibility ruling.</p></div>
+      <p class="source">Source: College Hockey News roster archives · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+    </section>
+  </main>
+  <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> ROSTER AGE &amp; EXPERIENCE</footer>
+</body>
+</html>

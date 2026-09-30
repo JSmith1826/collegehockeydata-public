@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-09-30T17:17:32+00:00",
+  "generated_at": "2026-09-30T22:19:52+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "explorers": [
@@ -37,13 +37,25 @@
       "title": "Player Atlas",
       "slug": "player-atlas",
       "files": 37,
-      "bytes": 8386851
+      "bytes": 8399837
     },
     {
       "title": "Conference Race",
       "slug": "conference-race",
       "files": 10,
       "bytes": 207451
+    },
+    {
+      "title": "Roster Age & Experience",
+      "slug": "age-experience",
+      "files": 30,
+      "bytes": 2343426
+    },
+    {
+      "title": "Game Control",
+      "slug": "game-control",
+      "files": 6,
+      "bytes": 2461791
     }
   ]
 }

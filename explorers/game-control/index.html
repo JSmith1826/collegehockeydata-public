@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#18453b">
+  <meta name="description" content="Interactive college hockey game-control and score-state analysis.">
+  <title>Game Control · College Hockey Data</title>
+  <link rel="icon" href="../../assets/site/chd_badge3.jpg">
+  <script type="module" crossorigin src="./assets/index-C_a6Q3nR.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-FiU_BOma.css">
+</head>
+<body>
+  <header class="hero">
+    <div class="hero-copy">
+      <p class="eyebrow">COLLEGE HOCKEY DATA / GAME CONTROL</p>
+      <h1>WHO CONTROLLED<br><em>THE GAME?</em></h1>
+      <p>How long each team played ahead, even, or behind — and what happened after the score moved.</p>
+      <div class="hero-meta"><span id="hero-season">2025–26</span><i></i><span id="hero-status">Loading archived goal timelines…</span></div>
+    </div>
+    <div class="hero-rink" aria-hidden="true">
+      <div class="center-line"></div><div class="blue-line one"></div><div class="blue-line two"></div>
+      <div class="center-dot"></div><div class="puck-path a"></div><div class="puck-path b"></div><div class="puck-path c"></div>
+    </div>
+  </header>
+
+  <main>
+    <section class="control-panel" aria-label="Game control filters">
+      <div class="section-head"><span>01 / SET THE VIEW</span><small>Available archived goal-timeline seasons</small></div>
+      <div class="control-grid">
+        <label>Season<select id="season"></select></label>
+        <label>Programs<select id="conference"></select></label>
+        <label>Games<select id="scope"><option value="all">All games</option><option value="conf">Conference games</option><option value="non">Nonconference games</option></select></label>
+        <label>Order teams by<select id="sort"><option value="lead">Time leading</option><option value="control">Control margin</option><option value="tied">Time tied</option><option value="trail">Least time trailing</option><option value="hold">Lead retention</option><option value="recovery">Recovery rate</option></select></label>
+      </div>
+      <div id="filter-note" class="filter-note" role="status"></div>
+    </section>
+
+    <section class="balance-section" aria-labelledby="balance-title">
+      <div class="section-title-row">
+        <div><span>02 / SEASON BALANCE</span><h2 id="balance-title">Time spent in every score state.</h2><p id="balance-deck">Loading team summaries…</p></div>
+        <div class="balance-summary"><small>SELECTED VIEW</small><strong id="view-games">—</strong><span>team-games</span></div>
+      </div>
+      <div id="state-legend" class="state-legend" aria-label="Select a game state to emphasize"></div>
+      <div class="balance-columns"><span>PROGRAM</span><span>SHARE OF GAME TIME</span><span>LEAD / TIED / TRAIL</span></div>
+      <div id="balance-chart" class="balance-chart" aria-live="polite"></div>
+    </section>
+
+    <section class="stability-section" aria-labelledby="stability-title">
+      <div class="section-title-row compact">
+        <div><span>03 / WHAT HAPPENED NEXT</span><h2 id="stability-title">Holding leads and recovering from deficits.</h2><p>Upper right is the hard place to reach: teams that protected advantages and still recovered when they fell behind.</p></div>
+        <button id="clear-team" type="button" hidden>Show every team</button>
+      </div>
+      <div class="scatter-layout">
+        <div class="scatter-shell"><svg id="stability-chart" role="img" aria-labelledby="scatter-title scatter-desc"><title id="scatter-title">Lead retention versus recovery rate</title><desc id="scatter-desc">Each team is positioned by its results in games where it led or trailed.</desc></svg><div id="tooltip" class="tooltip" hidden></div></div>
+        <aside class="read-panel"><span>HOW TO READ IT</span><h3>Game-level outcomes</h3><p><b>Lead retention</b> is the share of games won after holding any lead.</p><p><b>Recovery rate</b> is the share of games won or tied after trailing.</p><p class="read-note">Select a logo to follow that program below.</p></aside>
+      </div>
+    </section>
+
+    <section class="game-section" aria-labelledby="game-title">
+      <div class="game-heading">
+        <div><span>04 / ONE GAME AT A TIME</span><h2 id="game-title">The score differential, goal by goal.</h2><p id="game-deck">Choose a program and game to inspect its path through sixty minutes and overtime.</p></div>
+        <div class="game-selectors"><label>Program<select id="team"></select></label><label>Game<select id="game"></select></label></div>
+      </div>
+      <div class="game-card">
+        <div class="game-lockup"><div class="team-lockup"><img id="selected-logo" alt=""><div><small id="selected-context">SELECTED PROGRAM</small><strong id="selected-team">—</strong></div></div><div class="score-lockup"><span id="selected-date">—</span><strong id="selected-score">—</strong><small id="selected-result">—</small></div></div>
+        <div class="timeline-shell"><svg id="game-chart" role="img" aria-labelledby="game-chart-title game-chart-desc"><title id="game-chart-title">Selected game score differential</title><desc id="game-chart-desc">A step chart showing when the selected team led, was tied, or trailed.</desc></svg></div>
+        <div id="goal-strip" class="goal-strip"></div>
+      </div>
+    </section>
+
+    <section class="method-section">
+      <span>05 / ABOUT THE DATA</span><h2>Built from every recorded goal.</h2>
+      <div class="method-grid"><p><b>Game balance</b>Time is accumulated between goals in seven states, from leading by three or more to trailing by three or more.</p><p><b>Overtime clock</b>Sudden-death games stop at the winning goal. Scoreless overtime and shootout games run through 65:00.</p><p><b>Current limit</b>The unified archive stores final scores but not goal timestamps. This alpha uses the two recent legacy event databases while that gap is addressed.</p></div>
+      <p class="source">Source: College Hockey News archived box-score data · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+    </section>
+  </main>
+</body>
+</html>
