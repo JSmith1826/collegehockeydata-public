@@ -3,133 +3,175 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="theme-color" content="#18453b">
-  <meta name="description" content="Interactive college hockey roster, production, team-stat, and NHL Draft visualizations built from College Hockey News and archived data.">
+  <meta name="theme-color" content="#103a32">
+  <meta name="description" content="An independent archive of interactive college hockey data, maps, and visual studies.">
   <title>College Hockey Data</title>
   <link rel="icon" href="./assets/site/chd_badge3.jpg">
   <link rel="stylesheet" href="./styles.css">
 </head>
 <body>
+  <a class="skip-link" href="#studies">Skip to the studies</a>
+
   <header class="site-header">
-    <a class="wordmark" href="./" aria-label="College Hockey Data home">
+    <a class="wordmark" href="#top" aria-label="College Hockey Data home">
       <span class="wordmark-mark"><img src="./assets/site/chd_badge3.jpg" alt=""></span>
-      <span>College Hockey Data</span>
+      <span class="wordmark-copy"><b>College Hockey Data</b><small>Independent archive &amp; visual studies</small></span>
     </a>
     <nav aria-label="Main navigation">
-      <a href="#explorers">Explore</a>
-      <a href="#about">About the data</a>
+      <a href="#studies">Studies</a>
+      <a href="#archive">Archive</a>
+      <a href="#about">About</a>
     </nav>
   </header>
 
-  <main>
-    <section class="hero">
+  <main id="top">
+    <section class="hero" aria-labelledby="hero-title">
+      <div class="hero-grid" aria-hidden="true"></div>
       <div class="hero-copy">
-        <p class="eyebrow"><span></span> College hockey records and visualizations</p>
-        <h1>College hockey<br><em>data archive.</em></h1>
-        <p class="intro">Team results, roster movement, player origins, returning production, and NHL Draft history.</p>
-        <a class="primary-action" href="#explorers">View the explorers <span aria-hidden="true">↓</span></a>
-      </div>
-      <div class="hero-art" aria-hidden="true"></div>
-      <div class="hero-facts" aria-label="Project coverage">
-        <div><strong>7</strong><span>interactive studies</span></div>
-        <div><strong>1895–96</strong><span>archive begins</span></div>
-        <div><strong>2026–27</strong><span>current season</span></div>
-      </div>
-    </section>
-
-    <section class="conference-strip" aria-label="Current Division I men's hockey conferences">
-      <span>Current conferences</span>
-      <img src="./assets/conferences/atlantic.png" alt="Atlantic Hockey America">
-      <img src="./assets/conferences/big_ten.png" alt="Big Ten">
-      <img src="./assets/conferences/ccha.png" alt="CCHA">
-      <img src="./assets/conferences/ecac.png" alt="ECAC Hockey">
-      <img src="./assets/conferences/hockey_east.png" alt="Hockey East">
-      <img src="./assets/conferences/nchc.png" alt="NCHC">
-    </section>
-
-    <section class="explorers" id="explorers">
-      <div class="section-heading">
-        <div>
-          <p class="section-number">01 / EXPLORE THE DATA</p>
-          <h2>Data explorers.</h2>
+        <p class="eyebrow"><span>Est. on r/collegehockey</span><b>Updated for 2026–27</b></p>
+        <h1 id="hero-title">A growing record of<br><em>college hockey.</em></h1>
+        <p class="hero-intro">Maps, rosters, results, and player histories built to explore, compare, and share.</p>
+        <div class="hero-actions">
+          <a class="primary-action" href="#studies">Choose a study <span aria-hidden="true">↓</span></a>
+          <span class="independent-note">Made independently by <b>u/BakedMitten</b></span>
         </div>
-        <p>Each tool works on desktop and mobile and can create a shareable PNG from the view you build.</p>
       </div>
 
-      <div class="card-grid">
-        <a class="study-card featured atlas" href="./explorers/player-atlas/">
-          <div class="card-top"><span>Player geography / Featured study</span><b>01</b></div>
-          <h3>Player Atlas</h3>
-          <p>Map reported hometowns, program recruiting footprints, and player production across one season or a selected range.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
+      <figure class="hero-art">
+        <img src="./assets/site/main1.png" alt="Neon line illustration of a hockey rink">
+        <figcaption><span>From the visual archive</span><b>Rink study / 2024</b></figcaption>
+      </figure>
+
+      <dl class="coverage-strip" aria-label="Project coverage">
+        <div><dt>Studies</dt><dd>07</dd></div>
+        <div><dt>Archive begins</dt><dd>1895–96</dd></div>
+        <div><dt>Current season</dt><dd>2026–27</dd></div>
+        <div><dt>Format</dt><dd>Explore + export</dd></div>
+      </dl>
+    </section>
+
+    <section class="conference-rail" aria-label="Current Division I men's hockey conferences">
+      <p><span></span>Across Division I</p>
+      <div class="conference-logos">
+        <img src="./assets/conferences/atlantic.png" alt="Atlantic Hockey America">
+        <img src="./assets/conferences/big_ten.png" alt="Big Ten">
+        <img src="./assets/conferences/ccha.png" alt="CCHA">
+        <img src="./assets/conferences/ecac.png" alt="ECAC Hockey">
+        <img src="./assets/conferences/hockey_east.png" alt="Hockey East">
+        <img src="./assets/conferences/nchc.png" alt="NCHC">
+        <img src="./assets/conferences/independent_scaled.png" alt="Independent programs">
+      </div>
+    </section>
+
+    <section class="studies" id="studies">
+      <header class="section-heading">
+        <div>
+          <p class="section-label">Start here</p>
+          <h2>Pick a way into the data.</h2>
+        </div>
+        <p>The studies are living projects. Build a view in your browser, then save a clean image when you find something worth sharing.</p>
+      </header>
+
+      <div class="featured-grid">
+        <a class="feature-card atlas" href="./explorers/player-atlas/">
+          <div class="feature-number">01</div>
+          <div class="feature-copy">
+            <p class="card-kicker">Geography / player origins</p>
+            <h3>Player Atlas</h3>
+            <p>Move from the continent to a hometown. Compare states, provinces, countries, recruiting footprints, and production across seasons.</p>
+            <span class="open-link">Open the map <b aria-hidden="true">↗</b></span>
+          </div>
+          <div class="map-motif" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         </a>
 
-        <a class="study-card roster" href="./explorers/roster-origins/">
-          <div class="card-top"><span>Roster construction</span><b>02</b></div>
-          <h3>Roster Origins</h3>
-          <p>See the leagues, schools, transfers, and other paths that built each roster.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
+        <a class="feature-card roster" href="./explorers/roster-origins/">
+          <div class="feature-number">02</div>
+          <div class="feature-copy">
+            <p class="card-kicker">How a roster gets built</p>
+            <h3>Roster Origins</h3>
+            <p>Follow the junior leagues, transfers, schools, and other paths behind every program.</p>
+            <span class="open-link">Explore rosters <b aria-hidden="true">↗</b></span>
+          </div>
+          <div class="stack-motif" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
         </a>
 
-        <a class="study-card preseason" href="./explorers/preseason-production/">
-          <div class="card-top"><span>Roster movement</span><b>03</b></div>
-          <h3>Preseason Production</h3>
-          <p>Follow prior-season goals, assists, shots, and penalties as production returns, arrives, or leaves.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
+        <a class="feature-card race" href="./explorers/conference-race/">
+          <div class="feature-number">03</div>
+          <div class="feature-copy">
+            <p class="card-kicker">The season in motion</p>
+            <h3>Conference Race</h3>
+            <p>Replay the standings night by night, stop on any date, and see how the race changed.</p>
+            <div class="race-motif" aria-hidden="true"><i></i><i></i><i></i><i></i></div>
+            <span class="open-link">Replay a race <b aria-hidden="true">↗</b></span>
+          </div>
         </a>
+      </div>
 
-        <a class="study-card race" href="./explorers/conference-race/">
-          <div class="card-top"><span>Standings in motion</span><b>04</b></div>
-          <h3>Conference Race</h3>
-          <p>Play a conference season through game night by game night, pause on any date, and save the frame.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
+      <div class="study-index" aria-label="More interactive studies">
+        <a href="./explorers/preseason-production/">
+          <span class="index-number">04</span>
+          <span><b>Preseason Production</b><small>What returns, arrives, and leaves</small></span>
+          <span class="index-mark production" aria-hidden="true"></span>
+          <span class="index-arrow" aria-hidden="true">↗</span>
         </a>
+        <a href="./explorers/draft-history/">
+          <span class="index-number">05</span>
+          <span><b>Draft History</b><small>NHL selections on college rosters</small></span>
+          <span class="index-mark draft" aria-hidden="true"></span>
+          <span class="index-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="./explorers/origin-production/">
+          <span class="index-number">06</span>
+          <span><b>Scoring Origins</b><small>Development paths and college production</small></span>
+          <span class="index-mark scoring" aria-hidden="true"></span>
+          <span class="index-arrow" aria-hidden="true">↗</span>
+        </a>
+        <a href="./explorers/team-stats/">
+          <span class="index-number">07</span>
+          <span><b>Team Stat Explorer</b><small>Season-level scoring, shots, and special teams</small></span>
+          <span class="index-mark stats" aria-hidden="true"></span>
+          <span class="index-arrow" aria-hidden="true">↗</span>
+        </a>
+      </div>
+    </section>
 
-        <a class="study-card draft" href="./explorers/draft-history/">
-          <div class="card-top"><span>NHL Draft</span><b>05</b></div>
-          <h3>Draft History</h3>
-          <p>Explore NHL selections on college rosters by program, position, round, and timing.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
-        </a>
-
-        <a class="study-card supporting origins" href="./explorers/origin-production/">
-          <div class="card-top"><span>Development paths</span><b>06</b></div>
-          <h3>Scoring Origins</h3>
-          <p>Connect players&rsquo; reported previous leagues with what they produced in college.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
-        </a>
-
-        <a class="study-card supporting team-stats" href="./explorers/team-stats/">
-          <div class="card-top"><span>Team performance</span><b>07</b></div>
-          <h3>Team Stat Explorer</h3>
-          <p>Compare scoring, shots, penalties, and special teams across a season.</p>
-          <span class="card-link">Open explorer <b aria-hidden="true">&#8599;</b></span>
-        </a>
+    <section class="archive" id="archive">
+      <div class="archive-heading">
+        <p class="section-label">The archive</p>
+        <h2>More seasons.<br>Different questions.</h2>
+      </div>
+      <div class="archive-copy">
+        <p class="archive-lead">The record stretches from sparse early scorelines to modern rosters, box scores, and player histories.</p>
+        <div class="coverage-line" aria-hidden="true"><span></span><i></i><i></i><i></i><b></b></div>
+        <div class="era-grid">
+          <div><b>1895–99</b><span>Early partial records</span></div>
+          <div><b>1900s–90s</b><span>Growing scores and rosters</span></div>
+          <div><b>2000–present</b><span>Modern player and game detail</span></div>
+        </div>
+        <p class="archive-note">Coverage changes by season and source. Every study identifies the fields it can use, and uncertain records stay visible rather than being quietly discarded.</p>
       </div>
     </section>
 
     <section class="about" id="about">
-      <div>
-        <p class="section-number">02 / ABOUT THE PROJECT</p>
-        <h2>Sources and<br>coverage.</h2>
+      <div class="about-title">
+        <p class="section-label">Behind the project</p>
+        <h2>Built for the curious fan.</h2>
       </div>
       <div class="about-copy">
-        <p>College Hockey Data combines current College Hockey News records with archived season, roster, and game material. Missing and unclassified records remain visible in each explorer.</p>
-        <p>Early seasons are partial. Each explorer states the seasons and fields available for its analysis.</p>
-        <div class="source-line"><span></span> CHN + archived data · Independent project · u/BakedMitten</div>
+        <p>College Hockey Data combines current College Hockey News records with archived season, roster, game, and draft material. It began as a series of visual posts for r/collegehockey and keeps growing from the questions people ask there.</p>
+        <p>This is an independent fan project. It is not affiliated with the NCAA, College Hockey News, or any conference or school.</p>
+        <div class="project-links">
+          <a href="https://www.paypal.com/ncp/payment/ASRZUCN4PTP2A" rel="noopener noreferrer">Help with archive costs <span aria-hidden="true">↗</span></a>
+          <a class="contact-link" href="./contact/">Send a note or report an issue <span aria-hidden="true">→</span></a>
+        </div>
       </div>
-    </section>
-
-    <section class="support" id="support" data-paypal-support>
-      <p class="support-label">Support College Hockey Data</p>
-      <p>College Hockey Data is an independent project. Contributions help cover hosting, research, and maintaining the historical archive.</p>
-      <a class="support-action" href="https://www.paypal.com/ncp/payment/ASRZUCN4PTP2A" rel="noopener noreferrer">Support through PayPal <span aria-hidden="true">↗</span></a>
     </section>
   </main>
 
   <footer>
     <span>College Hockey Data</span>
-    <span><b id="build-note">Seven interactive studies</b></span>
+    <span id="build-note">Seven interactive studies</span>
+    <a href="#top">Back to top ↑</a>
   </footer>
   <script src="./site.js"></script>
 </body>
