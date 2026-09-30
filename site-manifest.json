@@ -1,43 +1,43 @@
 {
-  "generated_at": "2026-09-30T00:37:00+00:00",
-  "domain": null,
+  "generated_at": "2026-09-30T03:16:40+00:00",
+  "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "explorers": [
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
       "files": 8,
-      "bytes": 230591
+      "bytes": 230592
     },
     {
       "title": "Roster Origins",
       "slug": "roster-origins",
       "files": 34,
-      "bytes": 10056097
+      "bytes": 10056798
     },
     {
       "title": "Preseason Production",
       "slug": "preseason-production",
       "files": 23,
-      "bytes": 9261049
+      "bytes": 9261250
     },
     {
       "title": "Scoring Origins",
       "slug": "origin-production",
       "files": 137,
-      "bytes": 10950874
+      "bytes": 10954615
     },
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
       "files": 32,
-      "bytes": 1471256
+      "bytes": 1471607
     },
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
       "files": 37,
-      "bytes": 8385850
+      "bytes": 8386851
     },
     {
       "title": "Conference Race",
