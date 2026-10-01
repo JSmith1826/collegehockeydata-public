@@ -1,7 +1,8 @@
 {
-  "generated_at": "2026-09-30T22:19:52+00:00",
+  "generated_at": "2026-10-01T20:15:02+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
+  "womens_section_published": false,
   "explorers": [
     {
       "title": "Team Stat Explorer",
@@ -13,7 +14,7 @@
       "title": "Roster Origins",
       "slug": "roster-origins",
       "files": 34,
-      "bytes": 10056798
+      "bytes": 10056799
     },
     {
       "title": "Preseason Production",
@@ -37,7 +38,7 @@
       "title": "Player Atlas",
       "slug": "player-atlas",
       "files": 37,
-      "bytes": 8399837
+      "bytes": 8399838
     },
     {
       "title": "Conference Race",
@@ -49,7 +50,7 @@
       "title": "Roster Age & Experience",
       "slug": "age-experience",
       "files": 30,
-      "bytes": 2343426
+      "bytes": 2343428
     },
     {
       "title": "Game Control",
