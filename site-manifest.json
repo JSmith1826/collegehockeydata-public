@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-01T20:15:02+00:00",
+  "generated_at": "2026-10-02T17:33:57+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": false,
@@ -55,8 +55,8 @@
     {
       "title": "Game Control",
       "slug": "game-control",
-      "files": 6,
-      "bytes": 2461791
+      "files": 32,
+      "bytes": 30902766
     }
   ]
 }
