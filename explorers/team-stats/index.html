@@ -7,15 +7,15 @@
   <title>Team Performance · College Hockey Data</title>
   <meta name="description" content="Compare college hockey teams by scoring, shots, penalties, and special teams.">
   <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-V6sL3VXr.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-iNh5GK6O.css">
+  <script type="module" crossorigin src="./assets/index-BC5oA0_x.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BeQu8qGC.css">
 </head>
 <body>
   <header class="masthead">
     <div class="masthead-inner">
       <div class="eyebrow"><span class="puck"></span> COLLEGE HOCKEY DATA / TEAM PERFORMANCE</div>
-      <h1>Team<br><em>performance.</em></h1>
-      <p>Compare scoring, shots, penalties, and special teams for the selected season and dates.</p>
+      <h1>Find the <em>difference.</em></h1>
+      <p>Compare teams. Follow the numbers back to the games. Make the analysis your own.</p>
       <div class="masthead-meta"><span id="headline-season">2025–26 season</span><span class="dot">·</span><span id="headline-count">Loading data…</span></div>
     </div>
     <div class="rink-art" aria-hidden="true"><div class="rink-ring"></div><div class="rink-line rink-line-one"></div><div class="rink-line rink-line-two"></div><div class="rink-center"></div></div>
@@ -23,10 +23,15 @@
 
   <main>
     <section class="controls-panel" aria-label="Explorer controls">
-      <div class="panel-heading"><span class="section-index">01 / EXPLORE</span><span class="panel-hint">Charts update as you change the view</span></div>
+      <div class="panel-heading"><span class="section-index">YOUR COMPARISON</span><a class="season-link" href="../season/">Explore the data →</a></div>
+      <div class="preset-row">
+        <label class="field">What do you want to compare?<select id="preset-select" aria-label="Comparison"><option value="goals">Scoring balance</option><option value="shots">Shot balance</option><option value="special">Special teams</option><option value="pim">Penalty balance</option></select></label>
+        <label class="field">Qualification<select id="minimum-games" aria-label="Minimum games"><option value="1">1 game · provisional</option><option value="3">3 games</option><option value="5">5 games</option><option value="10">10 games</option></select></label>
+        <label class="field">Games included<select id="game-scope" aria-label="Games included"><option value="all">All regular-season games</option><option value="conference">Conference games only</option><option value="nonconference">Non-conference games only</option></select></label>
+      </div>
       <div class="controls-grid">
         <label class="field field-season">Season<select id="season-select" aria-label="Season"></select></label>
-        <label class="field field-conference">Team group<select id="conference-select" aria-label="Team group"><option value="all">All conferences</option></select></label>
+        <label class="field field-conference">Teams displayed<select id="conference-select" aria-label="Team group"><option value="all">All conferences</option></select></label>
         <label class="field field-date">From<input id="from-date" type="date" aria-label="Start date"></label>
         <label class="field field-date">Through<input id="to-date" type="date" aria-label="End date"></label>
         <button id="reset-dates" class="quiet-button" type="button">Full season</button>
@@ -38,14 +43,23 @@
           <div id="search-results" class="search-results" role="listbox" hidden></div>
         </div>
         <div id="selected-teams" class="selected-teams" aria-label="Highlighted teams"><span class="empty-selection">Click a chart point or search for a team</span></div>
-        <label class="trail-toggle"><input id="trail-toggle" type="checkbox"><span>Show monthly paths</span></label>
+        <label class="trail-toggle"><input id="trail-toggle" type="checkbox"><span>Cumulative monthly paths</span></label>
       </div>
       <div id="coverage-banner" class="coverage-banner" role="status"></div>
     </section>
 
     <section class="charts-section" aria-label="Team statistic charts">
-      <div class="charts-heading"><div><span class="section-index">02 / COMPARE</span><h2>Team comparison</h2></div><p>Each dot is one team. Tap or click a dot to keep it highlighted across every chart. Dashed lines mark the median of the teams shown.</p><label class="field export-format">PNG layout<select id="export-layout"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label></div>
+      <div class="charts-heading"><div><span class="section-index">COMPARE / INSPECT / EXPORT</span><h2 id="comparison-title">Team comparison</h2></div><div class="view-switch" role="group" aria-label="Comparison view"><button id="chart-view" type="button" aria-pressed="true">Chart</button><button id="table-view" type="button" aria-pressed="false">Table</button></div><label class="field marker-format">Team marks<select id="marker-style"><option value="focus">Focus logos (default)</option><option value="all">All team logos</option><option value="dots">Dots + team labels</option></select></label><label class="field export-format">PNG layout<select id="export-layout"><option value="landscape">Landscape</option><option value="portrait">Portrait</option></select></label></div>
+      <p class="reading-guide">Select a team to highlight it and inspect its games. Focus logos shows selected teams or your conference; the unselected overview uses a small set of logos. Small dots mark exact values; lines connect any displaced logos. Dashed lines show the displayed median. Monthly paths are cumulative. <span class="phone-hint">Pan the chart or switch to the table for exact values.</span></p>
+      <div class="export-toolbar" aria-label="Analysis exports"><button id="download-teams" type="button">↓ Team data CSV</button><button id="download-games" type="button">↓ Game rows CSV</button><button id="download-snapshot" type="button">↓ Analysis JSON</button><button id="copy-link" type="button">Copy view link</button><span id="export-status" role="status"></span></div>
       <div id="charts-grid" class="charts-grid"></div>
+      <div id="comparison-table" class="table-container" hidden></div>
+      <p id="qualification-note" class="qualification-note"></p>
+    </section>
+
+    <section class="evidence-panel" aria-labelledby="evidence-heading">
+      <div class="evidence-heading"><div><span class="section-index">FOLLOW THE NUMBERS</span><h2 id="evidence-heading">The games behind the team</h2></div><label class="field">Inspect a team<select id="evidence-team" aria-label="Inspect a team"></select></label></div>
+      <div id="team-evidence" aria-live="polite"><p>Choose a team to inspect its contributing games.</p></div>
     </section>
 
     <section class="method-panel" aria-labelledby="method-heading">
@@ -54,7 +68,7 @@
       <div class="method-grid">
         <div><h3>One game, two sides</h3><p>Only scored, non-exhibition matchups between teams with CHN rosters are included. Every team's rate uses its own games in the selected date range. Games against those opponents count even when you display just one conference.</p></div>
         <div><h3>Metrics need box totals</h3><p>Goals come from final scores. Shots, penalty minutes, and power-play figures require recorded totals for both teams. Missing box fields never become zero. Each chart reports how many games support its metric.</p></div>
-        <div><h3>Special teams</h3><p>Power play is goals divided by opportunities. Penalty kill is one minus opponents' power-play goals divided by opponents' opportunities. A team needs at least five scored games to appear, plus valid opportunities for both percentages.</p></div>
+        <div><h3>Qualifications and rates</h3><p>The selected minimum applies to both scored and paired metric games. Power play is total goals / opportunities; penalty kill is one minus opponents' goals / opportunities. Zero opportunities produce an unknown rate. W/L/T uses the on-ice final score, not shootout standings decisions.</p></div>
       </div>
       <p class="source-line">Source: <a href="https://www.collegehockeynews.com/" target="_blank" rel="noopener noreferrer">College Hockey News</a> schedules and archived/CHN box totals. This is an independent visualization by u/BakedMitten. <span id="snapshot-time"></span></p>
     </section>
