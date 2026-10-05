@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T20:43:40+00:00",
+  "generated_at": "2026-10-05T21:06:46+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -10,43 +10,43 @@
       "title": "College Hockey Data",
       "slug": "season",
       "files": 19,
-      "bytes": 8195637
+      "bytes": 8195897
     },
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
       "files": 19,
-      "bytes": 8243469
+      "bytes": 8243800
     },
     {
       "title": "Roster Origins",
       "slug": "roster-origins",
       "files": 34,
-      "bytes": 9987502
+      "bytes": 9987573
     },
     {
       "title": "Preseason Production",
       "slug": "preseason-production",
       "files": 23,
-      "bytes": 9261664
+      "bytes": 9261751
     },
     {
       "title": "Scoring Origins",
       "slug": "origin-production",
       "files": 137,
-      "bytes": 10954691
+      "bytes": 10954762
     },
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
       "files": 32,
-      "bytes": 1471795
+      "bytes": 1471866
     },
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
       "files": 37,
-      "bytes": 8433497
+      "bytes": 8433908
     },
     {
       "title": "Conference Race",
@@ -58,13 +58,13 @@
       "title": "Roster Age & Experience",
       "slug": "age-experience",
       "files": 30,
-      "bytes": 2374516
+      "bytes": 2374587
     },
     {
       "title": "Game Control",
       "slug": "game-control",
       "files": 32,
-      "bytes": 30902857
+      "bytes": 30903007
     }
   ]
 }
