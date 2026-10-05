@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T21:06:46+00:00",
+  "generated_at": "2026-10-05T23:06:26+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -10,7 +10,7 @@
       "title": "College Hockey Data",
       "slug": "season",
       "files": 19,
-      "bytes": 8195897
+      "bytes": 8204048
     },
     {
       "title": "Team Stat Explorer",
@@ -45,14 +45,14 @@
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 37,
-      "bytes": 8433908
+      "files": 40,
+      "bytes": 8811266
     },
     {
       "title": "Conference Race",
       "slug": "conference-race",
-      "files": 10,
-      "bytes": 207567
+      "files": 14,
+      "bytes": 277467
     },
     {
       "title": "Roster Age & Experience",
@@ -66,5 +66,7 @@
       "files": 32,
       "bytes": 30903007
     }
-  ]
+  ],
+  "source_revision": "c0829a7",
+  "release": "women-atlas-conference-race"
 }
