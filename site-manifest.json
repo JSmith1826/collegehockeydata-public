@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-03T15:42:45+00:00",
+  "generated_at": "2026-10-05T04:59:56+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": false,
@@ -8,13 +8,13 @@
       "title": "College Hockey Data",
       "slug": "season",
       "files": 8,
-      "bytes": 1882796
+      "bytes": 1884643
     },
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
       "files": 8,
-      "bytes": 1922875
+      "bytes": 1924722
     },
     {
       "title": "Roster Origins",
