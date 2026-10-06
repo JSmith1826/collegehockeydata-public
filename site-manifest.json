@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-05T23:06:26+00:00",
+  "generated_at": "2026-10-06T00:51:05+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -45,8 +45,8 @@
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 40,
-      "bytes": 8811266
+      "files": 41,
+      "bytes": 9903458
     },
     {
       "title": "Conference Race",
@@ -67,6 +67,6 @@
       "bytes": 30903007
     }
   ],
-  "source_revision": "c0829a7",
-  "release": "women-atlas-conference-race"
+  "source_revision": "d83ad47d202e7a3fc71634dcdab98f8880d2e1e8",
+  "release": "atlas-per-million"
 }
