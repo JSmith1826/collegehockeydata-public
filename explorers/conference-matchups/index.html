@@ -1,8 +1,8 @@
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#18453b"><title>Conference Matchups | College Hockey Data</title>  <script type="module" crossorigin src="./assets/index-CozQsGMF.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-d6Pq-nH7.css">
+<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><meta name="theme-color" content="#18453b"><title>Conference Matchups | College Hockey Data</title>  <script type="module" crossorigin src="./assets/index-D259ubdr.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-X9ZQQ3Gi.css">
 </head>
-<body><header class="hero"><p class="eyebrow">ACROSS THE LEAGUES</p><h1>Conference matchups.</h1><p>Read a row to see how its teams fare against each opponent conference.</p></header>
+<body><header class="hero"><p class="eyebrow">ACROSS THE LEAGUES</p><h1>Conference matchups.</h1><p>Compare how college hockey conferences perform against one another.</p></header>
 <main>
 <section class="controls" aria-label="Comparison controls">
 <div class="time-mode" role="group" aria-label="Season selection mode">
@@ -29,19 +29,19 @@
 <label>Through date<input type="date" id="through"></label><label class="check"><input type="checkbox" id="independents" checked> Include independents</label>
 </div></details>
 <section class="chart-section" id="chart-section"><div class="section-heading"><div><p class="eyebrow">HEAD TO HEAD</p><h2 id="chart-heading">Loading seasons...</h2><p id="caption" role="status"></p></div><div class="exports"><button id="png" type="button">Save PNG</button><button id="csv" type="button">Export CSV</button></div></div>
-<p id="measure-note" class="measure-note"></p><p id="coverage-warning" class="coverage-warning" hidden></p>
-<div class="chart-scroll" tabindex="0" aria-label="Conference matrix; scroll horizontally on small screens"><svg id="heatmap" role="group" aria-label="Interactive conference matchup matrix" font-family="Segoe UI,Arial,sans-serif"></svg></div>
+<div class="chart-guide"><p>Start with a conference on the left. Read across to see <strong>its results</strong> against each opponent.</p><p id="measure-note" class="measure-note"></p></div><p id="coverage-warning" class="coverage-warning" hidden></p>
+<div class="chart-scroll" tabindex="0" aria-label="Conference matrix; scroll horizontally on small screens"><svg id="heatmap" role="group" aria-label="Conference matchup matrix: results for the conference on the left against the opponent at the top" font-family="Segoe UI,Arial,sans-serif"></svg></div>
 <div class="legend"><span id="scale"></span><span>W-L-T = wins, losses, ties</span><span>Dash = same group; gray = no games</span></div>
-<p class="reading-note">Select a square to inspect its games. The rightmost column combines the row's games against all displayed opponents. On a phone, swipe the matrix or choose a matchup below.</p>
+<p class="reading-note">Select a square to inspect its games. All opponents combines that conference's games against every displayed opponent. On a phone, swipe the matrix or choose a matchup below.</p>
 </section>
-<section class="matchup" id="matchup" aria-labelledby="matchup-title"><p class="eyebrow">THE GAMES BEHIND THE CELL</p><div class="pair-controls"><label>Row conference<select id="row"></select></label><label>Opponent conference<select id="opponent"></select></label></div>
+<section class="matchup" id="matchup" aria-labelledby="matchup-title"><p class="eyebrow">THE GAMES BEHIND THE CELL</p><div class="pair-controls"><label>Results for<select id="row"></select></label><label>Against<select id="opponent"></select></label></div>
 <h2 id="matchup-title">Choose a matchup</h2><p id="matchup-summary"></p><div id="pair-stats" class="pair-stats"></div><div id="pair-seasons" class="pair-seasons" aria-label="Matchup records by season"></div>
 <details class="program-details"><summary>Conference membership in this matchup</summary><div id="pair-programs"></div></details>
-<details class="game-details" open><summary>Final scores</summary><div class="table-scroll"><table><thead><tr><th>Season</th><th>Date</th><th>Away</th><th>Score</th><th>Home</th><th>Game type</th><th>Evidence</th></tr></thead><tbody id="games"></tbody></table></div></details>
+<details class="game-details" id="all-games" open><summary>Final scores</summary><div class="table-scroll"><table><thead><tr><th>Season</th><th>Date</th><th>Away</th><th>Score</th><th>Home</th><th>Game type</th><th>Evidence</th></tr></thead><tbody id="games"></tbody></table></div></details>
 </section>
 <section class="methods"><details><summary>Definitions, membership &amp; coverage</summary>
 <p><strong>Winning percentage:</strong> (wins + 0.5 &times; ties) / games. Each reciprocal pair adds to 100%. Overtime wins count as wins; equal final scores stay ties and shootouts are ignored. Win rate is a separate measure with no credit for ties.</p>
-<p><strong>Scoring:</strong> Goals scored / game uses the row's goals. Goal difference / game subtracts opponent goals. Range averages are calculated from all counted games, rather than averaging season percentages.</p>
+<p><strong>Scoring:</strong> Goals scored / game uses goals by the conference on the left. Goal difference / game subtracts opponent goals. Range averages are calculated from all counted games, rather than averaging season percentages.</p>
 <p><strong>Membership:</strong> Every game uses its season's conference assignments. Ranges pool leagues by their historical name, even when their membership changed. Independents are a comparison group, not a conference; games between two independents are excluded. The contemporary CCHA mark is omitted in ranges that include its original era before 2013.</p>
 <p><strong>Scope:</strong> Counted games have a final score and known membership on both sides. Exhibitions, known lower-division opponents, and same-group games are excluded. Game scope can include, exclude, or isolate NCAA postseason games. Holiday tournaments count in the full and NCAA-excluded views. Source archives can be incomplete. Colors describe results and volume, not an adjusted ranking or schedule strength.</p>
 <p id="quality"></p><p id="unknown"></p><div id="evidence"></div><p id="build-note"></p>
