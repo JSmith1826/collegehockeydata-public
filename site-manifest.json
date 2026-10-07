@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T03:15:12.912749+00:00",
+  "generated_at": "2026-10-07T03:29:20.921826+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -69,10 +69,10 @@
     {
       "title": "Conference Matchups",
       "slug": "conference-matchups",
-      "files": 39,
-      "bytes": 2452832
+      "files": 41,
+      "bytes": 2486449
     }
   ],
-  "source_revision": "713e5a0a49fae438c3fe8fcceb2ec6d1035706fe",
-  "release": "draft-program-detail-layout"
+  "source_revision": "d60e98bbaf0b4a00c3ba408a3c8f0a6b5a8d80ed",
+  "release": "conference-matchups-season-controls"
 }
