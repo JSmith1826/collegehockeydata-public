@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T03:08:50.028829+00:00",
+  "generated_at": "2026-10-07T03:15:12.912749+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -39,8 +39,8 @@
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
-      "files": 32,
-      "bytes": 1471866
+      "files": 35,
+      "bytes": 1544541
     },
     {
       "title": "Player Atlas",
@@ -73,6 +73,6 @@
       "bytes": 2452832
     }
   ],
-  "source_revision": "5ed6fb46fca708ecdcd63d83b7decc61ceccfbaf",
-  "release": "conference-matchups-audited-redesign"
+  "source_revision": "713e5a0a49fae438c3fe8fcceb2ec6d1035706fe",
+  "release": "draft-program-detail-layout"
 }
