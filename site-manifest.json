@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T04:00:52.970126+00:00",
+  "generated_at": "2026-10-07T04:22:35.768149+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -9,14 +9,14 @@
     {
       "title": "College Hockey Data",
       "slug": "season",
-      "files": 19,
-      "bytes": 8283525
+      "files": 24,
+      "bytes": 8307209
     },
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
       "files": 19,
-      "bytes": 8243800
+      "bytes": 8243928
     },
     {
       "title": "Roster Origins",
@@ -52,19 +52,19 @@
       "title": "Conference Race",
       "slug": "conference-race",
       "files": 20,
-      "bytes": 400798
+      "bytes": 400802
     },
     {
       "title": "Roster Age & Experience",
       "slug": "age-experience",
       "files": 30,
-      "bytes": 2374587
+      "bytes": 2374698
     },
     {
       "title": "Game Control",
       "slug": "game-control",
       "files": 32,
-      "bytes": 30903007
+      "bytes": 30903033
     },
     {
       "title": "Conference Matchups",
@@ -73,6 +73,6 @@
       "bytes": 2510120
     }
   ],
-  "source_revision": "ae7436d498482d6f2fcee2c67bbd5e73f67dbbad",
-  "release": "contact-send-me-a-message"
+  "source_revision": "d83f7535dac9d50e414344d5580805c7badcbad8",
+  "release": "direct-homepage-and-study-headings"
 }
