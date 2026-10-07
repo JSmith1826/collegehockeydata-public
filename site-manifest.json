@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-06T00:51:05+00:00",
+  "generated_at": "2026-10-07T02:38:42.703964+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -65,8 +65,14 @@
       "slug": "game-control",
       "files": 32,
       "bytes": 30903007
+    },
+    {
+      "title": "Conference Matchups",
+      "slug": "conference-matchups",
+      "files": 35,
+      "bytes": 1970761
     }
   ],
-  "source_revision": "d83ad47d202e7a3fc71634dcdab98f8880d2e1e8",
-  "release": "atlas-per-million"
+  "source_revision": "402d1faa7aa0dbbfaa3a9e925e62d645c49e3845",
+  "release": "homepage-conference-studies"
 }

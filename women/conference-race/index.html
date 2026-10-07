@@ -9,8 +9,8 @@
   <link rel="icon" href="../../assets/site/chd_badge3.jpg">
 
 
-  <script type="module" crossorigin src="./assets/index-BHycVxix.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-SUgNCQ0p.css">
+  <script type="module" crossorigin src="./assets/index-DCkcJQji.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-B46tJxDU.css">
 </head>
 <body>
   <header class="hero">
@@ -33,6 +33,7 @@
         <label>Measure<select id="metric"><option value="points">Conference points</option><option value="back">Points behind leader</option><option value="pace">Points above average pace</option><option value="pct">Points percentage</option></select></label>
         <label>Playback speed<select id="speed"><option value="1200">Measured</option><option value="650" selected>Game night</option><option value="280">Fast finish</option></select></label>
       </div>
+      <label class="possible-control"><input id="show-possible" type="checkbox"> Show maximum possible points (dashed lines; expands the points scale)</label>
       <div id="quality-note" class="quality-note" role="status"></div>
     </section>
 
@@ -66,8 +67,8 @@
     </section>
 
     <section class="moments-section" aria-labelledby="moments-title">
-      <div class="moments-heading"><span>03 / LEAD CHANGES</span><h2 id="moments-title">How the lead changed hands.</h2><p>Select a moment to jump there. A tie at the top can produce more than one leader.</p></div>
-      <div id="moments" class="moments"></div>
+      <div class="moments-heading"><span>03 / TURNING POINTS</span><h2 id="moments-title">How the race changed.</h2><p>Select a moment to jump there. Lead changes and elimination from a possible shared first-place finish.</p></div>
+      <div id="moments" class="moments"></div><form id="marker-form" class="marker-form"><label>Significant date<input id="marker-date" type="date" required></label><label>Your marker<input id="marker-label" type="text" maxlength="60" placeholder="e.g. Winter break" required></label><button type="submit">Add date marker</button><p>Saved in this browser for this competition, season, and conference. Custom dates jump to the latest recorded frame on or before the date; markers are included in the chart image, but not in shared links.</p></form>
     </section>
 
     <section class="share-section" aria-labelledby="share-title">
@@ -78,7 +79,7 @@
     <section class="method-section" aria-labelledby="method-title">
       <span>05 / ABOUT THE DATA</span><h2 id="method-title">What the lines mean.</h2>
       <div class="method-grid"><p><b>Conference scoring</b><span id="method-scoring">Loading scoring rules...</span></p><p><b>Average pace</b>A three-point game produces a league average of 1.5 points per team appearance. Pace shows the distance above or below that line.</p><p><b>Verified results</b><span id="method-verification">Loading coverage...</span></p></div>
-      <p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+      <p>Ghosted logos mark teams whose remaining maximum is below the current leader. This is a points-based elimination test; conference tiebreakers and constraints between remaining matchups are not applied. Dashed lines show each team's maximum possible finish and are off by default.</p><p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
     </section>
   </main>
   <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> CONFERENCE RACE</footer>
