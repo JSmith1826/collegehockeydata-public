@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-07T03:48:07.905060+00:00",
+  "generated_at": "2026-10-07T03:58:22.894403+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -51,8 +51,8 @@
     {
       "title": "Conference Race",
       "slug": "conference-race",
-      "files": 18,
-      "bytes": 358433
+      "files": 20,
+      "bytes": 400798
     },
     {
       "title": "Roster Age & Experience",
@@ -73,6 +73,6 @@
       "bytes": 2510120
     }
   ],
-  "source_revision": "38c3ad712373c75b580666c37776197b0bc08b64",
-  "release": "conference-race-contained-event-cards"
+  "source_revision": "1acdc4af0bdf02375af0389fdfa2366a91948c72",
+  "release": "conference-race-clickable-date-axis"
 }
