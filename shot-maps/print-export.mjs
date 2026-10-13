@@ -1,8 +1,8 @@
-import {faceoffMarkings} from './rink-geometry.mjs?v=157209627a34';
-import {exportOutcome} from './export-outcome.mjs?v=157209627a34';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=157209627a34';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=157209627a34';
-import {summaryReference,compareSummary} from './summary-comparison.mjs?v=157209627a34';
+import {faceoffMarkings} from './rink-geometry.mjs?v=d1559cfd3b60';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=d1559cfd3b60';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=d1559cfd3b60';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=d1559cfd3b60';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=d1559cfd3b60';
 
 export const PRINT_VERSION='connected-arch-print-1';
 export const PRINT_WIDTH=2400;
@@ -115,7 +115,7 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
   const metadataY=bannerY+182;
   const headerEnd=metadataY+38+(filterLines.length-1)*36+26;
   const nameLines=snapshot.panels.map(p=>wrapped(p.name,panelW-115,44)),nameHeight=Math.max(...nameLines.map(l=>l.length))*51;
-  const rinkY=headerEnd+nameHeight+91,rinkH=panelW*(BLUE_LINE*10+6)/431,outsideY=rinkY+rinkH+17,summaryY=outsideY+87;
+  const directionY=headerEnd+nameHeight+91,rinkY=directionY+146,rinkH=panelW*(BLUE_LINE*10+6)/431,outsideY=rinkY+rinkH+17,summaryY=outsideY+87;
   const hasReference=snapshot.panels.some(p=>p.reference),legendY=summaryY+188+(hasReference?104:0),footerY=legendY+82,H=footerY+130;
   const values=snapshot.panels.flatMap(p=>p.zones.map(z=>z.value)).filter(v=>v!==null);
   const max=Math.max(snapshot.measure==='pergame'?.1:1,...values.map(v=>Math.abs(v)));
@@ -136,6 +136,10 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
     nameLines[i].forEach((s,j)=>body+=text(s,x+111,nameY+j*51,44,ink,'font-weight="700"'));
     body+=text(`${p.label} | ${fmt(p.total)} ${outcome.label.toLowerCase()}`,x+111,headerEnd+nameHeight+36,28,muted);
     body+=text(`${fmt(p.mappedGames)} / ${fmt(p.eligibleGames)} eligible games mapped`,x+111,headerEnd+nameHeight+72,26,muted);
+    const direction=exportPerspective(p.perspective);
+    body+=rect(x,directionY,panelW,126,gray?ink:direction.color);
+    body+=text(direction.title,x+26,directionY+55,52,'#ffffff','font-weight="700"');
+    body+=text(direction.definition,x+26,directionY+99,26,'#ffffff');
     body+=`<svg x="${x}" y="${rinkY}" width="${panelW}" height="${rinkH}" viewBox="-3 -3 431 ${BLUE_LINE*10+6}">${rink(p,snapshot,max,gray,i)}</svg>`;
     const cardW=(panelW-18)/2;
     p.outside.forEach((group,j)=>{

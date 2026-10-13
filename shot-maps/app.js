@@ -1,15 +1,15 @@
-import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=157209627a34';
-import {createSelectionMemory} from './selection-memory.mjs?v=157209627a34';
-import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=157209627a34';
-import {teamStyle} from './team-style.mjs?v=157209627a34';
-import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=157209627a34';
-import {faceoffMarkings} from './rink-geometry.mjs?v=157209627a34';
-import {areaPanelMarkup} from './area-panel.mjs?v=157209627a34';
-import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=157209627a34';
-import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=157209627a34';
-import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,exportOutcome} from './web-export.mjs?v=157209627a34';
-import {zoneBorderStyle} from './zone-borders.mjs?v=157209627a34';
-import {comparisonSpecs} from './comparison-specs.mjs?v=157209627a34';
+import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=d1559cfd3b60';
+import {createSelectionMemory} from './selection-memory.mjs?v=d1559cfd3b60';
+import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=d1559cfd3b60';
+import {teamStyle} from './team-style.mjs?v=d1559cfd3b60';
+import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=d1559cfd3b60';
+import {faceoffMarkings} from './rink-geometry.mjs?v=d1559cfd3b60';
+import {areaPanelMarkup} from './area-panel.mjs?v=d1559cfd3b60';
+import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=d1559cfd3b60';
+import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=d1559cfd3b60';
+import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs?v=d1559cfd3b60';
+import {zoneBorderStyle} from './zone-borders.mjs?v=d1559cfd3b60';
+import {comparisonSpecs} from './comparison-specs.mjs?v=d1559cfd3b60';
 
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n.toLocaleString('en-US'),pct=(n,d)=>d?`${(100*n/d).toFixed(1)}%`:'—';
@@ -519,6 +519,8 @@ async function saveImage(){
       const labelBottom=drawWrapped(ctx,`${spec.label} · ${outcomeHeading.label}`,xs[i]+116,nameBottom+1,panelWidth-116,31);
       mapY=Math.max(mapY,labelBottom+9);
     }
+    for(let i=0;i<2;i++)drawPerspectiveBanner(ctx,exportSpecs[i].perspective,xs[i],mapY,panelWidth);
+    mapY+=124;
     const mapBottom=mapY+mapHeight;
     let detailsBottom=mapBottom+12;
     for(let i=0;i<2;i++){
@@ -563,7 +565,8 @@ async function saveImage(){
     output.getContext('2d').drawImage(canvas,0,0,width,height,0,0,width,height);
     const blob=await new Promise(resolve=>output.toBlob(resolve,'image/png'));
     if(!blob)throw new Error('Image export failed');
-    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`chd-shot-maps-${exportData.season}-${exportState.outcome}-${exportState.view}${exportState.view==='heatmap'?'-'+exportState.theme:''}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
+    const directions=exportSpecs.map(spec=>spec.perspective).join('-vs-');
+    const url=URL.createObjectURL(blob),a=document.createElement('a');a.href=url;a.download=`chd-shot-maps-${exportData.season}-${directions}-${exportState.outcome}-${exportState.view}${exportState.view==='heatmap'?'-'+exportState.theme:''}.png`;a.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
     button.textContent='Image saved ✓';
   }catch(error){button.textContent='Try saving again';$('reading-guide').textContent=`Image export: ${error.message}.`;}
   finally{exporting=false;button.disabled=false;setTimeout(()=>{if(!exporting)button.textContent='Save image ↗';},2500);}
@@ -599,7 +602,8 @@ async function savePrintImage(exportData,exportState,specs,focus,style){
   }
   const slug=snapshot.panels.map(p=>p.name.toLowerCase().replace(/[^a-z0-9]+/g,'-')).join('-vs-');
   const url=URL.createObjectURL(blob),link=document.createElement('a');link.href=url;
-  link.download=`chd-shot-zones-${snapshot.season}-${slug}-${snapshot.outcome}-${snapshot.measure}-${snapshot.focus?.id||'whole'}-print-${gray?'grayscale':'color'}.${vector?'svg':'png'}`;
+  const directions=snapshot.panels.map(p=>p.perspective).join('-vs-');
+  link.download=`chd-shot-zones-${snapshot.season}-${slug}-${directions}-${snapshot.outcome}-${snapshot.measure}-${snapshot.focus?.id||'whole'}-print-${gray?'grayscale':'color'}.${vector?'svg':'png'}`;
   link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
 }
 

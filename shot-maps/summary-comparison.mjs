@@ -1,4 +1,4 @@
-import {selectPopulation,outcomeGroups,areaOutcomes} from './model.mjs?v=157209627a34';
+import {selectPopulation,outcomeGroups,areaOutcomes} from './model.mjs?v=d1559cfd3b60';
 
 export function summaryConference(data,spec){
   return spec.team==='all'?(spec.state.conference==='all'?null:spec.state.conference):

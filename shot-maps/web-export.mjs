@@ -1,6 +1,14 @@
 const logoImages=new Map();
-import {exportOutcome} from './export-outcome.mjs?v=157209627a34';
-export {exportOutcome} from './export-outcome.mjs?v=157209627a34';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=d1559cfd3b60';
+export {exportOutcome} from './export-outcome.mjs?v=d1559cfd3b60';
+
+export function drawPerspectiveBanner(context,perspective,x,y,width){
+  const heading=exportPerspective(perspective),height=108;
+  context.save();context.textAlign='left';context.fillStyle=heading.color;context.fillRect(x,y,width,height);
+  context.fillStyle='#ffffff';context.font='bold 46px Trebuchet MS';context.fillText(heading.title,x+24,y+48);
+  context.font='22px Trebuchet MS';context.fillText(heading.definition,x+24,y+85);
+  context.restore();return y+height;
+}
 
 export function drawOutcomeBanner(context,outcome,x,y,width){
   const heading=exportOutcome(outcome),height=142;

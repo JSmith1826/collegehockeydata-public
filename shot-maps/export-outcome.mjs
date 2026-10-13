@@ -11,3 +11,12 @@ export function exportOutcome(outcome){
   if(!Object.hasOwn(outcomes,outcome))throw new Error('Unknown exported shot outcome');
   return {...outcomes[outcome]};
 }
+
+const perspectives={
+  taken:{title:'SHOTS TAKEN',definition:'OFFENSE · attempts made',color:'#18453b'},
+  faced:{title:'SHOTS FACED',definition:'DEFENSE · opponent attempts',color:'#70462f'},
+};
+export function exportPerspective(perspective){
+  if(!Object.hasOwn(perspectives,perspective))throw new Error('Unknown exported shot perspective');
+  return {...perspectives[perspective]};
+}
