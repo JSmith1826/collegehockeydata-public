@@ -102,5 +102,7 @@
     "acceptedGames": 71,
     "eligibleGames": 74
   },
-  "womens_game_control_published": true
+  "womens_game_control_published": true,
+  "about": "about/",
+  "image_reuse": "about/#reuse"
 }
