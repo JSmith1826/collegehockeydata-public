@@ -1,7 +1,7 @@
-import {faceoffMarkings} from './rink-geometry.mjs';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs';
-import {summaryReference,compareSummary} from './summary-comparison.mjs';
+import {faceoffMarkings} from './rink-geometry.mjs?v=c4c8c5d94363';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=c4c8c5d94363';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=c4c8c5d94363';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=c4c8c5d94363';
 
 export const PRINT_VERSION='connected-arch-print-1';
 export const PRINT_WIDTH=2400;

@@ -1,15 +1,15 @@
-import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs';
-import {createSelectionMemory} from './selection-memory.mjs';
-import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs';
-import {teamStyle} from './team-style.mjs';
-import {FLANK_CLIP,CREASE_PATH} from './zones.mjs';
-import {faceoffMarkings} from './rink-geometry.mjs';
-import {areaPanelMarkup} from './area-panel.mjs';
-import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs';
-import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs';
-import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout} from './web-export.mjs';
-import {zoneBorderStyle} from './zone-borders.mjs';
-import {comparisonSpecs} from './comparison-specs.mjs';
+import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=c4c8c5d94363';
+import {createSelectionMemory} from './selection-memory.mjs?v=c4c8c5d94363';
+import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=c4c8c5d94363';
+import {teamStyle} from './team-style.mjs?v=c4c8c5d94363';
+import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=c4c8c5d94363';
+import {faceoffMarkings} from './rink-geometry.mjs?v=c4c8c5d94363';
+import {areaPanelMarkup} from './area-panel.mjs?v=c4c8c5d94363';
+import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=c4c8c5d94363';
+import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=c4c8c5d94363';
+import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout} from './web-export.mjs?v=c4c8c5d94363';
+import {zoneBorderStyle} from './zone-borders.mjs?v=c4c8c5d94363';
+import {comparisonSpecs} from './comparison-specs.mjs?v=c4c8c5d94363';
 
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n.toLocaleString('en-US'),pct=(n,d)=>d?`${(100*n/d).toFixed(1)}%`:'—';
