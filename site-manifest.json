@@ -1,1 +1,105 @@
-{"generated_at":"2026-10-12T15:30:56+00:00","domain":"collegehockeydata.com","cloudflare_web_analytics":false,"womens_section_published":true,"homepage":"look-closer","study_index":"studies.html","explorers":[{"title":"College Hockey Data","slug":"season","files":24,"bytes":8897332},{"title":"Team Stat Explorer","slug":"team-stats","files":19,"bytes":8834049},{"title":"Roster Origins","slug":"roster-origins","files":34,"bytes":9996762},{"title":"Preseason Production","slug":"preseason-production","files":23,"bytes":9261776},{"title":"Scoring Origins","slug":"origin-production","files":137,"bytes":11003158},{"title":"NHL Draft History","slug":"draft-history","files":35,"bytes":1545877},{"title":"Player Atlas","slug":"player-atlas","files":41,"bytes":9892484},{"title":"Conference Race","slug":"conference-race","files":20,"bytes":401871},{"title":"Roster Age & Experience","slug":"age-experience","files":30,"bytes":2374698},{"title":"Game Control","slug":"game-control","files":32,"bytes":30993598},{"title":"Conference Matchups","slug":"conference-matchups","files":44,"bytes":2560711}],"source_revision":"7365ee0375f7bb6117b66523d0d0336fdaedd412","release":"conference-matrix-reading-and-season-history","data_refresh":{"date":"2026-10-12","season":"2026-27","through":"2026-10-11","men_scored_games":74,"women_scored_games":101,"men_boxes_validated":74,"women_boxes_validated":101,"box_requests":{"men":41,"women":31},"pending_boxes":[],"scope":"Current-season data only; published application assets and private-page scope unchanged"}}
+{
+  "generated_at": "2026-10-13T01:26:47+00:00",
+  "domain": "collegehockeydata.com",
+  "cloudflare_web_analytics": false,
+  "womens_section_published": true,
+  "homepage": "look-closer",
+  "study_index": "studies.html",
+  "explorers": [
+    {
+      "title": "College Hockey Data",
+      "slug": "season",
+      "files": 25,
+      "bytes": 8926353
+    },
+    {
+      "title": "Team Stat Explorer",
+      "slug": "team-stats",
+      "files": 22,
+      "bytes": 8982307
+    },
+    {
+      "title": "Roster Origins",
+      "slug": "roster-origins",
+      "files": 35,
+      "bytes": 10037562
+    },
+    {
+      "title": "Preseason Production",
+      "slug": "preseason-production",
+      "files": 24,
+      "bytes": 9291094
+    },
+    {
+      "title": "Scoring Origins",
+      "slug": "origin-production",
+      "files": 138,
+      "bytes": 11022599
+    },
+    {
+      "title": "NHL Draft History",
+      "slug": "draft-history",
+      "files": 36,
+      "bytes": 1574555
+    },
+    {
+      "title": "Player Atlas",
+      "slug": "player-atlas",
+      "files": 42,
+      "bytes": 10985122
+    },
+    {
+      "title": "Conference Race",
+      "slug": "conference-race",
+      "files": 21,
+      "bytes": 431834
+    },
+    {
+      "title": "Roster Age & Experience",
+      "slug": "age-experience",
+      "files": 31,
+      "bytes": 2400104
+    },
+    {
+      "title": "Game Control",
+      "slug": "game-control",
+      "files": 32,
+      "bytes": 30993598
+    },
+    {
+      "title": "Conference Matchups",
+      "slug": "conference-matchups",
+      "files": 45,
+      "bytes": 2586173
+    },
+    {
+      "title": "Shot Location Comparisons",
+      "slug": "shot-locations",
+      "files": 7,
+      "bytes": 738208
+    }
+  ],
+  "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
+  "release": "shot-study-launch-with-mixed-comparisons-and-optional-zone-borders",
+  "data_refresh": {
+    "date": "2026-10-12",
+    "season": "2026-27",
+    "through": "2026-10-11",
+    "men_scored_games": 74,
+    "women_scored_games": 101,
+    "men_boxes_validated": 74,
+    "women_boxes_validated": 101,
+    "box_requests": {
+      "men": 41,
+      "women": 31
+    },
+    "pending_boxes": [],
+    "scope": "Current-season data only; published application assets and private-page scope unchanged"
+  },
+  "shot_maps": {
+    "route": "shot-maps/",
+    "through": "2026-10-11",
+    "acceptedGames": 71,
+    "eligibleGames": 74
+  }
+}
