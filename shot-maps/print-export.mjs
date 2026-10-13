@@ -1,7 +1,8 @@
-import {faceoffMarkings} from './rink-geometry.mjs?v=c4c8c5d94363';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=c4c8c5d94363';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=c4c8c5d94363';
-import {summaryReference,compareSummary} from './summary-comparison.mjs?v=c4c8c5d94363';
+import {faceoffMarkings} from './rink-geometry.mjs?v=157209627a34';
+import {exportOutcome} from './export-outcome.mjs?v=157209627a34';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=157209627a34';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=157209627a34';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=157209627a34';
 
 export const PRINT_VERSION='connected-arch-print-1';
 export const PRINT_WIDTH=2400;
@@ -110,7 +111,8 @@ function rink(panel,snapshot,max,gray,i){
 export function renderPrintSVG(snapshot,{grayscale=false}={}){
   const gray=grayscale,W=PRINT_WIDTH,pad=80,gap=64,panelW=(W-pad*2-gap)/2,ink=gray?'#202020':'#183c32',muted=gray?'#555555':'#5b7162',line=gray?'#cccccc':'#cbd6ca';
   const titleLines=wrapped(snapshot.title,W-2*pad,68),filterLines=wrapped(snapshot.filterText,W-2*pad,29);
-  const metadataY=178+(titleLines.length-1)*76;
+  const outcome=exportOutcome(snapshot.outcome),bannerY=165+(titleLines.length-1)*76;
+  const metadataY=bannerY+182;
   const headerEnd=metadataY+38+(filterLines.length-1)*36+26;
   const nameLines=snapshot.panels.map(p=>wrapped(p.name,panelW-115,44)),nameHeight=Math.max(...nameLines.map(l=>l.length))*51;
   const rinkY=headerEnd+nameHeight+91,rinkH=panelW*(BLUE_LINE*10+6)/431,outsideY=rinkY+rinkH+17,summaryY=outsideY+87;
@@ -121,6 +123,10 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
   let body=rect(0,0,W,H,'#ffffff')+rect(pad,25,W-2*pad,5,ink);
   body+=text('COLLEGE HOCKEY DATA / SHOT ZONES',pad,66,27,ink,'font-weight="700" letter-spacing="2"');
   titleLines.forEach((s,j)=>body+=text(s,pad,135+j*76,68,ink,'font-weight="700"'));
+  body+=rect(pad,bannerY,W-2*pad,142,ink);
+  body+=text('MAP SHOWS',pad+28,bannerY+29,23,'#ffffff','font-weight="700" letter-spacing="2"');
+  body+=text(outcome.title,pad+28,bannerY+82,55,'#ffffff','font-weight="700"');
+  body+=text(outcome.definition,pad+28,bannerY+121,29,'#ffffff');
   body+=text(`${snapshot.seasonLabel} | Men's Division I | ${snapshot.context} | ${metric}`,pad,metadataY,29,muted);
   filterLines.forEach((s,j)=>body+=text(s,pad,metadataY+38+j*36,29,muted));
   for(const [i,p] of snapshot.panels.entries()){
@@ -128,7 +134,7 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
     if(p.logoData)body+=`<image href="${esc(p.logoData)}" x="${x}" y="${headerEnd+7}" width="88" height="88" preserveAspectRatio="xMidYMid meet"${gray?' filter="url(#monochrome-logo)"':''}/>`;
     else body+=rect(x,headerEnd+9,83,83,gray?'#eeeeee':'#edf2e9','rx="8"')+text(p.name.split(/\s+/).map(s=>s[0]).join('').slice(0,3),x+41.5,headerEnd+62,32,ink,'text-anchor="middle" font-weight="700"');
     nameLines[i].forEach((s,j)=>body+=text(s,x+111,nameY+j*51,44,ink,'font-weight="700"'));
-    body+=text(`${p.label} | ${fmt(p.total)} shown attempts`,x+111,headerEnd+nameHeight+36,28,muted);
+    body+=text(`${p.label} | ${fmt(p.total)} ${outcome.label.toLowerCase()}`,x+111,headerEnd+nameHeight+36,28,muted);
     body+=text(`${fmt(p.mappedGames)} / ${fmt(p.eligibleGames)} eligible games mapped`,x+111,headerEnd+nameHeight+72,26,muted);
     body+=`<svg x="${x}" y="${rinkY}" width="${panelW}" height="${rinkH}" viewBox="-3 -3 431 ${BLUE_LINE*10+6}">${rink(p,snapshot,max,gray,i)}</svg>`;
     const cardW=(panelW-18)/2;
@@ -138,7 +144,7 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
     });
     const summaryScope=snapshot.focus?snapshot.focus.name:'Whole rink';
     body+=text(`HOW ATTEMPTS ENDED / ${summaryScope}`,x,summaryY+27,25,ink,'font-weight="700"');
-    body+=text(`All outcomes | ${fmt(p.summary.total)} attempts`,x,summaryY+61,25,muted);
+    body+=text(`All outcomes, independent of map filter | ${fmt(p.summary.total)} attempts`,x,summaryY+61,24,muted);
     const outcomeColors=gray?['#272727','#858585','#dedede']:['#31553f','#88ab90','#dce5d6'];
     let cursor=x;
     p.summary.groups.forEach((group,j)=>{

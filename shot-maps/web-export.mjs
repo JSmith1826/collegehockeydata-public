@@ -1,4 +1,15 @@
 const logoImages=new Map();
+import {exportOutcome} from './export-outcome.mjs?v=157209627a34';
+export {exportOutcome} from './export-outcome.mjs?v=157209627a34';
+
+export function drawOutcomeBanner(context,outcome,x,y,width){
+  const heading=exportOutcome(outcome),height=142;
+  context.save();context.textAlign='left';context.fillStyle='#18453b';context.fillRect(x,y,width,height);
+  context.fillStyle='#c9dfd3';context.font='bold 19px Trebuchet MS';context.fillText('MAP SHOWS',x+26,y+28);
+  context.fillStyle='#ffffff';context.font='bold 52px Trebuchet MS';context.fillText(heading.title,x+26,y+83);
+  context.font='23px Trebuchet MS';context.fillStyle='#e5efe8';context.fillText(heading.definition,x+26,y+120);
+  context.restore();return y+height;
+}
 
 export function exportLogoFile(data,spec) {
   const file=data.teams.find(team=>String(team.id)===String(spec.team))?.logo;
