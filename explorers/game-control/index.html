@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-women-game-control="true">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,8 +7,10 @@
   <meta name="description" content="Interactive college hockey game-control and score-state analysis.">
   <title>Game Control · College Hockey Data</title>
   <link rel="icon" href="../../assets/site/chd_badge3.jpg">
-  <script type="module" crossorigin src="./assets/index-CBuGohd5.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Uj2BuVgK.css">
+
+
+  <script type="module" crossorigin src="./assets/index-DehLHoGi.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-BwQJGPXx.css">
 </head>
 <body>
   <header class="hero">
@@ -16,7 +18,7 @@
       <p class="eyebrow">COLLEGE HOCKEY DATA / GAME CONTROL</p>
       <h1>Time Leading,<br><em>Tied, and Trailing</em></h1>
       <p>How long each team played ahead, even, or behind — and what happened after the score moved.</p>
-      <div class="hero-meta"><span id="hero-season">2025–26</span><i></i><span id="hero-status">Loading archived goal timelines…</span></div>
+      <div class="hero-meta"><span id="hero-season">2025–26</span><i></i><span id="hero-status">Loading goal timelines…</span></div>
     </div>
     <div class="hero-rink" aria-hidden="true">
       <div class="center-line"></div><div class="blue-line one"></div><div class="blue-line two"></div>
@@ -28,20 +30,30 @@
     <section class="control-panel" aria-label="Game control filters">
       <div class="section-head"><span>01 / SET THE VIEW</span><small>Available archived goal-timeline seasons</small></div>
       <div class="control-grid">
+        <label id="competition-field" hidden>Competition<select id="competition"><option value="men">Men</option><option value="women">Women</option></select></label>
         <label>Season<select id="season"></select></label>
         <label>Programs<select id="conference"></select></label>
         <label>Games<select id="scope"><option value="all">All games</option><option value="conf">Conference games</option><option value="non">Nonconference games</option></select></label>
         <label>Order teams by<select id="sort"><option value="lead">Time leading</option><option value="control">Control margin</option><option value="tied">Time tied</option><option value="trail">Least time trailing</option><option value="hold">Lead retention</option><option value="recovery">Recovery rate</option></select></label>
       </div>
       <div id="filter-note" class="filter-note" role="status"></div>
+      <details id="coverage-details" class="coverage-details" hidden><summary id="coverage-summary">Goal-timeline coverage</summary><p id="coverage-note"></p><ul id="coverage-missing"></ul></details>
     </section>
-
     <section class="balance-section" aria-labelledby="balance-title">
       <div class="section-title-row">
         <div><span>02 / SEASON BALANCE</span><h2 id="balance-title">Time spent in every score state.</h2><p id="balance-deck">Loading team summaries…</p></div>
         <div class="balance-summary"><small>SELECTED VIEW</small><strong id="view-games">—</strong><span>team-games</span></div>
       </div>
       <div id="state-legend" class="state-legend" aria-label="Select a game state to emphasize"></div>
+      <div class="balance-export" aria-label="Export game balance image">
+        <label>Image layout<select id="export-layout"><option value="portrait">Portrait / tall profile</option><option value="landscape">Landscape</option></select></label>
+        <label>Teams to export<select id="export-range"><option value="top">Top of the current list</option><option value="all">All teams in this view</option></select></label>
+        <label id="export-count-field">Number of teams<input id="export-count" type="number" min="1" step="1" value="12"></label>
+        <button id="export-png" type="button" disabled>Download PNG</button>
+        <button id="export-svg" type="button" disabled>Download SVG</button>
+        <p id="export-note">Exports follow the current filters and team order. Every team gets a full-size row.</p>
+        <p id="export-status" role="status" aria-live="polite"></p>
+      </div>
       <div class="balance-columns"><span>PROGRAM</span><span>SHARE OF GAME TIME</span><span>LEAD / TIED / TRAIL</span></div>
       <div id="balance-chart" class="balance-chart" aria-live="polite"></div>
     </section>
@@ -71,8 +83,8 @@
 
     <section class="method-section">
       <span>05 / ABOUT THE DATA</span><h2>Built from every recorded goal.</h2>
-      <div class="method-grid"><p><b>Game balance</b>Time is accumulated between goals in seven states, from leading by three or more to trailing by three or more.</p><p><b>Overtime clock</b>Sudden-death games stop at the winning goal. Scoreless overtime and shootout games run through 65:00.</p><p><b>Data coverage</b>The unified archive stores final scores but not goal timestamps. This view combines historical goal timelines and recovered CHN box scores. Games with incomplete scoring timelines are excluded.</p></div>
-      <p class="source">Source: College Hockey News archived box-score data · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+      <div class="method-grid"><p><b>Game balance</b>Time is accumulated between goals in seven states, from leading by three or more to trailing by three or more.</p><p><b>Overtime clock</b>Sudden-death games stop at the winning goal. Scoreless overtime and shootout games run through 65:00.</p><p><b>Data coverage</b><span id="coverage-method">This view combines historical goal timelines and recovered CHN box scores. Games with incomplete scoring timelines are excluded.</span></p></div>
+      <p class="source"><span id="source-credit">Source: College Hockey News archived box-score data</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
     </section>
   </main>
 </body>

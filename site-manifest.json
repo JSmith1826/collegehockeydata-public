@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T01:26:47+00:00",
+  "generated_at": "2026-10-13T04:45:55+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -9,8 +9,8 @@
     {
       "title": "College Hockey Data",
       "slug": "season",
-      "files": 25,
-      "bytes": 8926353
+      "files": 26,
+      "bytes": 8955695
     },
     {
       "title": "Team Stat Explorer",
@@ -63,8 +63,8 @@
     {
       "title": "Game Control",
       "slug": "game-control",
-      "files": 32,
-      "bytes": 30993598
+      "files": 36,
+      "bytes": 31320281
     },
     {
       "title": "Conference Matchups",
@@ -75,8 +75,8 @@
     {
       "title": "Shot Location Comparisons",
       "slug": "shot-locations",
-      "files": 7,
-      "bytes": 738208
+      "files": 8,
+      "bytes": 802810
     }
   ],
   "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
@@ -101,5 +101,6 @@
     "through": "2026-10-11",
     "acceptedGames": 71,
     "eligibleGames": 74
-  }
+  },
+  "womens_game_control_published": true
 }

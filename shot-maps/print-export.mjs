@@ -1,4 +1,5 @@
-import {ZONES,BLUE_LINE,GOAL_LINE,DOT_DEPTH,CIRCLE_RADIUS,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs';
+import {faceoffMarkings} from './rink-geometry.mjs';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs';
 import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs';
 import {summaryReference,compareSummary} from './summary-comparison.mjs';
 
@@ -98,7 +99,7 @@ function rink(panel,snapshot,max,gray,i){
     else markup+=text(z.short,x,y-8,z.format==='point'?12:13,ink,anchor+' font-weight="700"')+text(value,x,y+16,19,ink,anchor+' font-weight="700"')+text(count,x,y+29,10,ink,anchor);
   }
   const rinkInk=gray?'#777777':'#b2766e';
-  markup+=`<g fill="none" stroke="${rinkInk}" stroke-width="1" opacity=".36"><path d="M0 ${GOAL_LINE*10}H425"/><circle cx="100" cy="${DOT_DEPTH*10}" r="${CIRCLE_RADIUS}"/><circle cx="325" cy="${DOT_DEPTH*10}" r="${CIRCLE_RADIUS}"/><path d="${CREASE_PATH}"/><g fill="${rinkInk}" stroke="none"><circle cx="100" cy="200" r="3"/><circle cx="325" cy="200" r="3"/></g><path d="M16 190H25M16 210H25M175 190H184M175 210H184M241 190H250M241 210H250M400 190H409M400 210H409"/></g>`;
+  markup+=`<g fill="none" stroke="${rinkInk}" stroke-width="1" opacity=".36"><path d="M0 ${GOAL_LINE*10}H425"/>${faceoffMarkings({dotRadius:3,ink:rinkInk})}<path d="${CREASE_PATH}"/></g>`;
   markup+=`<path d="M0 ${bottom}H425" stroke="${gray?'#6b6b6b':'#678796'}" stroke-width="1.6"/>`;
   if(!panel.total)markup+=rect(72,173,281,52,gray?'#ffffff':'#f8faf3','fill-opacity=".94"')+text('No mapped attempts',212.5,205,17,gray?'#303030':'#365f49',anchor);
   markup+='</g>';
