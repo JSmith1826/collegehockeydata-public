@@ -1,0 +1,11 @@
+/* The prepared logo contains the approved Exo 2 outlines. */
+.chd-brand-link{display:inline-flex;align-items:center;text-decoration:none;flex-shrink:0}
+.chd-brand-link:focus-visible{outline:3px solid #7bbd00;outline-offset:5px}
+.chd-brand-identity{display:flex;flex-direction:column;align-items:flex-start;gap:5px}
+.chd-brand-link .chd-brand-logo{display:block;width:280px;height:auto;max-width:100%;object-fit:contain;border:0;border-radius:0;box-shadow:none;transform:none}
+.chd-brand-link .chd-brand-compact{display:none;width:48px;height:48px;object-fit:contain;border:0;border-radius:0;box-shadow:none;transform:none}
+.chd-brand-link .chd-brand-tagline{display:block;margin:0;font:11px/1.4 'Segoe UI',Arial,sans-serif;letter-spacing:.035em;color:inherit;opacity:.78}
+@media(max-width:560px){
+  .chd-brand-link .chd-brand-logo,.chd-brand-link .chd-brand-tagline{display:none}
+  .chd-brand-link .chd-brand-compact{display:block}
+}

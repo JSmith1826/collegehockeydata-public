@@ -6,8 +6,12 @@
   <meta name="theme-color" content="#18453B">
   <title>Roster Age &amp; Experience · College Hockey Data</title>
   <meta name="description" content="Compare the age and experience of Division I men's college hockey rosters.">
-  <script type="module" crossorigin src="./assets/index-BiAyaUf8.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-BqQJabSI.css">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
+<link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
+  <script type="module" crossorigin src="./assets/index-w4oBwedh.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-RHLZEYoq.css">
 </head>
 <body>
   <header class="hero">
@@ -27,7 +31,7 @@
         <label>Season<select id="season"></select></label>
         <label>Conference<select id="conference"></select></label>
         <label>Position<select id="position"><option value="all">All positions</option><option value="F">Forwards</option><option value="D">Defense</option><option value="G">Goaltenders</option></select></label>
-        <label>Experience definition<select id="lens"><option value="class">Academic class</option><option value="experience">Observed D1 roster seasons</option></select></label>
+        <label>Experience definition<select id="lens"><option value="games">Prior D1 games played</option><option value="class">Academic class</option><option value="experience">Prior D1 roster seasons</option></select></label>
       </div>
       <div id="coverage" class="coverage"></div>
     </section>
@@ -71,7 +75,7 @@
       </div>
       <div class="roster-card">
         <div class="roster-head"><div><span>PLAYER DETAIL</span><h3 id="roster-title">Roster</h3></div><small>Click a column to sort</small></div>
-        <table><thead><tr><th><button data-player-sort="name">PLAYER ↕</button></th><th><button data-player-sort="position">POS ↕</button></th><th><button data-player-sort="class">CLASS ↕</button></th><th><button data-player-sort="age">AGE ↓</button></th><th><button data-player-sort="experience">PRIOR D1 ROSTERS ↕</button></th></tr></thead><tbody id="roster-body"></tbody></table>
+        <table><thead><tr><th><button data-player-sort="name">PLAYER ↕</button></th><th><button data-player-sort="position">POS ↕</button></th><th><button data-player-sort="class">CLASS ↕</button></th><th><button data-player-sort="age">AGE ↓</button></th><th><button data-player-sort="games">PRIOR D1 GP ↕</button></th><th><button data-player-sort="experience">PRIOR D1 ROSTERS ↕</button></th></tr></thead><tbody id="roster-body"></tbody></table>
       </div>
     </section>
 
@@ -82,8 +86,8 @@
 
     <section class="method-section">
       <span>06 / ABOUT THE DATA</span><h2>WHAT COUNTS AS EXPERIENCE.</h2>
-      <div class="method-grid"><p><b>Age</b>Calculated on October 1 of the selected roster season from the birth date reported by College Hockey News.</p><p><b>Academic class</b>The roster’s reported freshman, sophomore, junior, senior, or graduate designation.</p><p><b>Observed D1 experience</b>The number of earlier seasons in which the same player appears on a collected Division I roster. It is a roster-history measure, not an NCAA eligibility ruling.</p></div>
-      <p class="source">Source: College Hockey News roster archives · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+      <div class="method-grid"><p><b>Age</b>Calculated on October 1 of the selected roster season from the birth date reported by College Hockey News.</p><p><b>Academic class</b>The roster’s reported freshman, sophomore, junior, senior, or graduate designation.</p><p><b>Games played</b>Distinct recorded D1 games before the selected season, including games at other programs. Exhibitions and the selected season are excluded. ≥ marks incomplete earlier box coverage; — means unknown. Goalies need recorded playing time or saves, so an unused backup does not gain an appearance. Team averages use players with known counts.</p><p><b>Observed D1 roster history</b>The number of earlier seasons in which the same player appears on a collected Division I roster. It is a roster-history measure, not an NCAA eligibility ruling.</p></div>
+      <p class="source">Source: College Hockey News rosters and recorded game statistics · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
     </section>
   </main>
   <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> ROSTER AGE &amp; EXPERIENCE</footer>

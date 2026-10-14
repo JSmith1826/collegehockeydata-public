@@ -1,8 +1,9 @@
-import {faceoffMarkings} from './rink-geometry.mjs?v=d1559cfd3b60';
-import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=d1559cfd3b60';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=d1559cfd3b60';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=d1559cfd3b60';
-import {summaryReference,compareSummary} from './summary-comparison.mjs?v=d1559cfd3b60';
+import {brandExportSVG} from './export-branding.mjs?v=eed369e25187';
+import {faceoffMarkings} from './rink-geometry.mjs?v=eed369e25187';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=eed369e25187';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=eed369e25187';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=eed369e25187';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=eed369e25187';
 
 export const PRINT_VERSION='connected-arch-print-1';
 export const PRINT_WIDTH=2400;
@@ -177,12 +178,11 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
   body+=text(end,W-pad,legendY+33,24,muted,'text-anchor="end"');
   body+=text('Rinks end at the blue line. Outside cards retain every outside origin, including those beyond the displayed half.',pad,legendY+68,25,muted);
   body+=`<line x1="${pad}" y1="${footerY}" x2="${W-pad}" y2="${footerY}" stroke="${line}" stroke-width="2"/>`;
-  body+=text('CollegeHockeyData.com',pad,footerY+49,45,ink,'font-weight="700"');
   body+=text(`Results through ${snapshot.through} | Recorded locations: College Hockey News${snapshot.privatePreview?' | PRIVATE PREVIEW':''}`,W-pad,footerY+41,25,ink,'text-anchor="end"');
   body+=text(`Approximate locations | All game states combined | ${snapshot.partial?'Includes count-discrepancy charts':'Goal/on-net totals checked; miss/block completeness not established'}`,pad,footerY+78,24,muted);
   body+=text(`Near-line grouping uses rounded source coordinates | ${snapshot.version}`,pad,footerY+113,22,muted);
   const stops=Array.from({length:11},(_,i)=>{const t=i/10,value=diverging?max*(2*t-1):max*t;return `<stop offset="${t*100}%" stop-color="${gray?grayscaleFill(value,max):colorAt(value,max,diverging)}"/>`;}).join('');
   const definitions=`<linearGradient id="zone-scale">${stops}</linearGradient><filter id="monochrome-logo" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/></filter><pattern id="below-average" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M-1 1L1 -1M0 5L5 0M4 6L6 4" stroke="#000000" stroke-opacity=".24" stroke-width=".5"/></pattern>`;
   const safe={...snapshot,panels:snapshot.panels.map(({logoData,...p})=>p)};
-  return `<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Trebuchet MS,Arial,sans-serif"><title>${esc(snapshot.title+' - print shot-zone comparison')}</title><desc>${esc(snapshot.filterText+'; '+metric+'; cropped at blue line with all outside counts retained.')}</desc><metadata>${esc(JSON.stringify(safe))}</metadata><defs>${definitions}</defs>${body}</svg>`;
+  return brandExportSVG(`<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="${W}" height="${H}" viewBox="0 0 ${W} ${H}" font-family="Trebuchet MS,Arial,sans-serif"><title>${esc(snapshot.title+' - print shot-zone comparison')}</title><desc>${esc(snapshot.filterText+'; '+metric+'; cropped at blue line with all outside counts retained.')}</desc><metadata>${esc(JSON.stringify(safe))}</metadata><defs>${definitions}</defs>${body}</svg>`, W, H, {grayscale: gray});
 }

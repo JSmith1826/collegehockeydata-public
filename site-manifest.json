@@ -1,5 +1,5 @@
 {
-  "generated_at": "2026-10-13T04:45:55+00:00",
+  "generated_at": "2026-10-14T16:35:12+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
@@ -9,74 +9,74 @@
     {
       "title": "College Hockey Data",
       "slug": "season",
-      "files": 26,
-      "bytes": 8955695
+      "files": 28,
+      "bytes": 9002751
     },
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
-      "files": 22,
-      "bytes": 8982307
+      "files": 24,
+      "bytes": 9069422
     },
     {
       "title": "Roster Origins",
       "slug": "roster-origins",
-      "files": 35,
-      "bytes": 10037562
+      "files": 37,
+      "bytes": 10109948
     },
     {
       "title": "Preseason Production",
       "slug": "preseason-production",
-      "files": 24,
-      "bytes": 9291094
+      "files": 26,
+      "bytes": 9343783
     },
     {
       "title": "Scoring Origins",
       "slug": "origin-production",
-      "files": 138,
-      "bytes": 11022599
+      "files": 140,
+      "bytes": 11052660
     },
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
-      "files": 36,
-      "bytes": 1574555
+      "files": 38,
+      "bytes": 1621226
     },
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 42,
-      "bytes": 10985122
+      "files": 44,
+      "bytes": 12169444
     },
     {
       "title": "Conference Race",
       "slug": "conference-race",
-      "files": 21,
-      "bytes": 431834
+      "files": 23,
+      "bytes": 476179
     },
     {
       "title": "Roster Age & Experience",
       "slug": "age-experience",
-      "files": 31,
-      "bytes": 2400104
+      "files": 33,
+      "bytes": 2443033
     },
     {
       "title": "Game Control",
       "slug": "game-control",
-      "files": 36,
-      "bytes": 31320281
+      "files": 38,
+      "bytes": 31432216
     },
     {
       "title": "Conference Matchups",
       "slug": "conference-matchups",
-      "files": 45,
-      "bytes": 2586173
+      "files": 47,
+      "bytes": 2623268
     },
     {
       "title": "Shot Location Comparisons",
       "slug": "shot-locations",
-      "files": 8,
-      "bytes": 802810
+      "files": 10,
+      "bytes": 890043
     }
   ],
   "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
@@ -104,5 +104,6 @@
   },
   "womens_game_control_published": true,
   "about": "about/",
-  "image_reuse": "about/#reuse"
+  "image_reuse": "about/#reuse",
+  "brand_identity": "three-segment puck + Exo 2 Semibold 600"
 }
