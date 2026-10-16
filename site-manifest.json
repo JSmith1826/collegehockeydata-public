@@ -10,73 +10,73 @@
       "title": "College Hockey Data",
       "slug": "season",
       "files": 28,
-      "bytes": 9002751
+      "bytes": 9002795
     },
     {
       "title": "Team Stat Explorer",
       "slug": "team-stats",
       "files": 24,
-      "bytes": 9069422
+      "bytes": 9069541
     },
     {
       "title": "Roster Origins",
       "slug": "roster-origins",
       "files": 37,
-      "bytes": 10109948
+      "bytes": 10107310
     },
     {
       "title": "Preseason Production",
       "slug": "preseason-production",
       "files": 26,
-      "bytes": 9343783
+      "bytes": 9349878
     },
     {
       "title": "Scoring Origins",
       "slug": "origin-production",
       "files": 140,
-      "bytes": 11052660
+      "bytes": 11005593
     },
     {
       "title": "NHL Draft History",
       "slug": "draft-history",
       "files": 38,
-      "bytes": 1621226
+      "bytes": 1618365
     },
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
       "files": 44,
-      "bytes": 12169444
+      "bytes": 12168247
     },
     {
       "title": "Conference Race",
       "slug": "conference-race",
       "files": 23,
-      "bytes": 476179
+      "bytes": 476194
     },
     {
       "title": "Roster Age & Experience",
       "slug": "age-experience",
       "files": 33,
-      "bytes": 2443033
+      "bytes": 2442538
     },
     {
       "title": "Game Control",
       "slug": "game-control",
       "files": 38,
-      "bytes": 31432216
+      "bytes": 31432231
     },
     {
       "title": "Conference Matchups",
       "slug": "conference-matchups",
       "files": 47,
-      "bytes": 2623268
+      "bytes": 2623284
     },
     {
       "title": "Shot Location Comparisons",
       "slug": "shot-locations",
       "files": 10,
-      "bytes": 890043
+      "bytes": 890105
     }
   ],
   "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
@@ -105,5 +105,14 @@
   "womens_game_control_published": true,
   "about": "about/",
   "image_reuse": "about/#reuse",
-  "brand_identity": "three-segment puck + Exo 2 Semibold 600"
+  "brand_identity": "three-segment puck + Exo 2 Semibold 600",
+  "roster_corrections": {
+    "date": "2026-10-16",
+    "season": "2026-27",
+    "roster_players": 1781,
+    "RIT": 27,
+    "Lake_Superior_State": 29,
+    "reviewed_measurement_rows": 51,
+    "private_matchup_material_included": false
+  }
 }
