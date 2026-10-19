@@ -1,9 +1,9 @@
-import {brandExportSVG} from './export-branding.mjs?v=eed369e25187';
-import {faceoffMarkings} from './rink-geometry.mjs?v=eed369e25187';
-import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=eed369e25187';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=eed369e25187';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=eed369e25187';
-import {summaryReference,compareSummary} from './summary-comparison.mjs?v=eed369e25187';
+import {brandExportSVG} from './export-branding.mjs?v=011eb8549a83';
+import {faceoffMarkings} from './rink-geometry.mjs?v=011eb8549a83';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=011eb8549a83';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=011eb8549a83';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=011eb8549a83';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=011eb8549a83';
 
 export const PRINT_VERSION='connected-arch-print-1';
 export const PRINT_WIDTH=2400;
@@ -32,7 +32,7 @@ function filters(state,data){
     state.period==='all'?'All periods':state.period==='ot'?'Overtime':`${['First','Second','Third'][Number(state.period)-1]} period`,
     state.venue==='all'?'Home & away':`Listed ${state.venue}`,
     state.scope==='all'?'Regular season + postseason':state.scope==='regular'?'Regular season':'Conference + NCAA postseason',
-    ...(state.partial?['Count discrepancies included']:[])].join(' | ');
+    ...(state.exact?['Exact matches only']:state.partial?['Larger count discrepancies included']:['Up to one shot difference per side accepted'])].join(' | ');
 }
 function outsideGroups(population){
   const cut=BLUE_LINE+3*DESIGN_PIXELS_PER_FOOT/10;
@@ -60,7 +60,7 @@ export function buildPrintSnapshot(data,state,specs,{focus='whole',referenceMode
     const outside=outsideGroups(p),baseOutside=spec.baseline?outsideGroups(spec.baseline):[];
     return {name:spec.name,label:spec.label,perspective:spec.perspective,team:spec.team,
       logo:data.teams.find(t=>String(t.id)===String(spec.team))?.logo||'',logoData:null,
-      total:p.total,allTotal:p.allPoints.length,mappedGames:p.mappedGames,eligibleGames:p.games,mappedAppearances:p.mappedAppearances,
+      total:p.total,allTotal:p.allPoints.length,mappedGames:p.mappedGames,eligibleGames:p.games,mappedAppearances:p.mappedAppearances,minorDiscrepancyGames:p.minorDiscrepancyGames||0,
       skipped:{...p.skipped},beyondHalf:p.beyondHalf,
       zones:ZONES.filter(z=>z.id!=='outside').map(z=>({id:z.id,count:p.counts[z.id],value:zoneValue(p,z.id,state.measure,spec.baseline)})),
       outside:outside.map((g,j)=>({...g,value:groupValue(g.count,p,state.measure,baseOutside[j]?.count,spec.baseline)})),
@@ -71,7 +71,7 @@ export function buildPrintSnapshot(data,state,specs,{focus='whole',referenceMode
   return {version:PRINT_VERSION,privatePreview:data.privatePreview!==false,season:data.season,seasonLabel:data.label.replace(/[–—]/g,'-'),through:data.through,
     title:same?`${panels[0].name}: shots taken & faced`:`${panels[0].name} & ${panels[1].name}`,
     filterText:filters(state,data),measure:state.measure,outcome:state.outcome,outcomeLabel:OUTCOMES[state.outcome],
-    focus:zone?{id:zone.id,name:zone.name}:null,partial:!!state.partial,
+    focus:zone?{id:zone.id,name:zone.name}:null,partial:!!state.partial,exact:!!state.exact,
     context:same?'Season profile':'Season profiles',panels,
     configuration:{...state},studyUrl:`${studyBase}?${new URLSearchParams(Object.entries(state).map(([k,v])=>[k,String(v)]))}`};
 }
@@ -136,7 +136,7 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
     else body+=rect(x,headerEnd+9,83,83,gray?'#eeeeee':'#edf2e9','rx="8"')+text(p.name.split(/\s+/).map(s=>s[0]).join('').slice(0,3),x+41.5,headerEnd+62,32,ink,'text-anchor="middle" font-weight="700"');
     nameLines[i].forEach((s,j)=>body+=text(s,x+111,nameY+j*51,44,ink,'font-weight="700"'));
     body+=text(`${p.label} | ${fmt(p.total)} ${outcome.label.toLowerCase()}`,x+111,headerEnd+nameHeight+36,28,muted);
-    body+=text(`${fmt(p.mappedGames)} / ${fmt(p.eligibleGames)} eligible games mapped`,x+111,headerEnd+nameHeight+72,26,muted);
+    body+=text(`${fmt(p.mappedGames)} / ${fmt(p.eligibleGames)} eligible games mapped${p.minorDiscrepancyGames?` | ${p.minorDiscrepancyGames} with a 1-shot discrepancy`:''}`,x+111,headerEnd+nameHeight+72,26,muted);
     const direction=exportPerspective(p.perspective);
     body+=rect(x,directionY,panelW,126,gray?ink:direction.color);
     body+=text(direction.title,x+26,directionY+55,52,'#ffffff','font-weight="700"');
@@ -179,7 +179,7 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
   body+=text('Rinks end at the blue line. Outside cards retain every outside origin, including those beyond the displayed half.',pad,legendY+68,25,muted);
   body+=`<line x1="${pad}" y1="${footerY}" x2="${W-pad}" y2="${footerY}" stroke="${line}" stroke-width="2"/>`;
   body+=text(`Results through ${snapshot.through} | Recorded locations: College Hockey News${snapshot.privatePreview?' | PRIVATE PREVIEW':''}`,W-pad,footerY+41,25,ink,'text-anchor="end"');
-  body+=text(`Approximate locations | All game states combined | ${snapshot.partial?'Includes count-discrepancy charts':'Goal/on-net totals checked; miss/block completeness not established'}`,pad,footerY+78,24,muted);
+  body+=text(`Approximate locations | All game states combined | ${snapshot.exact?'Exact matches only':snapshot.partial?'Includes larger discrepancies':'Per side: matching goals; up to 1 shot difference; dots retained'}`,pad,footerY+78,24,muted);
   body+=text(`Near-line grouping uses rounded source coordinates | ${snapshot.version}`,pad,footerY+113,22,muted);
   const stops=Array.from({length:11},(_,i)=>{const t=i/10,value=diverging?max*(2*t-1):max*t;return `<stop offset="${t*100}%" stop-color="${gray?grayscaleFill(value,max):colorAt(value,max,diverging)}"/>`;}).join('');
   const definitions=`<linearGradient id="zone-scale">${stops}</linearGradient><filter id="monochrome-logo" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/></filter><pattern id="below-average" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M-1 1L1 -1M0 5L5 0M4 6L6 4" stroke="#000000" stroke-opacity=".24" stroke-width=".5"/></pattern>`;

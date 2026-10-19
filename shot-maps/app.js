@@ -1,24 +1,25 @@
-import {brandExportCanvas} from './export-branding.mjs?v=eed369e25187';
-import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=eed369e25187';
-import {createSelectionMemory} from './selection-memory.mjs?v=eed369e25187';
-import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=eed369e25187';
-import {teamStyle} from './team-style.mjs?v=eed369e25187';
-import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=eed369e25187';
-import {faceoffMarkings} from './rink-geometry.mjs?v=eed369e25187';
-import {areaPanelMarkup} from './area-panel.mjs?v=eed369e25187';
-import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=eed369e25187';
-import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=eed369e25187';
-import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs?v=eed369e25187';
-import {zoneBorderStyle} from './zone-borders.mjs?v=eed369e25187';
-import {comparisonSpecs} from './comparison-specs.mjs?v=eed369e25187';
+import {brandExportCanvas} from './export-branding.mjs?v=011eb8549a83';
+import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=011eb8549a83';
+import {createSelectionMemory} from './selection-memory.mjs?v=011eb8549a83';
+import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=011eb8549a83';
+import {teamStyle} from './team-style.mjs?v=011eb8549a83';
+import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=011eb8549a83';
+import {faceoffMarkings} from './rink-geometry.mjs?v=011eb8549a83';
+import {areaPanelMarkup} from './area-panel.mjs?v=011eb8549a83';
+import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=011eb8549a83';
+import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=011eb8549a83';
+import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs?v=011eb8549a83';
+import {zoneBorderStyle} from './zone-borders.mjs?v=011eb8549a83';
+import {comparisonSpecs} from './comparison-specs.mjs?v=011eb8549a83';
 
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n.toLocaleString('en-US'),pct=(n,d)=>d?`${(100*n/d).toFixed(1)}%`:'—';
-const defaults={season:2025,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:false,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
+const defaults={season:2025,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,exact:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:false,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
 const state={...defaults},selectionMemory=createSelectionMemory(defaults);
 try{const saved=localStorage.getItem('chd-shot-map-theme');if(['dark','light'].includes(saved))state.theme=saved;}catch{}
 const params=new URLSearchParams(location.search);
 for(const key of Object.keys(defaults))if(params.has(key))state[key]=params.get(key);
+state.exact=state.exact===true||state.exact==='true';
 state.season=Number(state.season);state.partial=state.partial===true||state.partial==='true';state.goals=state.goals===true||state.goals==='true';state.unusual=state.unusual===true||state.unusual==='true';
 state.zoneBorders=state.zoneBorders===true||state.zoneBorders==='true';
 let index,data,current=[],loadGeneration=0,exporting=false,inspectionZone=null;
@@ -70,7 +71,7 @@ function syncControls(){
   if(!ZONES.some(z=>z.id===state.zone))state.zone=null;
   $('export-focus').options[1].disabled=!state.zone;
   if(!state.zone)$('export-focus').value='whole';
-  $('partial').checked=state.partial;
+  $('partial').checked=state.partial;$('exact').checked=state.exact;$('partial').disabled=state.exact;
   document.querySelectorAll('[data-layout]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.layout===state.layout));
   document.querySelectorAll('[data-view]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===state.view));
   document.querySelectorAll('[data-outcome]').forEach(b=>b.setAttribute('aria-pressed',b.dataset.outcome===state.outcome));
@@ -115,7 +116,7 @@ function describeFilters(){
   if(state.period!=='all')parts.push(state.period==='ot'?'Overtime':`${['First','Second','Third'][Number(state.period)-1]} period`);
   if(state.venue!=='all')parts.push(`Listed ${state.venue}`);
   if(state.scope!=='all')parts.push(state.scope==='regular'?'Regular season':'Conference & NCAA postseason');
-  if(state.partial)parts.push('Count discrepancies included');
+  if(state.exact)parts.push('Exact matches only');else if(state.partial)parts.push('Larger count discrepancies included');
   return parts.join(' · ');
 }
 function populationSpec(){
@@ -318,7 +319,7 @@ function render(){
     const name=state.layout==='profile'?spec.label:spec.name;
     const subtitle=state.layout==='profile'?spec.name:spec.label;
     const branded=state.palette==='team'&&state.theme==='dark'&&state.view==='heatmap',brand=teamStyle(data.teams.find(t=>String(t.id)===spec.team));
-    return `<article class="map-card${branded?' map-team-color':''}"${branded?` style="--team-panel:${brand.panel};--team-accent:${brand.accent};--team-text:${brand.text};--team-muted:${brand.muted};--team-base:${brand.base}"`: ''}><div class="card-heading">${logo?`<img src="../assets/logos/${encodeURIComponent(logo)}" alt="">`:''}<div><h3>${esc(name)}</h3><p>${esc(subtitle)} · ${fmt(p.mappedGames)} mapped games</p></div><span class="card-view-label">${state.view==='heatmap'?'SHOT CONCENTRATION':state.view==='zones'?'BY AREA':state.marks==='grouped'?'RECORDED LOCATIONS':'RECORDED ATTEMPTS'}</span></div><div class="map-stage"><p class="map-direction">Attacking end ↑</p><div class="map-wrap">${rinkSVG(spec,i,max,grids[i],heatMax,locationGroups[i],pointMax)}</div></div><section class="area-panel" id="area-panel-${i}" aria-label="${esc(name+' area outcomes')}">${areaPanelMarkup(p,inspectionZone)}</section>${summaryControl(spec,i)}<p class="map-note">Whole map: ${fmt(p.allPoints.length)} recorded attempts across ${fmt(p.mappedAppearances)} team games in the selected period. On net (goals + saves): ${pct(p.outcomes[0]+p.outcomes[1],p.allPoints.length)}. Map: ${esc(labels[state.outcome].toLowerCase())}${p.beyondHalf?` · ${fmt(p.beyondHalf)} origins beyond this half-rink remain in the totals.`:'.'}</p></article>`;
+    return `<article class="map-card${branded?' map-team-color':''}"${branded?` style="--team-panel:${brand.panel};--team-accent:${brand.accent};--team-text:${brand.text};--team-muted:${brand.muted};--team-base:${brand.base}"`: ''}><div class="card-heading">${logo?`<img src="../assets/logos/${encodeURIComponent(logo)}" alt="">`:''}<div><h3>${esc(name)}</h3><p>${esc(subtitle)} · ${fmt(p.mappedGames)} mapped games${p.minorDiscrepancyGames?` · ${fmt(p.minorDiscrepancyGames)} with a 1-shot discrepancy`:''}</p></div><span class="card-view-label">${state.view==='heatmap'?'SHOT CONCENTRATION':state.view==='zones'?'BY AREA':state.marks==='grouped'?'RECORDED LOCATIONS':'RECORDED ATTEMPTS'}</span></div><div class="map-stage"><p class="map-direction">Attacking end ↑</p><div class="map-wrap">${rinkSVG(spec,i,max,grids[i],heatMax,locationGroups[i],pointMax)}</div></div><section class="area-panel" id="area-panel-${i}" aria-label="${esc(name+' area outcomes')}">${areaPanelMarkup(p,inspectionZone)}</section>${summaryControl(spec,i)}<p class="map-note">Whole map: ${fmt(p.allPoints.length)} recorded attempts across ${fmt(p.mappedAppearances)} team games in the selected period. On net (goals + saves): ${pct(p.outcomes[0]+p.outcomes[1],p.allPoints.length)}. Map: ${esc(labels[state.outcome].toLowerCase())}${p.beyondHalf?` · ${fmt(p.beyondHalf)} origins beyond this half-rink remain in the totals.`:'.'}</p></article>`;
   }).join('');
   $('map-grid').querySelectorAll('[data-summary]').forEach(select=>select.addEventListener('change',()=>{
     const i=Number(select.dataset.summary),mode=select.value;
@@ -341,11 +342,11 @@ function render(){
   if(state.view==='zones')$('map-legend').insertAdjacentHTML('beforeend','<div class="slice-key"><span><b>Low / upper wings</b> A single horizontal split on each side</span><span>Hover or tap for full names and counts.</span></div>');
   renderFindings(specs);
   const p=specs[0].population;
-  $('coverage-summary').classList.toggle('warning',p.mappedGames<p.games||state.partial);
-  const coverageText=s=>`${s.name}: ${fmt(s.population.mappedGames)} of ${fmt(s.population.games)} eligible games mapped`;
-  $('coverage-summary').innerHTML=`<strong>Coverage matters.</strong><span>${esc(state.layout==='profile'?`${fmt(p.mappedGames)} of ${fmt(p.games)} eligible games mapped.`:specs.map(coverageText).join(' · ')+'.')} Missing charts and unknown directions are excluded.${state.partial?' Count discrepancies are included.':' Goal and on-net counts must match the box totals.'} Miss and block completeness is not established by that check.</span>`;
+  $('coverage-summary').classList.toggle('warning',specs.some(s=>s.population.mappedGames<s.population.games||s.population.minorDiscrepancyGames)||state.partial);
+  const coverageText=s=>`${s.name} ${s.label.toLowerCase()}: ${fmt(s.population.mappedGames)} of ${fmt(s.population.games)} eligible games mapped${s.population.minorDiscrepancyGames?` (${fmt(s.population.minorDiscrepancyGames)} with a 1-shot discrepancy)`:''}`;
+  $('coverage-summary').innerHTML=`<strong>Coverage matters.</strong><span>${esc(specs.map(coverageText).join(' | ')+'.')} Each team's locations are checked separately. ${state.exact?'Exact goal and on-net matches only.':'Goals must match; a one-shot on-net difference is included and flagged.'}${state.partial&&!state.exact?' Larger count discrepancies are also included by request.':''} Missing charts and unusable directions are excluded. Miss/block completeness is not established.</span>`;
   const c=data.coverage;
-  $('coverage-details').textContent=`${data.label}: ${fmt(c.chartedGames||0)} of ${fmt(c.eligibleGames||0)} eligible games have location charts. ${fmt(c.verifiedMappedGames||0)} also pass the goal/on-net checks and preserve direction. ${fmt(c.directionUnknownGames||0)} charted games lack usable direction information. ${fmt(c.countMismatchGames||0)} direction-known charts have count discrepancies. Results through ${data.through}. Women's locations are not available in this archive.`;
+  $('coverage-details').textContent=`${data.label}: ${fmt(c.chartedGames||0)} of ${fmt(c.eligibleGames||0)} eligible games have location charts. ${fmt(c.verifiedMappedGames||0)} match both teams' goal/on-net totals and preserve direction. ${fmt(c.directionUnknownGames||0)} charted games lack usable direction information. ${fmt(c.countMismatchGames||0)} direction-known charts have count discrepancies. ${fmt(c.minorDiscrepancyTeamSides||0)} team samples have a one-shot difference. Results through ${data.through}. Women's locations are not available in this archive.`;
   renderArea();saveState();
 }
 function hideZoneTooltip(){
@@ -527,7 +528,7 @@ async function saveImage(){
     for(let i=0;i<2;i++){
       const spec=exportSpecs[i];ctx.drawImage(images[i],xs[i],mapY,panelWidth,mapHeight);
       ctx.font='23px Trebuchet MS';ctx.fillStyle='#516d60';
-      detailsBottom=Math.max(detailsBottom,drawWrapped(ctx,`${fmt(spec.population.total)} ${outcomeHeading.label.toLowerCase()} shown · ${fmt(spec.population.mappedGames)} / ${fmt(spec.population.games)} eligible games mapped`,xs[i],mapBottom+35,panelWidth,31));
+      detailsBottom=Math.max(detailsBottom,drawWrapped(ctx,`${fmt(spec.population.total)} ${outcomeHeading.label.toLowerCase()} shown · ${fmt(spec.population.mappedGames)} / ${fmt(spec.population.games)} eligible games mapped${spec.population.minorDiscrepancyGames?` · ${spec.population.minorDiscrepancyGames} with a 1-shot discrepancy`:''}`,xs[i],mapBottom+35,panelWidth,31));
     }
     let contentBottom=detailsBottom;
     for(let i=0;i<2;i++)if(exportReferences[i]){
@@ -557,7 +558,7 @@ async function saveImage(){
     const sliceNote=exportState.view==='zones'?' Low wings include tight-angle ice around the goal line. Center point is a narrow lane.':'';
     const noteBottom=drawWrapped(ctx,measurement+markerNote+sliceNote,pad,noteY,width-pad*2,31);
     ctx.font='21px Trebuchet MS';ctx.fillStyle='#516d60';
-    const coverageBottom=drawWrapped(ctx,'All game states combined. Unknown directions and missing charts excluded. '+(exportState.partial?'Count discrepancies included.':'Goal and on-net totals checked; miss/block completeness not established.'),pad,noteBottom+5,width-pad*2,29);
+    const coverageBottom=drawWrapped(ctx,'All game states combined. Unknown directions and missing charts excluded. '+(exportState.exact?'Exact matches only.':exportState.partial?'Larger count discrepancies included.':'Each side checked; matching goals and up to one SOG difference accepted. Source dots retained.')+' Miss/block completeness unverified.',pad,noteBottom+5,width-pad*2,29);
     const footerY=coverageBottom+14,height=footerY+104;
     ctx.fillStyle='#18453b';ctx.fillRect(0,footerY,width,104);ctx.fillStyle='#fff';ctx.font='bold 40px Trebuchet MS';
     if(exportData.privatePreview)ctx.fillText('PRIVATE PREVIEW',pad,footerY+46);
@@ -615,6 +616,7 @@ for(const [key,id] of Object.entries(controlIds))$(id).addEventListener('change'
   render();
 });
 $('season').addEventListener('change',()=>{state.season=Number($('season').value);state.zone=null;inspectionZone=null;loadSeason();});
+$('exact').addEventListener('change',()=>{state.exact=$('exact').checked;render();});
 $('partial').addEventListener('change',()=>{state.partial=$('partial').checked;render();});
 $('goals').addEventListener('change',()=>{state.goals=$('goals').checked;render();});
 $('unusual').addEventListener('change',()=>{state.unusual=$('unusual').checked;render();});

@@ -1,5 +1,5 @@
-import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=eed369e25187';
-export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=eed369e25187';
+import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=011eb8549a83';
+export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=011eb8549a83';
 export const OUTCOME_NAMES = ['Goals','Saved','Missed','Blocked'];
 export const OUTCOME_COLORS = ['#b6523d','#18453b','#ab822e','#647d90'];
 
@@ -24,11 +24,20 @@ export function matchesPeriod(point,period) {
   return period==='all'||(period==='ot'?point[1]>=4:point[1]===Number(period));
 }
 
+export function sideReconciliation(game,side){
+  return game.reconciliation?.[side]||{status:game.status,shotDifference:null};
+}
+export function acceptsSide(game,side,state={}){
+  const status=sideReconciliation(game,side).status;
+  return status==='verified'||(!state.exact&&status==='minor_discrepancy')||(!state.exact&&state.partial&&status==='count_mismatch');
+}
+
 export function selectPopulation(data,state,perspective='taken') {
   const subjects=new Set(data.teams.map((t,i)=>[t,i]).filter(([t])=>
     (state.conference==='all'||t.conference===state.conference) && (state.team==='all'||String(t.id)===state.team)).map(([,i])=>i));
   const eligible=new Set(),mapped=new Set(),skipped={missing:new Set(),direction_unknown:new Set(),count_mismatch:new Set()};
-  let appearances=0,mappedAppearances=0;
+  let appearances=0,mappedAppearances=0,minorDiscrepancyAppearances=0,reviewAppearances=0;
+  const discrepancyGames=new Set();
   const allPoints=[],allPointGameIndexes=[];
   data.games.forEach((game,index)=>{
     if(state.scope==='regular'&&game.postseason || state.scope==='postseason'&&!game.postseason)return;
@@ -39,10 +48,12 @@ export function selectPopulation(data,state,perspective='taken') {
       if(state.opponentConference!=='all'&&data.teams[opponent].conference!==state.opponentConference)continue;
       if(state.opponentTeam!=='all'&&String(data.teams[opponent].id)!==state.opponentTeam)continue;
       eligible.add(index);appearances++;
-      const accepted=game.status==='verified'||(state.partial&&game.status==='count_mismatch');
-      if(!accepted){skipped[game.status]?.add(index);continue;}
+      const shotSide=perspective==='faced'?1-side:side,fact=sideReconciliation(game,shotSide);
+      const accepted=acceptsSide(game,shotSide,state);
+      if(!accepted){skipped[fact.status==='minor_discrepancy'?'count_mismatch':fact.status]?.add(index);continue;}
       mapped.add(index);mappedAppearances++;
-      const shotSide=perspective==='faced'?1-side:side;
+      if(fact.status==='minor_discrepancy'){minorDiscrepancyAppearances++;discrepancyGames.add(index);}
+      if(fact.status==='count_mismatch')reviewAppearances++;
       for(const point of game.shots)if(point[0]===shotSide&&matchesPeriod(point,state.period)){
         allPoints.push(point);allPointGameIndexes.push(index);
       }
@@ -58,7 +69,7 @@ export function selectPopulation(data,state,perspective='taken') {
   for(const p of allPoints){const zone=zoneOf(p);outcomes[p[4]]++;outcomesByZone[zone][p[4]]++;if(matchesOutcome(p,state.outcome))counts[zone]++;}
   const scorerNames=new Map((data.players||[]).filter(p=>p.id!==undefined&&p.id!==null&&typeof p.name==='string'&&p.name.trim()).map(p=>[String(p.id),p.name]));
   return {points,allPoints,pointGameIndexes,allPointGameIndexes,scorerNames,counts,outcomes,outcomesByZone,total:points.length,appearances,mappedAppearances,
-    games:eligible.size,mappedGames:mapped.size,skipped:Object.fromEntries(Object.entries(skipped).map(([k,v])=>[k,v.size])),
+    games:eligible.size,mappedGames:mapped.size,minorDiscrepancyAppearances,minorDiscrepancyGames:discrepancyGames.size,reviewAppearances,skipped:Object.fromEntries(Object.entries(skipped).map(([k,v])=>[k,v.size])),
     beyondHalf:points.filter(p=>p[2]>50).length};
 }
 

@@ -1,1 +1,121 @@
-{"generated_at":"2026-10-18T18:47:37+00:00","domain":"collegehockeydata.com","cloudflare_web_analytics":false,"womens_section_published":true,"homepage":"look-closer","study_index":"studies.html","explorers":[{"title":"College Hockey Data","slug":"season","files":28,"bytes":9702092},{"title":"Team Stat Explorer","slug":"team-stats","files":24,"bytes":9768838},{"title":"Roster Origins","slug":"roster-origins","files":37,"bytes":10108369},{"title":"Preseason Production","slug":"preseason-production","files":26,"bytes":9349878},{"title":"Scoring Origins","slug":"origin-production","files":140,"bytes":11006535},{"title":"NHL Draft History","slug":"draft-history","files":38,"bytes":1618536},{"title":"Player Atlas","slug":"player-atlas","files":44,"bytes":12165609},{"title":"Conference Race","slug":"conference-race","files":23,"bytes":477122},{"title":"Roster Age & Experience","slug":"age-experience","files":33,"bytes":2442538},{"title":"Game Control","slug":"game-control","files":38,"bytes":31396773},{"title":"Conference Matchups","slug":"conference-matchups","files":47,"bytes":2641353},{"title":"Shot Location Comparisons","slug":"shot-locations","files":10,"bytes":923670}],"source_revision":"7365ee0375f7bb6117b66523d0d0336fdaedd412","release":"shot-study-launch-with-mixed-comparisons-and-optional-zone-borders","data_refresh":{"date":"2026-10-18","season":"2026-27","through":"2026-10-17","men_scored_games":120,"women_scored_games":142,"men_boxes_validated":120,"women_boxes_validated":142,"box_requests":{"men":66,"women":46},"pending_boxes":[],"scope":"Current-season data only; published application assets and historical payloads unchanged"},"shot_maps":{"route":"shot-maps/","through":"2026-10-17","acceptedGames":114,"eligibleGames":120},"womens_game_control_published":true,"about":"about/","image_reuse":"about/#reuse","brand_identity":"three-segment puck + Exo 2 Semibold 600","roster_corrections":{"date":"2026-10-16","season":"2026-27","roster_players":1781,"RIT":27,"Lake_Superior_State":29,"reviewed_measurement_rows":51,"private_matchup_material_included":false}}
+{
+  "generated_at": "2026-10-19T16:04:27+00:00",
+  "domain": "collegehockeydata.com",
+  "cloudflare_web_analytics": false,
+  "womens_section_published": true,
+  "homepage": "look-closer",
+  "study_index": "studies.html",
+  "explorers": [
+    {
+      "title": "College Hockey Data",
+      "slug": "season",
+      "files": 28,
+      "bytes": 9702981
+    },
+    {
+      "title": "Team Stat Explorer",
+      "slug": "team-stats",
+      "files": 24,
+      "bytes": 9769727
+    },
+    {
+      "title": "Roster Origins",
+      "slug": "roster-origins",
+      "files": 37,
+      "bytes": 10108389
+    },
+    {
+      "title": "Preseason Production",
+      "slug": "preseason-production",
+      "files": 26,
+      "bytes": 9349878
+    },
+    {
+      "title": "Scoring Origins",
+      "slug": "origin-production",
+      "files": 140,
+      "bytes": 11006539
+    },
+    {
+      "title": "NHL Draft History",
+      "slug": "draft-history",
+      "files": 38,
+      "bytes": 1618536
+    },
+    {
+      "title": "Player Atlas",
+      "slug": "player-atlas",
+      "files": 44,
+      "bytes": 12165594
+    },
+    {
+      "title": "Conference Race",
+      "slug": "conference-race",
+      "files": 23,
+      "bytes": 477158
+    },
+    {
+      "title": "Roster Age & Experience",
+      "slug": "age-experience",
+      "files": 33,
+      "bytes": 2442538
+    },
+    {
+      "title": "Game Control",
+      "slug": "game-control",
+      "files": 38,
+      "bytes": 31397651
+    },
+    {
+      "title": "Conference Matchups",
+      "slug": "conference-matchups",
+      "files": 47,
+      "bytes": 2641353
+    },
+    {
+      "title": "Shot Location Comparisons",
+      "slug": "shot-locations",
+      "files": 11,
+      "bytes": 3320994
+    }
+  ],
+  "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
+  "release": "team-side-shot-reconciliation-v1",
+  "data_refresh": {
+    "date": "2026-10-19",
+    "season": "2026-27",
+    "through": "2026-10-18",
+    "men_scored_games": 121,
+    "women_scored_games": 142,
+    "men_boxes_validated": 121,
+    "women_boxes_validated": 142,
+    "box_requests": {
+      "men": 66,
+      "women": 46
+    },
+    "pending_boxes": [],
+    "scope": "Current-season data only; published application assets and historical payloads unchanged"
+  },
+  "shot_maps": {
+    "route": "shot-maps/",
+    "through": "2026-10-18",
+    "acceptedGames": 121,
+    "eligibleGames": 121,
+    "exactGames": 115,
+    "minorDiscrepancyTeamSides": 6,
+    "reconciliationPolicy": 1
+  },
+  "womens_game_control_published": true,
+  "about": "about/",
+  "image_reuse": "about/#reuse",
+  "brand_identity": "three-segment puck + Exo 2 Semibold 600",
+  "roster_corrections": {
+    "date": "2026-10-16",
+    "season": "2026-27",
+    "roster_players": 1781,
+    "RIT": 27,
+    "Lake_Superior_State": 29,
+    "reviewed_measurement_rows": 51,
+    "private_matchup_material_included": false
+  }
+}
