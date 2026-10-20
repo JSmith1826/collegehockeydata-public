@@ -58,7 +58,7 @@
       "title": "Roster Age & Experience",
       "slug": "age-experience",
       "files": 33,
-      "bytes": 2442538
+      "bytes": 2985308
     },
     {
       "title": "Game Control",
@@ -117,5 +117,10 @@
     "Lake_Superior_State": 29,
     "reviewed_measurement_rows": 51,
     "private_matchup_material_included": false
+  },
+  "age_experience_repair": {
+    "version": 1,
+    "generatedAt": "2026-10-20T17:07:55+00:00",
+    "scope": "Add prior-games evidence; preserve published roster identity, age, class and roster-history fields"
   }
 }
