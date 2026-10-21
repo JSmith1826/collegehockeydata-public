@@ -45,8 +45,8 @@
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 46,
-      "bytes": 13360535
+      "files": 47,
+      "bytes": 14464613
     },
     {
       "title": "Conference Race",
@@ -124,7 +124,7 @@
     "scope": "Add prior-games evidence; preserve published roster identity, age, class and roster-history fields"
   },
   "visual_interface_update": {
-    "version": 1,
+    "version": 2,
     "preparedAt": "2026-10-21T04:25:51.196Z",
     "scope": [
       "compact-game-control-legend",
@@ -135,6 +135,7 @@
       "cividis",
       "inferno",
       "grayscale"
-    ]
+    ],
+    "loadingFix": "Valid empty color scale before asynchronous map/data readiness"
   }
 }
