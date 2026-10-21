@@ -45,8 +45,8 @@
     {
       "title": "Player Atlas",
       "slug": "player-atlas",
-      "files": 44,
-      "bytes": 12165594
+      "files": 46,
+      "bytes": 13360535
     },
     {
       "title": "Conference Race",
@@ -63,8 +63,8 @@
     {
       "title": "Game Control",
       "slug": "game-control",
-      "files": 38,
-      "bytes": 31397651
+      "files": 40,
+      "bytes": 31503153
     },
     {
       "title": "Conference Matchups",
@@ -122,5 +122,19 @@
     "version": 1,
     "generatedAt": "2026-10-20T17:07:55+00:00",
     "scope": "Add prior-games evidence; preserve published roster identity, age, class and roster-history fields"
+  },
+  "visual_interface_update": {
+    "version": 1,
+    "preparedAt": "2026-10-21T04:25:51.196Z",
+    "scope": [
+      "compact-game-control-legend",
+      "continuous-territory-palettes"
+    ],
+    "palettes": [
+      "viridis",
+      "cividis",
+      "inferno",
+      "grayscale"
+    ]
   }
 }
