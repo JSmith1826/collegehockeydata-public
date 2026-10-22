@@ -1,5 +1,5 @@
-import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=011eb8549a83';
-export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=011eb8549a83';
+import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs';
+export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs';
 export const OUTCOME_NAMES = ['Goals','Saved','Missed','Blocked'];
 export const OUTCOME_COLORS = ['#b6523d','#18453b','#ab822e','#647d90'];
 

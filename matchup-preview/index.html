@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+  <meta name="theme-color" content="#18453b">
+  <title>Matchup Preview · College Hockey Data</title>
+  <meta name="description" content="Build and share a college hockey matchup preview with shooting, defense, roster pathways and players to watch.">
+  <link rel="icon" href="../assets/site/chd-icon-32.png"><link rel="stylesheet" href="../assets/site/identity.css">
+  <link rel="stylesheet" href="./styles.css"><script type="module" src="./app.mjs"></script>
+</head>
+<body>
+  <a class="skip" href="#preview">Skip to preview</a>
+  <header><nav aria-label="Site navigation"><a href="../" class="chd-brand-link" aria-label="College Hockey Data home"><span class="chd-brand-identity"><img class="chd-brand-logo" src="../assets/site/chd-horizontal-reversed.svg" alt="College Hockey Data"><img class="chd-brand-compact" src="../assets/site/chd-mark-reversed.svg" alt="College Hockey Data"></span></a><a href="../shot-maps/">Explore shot maps ↗</a></nav></header>
+  <main>
+    <section class="intro"><p class="eyebrow">MEN’S DIVISION I / 2026–27</p><h1>Your matchup.<br><em>A closer look.</em></h1><p>Choose two teams. Compare how they shoot, defend and build their rosters, then take the preview with you.</p><p id="snapshot" class="snapshot" role="status">Loading the data snapshot…</p></section>
+    <form id="controls" aria-label="Matchup settings">
+      <label>Away team<select id="away" required disabled></select></label>
+      <button id="swap" type="button" aria-label="Swap away and home teams" title="Swap teams" disabled>⇄</button>
+      <label>Home team<select id="home" required disabled></select></label>
+      <label>First game date<input id="date" type="date" min="2026-07-01" max="2027-06-30" required></label>
+      <label>Last game date <span>(optional)</span><input id="end" type="date" min="2026-07-01" max="2027-06-30"></label>
+      <label>Venue<select id="venue"><option>At home team</option><option>At away team</option><option>Home &amp; home</option><option>Neutral site</option></select></label>
+      <button id="generate" type="submit" disabled>Build preview ↗</button>
+      <p class="form-note">Dates and venue are your selections. This page does not check the schedule. Statistics use the cutoff shown above.</p>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+    <section id="preview" aria-label="Generated matchup" tabindex="-1"></section>
+    <section id="sharing" hidden aria-labelledby="sharing-title"><div class="section-heading"><div><p class="eyebrow">TAKE IT WITH YOU</p><h2 id="sharing-title">Make the post your own.</h2></div><div class="actions"><button id="download" type="button">Download preview PNG</button><button id="share" type="button">Copy matchup link</button></div></div>
+      <label>Image page<select id="export-page"><option value="shooting">Shooting &amp; scoring</option><option value="defense">Defense &amp; goalies</option><option value="roster">How they’re built</option></select></label>
+      <label>Caption style<select id="platform"><option value="social">Social · with hashtags</option><option value="reddit">Reddit · discussion</option><option value="short">Short · 280 characters</option></select></label>
+      <label for="caption" class="sr-only">Editable caption</label><textarea id="caption" rows="9"></textarea><div class="actions"><button id="copy-caption" type="button">Copy caption</button><button id="save-caption" type="button">Download caption</button><span id="characters"></span></div>
+    </section>
+    <details class="methods"><summary>Sources, definitions and coverage</summary><p>Source: Hudl Instat ordinary goals, SOG and shot coordinates; College Hockey News rosters, assists, points and goalie boxes; draft observations checked October 16, 2026. Exhibitions are excluded. Scoring and records cover all completed games through the displayed cutoff; maps use only games whose locations pass the published verification checks.</p><p>Heatmaps show the share of each team’s mapped shots on goal, using one color scale for both teams. Rings mark goals. These are shot patterns, not a model of shot quality. Defensive maps show where opponents shot, viewed from the opponent’s attacking direction. Blocked attempts are the opponent’s recorded attempts marked blocked; they do not identify the blocker. Verification reconciles goals and shots on net; it does not independently establish complete misses or blocks. Recorded block rates and shares describe this source sample.</p><p>Class is the reported roster class, not age. Pathways describe the reported previous league, with transfers grouped separately. Players to watch combine draft pedigree, recorded experience and scoring; they are not projected lineups. Goalie rates use only reported appearances, exclude empty-net rows and do not predict starters or availability.</p><p>Missing data remain unavailable. A season-debut team may show explicitly labeled prior-season scorers. This page runs entirely in your browser. Downloading a preview does not publish it.</p></details>
+  </main><footer><b>College Hockey Data</b><a href="../about/#reuse">Image reuse</a><a href="../">Return home ↗</a></footer>
+</body></html>

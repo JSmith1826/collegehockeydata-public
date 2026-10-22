@@ -1,0 +1,25 @@
+{
+  "policy": {
+    "currentMensSpatial": "Instat only, common accepted fixture and event population",
+    "rosters": "CHN canonical roster and verified provider-player links",
+    "historical": "Existing CHN series until historical Instat scope is established",
+    "women": "CHN / NCAA unchanged",
+    "goalieBasics": "CHN game-level goalie lines reconciled to opponent shots and final goals; Instat goalie IDs and chart counts are not used for headline season statistics"
+  },
+  "promoted": [
+    "ordinary goals/SOG",
+    "shot and net coordinates",
+    "provider shot zones",
+    "5v5 chance context",
+    "puck battle zones",
+    "player attempts/on-net%/source xG",
+    "reconciled CHN goalie basics"
+  ],
+  "notYetPromoted": [
+    "assists/points/PIM",
+    "PP/PK",
+    "historical Instat seasons",
+    "Instat goalie attribution and save percentages"
+  ],
+  "currentness": "2026-10-22T11:35:02.027348+00:00"
+}

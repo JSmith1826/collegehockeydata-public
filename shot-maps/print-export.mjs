@@ -1,11 +1,11 @@
-import {brandExportSVG} from './export-branding.mjs?v=011eb8549a83';
-import {faceoffMarkings} from './rink-geometry.mjs?v=011eb8549a83';
-import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=011eb8549a83';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=011eb8549a83';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=011eb8549a83';
-import {summaryReference,compareSummary} from './summary-comparison.mjs?v=011eb8549a83';
+import {brandExportSVG} from './export-branding.mjs';
+import {faceoffMarkings} from './rink-geometry.mjs';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs';
+import {summaryReference,compareSummary} from './summary-comparison.mjs';
 
-export const PRINT_VERSION='connected-arch-print-1';
+export const PRINT_VERSION='instat-source-zones-print-1';
 export const PRINT_WIDTH=2400;
 const OUTCOMES={all:'All attempts',onnet:'On net',goal:'Goals',saved:'Saved',missed:'Missed',blocked:'Blocked'};
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&apos;'}[c]));
@@ -34,13 +34,8 @@ function filters(state,data){
     state.scope==='all'?'Regular season + postseason':state.scope==='regular'?'Regular season':'Conference + NCAA postseason',
     ...(state.exact?['Exact matches only']:state.partial?['Larger count discrepancies included']:['Up to one shot difference per side accepted'])].join(' | ');
 }
-function outsideGroups(population){
-  const cut=BLUE_LINE+3*DESIGN_PIXELS_PER_FOOT/10;
-  return [
-    {id:'near',name:'Near the blue line',count:population.points.filter(p=>p[2]>=BLUE_LINE&&p[2]<cut).length},
-    {id:'far',name:'Farther out',count:population.points.filter(p=>p[2]>=cut).length},
-  ];
-}
+function outsideGroups(population){return [{id:'source-high',name:'Instat high / beyond area (49)',count:population.counts.outside||0},{id:'source-unknown',name:'Source zone unavailable',count:population.counts.unknown||0}];}
+
 function groupValue(count,population,measure,baselineCount,baseline){
   if(measure==='pergame')return population.mappedAppearances?count/population.mappedAppearances:null;
   if(!population.total)return null;
@@ -62,7 +57,7 @@ export function buildPrintSnapshot(data,state,specs,{focus='whole',referenceMode
       logo:data.teams.find(t=>String(t.id)===String(spec.team))?.logo||'',logoData:null,
       total:p.total,allTotal:p.allPoints.length,mappedGames:p.mappedGames,eligibleGames:p.games,mappedAppearances:p.mappedAppearances,minorDiscrepancyGames:p.minorDiscrepancyGames||0,
       skipped:{...p.skipped},beyondHalf:p.beyondHalf,
-      zones:ZONES.filter(z=>z.id!=='outside').map(z=>({id:z.id,count:p.counts[z.id],value:zoneValue(p,z.id,state.measure,spec.baseline)})),
+      zones:ZONES.filter(z=>z.path&&z.id!=='outside').map(z=>({id:z.id,count:p.counts[z.id],value:zoneValue(p,z.id,state.measure,spec.baseline)})),
       outside:outside.map((g,j)=>({...g,value:groupValue(g.count,p,state.measure,baseOutside[j]?.count,spec.baseline)})),
       summary:{counts,total,groups:outcomeGroups(counts).map(g=>({...g,share:total?100*g.count/total:null}))},
       reference:reference?{label:reference.label,...compareSummary(p,reference.population,zone?.id||null)}:null};
@@ -90,7 +85,7 @@ function rink(panel,snapshot,max,gray,i){
   let markup=`<defs><clipPath id="rink-clip-${i}"><path d="${outline}"/></clipPath></defs>`;
   markup+=rect(0,0,425,bottom,gray?'#ffffff':'#f8faf3',`clip-path="url(#rink-clip-${i})"`);
   markup+=`<g clip-path="url(#rink-clip-${i})">`;
-  for(const z of ZONES.filter(z=>z.id!=='outside')){
+  for(const z of ZONES.filter(z=>z.path&&z.id!=='outside')){
     const datum=panel.zones.find(d=>d.id===z.id),fill=gray?grayscaleFill(datum.value,max):colorAt(datum.value,max,snapshot.measure==='difference');
     const ink=gray?(textFill(fill)==='#ffffff'?'#ffffff':'#202020'):textFill(fill),selected=snapshot.focus?.id===z.id;
     markup+=`<path d="${z.path}" fill="${fill}" fill-rule="evenodd" stroke="${selected?(gray?'#000000':'#af661e'):(gray?'#999999':'#93a99b')}" stroke-width="${selected?2.5:.9}"/>`;
@@ -178,9 +173,9 @@ export function renderPrintSVG(snapshot,{grayscale=false}={}){
   body+=text(end,W-pad,legendY+33,24,muted,'text-anchor="end"');
   body+=text('Rinks end at the blue line. Outside cards retain every outside origin, including those beyond the displayed half.',pad,legendY+68,25,muted);
   body+=`<line x1="${pad}" y1="${footerY}" x2="${W-pad}" y2="${footerY}" stroke="${line}" stroke-width="2"/>`;
-  body+=text(`Results through ${snapshot.through} | Recorded locations: College Hockey News${snapshot.privatePreview?' | PRIVATE PREVIEW':''}`,W-pad,footerY+41,25,ink,'text-anchor="end"');
-  body+=text(`Approximate locations | All game states combined | ${snapshot.exact?'Exact matches only':snapshot.partial?'Includes larger discrepancies':'Per side: matching goals; up to 1 shot difference; dots retained'}`,pad,footerY+78,24,muted);
-  body+=text(`Near-line grouping uses rounded source coordinates | ${snapshot.version}`,pad,footerY+113,22,muted);
+  body+=text(`Results through ${snapshot.through} | Recorded locations: Hudl Instat${snapshot.privatePreview?' | PRIVATE PREVIEW':''}`,W-pad,footerY+41,25,ink,'text-anchor="end"');
+  body+=text(`Approximate locations | All game states combined | Goals and SOG independently reconciled; source events retained`,pad,footerY+78,24,muted);
+  body+=text(`Source-coded areas 41–49; unknown zones remain separate | ${snapshot.version}`,pad,footerY+113,22,muted);
   const stops=Array.from({length:11},(_,i)=>{const t=i/10,value=diverging?max*(2*t-1):max*t;return `<stop offset="${t*100}%" stop-color="${gray?grayscaleFill(value,max):colorAt(value,max,diverging)}"/>`;}).join('');
   const definitions=`<linearGradient id="zone-scale">${stops}</linearGradient><filter id="monochrome-logo" color-interpolation-filters="sRGB"><feColorMatrix type="saturate" values="0"/></filter><pattern id="below-average" width="5" height="5" patternUnits="userSpaceOnUse"><path d="M-1 1L1 -1M0 5L5 0M4 6L6 4" stroke="#000000" stroke-opacity=".24" stroke-width=".5"/></pattern>`;
   const safe={...snapshot,panels:snapshot.panels.map(({logoData,...p})=>p)};

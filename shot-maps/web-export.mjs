@@ -1,6 +1,6 @@
 const logoImages=new Map();
-import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=011eb8549a83';
-export {exportOutcome} from './export-outcome.mjs?v=011eb8549a83';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs';
+export {exportOutcome} from './export-outcome.mjs';
 
 export function drawPerspectiveBanner(context,perspective,x,y,width){
   const heading=exportPerspective(perspective),height=108;

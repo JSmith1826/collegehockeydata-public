@@ -1,9 +1,9 @@
 {
-  "generated_at": "2026-10-19T16:04:27+00:00",
+  "generated_at": "2026-10-22T14:26:17.647155+00:00",
   "domain": "collegehockeydata.com",
   "cloudflare_web_analytics": false,
   "womens_section_published": true,
-  "homepage": "look-closer",
+  "homepage": "team-and-league-context",
   "study_index": "studies.html",
   "explorers": [
     {
@@ -80,7 +80,7 @@
     }
   ],
   "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
-  "release": "team-side-shot-reconciliation-v1",
+  "release": "2026-10-22-team-hub",
   "data_refresh": {
     "date": "2026-10-19",
     "season": "2026-27",
@@ -137,5 +137,23 @@
       "grayscale"
     ],
     "loadingFix": "Valid empty color scale before asynchronous map/data readiness"
-  }
+  },
+  "new_endpoints": [
+    "teams/",
+    "matchup/",
+    "matchup-preview/",
+    "shot-maps/",
+    "explorers/puck-battles/",
+    "explorers/defensive-battles/",
+    "data-status/"
+  ],
+  "sources": {
+    "mensSpatial": "Hudl Instat",
+    "goalieBasics": "Reconciled CHN game boxes",
+    "women": "CHN/NCAA"
+  },
+  "heldGoalieTeams": [
+    "Long Island",
+    "Minnesota-Duluth"
+  ]
 }

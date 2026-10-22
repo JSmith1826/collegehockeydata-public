@@ -1,6 +1,6 @@
 /* Buildless, manual slideshow: works on loopback and when index.html is opened directly. */
 (() => {
-  const site = 'https://collegehockeydata.com/';
+  const site = '/';
   const charts = [
     {id:'age',title:'Age & experience',context:'2024 Frozen Four',description:'How much experience does a team bring to the tournament? This early comparison put class years and average age side by side.',alt:'Stacked class-year bars and average ages for Boston College, Michigan, Boston University, and Denver in the 2024 Frozen Four.',study:'explorers/age-experience/'},
     {id:'lines',title:'Line by line',context:'2024 Frozen Four',description:'A roster looks different when you break it into forward lines and defensive pairs. These small charts compare goals, shots, penalty minutes, and plus/minus across the lineup.',alt:'Twelve grouped bar charts comparing goals, shots, penalty minutes, and plus/minus for forward lines and defensive pairs at the 2024 Frozen Four.'},

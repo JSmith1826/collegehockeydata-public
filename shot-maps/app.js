@@ -1,20 +1,20 @@
-import {brandExportCanvas} from './export-branding.mjs?v=011eb8549a83';
-import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=011eb8549a83';
-import {createSelectionMemory} from './selection-memory.mjs?v=011eb8549a83';
-import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=011eb8549a83';
-import {teamStyle} from './team-style.mjs?v=011eb8549a83';
-import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=011eb8549a83';
-import {faceoffMarkings} from './rink-geometry.mjs?v=011eb8549a83';
-import {areaPanelMarkup} from './area-panel.mjs?v=011eb8549a83';
-import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=011eb8549a83';
-import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=011eb8549a83';
-import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs?v=011eb8549a83';
-import {zoneBorderStyle} from './zone-borders.mjs?v=011eb8549a83';
-import {comparisonSpecs} from './comparison-specs.mjs?v=011eb8549a83';
+import {brandExportCanvas} from './export-branding.mjs';
+import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs';
+import {createSelectionMemory} from './selection-memory.mjs';
+import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs';
+import {teamStyle} from './team-style.mjs';
+import {FLANK_CLIP,CREASE_PATH} from './zones.mjs';
+import {faceoffMarkings} from './rink-geometry.mjs';
+import {areaPanelMarkup} from './area-panel.mjs';
+import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs';
+import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs';
+import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs';
+import {zoneBorderStyle} from './zone-borders.mjs';
+import {comparisonSpecs} from './comparison-specs.mjs';
 
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n.toLocaleString('en-US'),pct=(n,d)=>d?`${(100*n/d).toFixed(1)}%`:'—';
-const defaults={season:2025,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,exact:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:false,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
+const defaults={season:2026,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,exact:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:false,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
 const state={...defaults},selectionMemory=createSelectionMemory(defaults);
 try{const saved=localStorage.getItem('chd-shot-map-theme');if(['dark','light'].includes(saved))state.theme=saved;}catch{}
 const params=new URLSearchParams(location.search);
@@ -210,7 +210,7 @@ function rinkSVG(spec,i,max,grid,heatMax,groups,pointMax){
   const background=heat?`<image href="${heatImage(grid,heatMax,difference,palette)}" width="425" height="500" class="rink-layer-image"/>`:'';
   const contours=heat?`<g fill="none" stroke="${darkHeat?'#f0f8da':'#254d46'}" stroke-width=".65" stroke-opacity=".3" pointer-events="none" aria-hidden="true">${densityContours(grid,heatMax,difference).map(c=>`<path d="${c.path}"/>`).join('')}</g>`:'';
   let zones='';
-  for(const z of ZONES){
+  for(const z of ZONES.filter(z=>z.path)){
     const value=zoneValue(spec.population,z.id,state.measure,spec.baseline);
     const fill=state.view==='zones'?colorAt(value,max,difference):'transparent';
     const textFill=textOn(fill==='transparent'?'#f6f9ef':fill);
@@ -339,14 +339,14 @@ function render(){
     $('map-legend').innerHTML=specs.map(spec=>`<div class="legend-scale team-legend"><b>${esc(spec.name)}</b><span>Lower</span><span class="legend-gradient" style="background:${heatGradient(paletteFor(spec),false)}"></span><span>Higher</span></div>`).join('')+'<span>Shared concentration scale. Team colors change the cold end.</span>';
   }
   if(heat&&state.unusual)$('map-legend').insertAdjacentHTML('beforeend','<span class="finding-key"><i class="behind-key"></i> Behind goal line</span><span class="finding-key"><i class="frequent-key"></i> Frequent locations</span>');
-  if(state.view==='zones')$('map-legend').insertAdjacentHTML('beforeend','<div class="slice-key"><span><b>Low / upper wings</b> A single horizontal split on each side</span><span>Hover or tap for full names and counts.</span></div>');
+  if(state.view==='zones')$('map-legend').insertAdjacentHTML('beforeend','<div class="slice-key"><span><b>Instat areas 41–49</b> Provider-defined shot-origin zones</span><span>Hover or tap for full names and counts.</span></div>');
   renderFindings(specs);
   const p=specs[0].population;
   $('coverage-summary').classList.toggle('warning',specs.some(s=>s.population.mappedGames<s.population.games||s.population.minorDiscrepancyGames)||state.partial);
   const coverageText=s=>`${s.name} ${s.label.toLowerCase()}: ${fmt(s.population.mappedGames)} of ${fmt(s.population.games)} eligible games mapped${s.population.minorDiscrepancyGames?` (${fmt(s.population.minorDiscrepancyGames)} with a 1-shot discrepancy)`:''}`;
-  $('coverage-summary').innerHTML=`<strong>Coverage matters.</strong><span>${esc(specs.map(coverageText).join(' | ')+'.')} Each team's locations are checked separately. ${state.exact?'Exact goal and on-net matches only.':'Goals must match; a one-shot on-net difference is included and flagged.'}${state.partial&&!state.exact?' Larger count discrepancies are also included by request.':''} Missing charts and unusable directions are excluded. Miss/block completeness is not established.</span>`;
+  $('coverage-summary').innerHTML=`<strong>Coverage matters.</strong><span>${esc(specs.map(coverageText).join(' | ')+'.')} Accepted ordinary Instat events reconcile to period goals and independent player-overview SOG totals. Both maps use the same game sample. Missing coordinates remain unknown; no locations are invented.</span>`;
   const c=data.coverage;
-  $('coverage-details').textContent=`${data.label}: ${fmt(c.chartedGames||0)} of ${fmt(c.eligibleGames||0)} eligible games have location charts. ${fmt(c.verifiedMappedGames||0)} match both teams' goal/on-net totals and preserve direction. ${fmt(c.directionUnknownGames||0)} charted games lack usable direction information. ${fmt(c.countMismatchGames||0)} direction-known charts have count discrepancies. ${fmt(c.minorDiscrepancyTeamSides||0)} team samples have a one-shot difference. Results through ${data.through}. Women's locations are not available in this archive.`;
+  $('coverage-details').textContent=`${data.label}: ${fmt(c.verifiedMappedGames||0)} accepted countable D1 games. Source zones 41–49 are retained directly. Results through ${data.through}. Historical CHN maps remain in the archive; women's sources are unchanged.`;
   renderArea();saveState();
 }
 function hideZoneTooltip(){
@@ -555,14 +555,14 @@ async function saveImage(){
     ctx.font='23px Trebuchet MS';ctx.fillStyle='#18453b';
     const measurement=exportState.view==='attempts'?(exportState.marks==='grouped'?'Dot size shows repeated attempts at a recorded location. Shared size scale.'+(['all','onnet'].includes(exportState.outcome)?' Rings mark locations with goals.':''):'Symbols: star = goal, dot = saved, cross = missed, square = blocked.'):exportState.measure==='difference'?`${exportState.view==='heatmap'&&exportState.theme==='dark'?'Lime':'Green'} = greater location share than league. ${exportState.view==='heatmap'?'Coral':'Copper'} = smaller share.`:exportState.view==='heatmap'?'Smoothed concentration · shared scale · '+(exportState.measure==='pergame'?'normalized per mapped team game.':'normalized to shown attempts.')+(exportState.goals&&['all','onnet','goal'].includes(exportState.outcome)?(exportState.theme==='light'?' Red dots mark goals.':' Light dots mark goals.'):''):exportState.measure==='pergame'?'Zone measure: shown attempts per mapped team game.':'Zone measure: share of shown attempts.';
     const markerNote=exportState.view==='heatmap'&&exportState.unusual?` Numbered ${exportState.theme==='light'?'teal':'cyan'} circles: behind goal line. ${exportState.theme==='light'?'Amber':'Cream'} diamonds: frequent coordinates (3+ shown attempts); up to 5 per category per map.`:'';
-    const sliceNote=exportState.view==='zones'?' Low wings include tight-angle ice around the goal line. Center point is a narrow lane.':'';
+    const sliceNote=exportState.view==='zones'?' Source-coded Instat areas 41–49.':'';
     const noteBottom=drawWrapped(ctx,measurement+markerNote+sliceNote,pad,noteY,width-pad*2,31);
     ctx.font='21px Trebuchet MS';ctx.fillStyle='#516d60';
-    const coverageBottom=drawWrapped(ctx,'All game states combined. Unknown directions and missing charts excluded. '+(exportState.exact?'Exact matches only.':exportState.partial?'Larger count discrepancies included.':'Each side checked; matching goals and up to one SOG difference accepted. Source dots retained.')+' Miss/block completeness unverified.',pad,noteBottom+5,width-pad*2,29);
+    const coverageBottom=drawWrapped(ctx,'Instat ordinary events; all game states combined. Goals and SOG reconcile independently. Source-coded zones 41–49; missing locations remain unknown.',pad,noteBottom+5,width-pad*2,29);
     const footerY=coverageBottom+14,height=footerY+104;
     ctx.fillStyle='#18453b';ctx.fillRect(0,footerY,width,104);ctx.fillStyle='#fff';ctx.font='bold 40px Trebuchet MS';
     if(exportData.privatePreview)ctx.fillText('PRIVATE PREVIEW',pad,footerY+46);
-    ctx.font='21px Trebuchet MS';ctx.fillText('Recorded locations: College Hockey News · Visual by u/BakedMitten',pad,footerY+80);
+    ctx.font='21px Trebuchet MS';ctx.fillText('Recorded locations: Hudl Instat · Visual by u/BakedMitten',pad,footerY+80);
     const output=document.createElement('canvas');output.width=width;output.height=height;
     output.getContext('2d').drawImage(canvas,0,0,width,height,0,0,width,height);
     const blob=await brandExportCanvas(output).then(branded=>new Promise(resolve=>branded.toBlob(resolve,'image/png')));
