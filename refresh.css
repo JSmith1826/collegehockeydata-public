@@ -85,3 +85,7 @@ body{font-family:'Tw Cen MT','Century Gothic',Arial,sans-serif;font-size:17px;ba
 
 /* Explicit control colors on the dark team picker. */
 .home-team-picker select,.home-team-picker select option{color:#17382f;background-color:#fff;color-scheme:light}
+
+/* Six footprint context values; retain paired/mobile alignment. */
+.footprint-numbers,.comparison-sheet .footprint-numbers{grid-template-columns:repeat(3,minmax(0,1fr))}
+@media(max-width:800px){.footprint-numbers,.comparison-sheet .footprint-numbers{grid-template-columns:repeat(2,minmax(0,1fr))}}
