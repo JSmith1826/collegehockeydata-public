@@ -82,3 +82,6 @@ body{font-family:'Tw Cen MT','Century Gothic',Arial,sans-serif;font-size:17px;ba
 .site-nav>a[aria-current=page]:after{left:auto;right:14px;top:17px;bottom:auto;width:5px;height:14px}
 .home-team-picker.unselected{grid-template-columns:minmax(0,1fr);gap:18px}
 }
+
+/* Explicit control colors on the dark team picker. */
+.home-team-picker select,.home-team-picker select option{color:#17382f;background-color:#fff;color-scheme:light}
