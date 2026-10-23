@@ -1,43 +1,43 @@
 {
   "schema": "instat-release-audit-v1",
-  "builtAt": "2026-10-22T14:03:42.567725+00:00",
+  "builtAt": "2026-10-23T18:21:43.206093+00:00",
   "season": 2026,
-  "catalogUpdated": "2026-10-22T11:35:02.027348+00:00",
-  "lastCapture": "2026-10-22T12:27:22.237430+00:00",
-  "captureCeiling": 6029,
+  "catalogUpdated": "2026-10-23T18:14:00.856722+00:00",
+  "lastCapture": "2026-10-23T18:17:02.850569+00:00",
+  "captureCeiling": 6098,
   "integrity": "ok",
-  "catalogReferences": 140,
-  "countableD1Games": 123,
-  "acceptedSpatialGames": 123,
-  "paired5v5Games": 123,
+  "catalogReferences": 142,
+  "countableD1Games": 125,
+  "acceptedSpatialGames": 125,
+  "paired5v5Games": 125,
   "teamsWith5v5": 57,
   "teamsWith3Games": 54,
   "scopeCounts": {
-    "profile:None:observed": 140,
-    "actions:None:observed": 9,
-    "shots:None:observed": 280,
-    "faceoffs:None:observed": 176,
+    "profile:None:observed": 142,
+    "actions:None:observed": 10,
+    "shots:None:observed": 284,
+    "faceoffs:None:observed": 180,
     "buttons:None:observed": 6,
-    "episodes:shots:observed": 280,
-    "episodes:faceoffs:observed": 280,
-    "episodes:hits:observed": 278,
+    "episodes:shots:observed": 284,
+    "episodes:faceoffs:observed": 284,
+    "episodes:hits:observed": 282,
     "player_actions:None:observed": 4,
     "players:None:observed": 8,
-    "overview:None:observed": 140,
-    "episodes:penalties:observed": 280,
+    "overview:None:observed": 142,
+    "episodes:penalties:observed": 284,
     "parameters:None:observed": 1,
-    "episodes:puck_losses:observed": 280,
-    "episodes:puck_recoveries:observed": 280,
-    "episodes:puck_battles:observed": 280,
-    "episodes:battles_won:observed": 280,
-    "episodes:battles_lost:observed": 280,
-    "episodes:breakouts:observed": 280,
+    "episodes:puck_losses:observed": 284,
+    "episodes:puck_recoveries:observed": 284,
+    "episodes:puck_battles:observed": 284,
+    "episodes:battles_won:observed": 284,
+    "episodes:battles_lost:observed": 284,
+    "episodes:breakouts:observed": 284,
     "episodes:controlled_breakouts_research:source_null": 2,
-    "episodes:shot_blocking:observed": 278,
-    "episodes:breakout_pass:observed": 280,
-    "episodes:breakout_carry:observed": 280,
-    "episodes:breakout_dump:source_null": 121,
-    "episodes:breakout_dump:observed": 159,
+    "episodes:shot_blocking:observed": 282,
+    "episodes:breakout_pass:observed": 284,
+    "episodes:breakout_carry:observed": 284,
+    "episodes:breakout_dump:source_null": 122,
+    "episodes:breakout_dump:observed": 162,
     "episodes:hits:source_null": 2,
     "episodes:shot_blocking:source_null": 2
   },
@@ -3011,6 +3011,52 @@
           "overviewSog": 40.0
         }
       ]
+    },
+    {
+      "game": "2259509",
+      "date": "2026-10-22",
+      "included": true,
+      "reasons": [],
+      "shots": 129,
+      "goals": 9,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 86,
+      "sogChecks": [
+        {
+          "team": 70807,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        },
+        {
+          "team": 79552,
+          "mapSog": 41,
+          "overviewSog": 41.0
+        }
+      ]
+    },
+    {
+      "game": "2259510",
+      "date": "2026-10-22",
+      "included": true,
+      "reasons": [],
+      "shots": 121,
+      "goals": 8,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 95,
+      "sogChecks": [
+        {
+          "team": 293,
+          "mapSog": 35,
+          "overviewSog": 35.0
+        },
+        {
+          "team": 326,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        }
+      ]
     }
   ],
   "teamCoverage": {
@@ -3065,14 +3111,14 @@
       "through": "2026-10-17"
     },
     "37": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 6,
-      "sog": 85,
-      "attempts": 180,
-      "againstGoals": 15,
-      "againstSog": 118,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 11,
+      "sog": 120,
+      "attempts": 235,
+      "againstGoals": 18,
+      "againstSog": 150,
+      "through": "2026-10-22"
     },
     "62": {
       "games": 4,
@@ -3285,14 +3331,14 @@
       "through": "2026-10-17"
     },
     "57": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 17,
-      "sog": 142,
-      "attempts": 254,
-      "againstGoals": 5,
-      "againstSog": 79,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 20,
+      "sog": 174,
+      "attempts": 320,
+      "againstGoals": 10,
+      "againstSog": 114,
+      "through": "2026-10-22"
     },
     "60": {
       "games": 5,
@@ -3505,14 +3551,14 @@
       "through": "2026-10-17"
     },
     "63": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 9,
-      "sog": 120,
-      "attempts": 241,
-      "againstGoals": 12,
-      "againstSog": 118,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 14,
+      "sog": 152,
+      "attempts": 286,
+      "againstGoals": 16,
+      "againstSog": 159,
+      "through": "2026-10-22"
     },
     "64": {
       "games": 4,
@@ -3565,14 +3611,14 @@
       "through": "2026-10-17"
     },
     "41": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 9,
-      "sog": 119,
-      "attempts": 276,
-      "againstGoals": 4,
-      "againstSog": 93,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 13,
+      "sog": 160,
+      "attempts": 360,
+      "againstGoals": 9,
+      "againstSog": 125,
+      "through": "2026-10-22"
     },
     "3": {
       "games": 4,
@@ -3686,10 +3732,10 @@
       "linkedGoals": 16
     },
     "37": {
-      "attempts": 180,
-      "linkedAttempts": 180,
-      "goals": 6,
-      "linkedGoals": 6
+      "attempts": 235,
+      "linkedAttempts": 235,
+      "goals": 11,
+      "linkedGoals": 11
     },
     "62": {
       "attempts": 275,
@@ -3818,10 +3864,10 @@
       "linkedGoals": 24
     },
     "57": {
-      "attempts": 254,
-      "linkedAttempts": 247,
-      "goals": 17,
-      "linkedGoals": 17
+      "attempts": 320,
+      "linkedAttempts": 309,
+      "goals": 20,
+      "linkedGoals": 20
     },
     "60": {
       "attempts": 250,
@@ -3950,10 +3996,10 @@
       "linkedGoals": 10
     },
     "63": {
-      "attempts": 241,
-      "linkedAttempts": 241,
-      "goals": 9,
-      "linkedGoals": 9
+      "attempts": 286,
+      "linkedAttempts": 286,
+      "goals": 14,
+      "linkedGoals": 14
     },
     "64": {
       "attempts": 271,
@@ -3986,10 +4032,10 @@
       "linkedGoals": 9
     },
     "41": {
-      "attempts": 276,
-      "linkedAttempts": 238,
-      "goals": 9,
-      "linkedGoals": 8
+      "attempts": 360,
+      "linkedAttempts": 308,
+      "goals": 13,
+      "linkedGoals": 12
     },
     "3": {
       "attempts": 198,
@@ -4061,7 +4107,8 @@
     "60": 1,
     "13": 2,
     "27": 1,
-    "47": 1
+    "47": 1,
+    "57": 1
   },
   "goalieReconciliation": {
     "policy": "Headline SV%, GAA, GP and workload use reconciled CHN box scores; provider goalie attribution remains research evidence only.",
@@ -4207,9 +4254,9 @@
         "complete": true
       },
       "37": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-22",
         "issues": [],
         "complete": true
       },
@@ -4228,9 +4275,9 @@
         "complete": true
       },
       "41": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-22",
         "issues": [],
         "complete": true
       },
@@ -4347,9 +4394,9 @@
         "complete": true
       },
       "63": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-22",
         "issues": [],
         "complete": true
       },
@@ -4459,9 +4506,9 @@
         "complete": true
       },
       "57": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-22",
         "issues": [],
         "complete": true
       },
@@ -9263,6 +9310,82 @@
         ],
         "issues": [],
         "game": 152,
+        "verified": true
+      },
+      {
+        "providerGame": "2259509",
+        "date": "2026-10-22",
+        "team": "63",
+        "goalies": [
+          {
+            "id": 32210,
+            "name": "Kam Hendrickson",
+            "saves": 46,
+            "goalsAgainst": 4,
+            "seconds": 3851,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/bu_/con/"
+          }
+        ],
+        "issues": [],
+        "game": 153,
+        "verified": true
+      },
+      {
+        "providerGame": "2259509",
+        "date": "2026-10-22",
+        "team": "41",
+        "goalies": [
+          {
+            "id": 31650,
+            "name": "Mikhail Yegorov",
+            "saves": 25,
+            "goalsAgainst": 5,
+            "seconds": 3821,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/bu_/con/"
+          }
+        ],
+        "issues": [],
+        "game": 153,
+        "verified": true
+      },
+      {
+        "providerGame": "2259510",
+        "date": "2026-10-22",
+        "team": "37",
+        "goalies": [
+          {
+            "id": 31324,
+            "name": "Luca Di Pasquo",
+            "saves": 21,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/ndk/min/"
+          }
+        ],
+        "issues": [],
+        "game": 154,
+        "verified": true
+      },
+      {
+        "providerGame": "2259510",
+        "date": "2026-10-22",
+        "team": "57",
+        "goalies": [
+          {
+            "id": 32441,
+            "name": "Jan Špunar",
+            "saves": 30,
+            "goalsAgainst": 4,
+            "seconds": 3556,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/ndk/min/"
+          }
+        ],
+        "issues": [],
+        "game": 154,
         "verified": true
       },
       {
@@ -15945,6 +16068,93 @@
         ]
       },
       {
+        "providerGame": "2259509",
+        "date": "2026-10-22",
+        "team": "63",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32210,
+            "name": "Kam Hendrickson",
+            "saves": 46,
+            "goalsAgainst": 4,
+            "seconds": 3851,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/bu_/con/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32210,
+            "providerId": 962643,
+            "name": "Kam Hendrickson",
+            "saves": 37,
+            "goalsAgainst": 4,
+            "seconds": 3850.165
+          }
+        ]
+      },
+      {
+        "providerGame": "2259509",
+        "date": "2026-10-22",
+        "team": "41",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31650,
+            "name": "Mikhail Yegorov",
+            "saves": 25,
+            "goalsAgainst": 5,
+            "seconds": 3821,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/bu_/con/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31650,
+            "providerId": 951450,
+            "name": "Mikhail Yegorov",
+            "saves": 27,
+            "goalsAgainst": 5,
+            "seconds": 3813.56
+          }
+        ]
+      },
+      {
+        "providerGame": "2259510",
+        "date": "2026-10-22",
+        "team": "37",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31324,
+            "name": "Luca Di Pasquo",
+            "saves": 21,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261023T145102Z-8c6697",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261022/ndk/min/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31324,
+            "providerId": 592223,
+            "name": "Luca Di Pasquo",
+            "saves": 29,
+            "goalsAgainst": 3,
+            "seconds": 3600.172
+          }
+        ]
+      },
+      {
         "providerGame": "2260766",
         "date": "2026-10-09",
         "team": "26",
@@ -16005,9 +16215,9 @@
     ]
   },
   "playerLinkSummary": {
-    "linkedAttempts": 12510,
-    "totalAttempts": 13764,
-    "percent": 90.89
+    "linkedAttempts": 12742,
+    "totalAttempts": 14014,
+    "percent": 90.92
   },
   "womenCoverage": {
     "scheduledGames": 753,
