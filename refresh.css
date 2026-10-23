@@ -89,3 +89,5 @@ body{font-family:'Tw Cen MT','Century Gothic',Arial,sans-serif;font-size:17px;ba
 /* Six footprint context values; retain paired/mobile alignment. */
 .footprint-numbers,.comparison-sheet .footprint-numbers{grid-template-columns:repeat(3,minmax(0,1fr))}
 @media(max-width:800px){.footprint-numbers,.comparison-sheet .footprint-numbers{grid-template-columns:repeat(2,minmax(0,1fr))}}
+
+.scatter-reading{font-size:12px;line-height:1.55;color:#486352;margin:8px 0 14px}.scatter-reading summary{cursor:pointer;font-weight:bold;min-height:32px;padding:7px 0}.scatter-reading p{margin:8px 0;max-width:1000px}.scatter-quadrants text{pointer-events:none}
