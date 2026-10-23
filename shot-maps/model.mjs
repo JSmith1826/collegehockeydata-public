@@ -1,5 +1,5 @@
-import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs';
-export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs';
+import {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=20261023-paired-study';
+export {ZONES,GOAL_LINE,BLUE_LINE,zoneOf} from './zones.mjs?v=20261023-paired-study';
 export const OUTCOME_NAMES = ['Goals','Saved','Missed','Blocked'];
 export const OUTCOME_COLORS = ['#b6523d','#18453b','#ab822e','#647d90'];
 
@@ -92,17 +92,25 @@ export function areaOutcomes(population,zone) {
 
 export function areaGoalDetails(population,zone){
   const counts=areaOutcomes(population,zone),goals=counts[0],onnet=goals+counts[1];
-  const periods=[0,0,0,0],games=new Set(),scorers=new Map();let namedGoals=0;
+  const periods=[0,0,0,0],games=new Set(),scorers=new Map(),players=new Map();let namedGoals=0,namedAttempts=0;
   population.allPoints.forEach((p,i)=>{
-    if(p[4]!==0||(zone&&zoneOf(p)!==zone))return;
+    const inArea=!zone||zoneOf(p)===zone;
+    const name=p[5]===undefined?null:population.scorerNames?.get(String(p[5]));
+    if(name){
+      const id=String(p[5]);
+      if(!players.has(id))players.set(id,{id,name,areaAttempts:0,areaSog:0,areaGoals:0,totalAttempts:0,totalSog:0,totalGoals:0});
+      const row=players.get(id);row.totalAttempts++;row.totalSog+=p[4]<=1;row.totalGoals+=p[4]===0;
+      if(inArea){row.areaAttempts++;row.areaSog+=p[4]<=1;row.areaGoals+=p[4]===0;namedAttempts++;}
+    }
+    if(p[4]!==0||!inArea)return;
     periods[Math.min(3,p[1]-1)]++;
     if(population.allPointGameIndexes?.[i]!==undefined)games.add(population.allPointGameIndexes[i]);
-    const name=p[5]===undefined?null:population.scorerNames?.get(String(p[5]));
     if(name){namedGoals++;const id=String(p[5]);if(!scorers.has(id))scorers.set(id,{id,name,goals:0});scorers.get(id).goals++;}
   });
   const totalGoals=population.outcomes[0];
   return {goals,onnet,totalGoals,share:totalGoals?100*goals/totalGoals:null,conversion:onnet?100*goals/onnet:null,
-    periods,games:games.size,namedGoals,unnamedGoals:goals-namedGoals,
+    periods,games:games.size,namedGoals,unnamedGoals:goals-namedGoals,namedAttempts,unnamedAttempts:counts.reduce((a,b)=>a+b,0)-namedAttempts,
+    players:[...players.values()].filter(p=>p.areaAttempts>0).map(p=>({...p,areaAttemptShare:100*p.areaAttempts/p.totalAttempts})).sort((a,b)=>b.areaAttempts-a.areaAttempts||b.areaGoals-a.areaGoals||a.name.localeCompare(b.name)||a.id.localeCompare(b.id)),
     scorers:[...scorers.values()].sort((a,b)=>b.goals-a.goals||a.name.localeCompare(b.name)||a.id.localeCompare(b.id))};
 }
 

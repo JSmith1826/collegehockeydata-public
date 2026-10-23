@@ -1,4 +1,4 @@
-import {outcomeGroups} from './model.mjs';
+import {outcomeGroups} from './model.mjs?v=20261023-paired-study';
 
 // The popup belongs to its source rink; its geographic highlight spans both.
 // Keep hover classes separate from the user's persistent area selection.

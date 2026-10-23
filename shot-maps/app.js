@@ -1,20 +1,22 @@
-import {brandExportCanvas} from './export-branding.mjs';
-import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs';
-import {createSelectionMemory} from './selection-memory.mjs';
-import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs';
-import {teamStyle} from './team-style.mjs';
-import {FLANK_CLIP,CREASE_PATH} from './zones.mjs';
-import {faceoffMarkings} from './rink-geometry.mjs';
-import {areaPanelMarkup} from './area-panel.mjs';
-import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs';
-import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs';
-import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs';
-import {zoneBorderStyle} from './zone-borders.mjs';
-import {comparisonSpecs} from './comparison-specs.mjs';
+import {playerAreaMarkup} from './player-area.mjs?v=20261023-paired-study';
+import {goalMarks,netSample,netGrid,netSVG,wireGoals,resetGoalFocus,exportPairs} from './linked-maps.mjs?v=20261023-paired-study';
+import {brandExportCanvas} from './export-branding.mjs?v=20261023-paired-study';
+import {ZONES,GOAL_LINE,BLUE_LINE,OUTCOME_NAMES,OUTCOME_COLORS,heatStops,selectPopulation,zoneOf,zoneValue,areaOutcomes,outcomeGroups,areaGoalDetails,outsideBreakdown,groupedLocations,locationRadius,locationFindings,locationMarkerLayout,colorAt,heatColorAt,densityContours,density} from './model.mjs?v=20261023-paired-study';
+import {createSelectionMemory} from './selection-memory.mjs?v=20261023-paired-study';
+import {summaryConference,summaryReference,compareSummary} from './summary-comparison.mjs?v=20261023-paired-study';
+import {teamStyle} from './team-style.mjs?v=20261023-paired-study';
+import {FLANK_CLIP,CREASE_PATH} from './zones.mjs?v=20261023-paired-study';
+import {faceoffMarkings} from './rink-geometry.mjs?v=20261023-paired-study';
+import {areaPanelMarkup} from './area-panel.mjs?v=20261023-paired-study';
+import {createTooltipIntent,tooltipPosition,tooltipMarkup,highlightMatchingZones} from './tooltip.mjs?v=20261023-paired-study';
+import {buildPrintSnapshot,renderPrintSVG} from './print-export.mjs?v=20261023-paired-study';
+import {exportLogoFile,loadExportLogo,drawExportLogo,webExportLayout,drawOutcomeBanner,drawPerspectiveBanner,exportOutcome} from './web-export.mjs?v=20261023-paired-study';
+import {zoneBorderStyle} from './zone-borders.mjs?v=20261023-paired-study';
+import {comparisonSpecs} from './comparison-specs.mjs?v=20261023-paired-study';
 
 const $=id=>document.getElementById(id),esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const fmt=n=>n.toLocaleString('en-US'),pct=(n,d)=>d?`${(100*n/d).toFixed(1)}%`:'—';
-const defaults={season:2026,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,exact:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:false,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
+const defaults={season:2026,conference:'all',team:'all',opponentConference:'all',opponentTeam:'all',period:'all',venue:'all',scope:'all',partial:false,exact:false,layout:'profile',compareTeam:'all',perspective:'taken',view:'heatmap',outcome:'all',measure:'share',breakdown:'share',palette:'forest',theme:'dark',goals:true,unusual:false,zoneBorders:false,marks:'grouped',summaryLeft:'off',summaryRight:'off',zone:null};
 const state={...defaults},selectionMemory=createSelectionMemory(defaults);
 try{const saved=localStorage.getItem('chd-shot-map-theme');if(['dark','light'].includes(saved))state.theme=saved;}catch{}
 const params=new URLSearchParams(location.search);
@@ -22,6 +24,7 @@ for(const key of Object.keys(defaults))if(params.has(key))state[key]=params.get(
 state.exact=state.exact===true||state.exact==='true';
 state.season=Number(state.season);state.partial=state.partial===true||state.partial==='true';state.goals=state.goals===true||state.goals==='true';state.unusual=state.unusual===true||state.unusual==='true';
 state.zoneBorders=state.zoneBorders===true||state.zoneBorders==='true';
+let linked,ghost;
 let index,data,current=[],loadGeneration=0,exporting=false,inspectionZone=null;
 const privatePreview=document.documentElement.dataset.privateShotMaps==='true';
 let tooltipTarget=null,tooltipDismissedTarget=null,tooltipPointer=null;
@@ -69,6 +72,7 @@ function syncControls(){
   const aliases={'high-slot':'slot','left-sharp':'left-tight','right-sharp':'right-tight','left-line':'left-tight','right-line':'right-tight'};
   if(Object.hasOwn(aliases,state.zone))state.zone=aliases[state.zone];
   if(!ZONES.some(z=>z.id===state.zone))state.zone=null;
+  $('export-focus').disabled=$('export-style').value==='paired';
   $('export-focus').options[1].disabled=!state.zone;
   if(!state.zone)$('export-focus').value='whole';
   $('partial').checked=state.partial;$('exact').checked=state.exact;$('partial').disabled=state.exact;
@@ -90,15 +94,16 @@ function syncControls(){
 async function loadSeason(){
   hideZoneTooltip();
   const generation=++loadGeneration;
-  $('load-status').hidden=false;$('load-status').textContent='Loading archived shot locations…';
+  $('load-status').hidden=false;$('load-status').textContent='Loading paired shot and net maps…';
   $('study').hidden=true;
   for(const id of ['season','conference','team','opponent-conference'])$(id).disabled=true;
   const season=index.seasons.find(s=>s.season===state.season)||index.seasons[0];
   state.season=season.season;
   try{
-    const response=await fetch(`./data/${season.file}`);
+    const response=await fetch(`./data/${season.file}?v=20261023-paired-study`);
     if(!response.ok)throw new Error(`Dataset unavailable (${response.status})`);
     const loaded=await response.json();
+    linked??=await fetch('./data/linked-study.json?v=20261023-paired-study').then(r=>{if(!r.ok)throw Error('Linked map data unavailable');return r.json()});ghost=linked.goalieImage;
     if(loaded.schema!==1||loaded.privatePreview!==privatePreview||loaded.season!==state.season)throw new Error('Dataset identity check failed');
     if(generation!==loadGeneration)return;
     data=loaded;populateTeams();syncControls();
@@ -111,6 +116,7 @@ function subjectName(team=state.team,conference=state.conference){
   return team==='all'?(conference==='all'?'All teams':conference):data.teams.find(t=>String(t.id)===team)?.name||'All teams';
 }
 function mark(team){return data.teams.find(t=>String(t.id)===team)?.logo||'';}
+function headingTeam(team,conference=state.conference){const logo=mark(team);return `<span class="team-title">${logo?`<img src="../assets/logos/${encodeURIComponent(logo)}" alt="">`:''}<span>${esc(subjectName(team,conference))}</span></span>`;}
 function describeFilters(){
   const parts=[state.opponentTeam!=='all'?`Against ${subjectName(state.opponentTeam,'all')}`:state.opponentConference!=='all'?`Against ${state.opponentConference}`:'All opponents'];
   if(state.period!=='all')parts.push(state.period==='ot'?'Overtime':`${['First','Second','Third'][Number(state.period)-1]} period`);
@@ -150,8 +156,7 @@ function heatImage(grid,max,difference,palette=state.palette){
 function shotSymbol(outcome,x,y,size=3.4){
   const c=OUTCOME_COLORS[outcome];
   if(outcome===0){
-    const points=Array.from({length:10},(_,i)=>{const r=i%2?size*.45:size;return `${x+Math.sin(i*Math.PI/5)*r},${y-Math.cos(i*Math.PI/5)*r}`;}).join(' ');
-    return `<polygon points="${points}" fill="${c}" stroke="#fff" stroke-width=".6"/>`;
+    return `<path d="M${x-size} ${y-size}l${size*2} ${size*2}m0 ${-size*2}l${-size*2} ${size*2}" fill="none" stroke="${c}" stroke-width="2"/>`;
   }
   if(outcome===1)return `<circle cx="${x}" cy="${y}" r="${size*.55}" fill="${c}" fill-opacity=".52"/>`;
   if(outcome===2)return `<path d="M${x-size*.6} ${y-size*.6}l${size*1.2} ${size*1.2}m0 ${-size*1.2}l${-size*1.2} ${size*1.2}" fill="none" stroke="${c}" stroke-width="1.3"/>`;
@@ -169,14 +174,9 @@ function attemptImage(population,groups,maxCount){
       ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);ctx.fillStyle=color;ctx.globalAlpha=.66;ctx.fill();
       ctx.globalAlpha=.8;ctx.strokeStyle='#fff';ctx.lineWidth=.65;ctx.stroke();
     }
-    // Goal rings sit on top of the location dots, so overlaps cannot hide them.
-    if(['all','onnet'].includes(state.outcome))for(const g of groups)if(g.counts[0]){
-      ctx.beginPath();ctx.arc(g.lateral*4.25,g.depth*10,locationRadius(g.total,maxCount)+1,0,Math.PI*2);
-      ctx.globalAlpha=.95;ctx.strokeStyle=OUTCOME_COLORS[0];ctx.lineWidth=1.5;ctx.stroke();
-    }
     return canvas.toDataURL('image/png');
   }
-  const points=[...population.points.filter(p=>p[4]!==0),...population.points.filter(p=>p[4]===0)];
+  const points=population.points.filter(p=>p[4]!==0);
   for(const p of points){
     if(p[2]>50)continue;
     const x=p[3]*4.25,y=p[2]*10,o=p[4],size=o===0?5.3:3.4;
@@ -225,7 +225,7 @@ function rinkSVG(spec,i,max,grid,heatMax,groups,pointMax){
   }
   let attempts='';
   if(state.view==='attempts')attempts=`<image href="${attemptImage(spec.population,groups,pointMax)}" width="425" height="500" pointer-events="none"/>`;
-  if(heat&&state.goals)attempts=`<g pointer-events="none" aria-label="Goals in the shown attempts">${spec.population.points.filter(p=>p[4]===0&&p[2]<=50).map(p=>`<circle cx="${p[3]*4.25}" cy="${p[2]*10}" r="3.2" fill="${darkHeat?'#fff7cf':'#a3382e'}" fill-opacity=".7" stroke="${darkHeat?heatColorAt(0,heatMax,palette,difference,state.theme):'#fff'}" stroke-width="1"/>`).join('')}</g>`;
+  attempts+=goalMarks(spec.population.points,'ice',state.goals);
   const empty=!spec.population.total?'<rect x="72" y="195" width="281" height="72" rx="5" fill="#fff" fill-opacity=".96"/><text class="empty-map" x="212.5" y="224" fill="#526b5c" font-size="15" text-anchor="middle">No mapped attempts in this selection.</text><text x="212.5" y="246" fill="#526b5c" font-size="12" text-anchor="middle">Try another team or widen the filters.</text>':'';
   const goal=GOAL_LINE*10,blue=BLUE_LINE*10;
   return `<svg id="${id}" class="rink ${heat?'rink-heatmap':''} ${heat&&!darkHeat?'rink-light':''} ${heat&&state.zoneBorders?'rink-zone-borders':''}" viewBox="-3 -3 431 507" role="group" font-family="Trebuchet MS,Arial,sans-serif" aria-label="${esc(`${spec.name}, ${spec.label.toLowerCase()}, ${labels[state.outcome].toLowerCase()}, ${state.view} view`)}" xmlns="http://www.w3.org/2000/svg"><title>${esc(`${spec.name} · ${spec.label}`)}</title><defs><clipPath id="${id}-clip"><path d="M100 0H325Q425 0 425 100V500H0V100Q0 0 100 0Z"/></clipPath><clipPath id="${id}-flanks"><path d="${FLANK_CLIP}" clip-rule="evenodd" fill-rule="evenodd"/></clipPath></defs><rect width="425" height="500" fill="${heat?heatColorAt(0,heatMax,palette,difference,state.theme):'#f6f9ef'}" clip-path="url(#${id}-clip)"/><g clip-path="url(#${id}-clip)">${background}${contours}${zones}<g class="rink-lines" fill="none" pointer-events="none" opacity="${heat?'.65':state.view==='zones'?'.3':'.48'}" stroke="${heat?(darkHeat?'#b1d4c9':'#b58780'):'#acbdba'}" stroke-width="1.5"><path d="M0 ${goal}H425" stroke="${darkHeat?'#e0b9ac':'#cc726b'}"/>${faceoffMarkings({ink:darkHeat?'#e0b9ac':'#cc726b'})}<path d="${CREASE_PATH}" fill="#7dbac0" fill-opacity=".15"/><path d="M0 ${blue}H425" stroke="${darkHeat?'#a3cfe4':'#446f94'}" stroke-width="${heat?2:3}"/><circle cx="212.5" cy="500" r="75"/></g>${attempts}</g><path d="M100 0H325Q425 0 425 100V500H0V100Q0 0 100 0Z" fill="none" stroke="${darkHeat?'#9fbfb2':'#3d6455'}" stroke-width="2" pointer-events="none"/><path d="M197.5 ${goal}V${goal-18}H227.5V${goal}Z" fill="${darkHeat?heatColorAt(0,heatMax,palette,difference,state.theme):'#fff'}" stroke="${darkHeat?'#e1ece2':'#537165'}" stroke-width="1.5" pointer-events="none"/>${findingMarkers(spec)}${empty}</svg>`;
@@ -290,9 +290,12 @@ function render(){
   const specs=populationSpec();
   for(const spec of specs){
     spec.population=selectPopulation(data,spec.state,spec.perspective);
+    spec.net=netSample(spec.population);
     spec.baseline=selectPopulation(data,{...spec.state,conference:'all',team:'all'},spec.perspective);
     if(state.view==='heatmap'&&state.unusual)spec.findings=locationFindings(spec.population);
   }
+  const netGrids=specs.map(s=>netGrid(s.net,s.population.mappedAppearances));
+  const netMax=Math.max(.00001,...netGrids.map(g=>g.max));
   current=specs;
   const values=specs.flatMap(s=>ZONES.map(z=>zoneValue(s.population,z.id,state.measure,s.baseline))).filter(v=>v!==null);
   const max=Math.max(state.measure==='difference'?1:state.measure==='pergame'?0.1:1,...values.map(v=>state.measure==='difference'?Math.abs(v):v));
@@ -310,7 +313,7 @@ function render(){
   let pointMax=4;
   for(const groups of locationGroups)for(const g of groups)pointMax=Math.max(pointMax,g.total);
   $('scope-kicker').textContent=`${data.label} / MEN`;
-  $('study-title').textContent=state.layout==='profile'?subjectName():`${subjectName()} & ${subjectName(state.compareTeam,'all')}`;
+  $('study-title').innerHTML=state.layout==='profile'?headingTeam(state.team):`${headingTeam(state.team)} <span class="title-versus">&amp;</span> ${headingTeam(state.compareTeam,'all')}`;
   $('scope-description').textContent=describeFilters();
   const areaHint=matchMedia('(any-hover: hover) and (any-pointer: fine)').matches?'Hover or focus an area to update the fixed panels beneath both rinks. The panels keep the last area you inspected. Select for full goal details in Read the rink.':'Tap an area to update both fixed panels. Goal details opens its full breakdown in Read the rink.';
   $('reading-guide').textContent=(state.view==='attempts'?(state.marks==='grouped'?'Each dot is a recorded location. Larger dots contain more attempts; both maps use the same size scale.':'Every symbol is a recorded attempt; overlapping marks are retained.'):state.measure==='difference'?`${state.view==='heatmap'&&state.theme==='dark'?'Lime':'Green'} shows a larger location share than the league; ${state.view==='heatmap'?'coral':'copper'} shows a smaller share. Both maps use the same scale.`:state.view==='zones'?`Each area shows ${state.measure==='pergame'?'shown attempts per mapped team game':'its share of the shown attempts'}. Smaller numbers are counts.`:`Warmer colors show where ${labels[state.outcome].toLowerCase()} concentrate${state.measure==='pergame'?', normalized per mapped team game':''}. Both maps use the same scale.`)+` ${areaHint} Matching areas light up on both maps.`;
@@ -319,7 +322,7 @@ function render(){
     const name=state.layout==='profile'?spec.label:spec.name;
     const subtitle=state.layout==='profile'?spec.name:spec.label;
     const branded=state.palette==='team'&&state.theme==='dark'&&state.view==='heatmap',brand=teamStyle(data.teams.find(t=>String(t.id)===spec.team));
-    return `<article class="map-card${branded?' map-team-color':''}"${branded?` style="--team-panel:${brand.panel};--team-accent:${brand.accent};--team-text:${brand.text};--team-muted:${brand.muted};--team-base:${brand.base}"`: ''}><div class="card-heading">${logo?`<img src="../assets/logos/${encodeURIComponent(logo)}" alt="">`:''}<div><h3>${esc(name)}</h3><p>${esc(subtitle)} · ${fmt(p.mappedGames)} mapped games${p.minorDiscrepancyGames?` · ${fmt(p.minorDiscrepancyGames)} with a 1-shot discrepancy`:''}</p></div><span class="card-view-label">${state.view==='heatmap'?'SHOT CONCENTRATION':state.view==='zones'?'BY AREA':state.marks==='grouped'?'RECORDED LOCATIONS':'RECORDED ATTEMPTS'}</span></div><div class="map-stage"><p class="map-direction">Attacking end ↑</p><div class="map-wrap">${rinkSVG(spec,i,max,grids[i],heatMax,locationGroups[i],pointMax)}</div></div><section class="area-panel" id="area-panel-${i}" aria-label="${esc(name+' area outcomes')}">${areaPanelMarkup(p,inspectionZone)}</section>${summaryControl(spec,i)}<p class="map-note">Whole map: ${fmt(p.allPoints.length)} recorded attempts across ${fmt(p.mappedAppearances)} team games in the selected period. On net (goals + saves): ${pct(p.outcomes[0]+p.outcomes[1],p.allPoints.length)}. Map: ${esc(labels[state.outcome].toLowerCase())}${p.beyondHalf?` · ${fmt(p.beyondHalf)} origins beyond this half-rink remain in the totals.`:'.'}</p></article>`;
+    return `<article data-paired-panel="${i}" class="map-card${branded?' map-team-color':''}"${branded?` style="--team-panel:${brand.panel};--team-accent:${brand.accent};--team-text:${brand.text};--team-muted:${brand.muted};--team-base:${brand.base}"`: ''}><div class="card-heading">${logo?`<img src="../assets/logos/${encodeURIComponent(logo)}" alt="">`:''}<div><h3>${esc(name)}</h3><p>${esc(subtitle)} · ${fmt(p.mappedGames)} mapped games${p.minorDiscrepancyGames?` · ${fmt(p.minorDiscrepancyGames)} with a 1-shot discrepancy`:''}</p></div><span class="card-view-label">${state.view==='heatmap'?'SHOT CONCENTRATION':state.view==='zones'?'BY AREA':state.marks==='grouped'?'RECORDED LOCATIONS':'RECORDED ATTEMPTS'}</span></div><div class="sample-stats"><div><b>${fmt(p.outcomes[0])}</b><span>Goals</span></div><div><b>${fmt(p.outcomes[0]+p.outcomes[1])}</b><span>Shots on net</span></div><div><b>${fmt(p.allPoints.length)}</b><span>Attempts</span></div></div><div class="goal-readout" aria-live="polite" aria-atomic="true"></div><div class="paired-maps"><section class="origin-column"><div class="map-mini-heading"><span>01 / ORIGIN</span><h4>Where it starts.</h4></div><div class="map-stage"><p class="map-direction">Attacking end ↑</p><div class="map-wrap">${rinkSVG(spec,i,max,grids[i],heatMax,locationGroups[i],pointMax)}</div></div></section><section class="net-column"><div class="map-mini-heading"><span>02 / FINISH</span><h4>Where it reaches the net.</h4></div><p class="net-perspective">Shooter’s view · goals + saves</p><div class="net-stage">${netSVG(spec,i,state,netGrids[i],netMax,(v,m)=>heatColorAt(v,m,paletteFor(spec),false,state.theme),ghost)}</div><div class="net-density-key"><span style="background:${heatGradient(paletteFor(spec),false)}"></span><small>${state.view==='zones'?'Share of shown net placements':state.view==='attempts'?'Located shots on net':'Lower → higher placements / team game'}</small></div><p class="net-sample-note">${fmt(spec.net.points.length)} shown placements${spec.net.missing?` · ${fmt(spec.net.missing)} on-net events unlocated`:''}. Row and column percentages use the shown net sample.${!spec.net.total?' This outcome has no shots reaching the net.':''} Net heat uses a shared per-game scale; rink measure applies to origins.</p></section></div><section class="area-panel" id="area-panel-${i}" aria-label="${esc(name+' area outcomes')}">${areaPanelMarkup(p,inspectionZone)}</section>${summaryControl(spec,i)}<p class="map-note">Whole map: ${fmt(p.allPoints.length)} recorded attempts across ${fmt(p.mappedAppearances)} team games in the selected period. On net (goals + saves): ${pct(p.outcomes[0]+p.outcomes[1],p.allPoints.length)}. Map: ${esc(labels[state.outcome].toLowerCase())}${p.beyondHalf?` · ${fmt(p.beyondHalf)} origins beyond this half-rink remain in the totals.`:'.'}</p></article>`;
   }).join('');
   $('map-grid').querySelectorAll('[data-summary]').forEach(select=>select.addEventListener('change',()=>{
     const i=Number(select.dataset.summary),mode=select.value;
@@ -328,13 +331,14 @@ function render(){
     saveState();
   }));
   $('map-grid').querySelectorAll('img').forEach(img=>img.addEventListener('error',()=>{img.hidden=true;},{once:true}));
+  wireGoals($('map-grid'),specs,state,linked,showPlayerDetails);
   bindAreaInspection();
   highlightMatchingZones($('map-grid'),inspectionZone);
   bindFindingMarkers(specs);
   const heat=state.view==='heatmap',difference=state.measure==='difference';
   const pointColor=OUTCOME_COLORS[{goal:0,saved:1,missed:2,blocked:3}[state.outcome]??1];
-  const locationLegend=`<div class="location-legend"><span>Attempts at a location</span>${[...new Set([1,Math.ceil(pointMax/2),pointMax])].map(n=>`<span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="${locationRadius(n,pointMax)}" fill="${pointColor}" fill-opacity=".66"/></svg>${fmt(n)}</span>`).join('')}</div>${['all','onnet'].includes(state.outcome)?'<span class="location-goal-legend"><i></i> Ring: at least one goal</span>':''}<span>All game states combined</span>`;
-  $('map-legend').innerHTML=state.view==='attempts'?(state.marks==='grouped'?locationLegend:`<div class="symbol-legend">${OUTCOME_NAMES.map((n,i)=>`<span><svg viewBox="0 0 16 16" aria-hidden="true">${shotSymbol(i,8,8,6)}</svg>${n}</span>`).join('')}</div><span>Overlapping marks are retained.</span>`):`<div class="legend-scale"><span>${difference?'Less than league':'Lower concentration'}</span><span class="legend-gradient ${difference?'difference':''}" ${heat?`style="background:${heatGradient(state.palette,difference)}"`:''}></span><span>${difference?'More than league':'Higher concentration'}</span></div><span>${heat?'Contours follow equal concentration':'Shared zone scale'}</span>${heat&&state.goals&&['all','onnet','goal'].includes(state.outcome)?'<span class="goal-legend"><i></i> Goal locations</span>':''}<span>All game states combined</span>`;
+  const locationLegend=`<div class="location-legend"><span>Attempts at a location</span>${[...new Set([1,Math.ceil(pointMax/2),pointMax])].map(n=>`<span><svg viewBox="0 0 20 20" aria-hidden="true"><circle cx="10" cy="10" r="${locationRadius(n,pointMax)}" fill="${pointColor}" fill-opacity=".66"/></svg>${fmt(n)}</span>`).join('')}</div>${['all','onnet'].includes(state.outcome)?'<span class="location-goal-legend"><i></i> ×: goal; hover or select to connect maps</span>':''}<span>All game states combined</span>`;
+  $('map-legend').innerHTML=state.view==='attempts'?(state.marks==='grouped'?locationLegend:`<div class="symbol-legend">${OUTCOME_NAMES.map((n,i)=>`<span><svg viewBox="0 0 16 16" aria-hidden="true">${shotSymbol(i,8,8,6)}</svg>${n}</span>`).join('')}</div><span>Overlapping marks are retained.</span>`):`<div class="legend-scale"><span>${difference?'Less than league':'Lower concentration'}</span><span class="legend-gradient ${difference?'difference':''}" ${heat?`style="background:${heatGradient(state.palette,difference)}"`:''}></span><span>${difference?'More than league':'Higher concentration'}</span></div><span>${heat?'Contours follow equal concentration':'Shared zone scale'}</span>${state.goals&&['all','onnet','goal'].includes(state.outcome)?'<span class="goal-legend"><i></i> Goal locations</span>':''}<span>All game states combined</span>`;
   if(heat&&state.palette==='team'&&!difference){
     $('map-legend').innerHTML=specs.map(spec=>`<div class="legend-scale team-legend"><b>${esc(spec.name)}</b><span>Lower</span><span class="legend-gradient" style="background:${heatGradient(paletteFor(spec),false)}"></span><span>Higher</span></div>`).join('')+'<span>Shared concentration scale. Team colors change the cold end.</span>';
   }
@@ -391,9 +395,9 @@ function pinStatsTooltip(mobile=false){
   tip.querySelector('.tooltip-close').focus({preventScroll:true});
 }
 function goalMarkup(details){
-  if(!details.goals)return '<section class="goal-detail"><h5>Goals from this area</h5><p>No recorded goals in this area.</p></section>';
-  const scorerList=details.scorers.map(s=>`<li><span>${esc(s.name)}</span><b>${fmt(s.goals)} ${s.goals===1?'goal':'goals'}</b></li>`).join('');
-  return `<section class="goal-detail"><h5>Goals from this area</h5><div class="goal-measures"><div><strong>${pct(details.goals,details.totalGoals)}</strong><span>of mapped goals</span><small>${fmt(details.goals)} of ${fmt(details.totalGoals)} goals</small></div><div><strong>${pct(details.goals,details.onnet)}</strong><span>on-net conversion</span><small>${fmt(details.goals)} goals / ${fmt(details.onnet)} on net</small></div></div><p class="goal-games">Goals in ${gameCountLabel(details.games)}.</p><div class="goal-periods">${details.periods.map((n,i)=>`<div><span>${['First','Second','Third','OT'][i]}</span><b>${pct(n,details.goals)}</b><small>${fmt(n)} ${n===1?'goal':'goals'}</small></div>`).join('')}</div>${scorerList?`<h6>Goal scorers</h6><ul class="goal-scorers">${scorerList}</ul><p class="goal-attribution">Names linked for ${fmt(details.namedGoals)} of ${fmt(details.goals)} goals.</p>`:'<p class="goal-attribution">Scorer names are not attached to these goal locations.</p>'}</section>`;
+  if(!details.goals)return `<section class="goal-detail"><h5>Goals from this area</h5><p>No recorded goals in this area.</p>${playerAreaMarkup(details)}</section>`;
+
+  return `<section class="goal-detail"><h5>Goals from this area</h5><div class="goal-measures"><div><strong>${pct(details.goals,details.totalGoals)}</strong><span>of mapped goals</span><small>${fmt(details.goals)} of ${fmt(details.totalGoals)} goals</small></div><div><strong>${pct(details.goals,details.onnet)}</strong><span>on-net conversion</span><small>${fmt(details.goals)} goals / ${fmt(details.onnet)} on net</small></div></div><p class="goal-games">Goals in ${gameCountLabel(details.games)}.</p><div class="goal-periods">${details.periods.map((n,i)=>`<div><span>${['First','Second','Third','OT'][i]}</span><b>${pct(n,details.goals)}</b><small>${fmt(n)} ${n===1?'goal':'goals'}</small></div>`).join('')}</div>${playerAreaMarkup(details)}</section>`;
 }
 function showFindingTooltip(target,spec,finding,event,explicit=false){
   const selected=`${fmt(finding.total)} ${selectedCountLabel(finding.total)} · ${pct(finding.total,spec.population.total)} of this map · ${gameCountLabel(finding.games)}`;
@@ -485,6 +489,7 @@ async function saveImage(){
         exportHeading=$('study-title').textContent,exportFilters=describeFilters(),
         exportReferences=current.map((spec,i)=>referenceFor(spec,state[summaryKey(i)]));
   try{
+    if(exportStyle==='paired'){await exportPairs($('map-grid'),current,state,$('study-title').textContent,data.through);button.textContent='Image saved ✓';return;}
     if(exportStyle!=='web'){
       await savePrintImage(exportData,exportState,exportSpecs,exportFocus,exportStyle);
       button.textContent='Image saved ✓';return;
@@ -609,6 +614,15 @@ async function savePrintImage(exportData,exportState,specs,focus,style){
   link.click();setTimeout(()=>URL.revokeObjectURL(url),30000);
 }
 
+function showPlayerDetails(event,trigger){
+  const player=linked.players[event.team+':'+event.playerId];if(!player)return;
+  const stats=player.instat,official=player.stats,dialog=$('player-dialog');
+  $('player-dialog-body').innerHTML=`<p class="kicker">${esc(linked.teams[event.team]?.name||'')} / PLAYER</p><h2 id="player-dialog-title">${esc(event.scorer)}</h2><p>${esc([player.number?'#'+player.number:'',player.position,player.class].filter(Boolean).join(' · '))}</p><dl class="player-study-stats">${[['GP',stats?.games],['Goals',stats?.goals],['SOG',stats?.shots],['Attempts',stats?.attempts],['Source xG',Number.isFinite(stats?.xg)?stats.xg.toFixed(2):null],['Assists',official?.assists]].map(([k,v])=>`<div><dt>${k}</dt><dd>${v??'—'}</dd></div>`).join('')}</dl><p>Season totals through ${esc(linked.through)}. Goals, SOG, attempts and xG: Instat linked events. Assists: separately retained CHN boxes. These season totals do not change with the study filters.</p>${player.draft?`<p class="player-study-draft">${esc(player.draft.year)} NHL draft · round ${esc(player.draft.round)} · ${esc(player.draft.team)}</p>`:''}<a href="/teams/${esc(player.slug)}/?year=2026">Open team summary ↗</a>`;
+  dialog.showModal();dialog.querySelector('button').focus();dialog.onclose=()=>trigger?.isConnected&&trigger.focus({preventScroll:true});
+}
+$('close-player-dialog').onclick=()=>$('player-dialog').close();
+$('player-dialog').addEventListener('click',e=>{if(e.target===$('player-dialog'))$('player-dialog').close();});
+
 for(const [key,id] of Object.entries(controlIds))$(id).addEventListener('change',()=>{
   if(!data)return;state[key]=$(id).value;
   if(key==='conference'){state.team='all';populateTeams();}
@@ -632,9 +646,12 @@ document.querySelectorAll('[data-outcome]').forEach(b=>b.addEventListener('click
 document.querySelectorAll('[data-breakdown]').forEach(b=>b.addEventListener('click',()=>{if(!data)return;state.breakdown=selectionMemory.select('breakdown',state.breakdown,b.dataset.breakdown);renderArea();saveState();}));
 $('clear-zone').addEventListener('click',()=>{state.zone=null;selectZone(null,false);});
 $('save-image').addEventListener('click',saveImage);
+$('export-style').addEventListener('change',()=>{$('export-focus').disabled=$('export-style').value==='paired';});
 $('zone-tooltip').addEventListener('pointerenter',()=>tooltipIntent.enterPanel());
 $('zone-tooltip').addEventListener('pointerleave',queueHideZoneTooltip);
 document.addEventListener('keydown',e=>{if(e.key==='Escape'&&(tooltipTarget||tooltipIntent.pendingTarget())){const target=tooltipTarget||tooltipIntent.pendingTarget(),pinned=$('zone-tooltip').classList.contains('is-pinned');tooltipDismissedTarget=target;hideZoneTooltip();if(pinned)target.focus({preventScroll:true});}});
+document.addEventListener('pointerdown',resetGoalFocus);
+document.addEventListener('keydown',e=>{if(e.key==='Escape'&&!document.querySelector('dialog[open]'))resetGoalFocus();});
 document.addEventListener('pointerdown',e=>{const target=tooltipTarget||tooltipIntent.pendingTarget();if(target&&!target.contains(e.target)&&!$('zone-tooltip').contains(e.target))hideZoneTooltip();});
 window.addEventListener('scroll',e=>{if(!(e.target instanceof Node&&$('zone-tooltip').contains(e.target)))hideZoneTooltip();},{passive:true,capture:true});
 window.addEventListener('resize',hideZoneTooltip,{passive:true});
@@ -649,13 +666,13 @@ $('reset').addEventListener('click',()=>{
 });
 
 try{
-  const response=await fetch('./data/index.json');if(!response.ok)throw new Error('Private dataset index unavailable');
+  const response=await fetch('./data/index.json?v=20261023-paired-study');if(!response.ok)throw new Error('Study dataset index unavailable');
   index=await response.json();if(index.schema!==1||index.privatePreview!==privatePreview||!index.seasons.length)throw new Error('Shot-map dataset index invalid');
   options($('season'),index.seasons.map(s=>[s.season,s.label+(s.season===2026?' · in progress':'')]),state.season);
   // Seed recognizable programs only when a review link did not specify them.
   if(!params.has('team')){
     const s=index.seasons.find(s=>s.season===state.season)||index.seasons[0];
-    const seedResponse=await fetch('./data/'+s.file);if(!seedResponse.ok)throw new Error('Could not load initial season');
+    const seedResponse=await fetch('./data/'+s.file+'?v=20261023-paired-study');if(!seedResponse.ok)throw new Error('Could not load initial season');
     const seed=await seedResponse.json();
     state.team=String(seed.teams.find(t=>t.name==='Michigan State')?.id??'all');
     state.compareTeam=String(seed.teams.find(t=>t.name==='Michigan')?.id??seed.teams[0]?.id??'all');

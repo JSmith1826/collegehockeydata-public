@@ -1,9 +1,9 @@
-import {brandExportSVG} from './export-branding.mjs';
-import {faceoffMarkings} from './rink-geometry.mjs';
-import {exportOutcome,exportPerspective} from './export-outcome.mjs';
-import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs';
-import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs';
-import {summaryReference,compareSummary} from './summary-comparison.mjs';
+import {brandExportSVG} from './export-branding.mjs?v=20261023-paired-study';
+import {faceoffMarkings} from './rink-geometry.mjs?v=20261023-paired-study';
+import {exportOutcome,exportPerspective} from './export-outcome.mjs?v=20261023-paired-study';
+import {ZONES,BLUE_LINE,GOAL_LINE,CREASE_PATH,DESIGN_PIXELS_PER_FOOT} from './zones.mjs?v=20261023-paired-study';
+import {zoneValue,areaOutcomes,outcomeGroups,colorAt} from './model.mjs?v=20261023-paired-study';
+import {summaryReference,compareSummary} from './summary-comparison.mjs?v=20261023-paired-study';
 
 export const PRINT_VERSION='instat-source-zones-print-1';
 export const PRINT_WIDTH=2400;
