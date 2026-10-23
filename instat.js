@@ -10,6 +10,8 @@ if(IR){
 }
 function instatPlayerStats(p){return S.year==='2026'?IR?.playerShots[S.team]?.[p.id]:null}
 const goalMapFocus=new Map();let goalMapScope='';
+let dismissGoalFocus=null;
+document.addEventListener('click',e=>dismissGoalFocus?.(e));
 function goalClock(seconds){if(!Number.isFinite(seconds))return 'Time unavailable';return Math.floor(seconds/60)+':'+String(Math.floor(seconds%60)).padStart(2,'0')+' elapsed'}
 function goalEventLabel(e){const team=D.teams[e.team]?.name||'Team',opponent=D.teams[e.opponent]?.name||'Opponent',score=e.scoreBefore;return `${e.scorer} · ${team} vs ${opponent} · ${e.date} · ${e.period===4?'OT':'P'+e.period} · ${goalClock(e.elapsed)} (Instat) · ${score?`${score[0]}–${score[1]} before goal (${score[0]===score[1]?'tied':score[0]>score[1]?'leading':'trailing'})`:'Score before goal unavailable'}`}
 function goalKeys(mark){return (mark.dataset.goalKeys||'').split(' ').filter(Boolean)}
@@ -20,17 +22,21 @@ function linkedMapPanel(){
  return `<div class="linked-map-panel" data-goal-team="${S.team}"><div class="linked-map-controls"><div><span class="map-control-label">Shots</span><div class="pills">${[['onnet','SOG for'],['faced','SOG faced']].map(([k,l])=>`<button data-net-kind="${k}" aria-pressed="${kind===k}">${l}</button>`).join('')}</div></div><div><span class="map-control-label">Ice view</span><div class="pills">${[['heatmap','Heatmap'],['zones','Instat zones']].map(([k,l])=>`<button data-ice-view="${k}" aria-pressed="${(S.iceView||'heatmap')===k}">${l}</button>`).join('')}</div></div></div><div class="goal-focus-readout" aria-live="polite" aria-atomic="true"></div><div class="shot-net-layout"><div>${shootingPreview()}</div><div>${netPreview()}</div></div><p class="note goal-map-help">Hover or keyboard-focus a × to highlight the same goal on both maps. Click or press Enter to show that scorer’s goals; use Show all goals to reset. Heatmaps, zone shares and totals always describe the full team sample. Times are Instat elapsed time within the period.</p></div>`;
 }
 function wireLinkedGoals(){
+ const resets=[];
+ dismissGoalFocus=e=>{if(!e.target.closest('[data-goal-keys],[data-goal-choice],[data-goal-player],#cohort,#cohort-backdrop'))resets.forEach(reset=>reset())};
  const scope=[S.year,S.netKind,...(S.sheetTeams||[S.team])].join(':');if(scope!==goalMapScope){goalMapFocus.clear();goalMapScope=scope}
  document.querySelectorAll('[data-goal-team]').forEach(panel=>{
   const tid=panel.dataset.goalTeam,marks=[...panel.querySelectorAll('[data-goal-keys]')],events=IR.goalEvents,all=Object.values(events).filter(e=>e[(S.netKind||'onnet')==='faced'?'opponent':'team']===tid),readout=panel.querySelector('.goal-focus-readout');
   let selected=goalMapFocus.get(tid)||null,hovered=[];
   const repaint=()=>{for(const m of marks){const keys=goalSelection(goalKeys(m),events,selected?.shooterKey),active=keys.filter(k=>(hovered.length?hovered:selected?[selected.key]:[]).includes(k));m.classList.toggle('goal-hidden',keys.length===0);m.classList.toggle('goal-active',active.length>0);m.setAttribute('aria-pressed',String(!!selected&&keys.length>0));m.setAttribute('aria-label',(keys.length?keys:goalKeys(m)).map(k=>goalEventLabel(events[k])).join('; ')+'; select to focus scorer');m.querySelector('title').textContent=(keys.length?keys:goalKeys(m)).map(k=>goalEventLabel(events[k])).join('; ');const count=m.querySelector('text');if(count)count.textContent=keys.length>1?'×'+keys.length:'';}};
   const inspect=(key)=>{selected=events[key];goalMapFocus.set(tid,selected);hovered=[key];closeCohort(false);update();repaint()};
+  const reset=()=>{if(!selected&&!readout.querySelector('[data-goal-choice]'))return;selected=null;goalMapFocus.delete(tid);hovered=[];closeCohort(false);update();repaint()};
+  resets.push(reset);
   const update=(choices=[])=>{
    const visible=selected?all.filter(e=>e.shooterKey===selected.shooterKey):all,located=visible.filter(e=>e.ice&&e.ice[0]<=44&&e.net).length;
    readout.innerHTML=selected?`<div><b>${esc(selected.scorer)}</b><span>${visible.length} goal${visible.length===1?'':'s'} in this team sample · ${located} paired in these crops</span></div><button data-goal-reset>Show all goals</button><p>${esc(goalEventLabel(selected))}</p>${selected.playerId?'<button data-goal-player>Player details ↗</button>':''}${located<visible.length?'<p>Some goals are outside the ice crop or lack a placement; no location is invented.</p>':''}`:`<div><b>One goal. Two views.</b><span>${all.length} goals · select a × to follow the scorer</span></div>`;
    if(choices.length>1)readout.innerHTML+=`<div class="goal-overlap-choices"><b>${choices.length} goals share this location. Choose one:</b>${choices.map(k=>`<button data-goal-choice="${esc(k)}">${esc(goalEventLabel(events[k]))}</button>`).join('')}</div>`;
-   readout.querySelector('[data-goal-reset]')?.addEventListener('click',()=>{selected=null;goalMapFocus.delete(tid);hovered=[];closeCohort(false);update();repaint()});
+   readout.querySelector('[data-goal-reset]')?.addEventListener('click',reset);
    readout.querySelectorAll('[data-goal-choice]').forEach(b=>b.onclick=()=>inspect(b.dataset.goalChoice));
    readout.querySelector('[data-goal-player]')?.addEventListener('click',e=>withSheetTeam(selected.team,()=>{const p=roster().find(p=>String(p.id)===String(selected.playerId));if(p)showCohort(e.currentTarget,D.teams[selected.team].name+' · '+selected.scorer,[p],true)}));
   };
