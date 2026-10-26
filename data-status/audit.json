@@ -1,48 +1,48 @@
 {
   "schema": "instat-release-audit-v1",
-  "builtAt": "2026-10-23T18:21:43.206093+00:00",
+  "builtAt": "2026-10-26T15:57:39.383934+00:00",
   "season": 2026,
-  "catalogUpdated": "2026-10-23T18:14:00.856722+00:00",
-  "lastCapture": "2026-10-23T18:17:02.850569+00:00",
-  "captureCeiling": 6098,
+  "catalogUpdated": "2026-10-26T15:44:00.443050+00:00",
+  "lastCapture": "2026-10-26T15:54:01.269739+00:00",
+  "captureCeiling": 7561,
   "integrity": "ok",
-  "catalogReferences": 142,
-  "countableD1Games": 125,
-  "acceptedSpatialGames": 125,
-  "paired5v5Games": 125,
+  "catalogReferences": 186,
+  "countableD1Games": 168,
+  "acceptedSpatialGames": 168,
+  "paired5v5Games": 168,
   "teamsWith5v5": 57,
-  "teamsWith3Games": 54,
+  "teamsWith3Games": 56,
   "scopeCounts": {
-    "profile:None:observed": 142,
-    "actions:None:observed": 10,
-    "shots:None:observed": 284,
-    "faceoffs:None:observed": 180,
+    "profile:None:observed": 185,
+    "actions:None:observed": 11,
+    "shots:None:observed": 370,
+    "faceoffs:None:observed": 266,
     "buttons:None:observed": 6,
-    "episodes:shots:observed": 284,
-    "episodes:faceoffs:observed": 284,
-    "episodes:hits:observed": 282,
+    "episodes:shots:observed": 370,
+    "episodes:faceoffs:observed": 370,
+    "episodes:hits:observed": 368,
     "player_actions:None:observed": 4,
     "players:None:observed": 8,
-    "overview:None:observed": 142,
-    "episodes:penalties:observed": 284,
+    "overview:None:observed": 185,
+    "episodes:penalties:observed": 370,
     "parameters:None:observed": 1,
-    "episodes:puck_losses:observed": 284,
-    "episodes:puck_recoveries:observed": 284,
-    "episodes:puck_battles:observed": 284,
-    "episodes:battles_won:observed": 284,
-    "episodes:battles_lost:observed": 284,
-    "episodes:breakouts:observed": 284,
+    "episodes:puck_losses:observed": 370,
+    "episodes:puck_recoveries:observed": 370,
+    "episodes:puck_battles:observed": 370,
+    "episodes:battles_won:observed": 370,
+    "episodes:battles_lost:observed": 370,
+    "episodes:breakouts:observed": 370,
     "episodes:controlled_breakouts_research:source_null": 2,
-    "episodes:shot_blocking:observed": 282,
-    "episodes:breakout_pass:observed": 284,
-    "episodes:breakout_carry:observed": 284,
-    "episodes:breakout_dump:source_null": 122,
-    "episodes:breakout_dump:observed": 162,
+    "episodes:shot_blocking:observed": 368,
+    "episodes:breakout_pass:observed": 370,
+    "episodes:breakout_carry:observed": 370,
+    "episodes:breakout_dump:source_null": 161,
+    "episodes:breakout_dump:observed": 209,
     "episodes:hits:source_null": 2,
     "episodes:shot_blocking:source_null": 2
   },
   "removed": {
-    "shootout_unknown_or_reviewed": 33
+    "shootout_unknown_or_reviewed": 39
   },
   "excludedReferences": [
     {
@@ -180,6 +180,14 @@
       "included": "False",
       "reason": "exhibition",
       "chn_game_id": "67432"
+    },
+    {
+      "match_id": "2275746",
+      "date": "2026-10-23",
+      "teams": "[305, 22565]",
+      "included": "False",
+      "reason": "non_D1_opponent",
+      "chn_game_id": ""
     }
   ],
   "gameAudit": [
@@ -3057,78 +3065,1067 @@
           "overviewSog": 32.0
         }
       ]
+    },
+    {
+      "game": "2259511",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 93,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 54,
+      "sogChecks": [
+        {
+          "team": 73877,
+          "mapSog": 30,
+          "overviewSog": 30.0
+        },
+        {
+          "team": 142412,
+          "mapSog": 18,
+          "overviewSog": 18.0
+        }
+      ]
+    },
+    {
+      "game": "2259512",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 102,
+      "goals": 11,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 81,
+      "sogChecks": [
+        {
+          "team": 21620,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        },
+        {
+          "team": 141618,
+          "mapSog": 27,
+          "overviewSog": 27.0
+        }
+      ]
+    },
+    {
+      "game": "2259513",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 111,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 77,
+      "sogChecks": [
+        {
+          "team": 291,
+          "mapSog": 28,
+          "overviewSog": 28.0
+        },
+        {
+          "team": 328,
+          "mapSog": 27,
+          "overviewSog": 27.0
+        }
+      ]
+    },
+    {
+      "game": "2259515",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 99,
+      "goals": 4,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 84,
+      "sogChecks": [
+        {
+          "team": 285,
+          "mapSog": 15,
+          "overviewSog": 15.0
+        },
+        {
+          "team": 73879,
+          "mapSog": 20,
+          "overviewSog": 20.0
+        }
+      ]
+    },
+    {
+      "game": "2259516",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 119,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 93,
+      "sogChecks": [
+        {
+          "team": 304,
+          "mapSog": 35,
+          "overviewSog": 35.0
+        },
+        {
+          "team": 25180,
+          "mapSog": 21,
+          "overviewSog": 21.0
+        }
+      ]
+    },
+    {
+      "game": "2259517",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 120,
+      "goals": 6,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 103,
+      "sogChecks": [
+        {
+          "team": 284,
+          "mapSog": 24,
+          "overviewSog": 24.0
+        },
+        {
+          "team": 295,
+          "mapSog": 39,
+          "overviewSog": 39.0
+        }
+      ]
+    },
+    {
+      "game": "2259518",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 111,
+      "goals": 8,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 71,
+      "sogChecks": [
+        {
+          "team": 293,
+          "mapSog": 19,
+          "overviewSog": 19.0
+        },
+        {
+          "team": 326,
+          "mapSog": 45,
+          "overviewSog": 45.0
+        }
+      ]
+    },
+    {
+      "game": "2259519",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 120,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 92,
+      "sogChecks": [
+        {
+          "team": 307,
+          "mapSog": 41,
+          "overviewSog": 41.0
+        },
+        {
+          "team": 25183,
+          "mapSog": 28,
+          "overviewSog": 28.0
+        }
+      ]
+    },
+    {
+      "game": "2259520",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 92,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 71,
+      "sogChecks": [
+        {
+          "team": 299,
+          "mapSog": 21,
+          "overviewSog": 21.0
+        },
+        {
+          "team": 312,
+          "mapSog": 27,
+          "overviewSog": 27.0
+        }
+      ]
+    },
+    {
+      "game": "2259521",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 124,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 108,
+      "sogChecks": [
+        {
+          "team": 317,
+          "mapSog": 37,
+          "overviewSog": 37.0
+        },
+        {
+          "team": 79559,
+          "mapSog": 23,
+          "overviewSog": 23.0
+        }
+      ]
+    },
+    {
+      "game": "2259522",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 109,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 87,
+      "sogChecks": [
+        {
+          "team": 298,
+          "mapSog": 24,
+          "overviewSog": 24.0
+        },
+        {
+          "team": 320,
+          "mapSog": 30,
+          "overviewSog": 30.0
+        }
+      ]
+    },
+    {
+      "game": "2259523",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 104,
+      "goals": 1,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 87,
+      "sogChecks": [
+        {
+          "team": 292,
+          "mapSog": 19,
+          "overviewSog": 19.0
+        },
+        {
+          "team": 315,
+          "mapSog": 34,
+          "overviewSog": 34.0
+        }
+      ]
+    },
+    {
+      "game": "2259524",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 96,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 88,
+      "sogChecks": [
+        {
+          "team": 77747,
+          "mapSog": 34,
+          "overviewSog": 34.0
+        },
+        {
+          "team": 87220,
+          "mapSog": 23,
+          "overviewSog": 23.0
+        }
+      ]
+    },
+    {
+      "game": "2259525",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 103,
+      "goals": 6,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 89,
+      "sogChecks": [
+        {
+          "team": 330,
+          "mapSog": 18,
+          "overviewSog": 18.0
+        },
+        {
+          "team": 20415,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        }
+      ]
+    },
+    {
+      "game": "2259526",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 105,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 80,
+      "sogChecks": [
+        {
+          "team": 305,
+          "mapSog": 28,
+          "overviewSog": 28.0
+        },
+        {
+          "team": 79847,
+          "mapSog": 34,
+          "overviewSog": 34.0
+        }
+      ]
+    },
+    {
+      "game": "2259527",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 109,
+      "goals": 4,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 89,
+      "sogChecks": [
+        {
+          "team": 333,
+          "mapSog": 22,
+          "overviewSog": 22.0
+        },
+        {
+          "team": 335,
+          "mapSog": 26,
+          "overviewSog": 26.0
+        }
+      ]
+    },
+    {
+      "game": "2259528",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 112,
+      "goals": 8,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 78,
+      "sogChecks": [
+        {
+          "team": 332,
+          "mapSog": 36,
+          "overviewSog": 36.0
+        },
+        {
+          "team": 334,
+          "mapSog": 25,
+          "overviewSog": 25.0
+        }
+      ]
+    },
+    {
+      "game": "2259529",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 109,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 83,
+      "sogChecks": [
+        {
+          "team": 319,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        },
+        {
+          "team": 20553,
+          "mapSog": 36,
+          "overviewSog": 36.0
+        }
+      ]
+    },
+    {
+      "game": "2259530",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 105,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 87,
+      "sogChecks": [
+        {
+          "team": 324,
+          "mapSog": 30,
+          "overviewSog": 30.0
+        },
+        {
+          "team": 331,
+          "mapSog": 26,
+          "overviewSog": 26.0
+        }
+      ]
+    },
+    {
+      "game": "2259531",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 137,
+      "goals": 4,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 97,
+      "sogChecks": [
+        {
+          "team": 336,
+          "mapSog": 22,
+          "overviewSog": 22.0
+        },
+        {
+          "team": 21049,
+          "mapSog": 47,
+          "overviewSog": 47.0
+        }
+      ]
+    },
+    {
+      "game": "2259532",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 120,
+      "goals": 8,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 95,
+      "sogChecks": [
+        {
+          "team": 280,
+          "mapSog": 27,
+          "overviewSog": 27.0
+        },
+        {
+          "team": 321,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        }
+      ]
+    },
+    {
+      "game": "2259533",
+      "date": "2026-10-23",
+      "included": true,
+      "reasons": [],
+      "shots": 101,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 70,
+      "sogChecks": [
+        {
+          "team": 29957,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        },
+        {
+          "team": 79551,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
+    },
+    {
+      "game": "2259534",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 106,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 77,
+      "sogChecks": [
+        {
+          "team": 73877,
+          "mapSog": 26,
+          "overviewSog": 26.0
+        },
+        {
+          "team": 142412,
+          "mapSog": 22,
+          "overviewSog": 22.0
+        }
+      ]
+    },
+    {
+      "game": "2259535",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 133,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 115,
+      "sogChecks": [
+        {
+          "team": 21620,
+          "mapSog": 45,
+          "overviewSog": 45.0
+        },
+        {
+          "team": 141618,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        }
+      ]
+    },
+    {
+      "game": "2259536",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 89,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 51,
+      "sogChecks": [
+        {
+          "team": 285,
+          "mapSog": 25,
+          "overviewSog": 25.0
+        },
+        {
+          "team": 73879,
+          "mapSog": 17,
+          "overviewSog": 17.0
+        }
+      ]
+    },
+    {
+      "game": "2259537",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 128,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 101,
+      "sogChecks": [
+        {
+          "team": 284,
+          "mapSog": 23,
+          "overviewSog": 23.0
+        },
+        {
+          "team": 295,
+          "mapSog": 34,
+          "overviewSog": 34.0
+        }
+      ]
+    },
+    {
+      "game": "2259538",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 118,
+      "goals": 9,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 82,
+      "sogChecks": [
+        {
+          "team": 317,
+          "mapSog": 37,
+          "overviewSog": 37.0
+        },
+        {
+          "team": 79559,
+          "mapSog": 32,
+          "overviewSog": 32.0
+        }
+      ]
+    },
+    {
+      "game": "2259539",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 98,
+      "goals": 7,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 79,
+      "sogChecks": [
+        {
+          "team": 319,
+          "mapSog": 24,
+          "overviewSog": 24.0
+        },
+        {
+          "team": 20553,
+          "mapSog": 21,
+          "overviewSog": 21.0
+        }
+      ]
+    },
+    {
+      "game": "2259540",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 104,
+      "goals": 9,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 88,
+      "sogChecks": [
+        {
+          "team": 307,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        },
+        {
+          "team": 25183,
+          "mapSog": 28,
+          "overviewSog": 28.0
+        }
+      ]
+    },
+    {
+      "game": "2259541",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 129,
+      "goals": 8,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 81,
+      "sogChecks": [
+        {
+          "team": 20498,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        },
+        {
+          "team": 22999,
+          "mapSog": 24,
+          "overviewSog": 24.0
+        }
+      ]
+    },
+    {
+      "game": "2259542",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 121,
+      "goals": 6,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 84,
+      "sogChecks": [
+        {
+          "team": 77747,
+          "mapSog": 42,
+          "overviewSog": 42.0
+        },
+        {
+          "team": 87220,
+          "mapSog": 30,
+          "overviewSog": 30.0
+        }
+      ]
+    },
+    {
+      "game": "2259543",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 101,
+      "goals": 5,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 71,
+      "sogChecks": [
+        {
+          "team": 330,
+          "mapSog": 23,
+          "overviewSog": 23.0
+        },
+        {
+          "team": 20415,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
+    },
+    {
+      "game": "2259544",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 99,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 75,
+      "sogChecks": [
+        {
+          "team": 333,
+          "mapSog": 19,
+          "overviewSog": 19.0
+        },
+        {
+          "team": 335,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        }
+      ]
+    },
+    {
+      "game": "2259545",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 106,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 87,
+      "sogChecks": [
+        {
+          "team": 324,
+          "mapSog": 37,
+          "overviewSog": 37.0
+        },
+        {
+          "team": 331,
+          "mapSog": 27,
+          "overviewSog": 27.0
+        }
+      ]
+    },
+    {
+      "game": "2259546",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 114,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 86,
+      "sogChecks": [
+        {
+          "team": 299,
+          "mapSog": 10,
+          "overviewSog": 10.0
+        },
+        {
+          "team": 312,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
+    },
+    {
+      "game": "2259547",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 134,
+      "goals": 9,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 94,
+      "sogChecks": [
+        {
+          "team": 70807,
+          "mapSog": 39,
+          "overviewSog": 39.0
+        },
+        {
+          "team": 79552,
+          "mapSog": 40,
+          "overviewSog": 40.0
+        }
+      ]
+    },
+    {
+      "game": "2259548",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 133,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 100,
+      "sogChecks": [
+        {
+          "team": 292,
+          "mapSog": 19,
+          "overviewSog": 19.0
+        },
+        {
+          "team": 315,
+          "mapSog": 37,
+          "overviewSog": 37.0
+        }
+      ]
+    },
+    {
+      "game": "2259549",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 105,
+      "goals": 9,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 70,
+      "sogChecks": [
+        {
+          "team": 305,
+          "mapSog": 30,
+          "overviewSog": 30.0
+        },
+        {
+          "team": 79847,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
+    },
+    {
+      "game": "2259550",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 102,
+      "goals": 2,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 74,
+      "sogChecks": [
+        {
+          "team": 336,
+          "mapSog": 26,
+          "overviewSog": 26.0
+        },
+        {
+          "team": 21049,
+          "mapSog": 33,
+          "overviewSog": 33.0
+        }
+      ]
+    },
+    {
+      "game": "2259551",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 108,
+      "goals": 6,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 86,
+      "sogChecks": [
+        {
+          "team": 332,
+          "mapSog": 22,
+          "overviewSog": 22.0
+        },
+        {
+          "team": 334,
+          "mapSog": 42,
+          "overviewSog": 42.0
+        }
+      ]
+    },
+    {
+      "game": "2259552",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 97,
+      "goals": 4,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 62,
+      "sogChecks": [
+        {
+          "team": 29957,
+          "mapSog": 26,
+          "overviewSog": 26.0
+        },
+        {
+          "team": 79551,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
+    },
+    {
+      "game": "2259553",
+      "date": "2026-10-24",
+      "included": true,
+      "reasons": [],
+      "shots": 115,
+      "goals": 4,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 87,
+      "sogChecks": [
+        {
+          "team": 280,
+          "mapSog": 31,
+          "overviewSog": 31.0
+        },
+        {
+          "team": 321,
+          "mapSog": 24,
+          "overviewSog": 24.0
+        }
+      ]
+    },
+    {
+      "game": "2259554",
+      "date": "2026-10-25",
+      "included": true,
+      "reasons": [],
+      "shots": 128,
+      "goals": 3,
+      "xgIncluded": true,
+      "xgReasons": [],
+      "fiveShots": 104,
+      "sogChecks": [
+        {
+          "team": 298,
+          "mapSog": 31,
+          "overviewSog": 31.0
+        },
+        {
+          "team": 320,
+          "mapSog": 29,
+          "overviewSog": 29.0
+        }
+      ]
     }
   ],
   "teamCoverage": {
     "16": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 16,
-      "sog": 118,
-      "attempts": 242,
-      "againstGoals": 14,
-      "againstSog": 160,
-      "through": "2026-10-16"
-    },
-    "36": {
       "games": 6,
       "eligibleGames": 6,
       "goals": 18,
-      "sog": 161,
-      "attempts": 314,
-      "againstGoals": 18,
-      "againstSog": 179,
-      "through": "2026-10-17"
+      "sog": 176,
+      "attempts": 365,
+      "againstGoals": 24,
+      "againstSog": 217,
+      "through": "2026-10-24"
+    },
+    "36": {
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 21,
+      "sog": 208,
+      "attempts": 412,
+      "againstGoals": 26,
+      "againstSog": 252,
+      "through": "2026-10-24"
     },
     "26": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 13,
-      "sog": 108,
-      "attempts": 234,
-      "againstGoals": 20,
-      "againstSog": 187,
-      "through": "2026-10-18"
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 19,
+      "sog": 148,
+      "attempts": 321,
+      "againstGoals": 25,
+      "againstSog": 224,
+      "through": "2026-10-24"
     },
     "30": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 36,
-      "sog": 203,
-      "attempts": 376,
-      "againstGoals": 12,
-      "againstSog": 166,
-      "through": "2026-10-17"
+      "games": 7,
+      "eligibleGames": 7,
+      "goals": 39,
+      "sog": 231,
+      "attempts": 431,
+      "againstGoals": 14,
+      "againstSog": 193,
+      "through": "2026-10-23"
     },
     "6": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 16,
-      "sog": 114,
-      "attempts": 222,
-      "againstGoals": 4,
-      "againstSog": 68,
-      "through": "2026-10-17"
-    },
-    "37": {
       "games": 5,
       "eligibleGames": 5,
-      "goals": 11,
-      "sog": 120,
-      "attempts": 235,
-      "againstGoals": 18,
-      "againstSog": 150,
-      "through": "2026-10-22"
+      "goals": 18,
+      "sog": 152,
+      "attempts": 329,
+      "againstGoals": 6,
+      "againstSog": 139,
+      "through": "2026-10-24"
+    },
+    "37": {
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 16,
+      "sog": 139,
+      "attempts": 270,
+      "againstGoals": 21,
+      "againstSog": 195,
+      "through": "2026-10-23"
     },
     "62": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 9,
-      "sog": 139,
-      "attempts": 275,
-      "againstGoals": 20,
-      "againstSog": 140,
-      "through": "2026-10-20"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 17,
+      "sog": 212,
+      "attempts": 425,
+      "againstGoals": 23,
+      "againstSog": 187,
+      "through": "2026-10-24"
     },
     "46": {
       "games": 4,
@@ -3151,24 +4148,24 @@
       "through": null
     },
     "51": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 11,
-      "sog": 109,
-      "attempts": 227,
-      "againstGoals": 10,
-      "againstSog": 107,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 14,
+      "sog": 164,
+      "attempts": 340,
+      "againstGoals": 13,
+      "againstSog": 166,
+      "through": "2026-10-25"
     },
     "13": {
-      "games": 4,
-      "eligibleGames": 4,
+      "games": 6,
+      "eligibleGames": 6,
       "goals": 5,
-      "sog": 90,
-      "attempts": 185,
-      "againstGoals": 13,
-      "againstSog": 121,
-      "through": "2026-10-17"
+      "sog": 121,
+      "attempts": 269,
+      "againstGoals": 19,
+      "againstSog": 177,
+      "through": "2026-10-24"
     },
     "72": {
       "games": 0,
@@ -3211,24 +4208,24 @@
       "through": null
     },
     "34": {
-      "games": 5,
-      "eligibleGames": 5,
-      "goals": 27,
-      "sog": 157,
-      "attempts": 289,
-      "againstGoals": 14,
-      "againstSog": 133,
-      "through": "2026-10-16"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 30,
+      "sog": 192,
+      "attempts": 352,
+      "againstGoals": 18,
+      "againstSog": 154,
+      "through": "2026-10-23"
     },
     "7": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 10,
-      "sog": 101,
-      "attempts": 176,
-      "againstGoals": 6,
-      "againstSog": 122,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 18,
+      "sog": 159,
+      "attempts": 270,
+      "againstGoals": 12,
+      "againstSog": 185,
+      "through": "2026-10-24"
     },
     "22": {
       "games": 4,
@@ -3241,14 +4238,14 @@
       "through": "2026-10-20"
     },
     "14": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 13,
-      "sog": 104,
-      "attempts": 193,
-      "againstGoals": 6,
-      "againstSog": 87,
-      "through": "2026-10-16"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 21,
+      "sog": 178,
+      "attempts": 321,
+      "againstGoals": 12,
+      "againstSog": 143,
+      "through": "2026-10-24"
     },
     "69": {
       "games": 0,
@@ -3261,84 +4258,84 @@
       "through": null
     },
     "25": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 12,
-      "sog": 118,
-      "attempts": 238,
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 18,
+      "sog": 174,
+      "attempts": 360,
       "againstGoals": 9,
-      "againstSog": 83,
-      "through": "2026-10-10"
+      "againstSog": 114,
+      "through": "2026-10-24"
     },
     "33": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 12,
-      "sog": 105,
-      "attempts": 202,
-      "againstGoals": 15,
-      "againstSog": 89,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 14,
+      "sog": 176,
+      "attempts": 332,
+      "againstGoals": 17,
+      "againstSog": 127,
+      "through": "2026-10-24"
     },
     "10": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 8,
-      "sog": 91,
-      "attempts": 178,
-      "againstGoals": 11,
-      "againstSog": 151,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 12,
+      "sog": 165,
+      "attempts": 317,
+      "againstGoals": 19,
+      "againstSog": 206,
+      "through": "2026-10-24"
     },
     "18": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 12,
-      "sog": 131,
-      "attempts": 241,
-      "againstGoals": 14,
-      "againstSog": 104,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 14,
+      "sog": 188,
+      "attempts": 348,
+      "againstGoals": 22,
+      "againstSog": 161,
+      "through": "2026-10-24"
     },
     "59": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 3,
-      "sog": 88,
-      "attempts": 145,
-      "againstGoals": 6,
-      "againstSog": 74,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 6,
+      "sog": 147,
+      "attempts": 269,
+      "againstGoals": 9,
+      "againstSog": 129,
+      "through": "2026-10-25"
     },
     "24": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 14,
-      "sog": 119,
-      "attempts": 225,
-      "againstGoals": 5,
-      "againstSog": 117,
-      "through": "2026-10-17"
-    },
-    "40": {
       "games": 6,
       "eligibleGames": 6,
       "goals": 24,
-      "sog": 200,
-      "attempts": 390,
-      "againstGoals": 12,
-      "againstSog": 129,
-      "through": "2026-10-17"
+      "sog": 176,
+      "attempts": 337,
+      "againstGoals": 7,
+      "againstSog": 175,
+      "through": "2026-10-24"
+    },
+    "40": {
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 31,
+      "sog": 267,
+      "attempts": 504,
+      "againstGoals": 13,
+      "againstSog": 182,
+      "through": "2026-10-24"
     },
     "57": {
-      "games": 5,
-      "eligibleGames": 5,
-      "goals": 20,
-      "sog": 174,
-      "attempts": 320,
-      "againstGoals": 10,
-      "againstSog": 114,
-      "through": "2026-10-22"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 23,
+      "sog": 219,
+      "attempts": 396,
+      "againstGoals": 15,
+      "againstSog": 133,
+      "through": "2026-10-23"
     },
     "60": {
       "games": 5,
@@ -3351,84 +4348,84 @@
       "through": "2026-10-17"
     },
     "53": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 21,
-      "sog": 171,
-      "attempts": 302,
-      "againstGoals": 2,
-      "againstSog": 76,
-      "through": "2026-10-17"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 23,
+      "sog": 198,
+      "attempts": 358,
+      "againstGoals": 5,
+      "againstSog": 104,
+      "through": "2026-10-23"
     },
     "28": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 13,
-      "sog": 124,
-      "attempts": 237,
-      "againstGoals": 33,
-      "againstSog": 221,
-      "through": "2026-10-17"
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 16,
+      "sog": 165,
+      "attempts": 320,
+      "againstGoals": 41,
+      "againstSog": 282,
+      "through": "2026-10-24"
     },
     "61": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 8,
-      "sog": 86,
-      "attempts": 152,
-      "againstGoals": 9,
-      "againstSog": 97,
-      "through": "2026-10-10"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 9,
+      "sog": 139,
+      "attempts": 249,
+      "againstGoals": 16,
+      "againstSog": 164,
+      "through": "2026-10-24"
     },
     "29": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 16,
-      "sog": 172,
-      "attempts": 328,
-      "againstGoals": 20,
-      "againstSog": 182,
-      "through": "2026-10-17"
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 26,
+      "sog": 230,
+      "attempts": 438,
+      "againstGoals": 24,
+      "againstSog": 249,
+      "through": "2026-10-24"
     },
     "35": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 6,
-      "sog": 100,
-      "attempts": 193,
-      "againstGoals": 20,
-      "againstSog": 128,
-      "through": "2026-10-09"
-    },
-    "19": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 14,
-      "sog": 103,
-      "attempts": 217,
-      "againstGoals": 17,
-      "againstSog": 138,
-      "through": "2026-10-17"
-    },
-    "38": {
       "games": 6,
       "eligibleGames": 6,
-      "goals": 19,
-      "sog": 168,
-      "attempts": 312,
-      "againstGoals": 12,
-      "againstSog": 145,
-      "through": "2026-10-17"
+      "goals": 9,
+      "sog": 141,
+      "attempts": 281,
+      "againstGoals": 24,
+      "againstSog": 187,
+      "through": "2026-10-24"
+    },
+    "19": {
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 18,
+      "sog": 170,
+      "attempts": 327,
+      "againstGoals": 27,
+      "againstSog": 196,
+      "through": "2026-10-24"
+    },
+    "38": {
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 23,
+      "sog": 227,
+      "attempts": 432,
+      "againstGoals": 15,
+      "againstSog": 186,
+      "through": "2026-10-24"
     },
     "2": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 6,
-      "sog": 83,
-      "attempts": 199,
-      "againstGoals": 20,
-      "againstSog": 143,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 11,
+      "sog": 131,
+      "attempts": 292,
+      "againstGoals": 21,
+      "againstSog": 223,
+      "through": "2026-10-24"
     },
     "44": {
       "games": 6,
@@ -3441,34 +4438,34 @@
       "through": "2026-10-17"
     },
     "43": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 14,
-      "sog": 140,
-      "attempts": 250,
-      "againstGoals": 7,
-      "againstSog": 85,
-      "through": "2026-10-17"
-    },
-    "23": {
       "games": 6,
       "eligibleGames": 6,
-      "goals": 13,
-      "sog": 186,
-      "attempts": 346,
-      "againstGoals": 16,
-      "againstSog": 186,
-      "through": "2026-10-17"
+      "goals": 22,
+      "sog": 201,
+      "attempts": 371,
+      "againstGoals": 10,
+      "againstSog": 126,
+      "through": "2026-10-24"
+    },
+    "23": {
+      "games": 7,
+      "eligibleGames": 7,
+      "goals": 18,
+      "sog": 219,
+      "attempts": 410,
+      "againstGoals": 19,
+      "againstSog": 210,
+      "through": "2026-10-24"
     },
     "12": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 13,
-      "sog": 94,
-      "attempts": 188,
-      "againstGoals": 4,
-      "againstSog": 83,
-      "through": "2026-10-16"
+      "games": 5,
+      "eligibleGames": 5,
+      "goals": 21,
+      "sog": 151,
+      "attempts": 288,
+      "againstGoals": 6,
+      "againstSog": 140,
+      "through": "2026-10-24"
     },
     "42": {
       "games": 6,
@@ -3481,14 +4478,14 @@
       "through": "2026-10-17"
     },
     "65": {
-      "games": 2,
-      "eligibleGames": 2,
-      "goals": 5,
-      "sog": 81,
-      "attempts": 146,
-      "againstGoals": 7,
-      "againstSog": 57,
-      "through": "2026-10-10"
+      "games": 4,
+      "eligibleGames": 4,
+      "goals": 6,
+      "sog": 161,
+      "attempts": 292,
+      "againstGoals": 12,
+      "againstSog": 105,
+      "through": "2026-10-24"
     },
     "31": {
       "games": 6,
@@ -3501,84 +4498,84 @@
       "through": "2026-10-17"
     },
     "15": {
-      "games": 2,
-      "eligibleGames": 2,
-      "goals": 3,
-      "sog": 57,
-      "attempts": 117,
-      "againstGoals": 5,
-      "againstSog": 75,
-      "through": "2026-10-17"
+      "games": 4,
+      "eligibleGames": 4,
+      "goals": 14,
+      "sog": 134,
+      "attempts": 255,
+      "againstGoals": 12,
+      "againstSog": 134,
+      "through": "2026-10-24"
     },
     "11": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 9,
-      "sog": 118,
-      "attempts": 223,
-      "againstGoals": 9,
-      "againstSog": 107,
-      "through": "2026-10-17"
-    },
-    "8": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 10,
-      "sog": 85,
-      "attempts": 191,
-      "againstGoals": 7,
-      "againstSog": 65,
-      "through": "2026-10-18"
-    },
-    "48": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 12,
-      "sog": 169,
-      "attempts": 323,
-      "againstGoals": 15,
-      "againstSog": 170,
-      "through": "2026-10-17"
-    },
-    "27": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 14,
-      "sog": 153,
-      "attempts": 293,
-      "againstGoals": 11,
-      "againstSog": 84,
-      "through": "2026-10-17"
-    },
-    "63": {
       "games": 5,
       "eligibleGames": 5,
+      "goals": 12,
+      "sog": 142,
+      "attempts": 288,
+      "againstGoals": 14,
+      "againstSog": 140,
+      "through": "2026-10-24"
+    },
+    "8": {
+      "games": 4,
+      "eligibleGames": 4,
       "goals": 14,
-      "sog": 152,
-      "attempts": 286,
-      "againstGoals": 16,
-      "againstSog": 159,
-      "through": "2026-10-22"
+      "sog": 106,
+      "attempts": 247,
+      "againstGoals": 10,
+      "againstSog": 100,
+      "through": "2026-10-23"
+    },
+    "48": {
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 18,
+      "sog": 225,
+      "attempts": 419,
+      "againstGoals": 23,
+      "againstSog": 244,
+      "through": "2026-10-24"
+    },
+    "27": {
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 21,
+      "sog": 208,
+      "attempts": 395,
+      "againstGoals": 15,
+      "againstSog": 142,
+      "through": "2026-10-24"
+    },
+    "63": {
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 17,
+      "sog": 191,
+      "attempts": 359,
+      "againstGoals": 22,
+      "againstSog": 199,
+      "through": "2026-10-24"
     },
     "64": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 11,
-      "sog": 134,
-      "attempts": 271,
-      "againstGoals": 11,
-      "againstSog": 76,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 16,
+      "sog": 190,
+      "attempts": 385,
+      "againstGoals": 18,
+      "againstSog": 116,
+      "through": "2026-10-24"
     },
     "4": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 14,
-      "sog": 95,
-      "attempts": 167,
-      "againstGoals": 14,
-      "againstSog": 110,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 19,
+      "sog": 132,
+      "attempts": 268,
+      "againstGoals": 20,
+      "againstSog": 150,
+      "through": "2026-10-24"
     },
     "66": {
       "games": 3,
@@ -3591,64 +4588,64 @@
       "through": "2026-10-17"
     },
     "55": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 4,
-      "sog": 67,
-      "attempts": 144,
-      "againstGoals": 15,
-      "againstSog": 134,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 14,
+      "sog": 143,
+      "attempts": 259,
+      "againstGoals": 16,
+      "againstSog": 187,
+      "through": "2026-10-24"
     },
     "5": {
-      "games": 3,
-      "eligibleGames": 3,
-      "goals": 9,
-      "sog": 108,
-      "attempts": 199,
-      "againstGoals": 8,
-      "againstSog": 77,
-      "through": "2026-10-17"
-    },
-    "41": {
       "games": 5,
       "eligibleGames": 5,
       "goals": 13,
-      "sog": 160,
-      "attempts": 360,
-      "againstGoals": 9,
-      "againstSog": 125,
-      "through": "2026-10-22"
+      "sog": 166,
+      "attempts": 295,
+      "againstGoals": 15,
+      "againstSog": 132,
+      "through": "2026-10-24"
+    },
+    "41": {
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 19,
+      "sog": 200,
+      "attempts": 421,
+      "againstGoals": 12,
+      "againstSog": 164,
+      "through": "2026-10-24"
     },
     "3": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 18,
-      "sog": 113,
-      "attempts": 198,
-      "againstGoals": 14,
-      "againstSog": 115,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 26,
+      "sog": 168,
+      "attempts": 301,
+      "againstGoals": 18,
+      "againstSog": 189,
+      "through": "2026-10-24"
     },
     "47": {
-      "games": 5,
-      "eligibleGames": 5,
-      "goals": 9,
-      "sog": 125,
-      "attempts": 237,
-      "againstGoals": 18,
-      "againstSog": 178,
-      "through": "2026-10-17"
+      "games": 7,
+      "eligibleGames": 7,
+      "goals": 15,
+      "sog": 188,
+      "attempts": 353,
+      "againstGoals": 26,
+      "againstSog": 236,
+      "through": "2026-10-24"
     },
     "45": {
-      "games": 5,
-      "eligibleGames": 5,
-      "goals": 10,
-      "sog": 114,
-      "attempts": 231,
-      "againstGoals": 17,
-      "againstSog": 190,
-      "through": "2026-10-20"
+      "games": 7,
+      "eligibleGames": 7,
+      "goals": 11,
+      "sog": 167,
+      "attempts": 333,
+      "againstGoals": 27,
+      "againstSog": 266,
+      "through": "2026-10-24"
     },
     "21": {
       "games": 1,
@@ -3671,27 +4668,52 @@
       "through": "2026-10-20"
     },
     "32": {
-      "games": 6,
-      "eligibleGames": 6,
-      "goals": 28,
-      "sog": 256,
-      "attempts": 441,
-      "againstGoals": 28,
-      "againstSog": 209,
-      "through": "2026-10-16"
+      "games": 8,
+      "eligibleGames": 8,
+      "goals": 35,
+      "sog": 315,
+      "attempts": 538,
+      "againstGoals": 39,
+      "againstSog": 286,
+      "through": "2026-10-24"
     },
     "56": {
-      "games": 4,
-      "eligibleGames": 4,
-      "goals": 10,
-      "sog": 127,
-      "attempts": 259,
-      "againstGoals": 7,
-      "againstSog": 114,
-      "through": "2026-10-17"
+      "games": 6,
+      "eligibleGames": 6,
+      "goals": 17,
+      "sog": 167,
+      "attempts": 344,
+      "againstGoals": 12,
+      "againstSog": 170,
+      "through": "2026-10-24"
     }
   },
-  "knownNetCoordinateGaps": {},
+  "knownNetCoordinateGaps": {
+    "15": {
+      "onnet": {
+        "games": 4,
+        "plotted": 133,
+        "sog": 134,
+        "goals": 14,
+        "unlocatedGoals": 1,
+        "unlocatedSog": 1,
+        "missed_net": 49,
+        "status": "complete"
+      }
+    },
+    "32": {
+      "faced": {
+        "games": 8,
+        "plotted": 285,
+        "sog": 286,
+        "goals": 39,
+        "unlocatedGoals": 1,
+        "unlocatedSog": 1,
+        "missed_net": 90,
+        "status": "complete"
+      }
+    }
+  },
   "sourcePolicy": {
     "currentMensSpatial": "Instat only, common accepted fixture and event population",
     "rosters": "CHN canonical roster and verified provider-player links",
@@ -3702,46 +4724,46 @@
   "networkRequests": 0,
   "playerAttribution": {
     "16": {
-      "attempts": 242,
-      "linkedAttempts": 223,
-      "goals": 16,
-      "linkedGoals": 15
+      "attempts": 365,
+      "linkedAttempts": 340,
+      "goals": 18,
+      "linkedGoals": 17
     },
     "36": {
-      "attempts": 314,
-      "linkedAttempts": 216,
-      "goals": 18,
-      "linkedGoals": 14
+      "attempts": 412,
+      "linkedAttempts": 292,
+      "goals": 21,
+      "linkedGoals": 16
     },
     "26": {
-      "attempts": 234,
-      "linkedAttempts": 178,
-      "goals": 13,
-      "linkedGoals": 9
+      "attempts": 321,
+      "linkedAttempts": 244,
+      "goals": 19,
+      "linkedGoals": 14
     },
     "30": {
-      "attempts": 376,
-      "linkedAttempts": 306,
-      "goals": 36,
-      "linkedGoals": 33
+      "attempts": 431,
+      "linkedAttempts": 350,
+      "goals": 39,
+      "linkedGoals": 35
     },
     "6": {
-      "attempts": 222,
-      "linkedAttempts": 204,
+      "attempts": 329,
+      "linkedAttempts": 303,
+      "goals": 18,
+      "linkedGoals": 18
+    },
+    "37": {
+      "attempts": 270,
+      "linkedAttempts": 270,
       "goals": 16,
       "linkedGoals": 16
     },
-    "37": {
-      "attempts": 235,
-      "linkedAttempts": 235,
-      "goals": 11,
-      "linkedGoals": 11
-    },
     "62": {
-      "attempts": 275,
-      "linkedAttempts": 258,
-      "goals": 9,
-      "linkedGoals": 9
+      "attempts": 425,
+      "linkedAttempts": 397,
+      "goals": 17,
+      "linkedGoals": 15
     },
     "46": {
       "attempts": 307,
@@ -3756,14 +4778,14 @@
       "linkedGoals": 0
     },
     "51": {
-      "attempts": 227,
-      "linkedAttempts": 222,
-      "goals": 11,
-      "linkedGoals": 11
+      "attempts": 340,
+      "linkedAttempts": 329,
+      "goals": 14,
+      "linkedGoals": 14
     },
     "13": {
-      "attempts": 185,
-      "linkedAttempts": 151,
+      "attempts": 269,
+      "linkedAttempts": 216,
       "goals": 5,
       "linkedGoals": 3
     },
@@ -3792,16 +4814,16 @@
       "linkedGoals": 0
     },
     "34": {
-      "attempts": 289,
-      "linkedAttempts": 269,
-      "goals": 27,
-      "linkedGoals": 25
+      "attempts": 352,
+      "linkedAttempts": 326,
+      "goals": 30,
+      "linkedGoals": 27
     },
     "7": {
-      "attempts": 176,
-      "linkedAttempts": 161,
-      "goals": 10,
-      "linkedGoals": 10
+      "attempts": 270,
+      "linkedAttempts": 249,
+      "goals": 18,
+      "linkedGoals": 18
     },
     "22": {
       "attempts": 218,
@@ -3810,10 +4832,10 @@
       "linkedGoals": 12
     },
     "14": {
-      "attempts": 193,
-      "linkedAttempts": 140,
-      "goals": 13,
-      "linkedGoals": 9
+      "attempts": 321,
+      "linkedAttempts": 247,
+      "goals": 21,
+      "linkedGoals": 14
     },
     "69": {
       "attempts": 0,
@@ -3822,52 +4844,52 @@
       "linkedGoals": 0
     },
     "25": {
-      "attempts": 238,
-      "linkedAttempts": 202,
-      "goals": 12,
-      "linkedGoals": 11
+      "attempts": 360,
+      "linkedAttempts": 306,
+      "goals": 18,
+      "linkedGoals": 16
     },
     "33": {
-      "attempts": 202,
-      "linkedAttempts": 179,
-      "goals": 12,
-      "linkedGoals": 12
+      "attempts": 332,
+      "linkedAttempts": 287,
+      "goals": 14,
+      "linkedGoals": 14
     },
     "10": {
-      "attempts": 178,
-      "linkedAttempts": 162,
-      "goals": 8,
-      "linkedGoals": 7
-    },
-    "18": {
-      "attempts": 241,
-      "linkedAttempts": 195,
+      "attempts": 317,
+      "linkedAttempts": 297,
       "goals": 12,
       "linkedGoals": 11
     },
-    "59": {
-      "attempts": 145,
-      "linkedAttempts": 140,
-      "goals": 3,
-      "linkedGoals": 2
-    },
-    "24": {
-      "attempts": 225,
-      "linkedAttempts": 208,
+    "18": {
+      "attempts": 348,
+      "linkedAttempts": 287,
       "goals": 14,
       "linkedGoals": 13
     },
-    "40": {
-      "attempts": 390,
-      "linkedAttempts": 390,
+    "59": {
+      "attempts": 269,
+      "linkedAttempts": 261,
+      "goals": 6,
+      "linkedGoals": 5
+    },
+    "24": {
+      "attempts": 337,
+      "linkedAttempts": 318,
       "goals": 24,
-      "linkedGoals": 24
+      "linkedGoals": 23
+    },
+    "40": {
+      "attempts": 504,
+      "linkedAttempts": 504,
+      "goals": 31,
+      "linkedGoals": 31
     },
     "57": {
-      "attempts": 320,
-      "linkedAttempts": 309,
-      "goals": 20,
-      "linkedGoals": 20
+      "attempts": 396,
+      "linkedAttempts": 380,
+      "goals": 23,
+      "linkedGoals": 23
     },
     "60": {
       "attempts": 250,
@@ -3876,52 +4898,52 @@
       "linkedGoals": 13
     },
     "53": {
-      "attempts": 302,
-      "linkedAttempts": 278,
-      "goals": 21,
-      "linkedGoals": 16
+      "attempts": 358,
+      "linkedAttempts": 330,
+      "goals": 23,
+      "linkedGoals": 18
     },
     "28": {
-      "attempts": 237,
-      "linkedAttempts": 213,
-      "goals": 13,
-      "linkedGoals": 13
+      "attempts": 320,
+      "linkedAttempts": 284,
+      "goals": 16,
+      "linkedGoals": 15
     },
     "61": {
-      "attempts": 152,
-      "linkedAttempts": 142,
-      "goals": 8,
-      "linkedGoals": 7
+      "attempts": 249,
+      "linkedAttempts": 237,
+      "goals": 9,
+      "linkedGoals": 8
     },
     "29": {
-      "attempts": 328,
-      "linkedAttempts": 293,
-      "goals": 16,
-      "linkedGoals": 14
+      "attempts": 438,
+      "linkedAttempts": 396,
+      "goals": 26,
+      "linkedGoals": 22
     },
     "35": {
-      "attempts": 193,
-      "linkedAttempts": 176,
-      "goals": 6,
-      "linkedGoals": 6
+      "attempts": 281,
+      "linkedAttempts": 260,
+      "goals": 9,
+      "linkedGoals": 9
     },
     "19": {
-      "attempts": 217,
-      "linkedAttempts": 207,
-      "goals": 14,
-      "linkedGoals": 14
+      "attempts": 327,
+      "linkedAttempts": 310,
+      "goals": 18,
+      "linkedGoals": 18
     },
     "38": {
-      "attempts": 312,
-      "linkedAttempts": 312,
-      "goals": 19,
-      "linkedGoals": 19
+      "attempts": 432,
+      "linkedAttempts": 432,
+      "goals": 23,
+      "linkedGoals": 23
     },
     "2": {
-      "attempts": 199,
-      "linkedAttempts": 184,
-      "goals": 6,
-      "linkedGoals": 6
+      "attempts": 292,
+      "linkedAttempts": 266,
+      "goals": 11,
+      "linkedGoals": 10
     },
     "44": {
       "attempts": 264,
@@ -3930,22 +4952,22 @@
       "linkedGoals": 12
     },
     "43": {
-      "attempts": 250,
-      "linkedAttempts": 227,
-      "goals": 14,
-      "linkedGoals": 10
+      "attempts": 371,
+      "linkedAttempts": 330,
+      "goals": 22,
+      "linkedGoals": 17
     },
     "23": {
-      "attempts": 346,
-      "linkedAttempts": 320,
-      "goals": 13,
-      "linkedGoals": 13
+      "attempts": 410,
+      "linkedAttempts": 378,
+      "goals": 18,
+      "linkedGoals": 18
     },
     "12": {
-      "attempts": 188,
-      "linkedAttempts": 186,
-      "goals": 13,
-      "linkedGoals": 13
+      "attempts": 288,
+      "linkedAttempts": 286,
+      "goals": 21,
+      "linkedGoals": 21
     },
     "42": {
       "attempts": 303,
@@ -3954,10 +4976,10 @@
       "linkedGoals": 6
     },
     "65": {
-      "attempts": 146,
-      "linkedAttempts": 139,
-      "goals": 5,
-      "linkedGoals": 4
+      "attempts": 292,
+      "linkedAttempts": 279,
+      "goals": 6,
+      "linkedGoals": 5
     },
     "31": {
       "attempts": 388,
@@ -3966,52 +4988,52 @@
       "linkedGoals": 25
     },
     "15": {
-      "attempts": 117,
-      "linkedAttempts": 117,
-      "goals": 3,
-      "linkedGoals": 3
-    },
-    "11": {
-      "attempts": 223,
-      "linkedAttempts": 151,
-      "goals": 9,
-      "linkedGoals": 5
-    },
-    "8": {
-      "attempts": 191,
-      "linkedAttempts": 163,
-      "goals": 10,
-      "linkedGoals": 9
-    },
-    "48": {
-      "attempts": 323,
-      "linkedAttempts": 302,
-      "goals": 12,
-      "linkedGoals": 11
-    },
-    "27": {
-      "attempts": 293,
-      "linkedAttempts": 247,
-      "goals": 14,
-      "linkedGoals": 10
-    },
-    "63": {
-      "attempts": 286,
-      "linkedAttempts": 286,
+      "attempts": 255,
+      "linkedAttempts": 255,
       "goals": 14,
       "linkedGoals": 14
     },
-    "64": {
-      "attempts": 271,
-      "linkedAttempts": 225,
-      "goals": 11,
-      "linkedGoals": 7
+    "11": {
+      "attempts": 288,
+      "linkedAttempts": 205,
+      "goals": 12,
+      "linkedGoals": 8
     },
-    "4": {
-      "attempts": 167,
-      "linkedAttempts": 154,
+    "8": {
+      "attempts": 247,
+      "linkedAttempts": 211,
       "goals": 14,
       "linkedGoals": 13
+    },
+    "48": {
+      "attempts": 419,
+      "linkedAttempts": 388,
+      "goals": 18,
+      "linkedGoals": 16
+    },
+    "27": {
+      "attempts": 395,
+      "linkedAttempts": 334,
+      "goals": 21,
+      "linkedGoals": 16
+    },
+    "63": {
+      "attempts": 359,
+      "linkedAttempts": 359,
+      "goals": 17,
+      "linkedGoals": 17
+    },
+    "64": {
+      "attempts": 385,
+      "linkedAttempts": 316,
+      "goals": 16,
+      "linkedGoals": 11
+    },
+    "4": {
+      "attempts": 268,
+      "linkedAttempts": 244,
+      "goals": 19,
+      "linkedGoals": 18
     },
     "66": {
       "attempts": 165,
@@ -4020,40 +5042,40 @@
       "linkedGoals": 10
     },
     "55": {
-      "attempts": 144,
-      "linkedAttempts": 112,
-      "goals": 4,
-      "linkedGoals": 4
+      "attempts": 259,
+      "linkedAttempts": 207,
+      "goals": 14,
+      "linkedGoals": 11
     },
     "5": {
-      "attempts": 199,
-      "linkedAttempts": 195,
-      "goals": 9,
-      "linkedGoals": 9
+      "attempts": 295,
+      "linkedAttempts": 290,
+      "goals": 13,
+      "linkedGoals": 13
     },
     "41": {
-      "attempts": 360,
-      "linkedAttempts": 308,
-      "goals": 13,
-      "linkedGoals": 12
-    },
-    "3": {
-      "attempts": 198,
-      "linkedAttempts": 197,
-      "goals": 18,
+      "attempts": 421,
+      "linkedAttempts": 365,
+      "goals": 19,
       "linkedGoals": 18
     },
+    "3": {
+      "attempts": 301,
+      "linkedAttempts": 296,
+      "goals": 26,
+      "linkedGoals": 26
+    },
     "47": {
-      "attempts": 237,
-      "linkedAttempts": 221,
-      "goals": 9,
-      "linkedGoals": 8
+      "attempts": 353,
+      "linkedAttempts": 323,
+      "goals": 15,
+      "linkedGoals": 14
     },
     "45": {
-      "attempts": 231,
-      "linkedAttempts": 231,
-      "goals": 10,
-      "linkedGoals": 10
+      "attempts": 333,
+      "linkedAttempts": 333,
+      "goals": 11,
+      "linkedGoals": 11
     },
     "21": {
       "attempts": 48,
@@ -4068,16 +5090,16 @@
       "linkedGoals": 19
     },
     "32": {
-      "attempts": 441,
-      "linkedAttempts": 426,
-      "goals": 28,
-      "linkedGoals": 28
+      "attempts": 538,
+      "linkedAttempts": 511,
+      "goals": 35,
+      "linkedGoals": 35
     },
     "56": {
-      "attempts": 259,
-      "linkedAttempts": 242,
-      "goals": 10,
-      "linkedGoals": 10
+      "attempts": 344,
+      "linkedAttempts": 321,
+      "goals": 17,
+      "linkedGoals": 17
     }
   },
   "unattributedGoalieSog": {
@@ -4087,19 +5109,19 @@
     "32": 1,
     "26": 2,
     "8": 1,
-    "48": 4,
+    "48": 6,
     "3": 1,
     "28": 2,
     "42": 3,
     "31": 2,
     "44": 2,
     "37": 1,
-    "19": 15,
+    "19": 17,
     "62": 4,
     "59": 1,
     "64": 2,
-    "65": 2,
-    "63": 2,
+    "65": 3,
+    "63": 3,
     "38": 1,
     "16": 1,
     "34": 1,
@@ -4107,37 +5129,44 @@
     "60": 1,
     "13": 2,
     "27": 1,
-    "47": 1,
-    "57": 1
+    "47": 2,
+    "57": 1,
+    "4": 1,
+    "36": 1,
+    "35": 1,
+    "5": 1,
+    "10": 1,
+    "11": 1,
+    "61": 1
   },
   "goalieReconciliation": {
     "policy": "Headline SV%, GAA, GP and workload use reconciled CHN box scores; provider goalie attribution remains research evidence only.",
     "coverage": {
       "48": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "47": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-17",
+        "eligibleGames": 7,
+        "verifiedGames": 7,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "30": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 7,
+        "verifiedGames": 7,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
       "29": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4149,16 +5178,16 @@
         "complete": true
       },
       "45": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-20",
+        "eligibleGames": 7,
+        "verifiedGames": 7,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "40": {
-        "eligibleGames": 6,
-        "verifiedGames": 5,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 7,
+        "through": "2026-10-24",
         "issues": [
           {
             "game": "2255342",
@@ -4184,30 +5213,30 @@
         "complete": false
       },
       "14": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-16",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "8": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-18",
+        "eligibleGames": 4,
+        "verifiedGames": 4,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
       "34": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-16",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
       "33": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4219,23 +5248,23 @@
         "complete": true
       },
       "43": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "24": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "23": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 7,
+        "verifiedGames": 7,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4254,16 +5283,16 @@
         "complete": true
       },
       "37": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-22",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
       "38": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4275,23 +5304,23 @@
         "complete": true
       },
       "41": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-22",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "28": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "27": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4303,44 +5332,44 @@
         "complete": true
       },
       "32": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-16",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "36": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-17",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "35": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-09",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "26": {
-        "eligibleGames": 6,
-        "verifiedGames": 6,
-        "through": "2026-10-18",
+        "eligibleGames": 8,
+        "verifiedGames": 8,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "25": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-10",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "3": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
@@ -4352,163 +5381,163 @@
         "complete": true
       },
       "61": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-10",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "19": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "10": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "53": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
       "4": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "62": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-20",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "63": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-22",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "12": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-16",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "13": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "11": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "59": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-25",
         "issues": [],
         "complete": true
       },
       "55": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "5": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "7": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "64": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "51": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-25",
         "issues": [],
         "complete": true
       },
       "18": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "6": {
-        "eligibleGames": 3,
-        "verifiedGames": 3,
-        "through": "2026-10-17",
+        "eligibleGames": 5,
+        "verifiedGames": 5,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "16": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-16",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "65": {
-        "eligibleGames": 2,
-        "verifiedGames": 2,
-        "through": "2026-10-10",
+        "eligibleGames": 4,
+        "verifiedGames": 4,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "56": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "2": {
-        "eligibleGames": 4,
-        "verifiedGames": 4,
-        "through": "2026-10-17",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       },
       "57": {
-        "eligibleGames": 5,
-        "verifiedGames": 5,
-        "through": "2026-10-22",
+        "eligibleGames": 6,
+        "verifiedGames": 6,
+        "through": "2026-10-23",
         "issues": [],
         "complete": true
       },
@@ -4520,9 +5549,9 @@
         "complete": true
       },
       "15": {
-        "eligibleGames": 2,
-        "verifiedGames": 2,
-        "through": "2026-10-17",
+        "eligibleGames": 4,
+        "verifiedGames": 4,
+        "through": "2026-10-24",
         "issues": [],
         "complete": true
       }
@@ -9386,6 +10415,1694 @@
         ],
         "issues": [],
         "game": 154,
+        "verified": true
+      },
+      {
+        "providerGame": "2259511",
+        "date": "2026-10-23",
+        "team": "64",
+        "goalies": [
+          {
+            "id": 32995,
+            "name": "Jakub Milota",
+            "saves": 19,
+            "goalsAgainst": 3,
+            "seconds": 3731,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aug/osu/"
+          }
+        ],
+        "issues": [],
+        "game": 158,
+        "verified": true
+      },
+      {
+        "providerGame": "2259511",
+        "date": "2026-10-23",
+        "team": "56",
+        "goalies": [
+          {
+            "id": 32333,
+            "name": "Mathis Langevin",
+            "saves": 29,
+            "goalsAgainst": 2,
+            "seconds": 3731,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aug/osu/"
+          }
+        ],
+        "issues": [],
+        "game": 158,
+        "verified": true
+      },
+      {
+        "providerGame": "2259512",
+        "date": "2026-10-23",
+        "team": "15",
+        "goalies": [
+          {
+            "id": 32409,
+            "name": "Dawson Cowan",
+            "saves": 30,
+            "goalsAgainst": 4,
+            "seconds": 3588,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uno/lin/"
+          }
+        ],
+        "issues": [],
+        "game": 166,
+        "verified": true
+      },
+      {
+        "providerGame": "2259512",
+        "date": "2026-10-23",
+        "team": "32",
+        "goalies": [
+          {
+            "id": 31841,
+            "name": "Klayton Knapp",
+            "saves": 30,
+            "goalsAgainst": 7,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uno/lin/"
+          }
+        ],
+        "issues": [],
+        "game": 166,
+        "verified": true
+      },
+      {
+        "providerGame": "2259513",
+        "date": "2026-10-23",
+        "team": "30",
+        "goalies": [
+          {
+            "id": 32344,
+            "name": "Jack Ivankovic",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/wmu/mic/"
+          }
+        ],
+        "issues": [],
+        "game": 161,
+        "verified": true
+      },
+      {
+        "providerGame": "2259513",
+        "date": "2026-10-23",
+        "team": "53",
+        "goalies": [
+          {
+            "id": 32241,
+            "name": "Quentin Miller",
+            "saves": 25,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/wmu/mic/"
+          }
+        ],
+        "issues": [],
+        "game": 161,
+        "verified": true
+      },
+      {
+        "providerGame": "2259515",
+        "date": "2026-10-23",
+        "team": "26",
+        "goalies": [
+          {
+            "id": 32257,
+            "name": "Danick Leroux",
+            "saves": 21,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/sac/hcr/"
+          }
+        ],
+        "issues": [],
+        "game": 174,
+        "verified": true
+      },
+      {
+        "providerGame": "2259515",
+        "date": "2026-10-23",
+        "team": "4",
+        "goalies": [
+          {
+            "id": 31964,
+            "name": "Ajeet Gundarah",
+            "saves": 10,
+            "goalsAgainst": 2,
+            "seconds": 3510,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/sac/hcr/"
+          }
+        ],
+        "issues": [],
+        "game": 174,
+        "verified": true
+      },
+      {
+        "providerGame": "2259516",
+        "date": "2026-10-23",
+        "team": "34",
+        "goalies": [
+          {
+            "id": 33018,
+            "name": "Christian Kirsch",
+            "saves": 19,
+            "goalsAgainst": 4,
+            "seconds": 3883,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/arm/qui/"
+          }
+        ],
+        "issues": [],
+        "game": 170,
+        "verified": true
+      },
+      {
+        "providerGame": "2259516",
+        "date": "2026-10-23",
+        "team": "8",
+        "goalies": [
+          {
+            "id": 31621,
+            "name": "JJ Cataldo",
+            "saves": 36,
+            "goalsAgainst": 3,
+            "seconds": 3883,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/arm/qui/"
+          }
+        ],
+        "issues": [],
+        "game": 170,
+        "verified": true
+      },
+      {
+        "providerGame": "2259517",
+        "date": "2026-10-23",
+        "team": "36",
+        "goalies": [
+          {
+            "id": 32748,
+            "name": "Jack Lisson",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3539,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/cns/psu/"
+          }
+        ],
+        "issues": [],
+        "game": 168,
+        "verified": true
+      },
+      {
+        "providerGame": "2259517",
+        "date": "2026-10-23",
+        "team": "62",
+        "goalies": [
+          {
+            "id": 32597,
+            "name": "Joshua Fleming",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/cns/psu/"
+          }
+        ],
+        "issues": [],
+        "game": 168,
+        "verified": true
+      },
+      {
+        "providerGame": "2259518",
+        "date": "2026-10-23",
+        "team": "37",
+        "goalies": [
+          {
+            "id": 32357,
+            "name": "Melvin Strahl",
+            "saves": 42,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ndk/min/"
+          }
+        ],
+        "issues": [],
+        "game": 157,
+        "verified": true
+      },
+      {
+        "providerGame": "2259518",
+        "date": "2026-10-23",
+        "team": "57",
+        "goalies": [
+          {
+            "id": 32441,
+            "name": "Jan Špunar",
+            "saves": 17,
+            "goalsAgainst": 5,
+            "seconds": 3411,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ndk/min/"
+          }
+        ],
+        "issues": [],
+        "game": 157,
+        "verified": true
+      },
+      {
+        "providerGame": "2259519",
+        "date": "2026-10-23",
+        "team": "14",
+        "goalies": [
+          {
+            "id": 32555,
+            "name": "Brayden Gillespie",
+            "saves": 30,
+            "goalsAgainst": 1,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uni/nia/"
+          }
+        ],
+        "issues": [],
+        "game": 164,
+        "verified": true
+      },
+      {
+        "providerGame": "2259519",
+        "date": "2026-10-23",
+        "team": "48",
+        "goalies": [
+          {
+            "id": 32310,
+            "name": "Charles-Edward Gravel",
+            "saves": 40,
+            "goalsAgainst": 2,
+            "seconds": 3432,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uni/nia/"
+          }
+        ],
+        "issues": [],
+        "game": 164,
+        "verified": true
+      },
+      {
+        "providerGame": "2259520",
+        "date": "2026-10-23",
+        "team": "13",
+        "goalies": [
+          {
+            "id": 32190,
+            "name": "Reid Dyck",
+            "saves": 34,
+            "goalsAgainst": 3,
+            "seconds": 3481,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clg/mne/"
+          }
+        ],
+        "issues": [],
+        "game": 160,
+        "verified": true
+      },
+      {
+        "providerGame": "2259520",
+        "date": "2026-10-23",
+        "team": "25",
+        "goalies": [
+          {
+            "id": 31670,
+            "name": "Petter Wickström Stumer",
+            "saves": 24,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clg/mne/"
+          }
+        ],
+        "issues": [],
+        "game": 160,
+        "verified": true
+      },
+      {
+        "providerGame": "2259521",
+        "date": "2026-10-23",
+        "team": "10",
+        "goalies": [
+          {
+            "id": 32987,
+            "name": "Patrick Quinlan",
+            "saves": 20,
+            "goalsAgainst": 2,
+            "seconds": 3849,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mer/ndm/"
+          }
+        ],
+        "issues": [],
+        "game": 165,
+        "verified": true
+      },
+      {
+        "providerGame": "2259521",
+        "date": "2026-10-23",
+        "team": "3",
+        "goalies": [
+          {
+            "id": 32877,
+            "name": "Linards Feldbergs",
+            "saves": 32,
+            "goalsAgainst": 1,
+            "seconds": 3848,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mer/ndm/"
+          }
+        ],
+        "issues": [],
+        "game": 165,
+        "verified": true
+      },
+      {
+        "providerGame": "2259522",
+        "date": "2026-10-23",
+        "team": "51",
+        "goalies": [
+          {
+            "id": 32475,
+            "name": "Dawson Labre",
+            "saves": 17,
+            "goalsAgainst": 1,
+            "seconds": 1444,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clk/ver/"
+          },
+          {
+            "id": 32185,
+            "name": "Shane Soderwall",
+            "saves": 11,
+            "goalsAgainst": 1,
+            "seconds": 2025,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clk/ver/"
+          }
+        ],
+        "issues": [],
+        "game": 167,
+        "verified": true
+      },
+      {
+        "providerGame": "2259522",
+        "date": "2026-10-23",
+        "team": "59",
+        "goalies": [
+          {
+            "id": 32566,
+            "name": "Jacob Oster",
+            "saves": 24,
+            "goalsAgainst": 1,
+            "seconds": 3597,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clk/ver/"
+          }
+        ],
+        "issues": [],
+        "game": 167,
+        "verified": true
+      },
+      {
+        "providerGame": "2259523",
+        "date": "2026-10-23",
+        "team": "6",
+        "goalies": [
+          {
+            "id": 32901,
+            "name": "Joshua Ravensbergen",
+            "saves": 33,
+            "goalsAgainst": 1,
+            "seconds": 3476,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/msu/unh/"
+          }
+        ],
+        "issues": [],
+        "game": 163,
+        "verified": true
+      },
+      {
+        "providerGame": "2259523",
+        "date": "2026-10-23",
+        "team": "33",
+        "goalies": [
+          {
+            "id": 32494,
+            "name": "Michael Simpson",
+            "saves": 14,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/msu/unh/"
+          }
+        ],
+        "issues": [],
+        "game": 163,
+        "verified": true
+      },
+      {
+        "providerGame": "2259524",
+        "date": "2026-10-23",
+        "team": "55",
+        "goalies": [
+          {
+            "id": 32129,
+            "name": "Lukas Swedin",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          }
+        ],
+        "issues": [],
+        "game": 175,
+        "verified": true
+      },
+      {
+        "providerGame": "2259524",
+        "date": "2026-10-23",
+        "team": "45",
+        "goalies": [
+          {
+            "id": 31955,
+            "name": "Croix Kochendorfer",
+            "saves": 5,
+            "goalsAgainst": 0,
+            "seconds": 741,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          },
+          {
+            "id": 32527,
+            "name": "Charlie Schenkel",
+            "saves": 20,
+            "goalsAgainst": 5,
+            "seconds": 2859,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          }
+        ],
+        "issues": [],
+        "game": 175,
+        "verified": true
+      },
+      {
+        "providerGame": "2259525",
+        "date": "2026-10-23",
+        "team": "28",
+        "goalies": [
+          {
+            "id": 32674,
+            "name": "Joey Rocha",
+            "saves": 26,
+            "goalsAgainst": 5,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aka/mia/"
+          }
+        ],
+        "issues": [],
+        "game": 172,
+        "verified": true
+      },
+      {
+        "providerGame": "2259525",
+        "date": "2026-10-23",
+        "team": "43",
+        "goalies": [
+          {
+            "id": 32332,
+            "name": "Matteo Drobac",
+            "saves": 19,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aka/mia/"
+          }
+        ],
+        "issues": [],
+        "game": 172,
+        "verified": true
+      },
+      {
+        "providerGame": "2259526",
+        "date": "2026-10-23",
+        "team": "7",
+        "goalies": [
+          {
+            "id": 32512,
+            "name": "Nate Krawchuk",
+            "saves": 31,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ren/rit/"
+          }
+        ],
+        "issues": [],
+        "game": 173,
+        "verified": true
+      },
+      {
+        "providerGame": "2259526",
+        "date": "2026-10-23",
+        "team": "47",
+        "goalies": [
+          {
+            "id": 33036,
+            "name": "Zachary Bowen",
+            "saves": 23,
+            "goalsAgainst": 3,
+            "seconds": 3481,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ren/rit/"
+          }
+        ],
+        "issues": [],
+        "game": 173,
+        "verified": true
+      },
+      {
+        "providerGame": "2259527",
+        "date": "2026-10-23",
+        "team": "35",
+        "goalies": [
+          {
+            "id": 32812,
+            "name": "Alan Lendak",
+            "saves": 25,
+            "goalsAgainst": 2,
+            "seconds": 3452,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mtu/fsu/"
+          }
+        ],
+        "issues": [],
+        "game": 176,
+        "verified": true
+      },
+      {
+        "providerGame": "2259527",
+        "date": "2026-10-23",
+        "team": "38",
+        "goalies": [
+          {
+            "id": 30346,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 24,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mtu/fsu/"
+          }
+        ],
+        "issues": [],
+        "game": 176,
+        "verified": true
+      },
+      {
+        "providerGame": "2259528",
+        "date": "2026-10-23",
+        "team": "29",
+        "goalies": [
+          {
+            "id": 32160,
+            "name": "Jacob Steinman",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bgs/lss/"
+          }
+        ],
+        "issues": [],
+        "game": 177,
+        "verified": true
+      },
+      {
+        "providerGame": "2259528",
+        "date": "2026-10-23",
+        "team": "19",
+        "goalies": [
+          {
+            "id": 32265,
+            "name": "Andrew Oke",
+            "saves": 31,
+            "goalsAgainst": 5,
+            "seconds": 3565,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bgs/lss/"
+          }
+        ],
+        "issues": [],
+        "game": 177,
+        "verified": true
+      },
+      {
+        "providerGame": "2259529",
+        "date": "2026-10-23",
+        "team": "18",
+        "goalies": [
+          {
+            "id": 32289,
+            "name": "Austin Elliott",
+            "saves": 36,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/prv/uml/"
+          }
+        ],
+        "issues": [],
+        "game": 178,
+        "verified": true
+      },
+      {
+        "providerGame": "2259529",
+        "date": "2026-10-23",
+        "team": "12",
+        "goalies": [
+          {
+            "id": 32493,
+            "name": "Jack Parsons",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/prv/uml/"
+          }
+        ],
+        "issues": [],
+        "game": 178,
+        "verified": true
+      },
+      {
+        "providerGame": "2259530",
+        "date": "2026-10-23",
+        "team": "40",
+        "goalies": [
+          {
+            "id": null,
+            "name": "Carl Axelsson",
+            "saves": 26,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bmj/mnd/"
+          }
+        ],
+        "issues": [],
+        "game": 162,
+        "verified": true
+      },
+      {
+        "providerGame": "2259530",
+        "date": "2026-10-23",
+        "team": "61",
+        "goalies": [
+          {
+            "id": 32123,
+            "name": "Max Hildebrand",
+            "saves": 28,
+            "goalsAgainst": 4,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bmj/mnd/"
+          }
+        ],
+        "issues": [],
+        "game": 162,
+        "verified": true
+      },
+      {
+        "providerGame": "2259531",
+        "date": "2026-10-23",
+        "team": "2",
+        "goalies": [
+          {
+            "id": 30580,
+            "name": "Lassi Lehti",
+            "saves": 51,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mns/stt/"
+          }
+        ],
+        "issues": [],
+        "game": 169,
+        "verified": true
+      },
+      {
+        "providerGame": "2259531",
+        "date": "2026-10-23",
+        "team": "65",
+        "goalies": [
+          {
+            "id": 33135,
+            "name": "Ajay White",
+            "saves": 18,
+            "goalsAgainst": 3,
+            "seconds": 3484,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mns/stt/"
+          }
+        ],
+        "issues": [],
+        "game": 169,
+        "verified": true
+      },
+      {
+        "providerGame": "2259532",
+        "date": "2026-10-23",
+        "team": "16",
+        "goalies": [
+          {
+            "id": 31087,
+            "name": "Dominik Wasik",
+            "saves": 22,
+            "goalsAgainst": 4,
+            "seconds": 2400,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          },
+          {
+            "id": 32662,
+            "name": "Jack Solomon",
+            "saves": 5,
+            "goalsAgainst": 2,
+            "seconds": 1200,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          }
+        ],
+        "issues": [],
+        "game": 171,
+        "verified": true
+      },
+      {
+        "providerGame": "2259532",
+        "date": "2026-10-23",
+        "team": "24",
+        "goalies": [
+          {
+            "id": 32203,
+            "name": "Jackson Unger",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3566,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          }
+        ],
+        "issues": [],
+        "game": 171,
+        "verified": true
+      },
+      {
+        "providerGame": "2259533",
+        "date": "2026-10-23",
+        "team": "27",
+        "goalies": [
+          {
+            "id": 31589,
+            "name": "Tyler Krivtsov",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3588,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bc_/den/"
+          }
+        ],
+        "issues": [],
+        "game": 159,
+        "verified": true
+      },
+      {
+        "providerGame": "2259533",
+        "date": "2026-10-23",
+        "team": "5",
+        "goalies": [
+          {
+            "id": 32135,
+            "name": "Louka Cloutier",
+            "saves": 27,
+            "goalsAgainst": 4,
+            "seconds": 3465,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bc_/den/"
+          }
+        ],
+        "issues": [],
+        "game": 159,
+        "verified": true
+      },
+      {
+        "providerGame": "2259534",
+        "date": "2026-10-24",
+        "team": "64",
+        "goalies": [
+          {
+            "id": 31404,
+            "name": "Kristoffer Eberly",
+            "saves": 5,
+            "goalsAgainst": 4,
+            "seconds": 921,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          },
+          {
+            "id": 32995,
+            "name": "Jakub Milota",
+            "saves": 11,
+            "goalsAgainst": 0,
+            "seconds": 2433,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          }
+        ],
+        "issues": [],
+        "game": 182,
+        "verified": true
+      },
+      {
+        "providerGame": "2259534",
+        "date": "2026-10-24",
+        "team": "56",
+        "goalies": [
+          {
+            "id": 32333,
+            "name": "Mathis Langevin",
+            "saves": 21,
+            "goalsAgainst": 3,
+            "seconds": 3580,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          },
+          {
+            "id": 33141,
+            "name": "Angelo Zol",
+            "saves": 0,
+            "goalsAgainst": 0,
+            "seconds": 20,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          }
+        ],
+        "issues": [],
+        "game": 182,
+        "verified": true
+      },
+      {
+        "providerGame": "2259535",
+        "date": "2026-10-24",
+        "team": "15",
+        "goalies": [
+          {
+            "id": 32938,
+            "name": "William Lacelle",
+            "saves": 30,
+            "goalsAgainst": 3,
+            "seconds": 3749,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uno/lin/"
+          }
+        ],
+        "issues": [],
+        "game": 192,
+        "verified": true
+      },
+      {
+        "providerGame": "2259535",
+        "date": "2026-10-24",
+        "team": "32",
+        "goalies": [
+          {
+            "id": 32651,
+            "name": "Liam Beerman",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3749,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uno/lin/"
+          }
+        ],
+        "issues": [],
+        "game": 192,
+        "verified": true
+      },
+      {
+        "providerGame": "2259536",
+        "date": "2026-10-24",
+        "team": "26",
+        "goalies": [
+          {
+            "id": 32257,
+            "name": "Danick Leroux",
+            "saves": 13,
+            "goalsAgainst": 4,
+            "seconds": 3523,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/hcr/sac/"
+          }
+        ],
+        "issues": [],
+        "game": 179,
+        "verified": true
+      },
+      {
+        "providerGame": "2259536",
+        "date": "2026-10-24",
+        "team": "4",
+        "goalies": [
+          {
+            "id": 31964,
+            "name": "Ajeet Gundarah",
+            "saves": 20,
+            "goalsAgainst": 3,
+            "seconds": 3586,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/hcr/sac/"
+          }
+        ],
+        "issues": [],
+        "game": 179,
+        "verified": true
+      },
+      {
+        "providerGame": "2259537",
+        "date": "2026-10-24",
+        "team": "36",
+        "goalies": [
+          {
+            "id": 32748,
+            "name": "Jack Lisson",
+            "saves": 34,
+            "goalsAgainst": 3,
+            "seconds": 3615,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cns/psu/"
+          }
+        ],
+        "issues": [],
+        "game": 183,
+        "verified": true
+      },
+      {
+        "providerGame": "2259537",
+        "date": "2026-10-24",
+        "team": "62",
+        "goalies": [
+          {
+            "id": 33112,
+            "name": "Ryder Fetterolf",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3615,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cns/psu/"
+          }
+        ],
+        "issues": [],
+        "game": 183,
+        "verified": true
+      },
+      {
+        "providerGame": "2259538",
+        "date": "2026-10-24",
+        "team": "10",
+        "goalies": [
+          {
+            "id": 32987,
+            "name": "Patrick Quinlan",
+            "saves": 24,
+            "goalsAgainst": 5,
+            "seconds": 3459,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mer/ndm/"
+          }
+        ],
+        "issues": [],
+        "game": 181,
+        "verified": true
+      },
+      {
+        "providerGame": "2259538",
+        "date": "2026-10-24",
+        "team": "3",
+        "goalies": [
+          {
+            "id": 32877,
+            "name": "Linards Feldbergs",
+            "saves": 30,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mer/ndm/"
+          }
+        ],
+        "issues": [],
+        "game": 181,
+        "verified": true
+      },
+      {
+        "providerGame": "2259539",
+        "date": "2026-10-24",
+        "team": "18",
+        "goalies": [
+          {
+            "id": 31167,
+            "name": "Cole Moore",
+            "saves": 12,
+            "goalsAgainst": 0,
+            "seconds": 2691,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          },
+          {
+            "id": 32289,
+            "name": "Austin Elliott",
+            "saves": 7,
+            "goalsAgainst": 5,
+            "seconds": 909,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          }
+        ],
+        "issues": [],
+        "game": 195,
+        "verified": true
+      },
+      {
+        "providerGame": "2259539",
+        "date": "2026-10-24",
+        "team": "12",
+        "goalies": [
+          {
+            "id": 32493,
+            "name": "Jack Parsons",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3595,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          }
+        ],
+        "issues": [],
+        "game": 195,
+        "verified": true
+      },
+      {
+        "providerGame": "2259540",
+        "date": "2026-10-24",
+        "team": "14",
+        "goalies": [
+          {
+            "id": 32555,
+            "name": "Brayden Gillespie",
+            "saves": 23,
+            "goalsAgainst": 5,
+            "seconds": 3664,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uni/nia/"
+          }
+        ],
+        "issues": [],
+        "game": 185,
+        "verified": true
+      },
+      {
+        "providerGame": "2259540",
+        "date": "2026-10-24",
+        "team": "48",
+        "goalies": [
+          {
+            "id": 32431,
+            "name": "Tomas Anderson",
+            "saves": 31,
+            "goalsAgainst": 4,
+            "seconds": 3664,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uni/nia/"
+          }
+        ],
+        "issues": [],
+        "game": 185,
+        "verified": true
+      },
+      {
+        "providerGame": "2259541",
+        "date": "2026-10-24",
+        "team": "23",
+        "goalies": [
+          {
+            "id": 32866,
+            "name": "Tobias Trejbal",
+            "saves": 26,
+            "goalsAgainst": 3,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stn/uma/"
+          }
+        ],
+        "issues": [],
+        "game": 190,
+        "verified": true
+      },
+      {
+        "providerGame": "2259541",
+        "date": "2026-10-24",
+        "team": "11",
+        "goalies": [
+          {
+            "id": 33180,
+            "name": "Mason Vaccari",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3493,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stn/uma/"
+          }
+        ],
+        "issues": [],
+        "game": 190,
+        "verified": true
+      },
+      {
+        "providerGame": "2259542",
+        "date": "2026-10-24",
+        "team": "55",
+        "goalies": [
+          {
+            "id": 31634,
+            "name": "Nicholas Bevilacqua",
+            "saves": 27,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/rmu/ben/"
+          }
+        ],
+        "issues": [],
+        "game": 180,
+        "verified": true
+      },
+      {
+        "providerGame": "2259542",
+        "date": "2026-10-24",
+        "team": "45",
+        "goalies": [
+          {
+            "id": 31986,
+            "name": "Lucas Massie",
+            "saves": 37,
+            "goalsAgainst": 5,
+            "seconds": 3593,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/rmu/ben/"
+          }
+        ],
+        "issues": [],
+        "game": 180,
+        "verified": true
+      },
+      {
+        "providerGame": "2259543",
+        "date": "2026-10-24",
+        "team": "28",
+        "goalies": [
+          {
+            "id": 32674,
+            "name": "Joey Rocha",
+            "saves": 26,
+            "goalsAgainst": 3,
+            "seconds": 3620,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aka/mia/"
+          }
+        ],
+        "issues": [],
+        "game": 186,
+        "verified": true
+      },
+      {
+        "providerGame": "2259543",
+        "date": "2026-10-24",
+        "team": "43",
+        "goalies": [
+          {
+            "id": 32332,
+            "name": "Matteo Drobac",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3620,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aka/mia/"
+          }
+        ],
+        "issues": [],
+        "game": 186,
+        "verified": true
+      },
+      {
+        "providerGame": "2259544",
+        "date": "2026-10-24",
+        "team": "35",
+        "goalies": [
+          {
+            "id": 32812,
+            "name": "Alan Lendak",
+            "saves": 30,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mtu/fsu/"
+          }
+        ],
+        "issues": [],
+        "game": 199,
+        "verified": true
+      },
+      {
+        "providerGame": "2259544",
+        "date": "2026-10-24",
+        "team": "38",
+        "goalies": [
+          {
+            "id": 30346,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 24,
+            "goalsAgainst": 2,
+            "seconds": 3495,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mtu/fsu/"
+          }
+        ],
+        "issues": [],
+        "game": 199,
+        "verified": true
+      },
+      {
+        "providerGame": "2259545",
+        "date": "2026-10-24",
+        "team": "40",
+        "goalies": [
+          {
+            "id": null,
+            "name": "Carl Axelsson",
+            "saves": 22,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mnd/bmj/"
+          }
+        ],
+        "issues": [],
+        "game": 188,
+        "verified": true
+      },
+      {
+        "providerGame": "2259545",
+        "date": "2026-10-24",
+        "team": "61",
+        "goalies": [
+          {
+            "id": 32123,
+            "name": "Max Hildebrand",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3464,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mnd/bmj/"
+          }
+        ],
+        "issues": [],
+        "game": 188,
+        "verified": true
+      },
+      {
+        "providerGame": "2259546",
+        "date": "2026-10-24",
+        "team": "13",
+        "goalies": [
+          {
+            "id": 32190,
+            "name": "Reid Dyck",
+            "saves": 29,
+            "goalsAgainst": 3,
+            "seconds": 3598,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/clg/mne/"
+          }
+        ],
+        "issues": [],
+        "game": 189,
+        "verified": true
+      },
+      {
+        "providerGame": "2259546",
+        "date": "2026-10-24",
+        "team": "25",
+        "goalies": [
+          {
+            "id": 31271,
+            "name": "Albin Boija",
+            "saves": 17,
+            "goalsAgainst": 0,
+            "seconds": 3596,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/clg/mne/"
+          }
+        ],
+        "issues": [],
+        "game": 189,
+        "verified": true
+      },
+      {
+        "providerGame": "2259547",
+        "date": "2026-10-24",
+        "team": "63",
+        "goalies": [
+          {
+            "id": 32779,
+            "name": "Veeti Louhivaara",
+            "saves": 29,
+            "goalsAgainst": 5,
+            "seconds": 3551,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/con/bu_/"
+          }
+        ],
+        "issues": [],
+        "game": 196,
+        "verified": true
+      },
+      {
+        "providerGame": "2259547",
+        "date": "2026-10-24",
+        "team": "41",
+        "goalies": [
+          {
+            "id": 31650,
+            "name": "Mikhail Yegorov",
+            "saves": 33,
+            "goalsAgainst": 3,
+            "seconds": 3597,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/con/bu_/"
+          }
+        ],
+        "issues": [],
+        "game": 196,
+        "verified": true
+      },
+      {
+        "providerGame": "2259548",
+        "date": "2026-10-24",
+        "team": "6",
+        "goalies": [
+          {
+            "id": 32901,
+            "name": "Joshua Ravensbergen",
+            "saves": 38,
+            "goalsAgainst": 1,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/msu/unh/"
+          }
+        ],
+        "issues": [],
+        "game": 191,
+        "verified": true
+      },
+      {
+        "providerGame": "2259548",
+        "date": "2026-10-24",
+        "team": "33",
+        "goalies": [
+          {
+            "id": 32494,
+            "name": "Michael Simpson",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3499,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/msu/unh/"
+          }
+        ],
+        "issues": [],
+        "game": 191,
+        "verified": true
+      },
+      {
+        "providerGame": "2259549",
+        "date": "2026-10-24",
+        "team": "7",
+        "goalies": [
+          {
+            "id": 33028,
+            "name": "Ethan McCallum",
+            "saves": 25,
+            "goalsAgainst": 5,
+            "seconds": 3532,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/ren/rit/"
+          }
+        ],
+        "issues": [],
+        "game": 194,
+        "verified": true
+      },
+      {
+        "providerGame": "2259549",
+        "date": "2026-10-24",
+        "team": "47",
+        "goalies": [
+          {
+            "id": 32521,
+            "name": "Collin Mackenzie",
+            "saves": 23,
+            "goalsAgainst": 4,
+            "seconds": 3591,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/ren/rit/"
+          }
+        ],
+        "issues": [],
+        "game": 194,
+        "verified": true
+      },
+      {
+        "providerGame": "2259550",
+        "date": "2026-10-24",
+        "team": "2",
+        "goalies": [
+          {
+            "id": 30580,
+            "name": "Lassi Lehti",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stt/mns/"
+          }
+        ],
+        "issues": [],
+        "game": 187,
+        "verified": true
+      },
+      {
+        "providerGame": "2259550",
+        "date": "2026-10-24",
+        "team": "65",
+        "goalies": [
+          {
+            "id": 32628,
+            "name": "William Ingemann",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3574,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stt/mns/"
+          }
+        ],
+        "issues": [],
+        "game": 187,
+        "verified": true
+      },
+      {
+        "providerGame": "2259551",
+        "date": "2026-10-24",
+        "team": "29",
+        "goalies": [
+          {
+            "id": 32160,
+            "name": "Jacob Steinman",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bgs/lss/"
+          }
+        ],
+        "issues": [],
+        "game": 200,
+        "verified": true
+      },
+      {
+        "providerGame": "2259551",
+        "date": "2026-10-24",
+        "team": "19",
+        "goalies": [
+          {
+            "id": 32841,
+            "name": "Anders Miller",
+            "saves": 16,
+            "goalsAgainst": 3,
+            "seconds": 3488,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bgs/lss/"
+          }
+        ],
+        "issues": [],
+        "game": 200,
+        "verified": true
+      },
+      {
+        "providerGame": "2259552",
+        "date": "2026-10-24",
+        "team": "27",
+        "goalies": [
+          {
+            "id": 31589,
+            "name": "Tyler Krivtsov",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3900,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bc_/den/"
+          }
+        ],
+        "issues": [],
+        "game": 184,
+        "verified": true
+      },
+      {
+        "providerGame": "2259552",
+        "date": "2026-10-24",
+        "team": "5",
+        "goalies": [
+          {
+            "id": 32135,
+            "name": "Louka Cloutier",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3834,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bc_/den/"
+          }
+        ],
+        "issues": [],
+        "game": 184,
+        "verified": true
+      },
+      {
+        "providerGame": "2259553",
+        "date": "2026-10-24",
+        "team": "16",
+        "goalies": [
+          {
+            "id": 31087,
+            "name": "Dominik Wasik",
+            "saves": 18,
+            "goalsAgainst": 4,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cc_/afa/"
+          }
+        ],
+        "issues": [],
+        "game": 193,
+        "verified": true
+      },
+      {
+        "providerGame": "2259553",
+        "date": "2026-10-24",
+        "team": "24",
+        "goalies": [
+          {
+            "id": 32203,
+            "name": "Jackson Unger",
+            "saves": 35,
+            "goalsAgainst": 0,
+            "seconds": 3591,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cc_/afa/"
+          }
+        ],
+        "issues": [],
+        "game": 193,
+        "verified": true
+      },
+      {
+        "providerGame": "2259554",
+        "date": "2026-10-25",
+        "team": "51",
+        "goalies": [
+          {
+            "id": 32755,
+            "name": "Ben Gaudreau",
+            "saves": 29,
+            "goalsAgainst": 1,
+            "seconds": 3750,
+            "source": "chn_box_goalie:20262027_update_20261026T100004Z-7f2fea",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261025/ver/clk/"
+          }
+        ],
+        "issues": [],
+        "game": 201,
+        "verified": true
+      },
+      {
+        "providerGame": "2259554",
+        "date": "2026-10-25",
+        "team": "59",
+        "goalies": [
+          {
+            "id": 32566,
+            "name": "Jacob Oster",
+            "saves": 31,
+            "goalsAgainst": 2,
+            "seconds": 3750,
+            "source": "chn_box_goalie:20262027_update_20261026T100004Z-7f2fea",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261025/ver/clk/"
+          }
+        ],
+        "issues": [],
+        "game": 201,
         "verified": true
       },
       {
@@ -16155,6 +18872,2328 @@
         ]
       },
       {
+        "providerGame": "2259511",
+        "date": "2026-10-23",
+        "team": "64",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32995,
+            "name": "Jakub Milota",
+            "saves": 19,
+            "goalsAgainst": 3,
+            "seconds": 3731,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aug/osu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32995,
+            "providerId": 982343,
+            "name": "Jakub Milota",
+            "saves": 15,
+            "goalsAgainst": 3,
+            "seconds": 3731.434
+          }
+        ]
+      },
+      {
+        "providerGame": "2259511",
+        "date": "2026-10-23",
+        "team": "56",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32333,
+            "name": "Mathis Langevin",
+            "saves": 29,
+            "goalsAgainst": 2,
+            "seconds": 3731,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aug/osu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32333,
+            "providerId": 909542,
+            "name": "Mathis Langevin",
+            "saves": 28,
+            "goalsAgainst": 2,
+            "seconds": 3731.434
+          }
+        ]
+      },
+      {
+        "providerGame": "2259512",
+        "date": "2026-10-23",
+        "team": "15",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32409,
+            "name": "Dawson Cowan",
+            "saves": 30,
+            "goalsAgainst": 4,
+            "seconds": 3588,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uno/lin/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32409,
+            "providerId": 883219,
+            "name": "Dawson Cowan",
+            "saves": 23,
+            "goalsAgainst": 4,
+            "seconds": 3600.194
+          }
+        ]
+      },
+      {
+        "providerGame": "2259512",
+        "date": "2026-10-23",
+        "team": "32",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31841,
+            "name": "Klayton Knapp",
+            "saves": 30,
+            "goalsAgainst": 7,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uno/lin/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31841,
+            "providerId": 880737,
+            "name": "Klayton Knapp",
+            "saves": 25,
+            "goalsAgainst": 7,
+            "seconds": 3600.194
+          }
+        ]
+      },
+      {
+        "providerGame": "2259513",
+        "date": "2026-10-23",
+        "team": "30",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32344,
+            "name": "Jack Ivankovic",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/wmu/mic/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32344,
+            "providerId": 1006991,
+            "name": "Jack Ivankovic",
+            "saves": 25,
+            "goalsAgainst": 2,
+            "seconds": 3600.142
+          }
+        ]
+      },
+      {
+        "providerGame": "2259515",
+        "date": "2026-10-23",
+        "team": "26",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32257,
+            "name": "Danick Leroux",
+            "saves": 21,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/sac/hcr/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32257,
+            "providerId": 730365,
+            "name": "Danick Leroux",
+            "saves": 19,
+            "goalsAgainst": 1,
+            "seconds": 3600.113
+          }
+        ]
+      },
+      {
+        "providerGame": "2259515",
+        "date": "2026-10-23",
+        "team": "4",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31964,
+            "name": "Ajeet Gundarah",
+            "saves": 10,
+            "goalsAgainst": 2,
+            "seconds": 3510,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/sac/hcr/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 871800,
+            "name": "Ajeetpal Gundarah",
+            "saves": 12,
+            "goalsAgainst": 2,
+            "seconds": 3508.897
+          }
+        ]
+      },
+      {
+        "providerGame": "2259516",
+        "date": "2026-10-23",
+        "team": "34",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33018,
+            "name": "Christian Kirsch",
+            "saves": 19,
+            "goalsAgainst": 4,
+            "seconds": 3883,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/arm/qui/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33018,
+            "providerId": 710546,
+            "name": "Christian Kirsch",
+            "saves": 17,
+            "goalsAgainst": 4,
+            "seconds": 3882.787
+          }
+        ]
+      },
+      {
+        "providerGame": "2259516",
+        "date": "2026-10-23",
+        "team": "8",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31621,
+            "name": "JJ Cataldo",
+            "saves": 36,
+            "goalsAgainst": 3,
+            "seconds": 3883,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/arm/qui/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31621,
+            "providerId": 592450,
+            "name": "J.J. Cataldo",
+            "saves": 32,
+            "goalsAgainst": 3,
+            "seconds": 3867.556
+          }
+        ]
+      },
+      {
+        "providerGame": "2259517",
+        "date": "2026-10-23",
+        "team": "36",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32748,
+            "name": "Jack Lisson",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3539,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/cns/psu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32748,
+            "providerId": 1024743,
+            "name": "Jack Lisson",
+            "saves": 34,
+            "goalsAgainst": 4,
+            "seconds": 3575.026
+          }
+        ]
+      },
+      {
+        "providerGame": "2259517",
+        "date": "2026-10-23",
+        "team": "62",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32597,
+            "name": "Joshua Fleming",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/cns/psu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 1071724,
+            "name": "Josh Fleming",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3600.224
+          }
+        ]
+      },
+      {
+        "providerGame": "2259518",
+        "date": "2026-10-23",
+        "team": "57",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32441,
+            "name": "Jan Špunar",
+            "saves": 17,
+            "goalsAgainst": 5,
+            "seconds": 3411,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ndk/min/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32441,
+            "providerId": 664039,
+            "name": "Jan Spunar",
+            "saves": 14,
+            "goalsAgainst": 5,
+            "seconds": 3411.128
+          }
+        ]
+      },
+      {
+        "providerGame": "2259519",
+        "date": "2026-10-23",
+        "team": "14",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32555,
+            "name": "Brayden Gillespie",
+            "saves": 30,
+            "goalsAgainst": 1,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uni/nia/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32555,
+            "providerId": 992638,
+            "name": "Brayden Gillespie",
+            "saves": 27,
+            "goalsAgainst": 1,
+            "seconds": 3594.467
+          }
+        ]
+      },
+      {
+        "providerGame": "2259519",
+        "date": "2026-10-23",
+        "team": "48",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32310,
+            "name": "Charles-Edward Gravel",
+            "saves": 40,
+            "goalsAgainst": 2,
+            "seconds": 3432,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/uni/nia/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32310,
+            "providerId": 648193,
+            "name": "Charles-Edward Gravel",
+            "saves": 37,
+            "goalsAgainst": 2,
+            "seconds": 3442.885
+          }
+        ]
+      },
+      {
+        "providerGame": "2259520",
+        "date": "2026-10-23",
+        "team": "13",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32190,
+            "name": "Reid Dyck",
+            "saves": 34,
+            "goalsAgainst": 3,
+            "seconds": 3481,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clg/mne/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32190,
+            "providerId": 849697,
+            "name": "Reid Dyck",
+            "saves": 24,
+            "goalsAgainst": 3,
+            "seconds": 3479.661
+          }
+        ]
+      },
+      {
+        "providerGame": "2259520",
+        "date": "2026-10-23",
+        "team": "25",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31670,
+            "name": "Petter Wickström Stumer",
+            "saves": 24,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clg/mne/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31670,
+            "providerId": 657566,
+            "name": "Petter Wickstrom-Stumer",
+            "saves": 21,
+            "goalsAgainst": 0,
+            "seconds": 3600.046
+          }
+        ]
+      },
+      {
+        "providerGame": "2259521",
+        "date": "2026-10-23",
+        "team": "10",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32987,
+            "name": "Patrick Quinlan",
+            "saves": 20,
+            "goalsAgainst": 2,
+            "seconds": 3849,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mer/ndm/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32987,
+            "providerId": 1016359,
+            "name": "Patrick Quinlan",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3845.114
+          }
+        ]
+      },
+      {
+        "providerGame": "2259521",
+        "date": "2026-10-23",
+        "team": "3",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32877,
+            "name": "Linards Feldbergs",
+            "saves": 32,
+            "goalsAgainst": 1,
+            "seconds": 3848,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mer/ndm/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32877,
+            "providerId": 976814,
+            "name": "Linards Feldbergs",
+            "saves": 36,
+            "goalsAgainst": 1,
+            "seconds": 3846.244
+          }
+        ]
+      },
+      {
+        "providerGame": "2259522",
+        "date": "2026-10-23",
+        "team": "59",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32566,
+            "name": "Jacob Oster",
+            "saves": 24,
+            "goalsAgainst": 1,
+            "seconds": 3597,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/clk/ver/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32566,
+            "providerId": 653966,
+            "name": "Jacob Oster",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3600.054
+          }
+        ]
+      },
+      {
+        "providerGame": "2259523",
+        "date": "2026-10-23",
+        "team": "33",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32494,
+            "name": "Michael Simpson",
+            "saves": 14,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/msu/unh/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32494,
+            "providerId": 610326,
+            "name": "Michael Simpson",
+            "saves": 19,
+            "goalsAgainst": 0,
+            "seconds": 3600.236
+          }
+        ]
+      },
+      {
+        "providerGame": "2259524",
+        "date": "2026-10-23",
+        "team": "55",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32129,
+            "name": "Lukas Swedin",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32129,
+            "providerId": 655251,
+            "name": "Lukas Swedin",
+            "saves": 23,
+            "goalsAgainst": 0,
+            "seconds": 3600.183
+          }
+        ]
+      },
+      {
+        "providerGame": "2259524",
+        "date": "2026-10-23",
+        "team": "45",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31955,
+            "name": "Croix Kochendorfer",
+            "saves": 5,
+            "goalsAgainst": 0,
+            "seconds": 741,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          },
+          {
+            "id": 32527,
+            "name": "Charlie Schenkel",
+            "saves": 20,
+            "goalsAgainst": 5,
+            "seconds": 2859,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/rmu/ben/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31955,
+            "providerId": 599673,
+            "name": "Croix Kochendorfer",
+            "saves": 6,
+            "goalsAgainst": 0,
+            "seconds": 741.621
+          },
+          {
+            "id": 32527,
+            "providerId": 638881,
+            "name": "Charlie Schenkel",
+            "saves": 23,
+            "goalsAgainst": 5,
+            "seconds": 2858.562
+          }
+        ]
+      },
+      {
+        "providerGame": "2259525",
+        "date": "2026-10-23",
+        "team": "28",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32674,
+            "name": "Joey Rocha",
+            "saves": 26,
+            "goalsAgainst": 5,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aka/mia/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32674,
+            "providerId": 974368,
+            "name": "Joey Rocha",
+            "saves": 27,
+            "goalsAgainst": 5,
+            "seconds": 3600.119
+          }
+        ]
+      },
+      {
+        "providerGame": "2259525",
+        "date": "2026-10-23",
+        "team": "43",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32332,
+            "name": "Matteo Drobac",
+            "saves": 19,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/aka/mia/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32332,
+            "providerId": 635863,
+            "name": "Matteo Drobac",
+            "saves": 17,
+            "goalsAgainst": 1,
+            "seconds": 3600.119
+          }
+        ]
+      },
+      {
+        "providerGame": "2259526",
+        "date": "2026-10-23",
+        "team": "7",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32512,
+            "name": "Nate Krawchuk",
+            "saves": 31,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ren/rit/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 1025404,
+            "name": "Nathan Krawchuk",
+            "saves": 33,
+            "goalsAgainst": 1,
+            "seconds": 3600.141
+          }
+        ]
+      },
+      {
+        "providerGame": "2259526",
+        "date": "2026-10-23",
+        "team": "47",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33036,
+            "name": "Zachary Bowen",
+            "saves": 23,
+            "goalsAgainst": 3,
+            "seconds": 3481,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/ren/rit/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33036,
+            "providerId": 636340,
+            "name": "Zachary Bowen",
+            "saves": 24,
+            "goalsAgainst": 3,
+            "seconds": 3483.125
+          }
+        ]
+      },
+      {
+        "providerGame": "2259527",
+        "date": "2026-10-23",
+        "team": "35",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32812,
+            "name": "Alan Lendak",
+            "saves": 25,
+            "goalsAgainst": 2,
+            "seconds": 3452,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mtu/fsu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32812,
+            "providerId": 1026061,
+            "name": "Alan Lendak",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3453.219
+          }
+        ]
+      },
+      {
+        "providerGame": "2259527",
+        "date": "2026-10-23",
+        "team": "38",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 30346,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 24,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mtu/fsu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 30346,
+            "providerId": 838635,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 21,
+            "goalsAgainst": 1,
+            "seconds": 3600.225
+          }
+        ]
+      },
+      {
+        "providerGame": "2259528",
+        "date": "2026-10-23",
+        "team": "29",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32160,
+            "name": "Jacob Steinman",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bgs/lss/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32160,
+            "providerId": 648084,
+            "name": "Jacob Steinman",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3600.15
+          }
+        ]
+      },
+      {
+        "providerGame": "2259528",
+        "date": "2026-10-23",
+        "team": "19",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32265,
+            "name": "Andrew Oke",
+            "saves": 31,
+            "goalsAgainst": 5,
+            "seconds": 3565,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bgs/lss/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32265,
+            "providerId": 502844,
+            "name": "Andrew Oke",
+            "saves": 30,
+            "goalsAgainst": 5,
+            "seconds": 3564.299
+          }
+        ]
+      },
+      {
+        "providerGame": "2259529",
+        "date": "2026-10-23",
+        "team": "18",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32289,
+            "name": "Austin Elliott",
+            "saves": 36,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/prv/uml/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32289,
+            "providerId": 656433,
+            "name": "Austin Elliott",
+            "saves": 33,
+            "goalsAgainst": 3,
+            "seconds": 3600.183
+          }
+        ]
+      },
+      {
+        "providerGame": "2259529",
+        "date": "2026-10-23",
+        "team": "12",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32493,
+            "name": "Jack Parsons",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/prv/uml/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32493,
+            "providerId": 1082673,
+            "name": "Jack Parsons",
+            "saves": 33,
+            "goalsAgainst": 0,
+            "seconds": 3600.183
+          }
+        ]
+      },
+      {
+        "providerGame": "2259530",
+        "date": "2026-10-23",
+        "team": "40",
+        "reasons": [
+          "goalie_shot_count_disagreement",
+          "unresolved_canonical_identity"
+        ],
+        "official": [
+          {
+            "id": null,
+            "name": "Carl Axelsson",
+            "saves": 26,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bmj/mnd/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 751061,
+            "name": "Carl Axelsson",
+            "saves": 25,
+            "goalsAgainst": 1,
+            "seconds": 3600.066
+          }
+        ]
+      },
+      {
+        "providerGame": "2259530",
+        "date": "2026-10-23",
+        "team": "61",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32123,
+            "name": "Max Hildebrand",
+            "saves": 28,
+            "goalsAgainst": 4,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bmj/mnd/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32123,
+            "providerId": 651107,
+            "name": "Max Hildebrand",
+            "saves": 26,
+            "goalsAgainst": 4,
+            "seconds": 3600.066
+          }
+        ]
+      },
+      {
+        "providerGame": "2259531",
+        "date": "2026-10-23",
+        "team": "2",
+        "reasons": [
+          "goalie_identity_disagreement",
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 30580,
+            "name": "Lassi Lehti",
+            "saves": 51,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mns/stt/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 30580,
+            "providerId": 636766,
+            "name": "Lassi Lehti",
+            "saves": 46,
+            "goalsAgainst": 1,
+            "seconds": 3600.181
+          },
+          {
+            "id": 31182,
+            "providerId": 608576,
+            "name": "Daimon Gardner",
+            "saves": 0,
+            "goalsAgainst": 0,
+            "seconds": 237.86
+          }
+        ]
+      },
+      {
+        "providerGame": "2259531",
+        "date": "2026-10-23",
+        "team": "65",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33135,
+            "name": "Ajay White",
+            "saves": 18,
+            "goalsAgainst": 3,
+            "seconds": 3484,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/mns/stt/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33135,
+            "providerId": 751047,
+            "name": "Ajay White",
+            "saves": 19,
+            "goalsAgainst": 3,
+            "seconds": 3485.701
+          }
+        ]
+      },
+      {
+        "providerGame": "2259532",
+        "date": "2026-10-23",
+        "team": "16",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31087,
+            "name": "Dominik Wasik",
+            "saves": 22,
+            "goalsAgainst": 4,
+            "seconds": 2400,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          },
+          {
+            "id": 32662,
+            "name": "Jack Solomon",
+            "saves": 5,
+            "goalsAgainst": 2,
+            "seconds": 1200,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31087,
+            "providerId": 650936,
+            "name": "Dominik Wasik",
+            "saves": 21,
+            "goalsAgainst": 4,
+            "seconds": 2400.122
+          },
+          {
+            "id": 32662,
+            "providerId": 946134,
+            "name": "Jack Solomon",
+            "saves": 6,
+            "goalsAgainst": 2,
+            "seconds": 1200.029
+          }
+        ]
+      },
+      {
+        "providerGame": "2259532",
+        "date": "2026-10-23",
+        "team": "24",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32203,
+            "name": "Jackson Unger",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3566,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/afa/cc_/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32203,
+            "providerId": 845597,
+            "name": "Jackson Unger",
+            "saves": 25,
+            "goalsAgainst": 2,
+            "seconds": 3569.29
+          }
+        ]
+      },
+      {
+        "providerGame": "2259533",
+        "date": "2026-10-23",
+        "team": "27",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31589,
+            "name": "Tyler Krivtsov",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3588,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bc_/den/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 589570,
+            "name": "Tyler Krivstov",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3587.746
+          }
+        ]
+      },
+      {
+        "providerGame": "2259533",
+        "date": "2026-10-23",
+        "team": "5",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32135,
+            "name": "Louka Cloutier",
+            "saves": 27,
+            "goalsAgainst": 4,
+            "seconds": 3465,
+            "source": "chn_box_goalie:20262027_update_20261024T100004Z-bb2950",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261023/bc_/den/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32135,
+            "providerId": 921839,
+            "name": "Louka Cloutier",
+            "saves": 24,
+            "goalsAgainst": 4,
+            "seconds": 3557.008
+          }
+        ]
+      },
+      {
+        "providerGame": "2259534",
+        "date": "2026-10-24",
+        "team": "64",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31404,
+            "name": "Kristoffer Eberly",
+            "saves": 5,
+            "goalsAgainst": 4,
+            "seconds": 921,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          },
+          {
+            "id": 32995,
+            "name": "Jakub Milota",
+            "saves": 11,
+            "goalsAgainst": 0,
+            "seconds": 2433,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32995,
+            "providerId": 982343,
+            "name": "Jakub Milota",
+            "saves": 13,
+            "goalsAgainst": 0,
+            "seconds": 2437.369
+          },
+          {
+            "id": 31404,
+            "providerId": 649493,
+            "name": "Kristoffer Eberly",
+            "saves": 5,
+            "goalsAgainst": 4,
+            "seconds": 921.162
+          }
+        ]
+      },
+      {
+        "providerGame": "2259534",
+        "date": "2026-10-24",
+        "team": "56",
+        "reasons": [
+          "goalie_identity_disagreement",
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32333,
+            "name": "Mathis Langevin",
+            "saves": 21,
+            "goalsAgainst": 3,
+            "seconds": 3580,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          },
+          {
+            "id": 33141,
+            "name": "Angelo Zol",
+            "saves": 0,
+            "goalsAgainst": 0,
+            "seconds": 20,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/aug/osu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32333,
+            "providerId": 909542,
+            "name": "Mathis Langevin",
+            "saves": 23,
+            "goalsAgainst": 3,
+            "seconds": 3600.193
+          }
+        ]
+      },
+      {
+        "providerGame": "2259535",
+        "date": "2026-10-24",
+        "team": "15",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32938,
+            "name": "William Lacelle",
+            "saves": 30,
+            "goalsAgainst": 3,
+            "seconds": 3749,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uno/lin/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32938,
+            "providerId": 997763,
+            "name": "William Lacelle",
+            "saves": 29,
+            "goalsAgainst": 3,
+            "seconds": 3749.908
+          }
+        ]
+      },
+      {
+        "providerGame": "2259535",
+        "date": "2026-10-24",
+        "team": "32",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32651,
+            "name": "Liam Beerman",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3749,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uno/lin/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32651,
+            "providerId": 645036,
+            "name": "Liam Beerman",
+            "saves": 41,
+            "goalsAgainst": 4,
+            "seconds": 3749.908
+          }
+        ]
+      },
+      {
+        "providerGame": "2259536",
+        "date": "2026-10-24",
+        "team": "4",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31964,
+            "name": "Ajeet Gundarah",
+            "saves": 20,
+            "goalsAgainst": 3,
+            "seconds": 3586,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/hcr/sac/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 871800,
+            "name": "Ajeetpal Gundarah",
+            "saves": 22,
+            "goalsAgainst": 3,
+            "seconds": 3587.799
+          }
+        ]
+      },
+      {
+        "providerGame": "2259537",
+        "date": "2026-10-24",
+        "team": "36",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32748,
+            "name": "Jack Lisson",
+            "saves": 34,
+            "goalsAgainst": 3,
+            "seconds": 3615,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cns/psu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32748,
+            "providerId": 1024743,
+            "name": "Jack Lisson",
+            "saves": 31,
+            "goalsAgainst": 3,
+            "seconds": 3615.414
+          }
+        ]
+      },
+      {
+        "providerGame": "2259537",
+        "date": "2026-10-24",
+        "team": "62",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33112,
+            "name": "Ryder Fetterolf",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3615,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cns/psu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33112,
+            "providerId": 1008457,
+            "name": "Ryder Fetterolf",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3615.414
+          }
+        ]
+      },
+      {
+        "providerGame": "2259538",
+        "date": "2026-10-24",
+        "team": "10",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32987,
+            "name": "Patrick Quinlan",
+            "saves": 24,
+            "goalsAgainst": 5,
+            "seconds": 3459,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mer/ndm/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32987,
+            "providerId": 1016359,
+            "name": "Patrick Quinlan",
+            "saves": 26,
+            "goalsAgainst": 5,
+            "seconds": 3462.55
+          }
+        ]
+      },
+      {
+        "providerGame": "2259538",
+        "date": "2026-10-24",
+        "team": "3",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32877,
+            "name": "Linards Feldbergs",
+            "saves": 30,
+            "goalsAgainst": 3,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mer/ndm/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32877,
+            "providerId": 976814,
+            "name": "Linards Feldbergs",
+            "saves": 34,
+            "goalsAgainst": 3,
+            "seconds": 3600.159
+          }
+        ]
+      },
+      {
+        "providerGame": "2259539",
+        "date": "2026-10-24",
+        "team": "18",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31167,
+            "name": "Cole Moore",
+            "saves": 12,
+            "goalsAgainst": 0,
+            "seconds": 2691,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          },
+          {
+            "id": 32289,
+            "name": "Austin Elliott",
+            "saves": 7,
+            "goalsAgainst": 5,
+            "seconds": 909,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32289,
+            "providerId": 656433,
+            "name": "Austin Elliott",
+            "saves": 5,
+            "goalsAgainst": 5,
+            "seconds": 909.568
+          },
+          {
+            "id": 31167,
+            "providerId": 866686,
+            "name": "Cole Moore",
+            "saves": 11,
+            "goalsAgainst": 0,
+            "seconds": 2690.633
+          }
+        ]
+      },
+      {
+        "providerGame": "2259539",
+        "date": "2026-10-24",
+        "team": "12",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32493,
+            "name": "Jack Parsons",
+            "saves": 26,
+            "goalsAgainst": 2,
+            "seconds": 3595,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uml/prv/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32493,
+            "providerId": 1082673,
+            "name": "Jack Parsons",
+            "saves": 22,
+            "goalsAgainst": 2,
+            "seconds": 3595.943
+          }
+        ]
+      },
+      {
+        "providerGame": "2259540",
+        "date": "2026-10-24",
+        "team": "48",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32431,
+            "name": "Tomas Anderson",
+            "saves": 31,
+            "goalsAgainst": 4,
+            "seconds": 3664,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/uni/nia/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32431,
+            "providerId": 713317,
+            "name": "Tomas Anderson",
+            "saves": 29,
+            "goalsAgainst": 4,
+            "seconds": 3664.576
+          }
+        ]
+      },
+      {
+        "providerGame": "2259541",
+        "date": "2026-10-24",
+        "team": "23",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32866,
+            "name": "Tobias Trejbal",
+            "saves": 26,
+            "goalsAgainst": 3,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stn/uma/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32866,
+            "providerId": 1158348,
+            "name": "Tobias Trejbal",
+            "saves": 21,
+            "goalsAgainst": 3,
+            "seconds": 3588.783
+          }
+        ]
+      },
+      {
+        "providerGame": "2259541",
+        "date": "2026-10-24",
+        "team": "11",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33180,
+            "name": "Mason Vaccari",
+            "saves": 39,
+            "goalsAgainst": 4,
+            "seconds": 3493,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stn/uma/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33180,
+            "providerId": 949268,
+            "name": "Mason Vaccari",
+            "saves": 28,
+            "goalsAgainst": 4,
+            "seconds": 3495.876
+          }
+        ]
+      },
+      {
+        "providerGame": "2259542",
+        "date": "2026-10-24",
+        "team": "55",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31634,
+            "name": "Nicholas Bevilacqua",
+            "saves": 27,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/rmu/ben/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31634,
+            "providerId": 734511,
+            "name": "Nicholas Bevilacqua",
+            "saves": 29,
+            "goalsAgainst": 1,
+            "seconds": 3600.365
+          }
+        ]
+      },
+      {
+        "providerGame": "2259544",
+        "date": "2026-10-24",
+        "team": "35",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32812,
+            "name": "Alan Lendak",
+            "saves": 30,
+            "goalsAgainst": 1,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mtu/fsu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32812,
+            "providerId": 1026061,
+            "name": "Alan Lendak",
+            "saves": 32,
+            "goalsAgainst": 1,
+            "seconds": 3600.52
+          }
+        ]
+      },
+      {
+        "providerGame": "2259544",
+        "date": "2026-10-24",
+        "team": "38",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 30346,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 24,
+            "goalsAgainst": 2,
+            "seconds": 3495,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mtu/fsu/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 30346,
+            "providerId": 838635,
+            "name": "Owen Bartoszkiewicz",
+            "saves": 17,
+            "goalsAgainst": 2,
+            "seconds": 3494.15
+          }
+        ]
+      },
+      {
+        "providerGame": "2259545",
+        "date": "2026-10-24",
+        "team": "40",
+        "reasons": [
+          "goalie_shot_count_disagreement",
+          "unresolved_canonical_identity"
+        ],
+        "official": [
+          {
+            "id": null,
+            "name": "Carl Axelsson",
+            "saves": 22,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mnd/bmj/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 751061,
+            "name": "Carl Axelsson",
+            "saves": 27,
+            "goalsAgainst": 0,
+            "seconds": 3600.132
+          }
+        ]
+      },
+      {
+        "providerGame": "2259545",
+        "date": "2026-10-24",
+        "team": "61",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32123,
+            "name": "Max Hildebrand",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3464,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/mnd/bmj/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32123,
+            "providerId": 651107,
+            "name": "Max Hildebrand",
+            "saves": 34,
+            "goalsAgainst": 2,
+            "seconds": 3463.505
+          }
+        ]
+      },
+      {
+        "providerGame": "2259546",
+        "date": "2026-10-24",
+        "team": "13",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32190,
+            "name": "Reid Dyck",
+            "saves": 29,
+            "goalsAgainst": 3,
+            "seconds": 3598,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/clg/mne/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32190,
+            "providerId": 849697,
+            "name": "Reid Dyck",
+            "saves": 26,
+            "goalsAgainst": 3,
+            "seconds": 3597.851
+          }
+        ]
+      },
+      {
+        "providerGame": "2259546",
+        "date": "2026-10-24",
+        "team": "25",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31271,
+            "name": "Albin Boija",
+            "saves": 17,
+            "goalsAgainst": 0,
+            "seconds": 3596,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/clg/mne/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31271,
+            "providerId": 749860,
+            "name": "Albin Boija",
+            "saves": 10,
+            "goalsAgainst": 0,
+            "seconds": 3600.107
+          }
+        ]
+      },
+      {
+        "providerGame": "2259547",
+        "date": "2026-10-24",
+        "team": "63",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32779,
+            "name": "Veeti Louhivaara",
+            "saves": 29,
+            "goalsAgainst": 5,
+            "seconds": 3551,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/con/bu_/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32779,
+            "providerId": 1098888,
+            "name": "Veeti Louhivaara",
+            "saves": 34,
+            "goalsAgainst": 5,
+            "seconds": 3563.632
+          }
+        ]
+      },
+      {
+        "providerGame": "2259547",
+        "date": "2026-10-24",
+        "team": "41",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31650,
+            "name": "Mikhail Yegorov",
+            "saves": 33,
+            "goalsAgainst": 3,
+            "seconds": 3597,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/con/bu_/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31650,
+            "providerId": 951450,
+            "name": "Mikhail Yegorov",
+            "saves": 36,
+            "goalsAgainst": 3,
+            "seconds": 3600.061
+          }
+        ]
+      },
+      {
+        "providerGame": "2259548",
+        "date": "2026-10-24",
+        "team": "6",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32901,
+            "name": "Joshua Ravensbergen",
+            "saves": 38,
+            "goalsAgainst": 1,
+            "seconds": 3587,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/msu/unh/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32901,
+            "providerId": 997377,
+            "name": "Joshua Ravensbergen",
+            "saves": 36,
+            "goalsAgainst": 1,
+            "seconds": 3587.619
+          }
+        ]
+      },
+      {
+        "providerGame": "2259548",
+        "date": "2026-10-24",
+        "team": "33",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32494,
+            "name": "Michael Simpson",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3499,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/msu/unh/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32494,
+            "providerId": 610326,
+            "name": "Michael Simpson",
+            "saves": 17,
+            "goalsAgainst": 2,
+            "seconds": 3498.811
+          }
+        ]
+      },
+      {
+        "providerGame": "2259549",
+        "date": "2026-10-24",
+        "team": "7",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 33028,
+            "name": "Ethan McCallum",
+            "saves": 25,
+            "goalsAgainst": 5,
+            "seconds": 3532,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/ren/rit/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 33028,
+            "providerId": 990356,
+            "name": "Ethan McCallum",
+            "saves": 24,
+            "goalsAgainst": 5,
+            "seconds": 3527.319
+          }
+        ]
+      },
+      {
+        "providerGame": "2259549",
+        "date": "2026-10-24",
+        "team": "47",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32521,
+            "name": "Collin Mackenzie",
+            "saves": 23,
+            "goalsAgainst": 4,
+            "seconds": 3591,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/ren/rit/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32521,
+            "providerId": 654148,
+            "name": "Collin MacKenzie",
+            "saves": 26,
+            "goalsAgainst": 4,
+            "seconds": 3596.183
+          }
+        ]
+      },
+      {
+        "providerGame": "2259550",
+        "date": "2026-10-24",
+        "team": "2",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 30580,
+            "name": "Lassi Lehti",
+            "saves": 30,
+            "goalsAgainst": 0,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stt/mns/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 30580,
+            "providerId": 636766,
+            "name": "Lassi Lehti",
+            "saves": 33,
+            "goalsAgainst": 0,
+            "seconds": 3600.116
+          }
+        ]
+      },
+      {
+        "providerGame": "2259550",
+        "date": "2026-10-24",
+        "team": "65",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32628,
+            "name": "William Ingemann",
+            "saves": 23,
+            "goalsAgainst": 1,
+            "seconds": 3574,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/stt/mns/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 713078,
+            "name": "Will Ingemann",
+            "saves": 24,
+            "goalsAgainst": 1,
+            "seconds": 3567.9
+          }
+        ]
+      },
+      {
+        "providerGame": "2259551",
+        "date": "2026-10-24",
+        "team": "29",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32160,
+            "name": "Jacob Steinman",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bgs/lss/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32160,
+            "providerId": 648084,
+            "name": "Jacob Steinman",
+            "saves": 40,
+            "goalsAgainst": 2,
+            "seconds": 3600.111
+          }
+        ]
+      },
+      {
+        "providerGame": "2259551",
+        "date": "2026-10-24",
+        "team": "19",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32841,
+            "name": "Anders Miller",
+            "saves": 16,
+            "goalsAgainst": 3,
+            "seconds": 3488,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bgs/lss/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32841,
+            "providerId": 1042922,
+            "name": "Anders Miller",
+            "saves": 18,
+            "goalsAgainst": 3,
+            "seconds": 3480.516
+          }
+        ]
+      },
+      {
+        "providerGame": "2259552",
+        "date": "2026-10-24",
+        "team": "27",
+        "reasons": [
+          "goalie_identity_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31589,
+            "name": "Tyler Krivtsov",
+            "saves": 23,
+            "goalsAgainst": 2,
+            "seconds": 3900,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bc_/den/"
+          }
+        ],
+        "instat": [
+          {
+            "id": null,
+            "providerId": 589570,
+            "name": "Tyler Krivstov",
+            "saves": 27,
+            "goalsAgainst": 2,
+            "seconds": 3900.228
+          }
+        ]
+      },
+      {
+        "providerGame": "2259552",
+        "date": "2026-10-24",
+        "team": "5",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32135,
+            "name": "Louka Cloutier",
+            "saves": 21,
+            "goalsAgainst": 2,
+            "seconds": 3834,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/bc_/den/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32135,
+            "providerId": 921839,
+            "name": "Louka Cloutier",
+            "saves": 24,
+            "goalsAgainst": 2,
+            "seconds": 3834.891
+          }
+        ]
+      },
+      {
+        "providerGame": "2259553",
+        "date": "2026-10-24",
+        "team": "16",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 31087,
+            "name": "Dominik Wasik",
+            "saves": 18,
+            "goalsAgainst": 4,
+            "seconds": 3600,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cc_/afa/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 31087,
+            "providerId": 650936,
+            "name": "Dominik Wasik",
+            "saves": 20,
+            "goalsAgainst": 4,
+            "seconds": 3600.12
+          }
+        ]
+      },
+      {
+        "providerGame": "2259553",
+        "date": "2026-10-24",
+        "team": "24",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32203,
+            "name": "Jackson Unger",
+            "saves": 35,
+            "goalsAgainst": 0,
+            "seconds": 3591,
+            "source": "chn_box_goalie:20262027_update_20261025T100004Z-e1a1fe",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261024/cc_/afa/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32203,
+            "providerId": 845597,
+            "name": "Jackson Unger",
+            "saves": 31,
+            "goalsAgainst": 0,
+            "seconds": 3590.051
+          }
+        ]
+      },
+      {
+        "providerGame": "2259554",
+        "date": "2026-10-25",
+        "team": "51",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32755,
+            "name": "Ben Gaudreau",
+            "saves": 29,
+            "goalsAgainst": 1,
+            "seconds": 3750,
+            "source": "chn_box_goalie:20262027_update_20261026T100004Z-7f2fea",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261025/ver/clk/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32755,
+            "providerId": 589838,
+            "name": "Ben Gaudreau",
+            "saves": 28,
+            "goalsAgainst": 1,
+            "seconds": 3750.211
+          }
+        ]
+      },
+      {
+        "providerGame": "2259554",
+        "date": "2026-10-25",
+        "team": "59",
+        "reasons": [
+          "goalie_shot_count_disagreement"
+        ],
+        "official": [
+          {
+            "id": 32566,
+            "name": "Jacob Oster",
+            "saves": 31,
+            "goalsAgainst": 2,
+            "seconds": 3750,
+            "source": "chn_box_goalie:20262027_update_20261026T100004Z-7f2fea",
+            "boxUrl": "https://www.collegehockeynews.com/box/final/20261025/ver/clk/"
+          }
+        ],
+        "instat": [
+          {
+            "id": 32566,
+            "providerId": 653966,
+            "name": "Jacob Oster",
+            "saves": 29,
+            "goalsAgainst": 2,
+            "seconds": 3750.211
+          }
+        ]
+      },
+      {
         "providerGame": "2260766",
         "date": "2026-10-09",
         "team": "26",
@@ -16215,9 +21254,9 @@
     ]
   },
   "playerLinkSummary": {
-    "linkedAttempts": 12742,
-    "totalAttempts": 14014,
-    "percent": 90.92
+    "linkedAttempts": 17089,
+    "totalAttempts": 18783,
+    "percent": 90.98
   },
   "womenCoverage": {
     "scheduledGames": 753,
