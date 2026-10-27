@@ -10,7 +10,7 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-DpvsBd7t.js"></script>
+  <script type="module" crossorigin src="./assets/index-DcAgDenU.js"></script>
   <link rel="stylesheet" crossorigin href="./assets/index-BmJwL1dK.css">
 </head>
 <body>
@@ -27,7 +27,7 @@
   <main>
     <section class="controls-panel" aria-label="Explorer controls">
       <div class="panel-heading"><span class="section-index">YOUR COMPARISON</span><a class="season-link" href="../../">Explore the data →</a></div>
-      <div class="preset-row">
+      <div class="preset-row"><label class="field" id="xg-scope-field" hidden>xG population<select id="xg-scope" aria-label="xG population"><option value="againstGoalie">Against a goalie · all strengths</option><option value="fiveOnFive">5v5 · both goalies present</option></select></label>
         <label class="field">What do you want to compare?<select id="preset-select" aria-label="Comparison"><option value="goals">Scoring balance</option><option value="shots">Shot balance</option><option value="xg">Expected goals (xG)</option><option value="special">Special teams</option><option value="pim">Penalty balance</option></select></label>
         <label class="field">Qualification<select id="minimum-games" aria-label="Minimum games"><option value="1">1 game · provisional</option><option value="3">3 games</option><option value="5">5 games</option><option value="10">10 games</option></select></label>
         <label class="field">Games included<select id="game-scope" aria-label="Games included"><option value="all">All regular-season games</option><option value="conference">Conference games only</option><option value="nonconference">Non-conference games only</option></select></label>
@@ -62,7 +62,7 @@
       <p id="qualification-note" class="qualification-note"></p>
     </section>
 
-    <section class="evidence-panel" aria-labelledby="evidence-heading">
+    <section id="xg-empty-net" class="evidence-panel" aria-label="Empty-net attempts" hidden></section><section class="evidence-panel" aria-labelledby="evidence-heading">
       <div class="evidence-heading"><div><span class="section-index">FOLLOW THE NUMBERS</span><h2 id="evidence-heading">The games behind the team</h2></div><label class="field">Inspect a team<select id="evidence-team" aria-label="Inspect a team"></select></label></div>
       <div id="team-evidence" aria-live="polite"><p>Choose a team to inspect its contributing games.</p></div>
     </section>
