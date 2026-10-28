@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-women-enabled="true">
+<html lang="en">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -10,8 +10,8 @@
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
   <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
   <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-DggrBfuK-png-2c36eb19caa0.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-YYSORMOq.css">
+  <script type="module" crossorigin src="./assets/index-2q8YhbAn.js"></script>
+  <link rel="stylesheet" crossorigin href="./assets/index-DmEGjNkV.css">
 </head>
 <body>
   <header class="hero">
@@ -35,6 +35,7 @@
         <label>Playback speed<select id="speed"><option value="1200">Measured</option><option value="650" selected>Game night</option><option value="280">Fast finish</option></select></label>
       </div>
       <label class="possible-control"><input id="show-possible" type="checkbox"> Show maximum possible points (dashed lines; expands the points scale)</label>
+      <label class="possible-control"><input id="show-previous" type="checkbox"> <span id="previous-reference">Show previous season winning total (expands the points scale)</span></label>
       <div id="quality-note" class="quality-note" role="status"></div>
     </section>
 
@@ -46,7 +47,7 @@
 
       <div class="race-layout">
         <div class="chart-shell" id="chart-shell">
-          <svg id="race-chart" role="group" aria-labelledby="chart-title chart-desc"><title id="chart-title">Conference race chart</title><desc id="chart-desc">Team progress through the selected conference season. Select a date on the horizontal axis to set the race view.</desc></svg>
+          <svg id="race-chart" role="group" aria-labelledby="chart-title chart-desc"><title id="chart-title">Conference race chart</title><desc id="chart-desc">Each team advances horizontally by its conference games played. Teams with games in hand end farther left. Use the date slider below to replay the season.</desc></svg>
           <div id="tooltip" class="tooltip" hidden></div>
         </div>
         <aside class="standings-panel" aria-labelledby="standings-title">
@@ -59,7 +60,7 @@
       <div class="playback" aria-label="Race playback">
         <button id="play" class="play-button" type="button" aria-label="Play race"><span aria-hidden="true">▶</span><b>PLAY RACE</b></button>
         <button id="previous" class="step-button" type="button" aria-label="Previous game date">‹</button>
-        <label class="timeline-label"><span><b id="timeline-start">START</b><b id="timeline-current">—</b><b id="timeline-end">FINISH</b></span><input id="timeline" type="range" min="0" max="0" value="0"></label>
+        <label class="timeline-label"><span><b id="timeline-start">START</b><b id="timeline-current">—</b><b id="timeline-end">FINISH</b></span><input id="timeline" aria-label="Race through date" type="range" min="0" max="0" value="0"></label>
         <button id="next" class="step-button" type="button" aria-label="Next game date">›</button>
         <button id="final-frame" class="finish-button" type="button">Final frame</button>
       </div>
@@ -80,7 +81,8 @@
     <section class="method-section" aria-labelledby="method-title">
       <span>05 / ABOUT THE DATA</span><h2 id="method-title">What the lines mean.</h2>
       <div class="method-grid"><p><b>Conference scoring</b><span id="method-scoring">Loading scoring rules...</span></p><p><b>Average pace</b>A three-point game produces a league average of 1.5 points per team appearance. Pace shows the distance above or below that line.</p><p><b>Verified results</b><span id="method-verification">Loading coverage...</span></p></div>
-      <p>Ghosted logos mark teams whose remaining maximum is below the current leader. This is a points-based elimination test; conference tiebreakers and constraints between remaining matchups are not applied. Dashed lines show each team's maximum possible finish and are off by default.</p><p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+      <p>The horizontal axis shows conference games played through the selected date. Teams with games in hand end farther left; the date slider controls which results are visible. The axes follow the visible results, with the full schedule length shown in the heading. Maximum possible points and the previous season's winning total are optional and off by default.</p>
+      <p>Ghosted logos mark teams whose remaining maximum is below the current leader. This is a points-based elimination test; conference tiebreakers and constraints between remaining matchups are not applied. Custom date markers show each team's position on that date; focus a program to see marker labels.</p><p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
     </section>
   </main>
   <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> CONFERENCE RACE</footer>
