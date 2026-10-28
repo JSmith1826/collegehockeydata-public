@@ -1,6 +1,6 @@
 // CHN display coordinates, not calibrated feet or an expected-goals model.
-import {GOAL_LINE,BLUE_LINE,DOT_LEFT,DOT_RIGHT,DOT_DEPTH,CIRCLE_DEPTH_RADIUS} from './rink-geometry.mjs?v=ebf5c74cb573';
-export {GOAL_LINE,BLUE_LINE,DOT_LEFT,DOT_RIGHT,DOT_DEPTH,CIRCLE_DEPTH_RADIUS,CIRCLE_LATERAL_RADIUS,RINK_GEOMETRY_VERSION} from './rink-geometry.mjs?v=ebf5c74cb573';
+import {GOAL_LINE,BLUE_LINE,DOT_LEFT,DOT_RIGHT,DOT_DEPTH,CIRCLE_DEPTH_RADIUS} from './rink-geometry.mjs?v=unified-e1fe3bc4a6f2';
+export {GOAL_LINE,BLUE_LINE,DOT_LEFT,DOT_RIGHT,DOT_DEPTH,CIRCLE_DEPTH_RADIUS,CIRCLE_LATERAL_RADIUS,RINK_GEOMETRY_VERSION} from './rink-geometry.mjs?v=unified-e1fe3bc4a6f2';
 // Preserve the reviewed custom S1/crease/center-point design scale. It is
 // independent of the source circles and must not be described as measured feet.
 export const DESIGN_REFERENCE_RADIUS=75,DESIGN_PIXELS_PER_FOOT=DESIGN_REFERENCE_RADIUS/15;

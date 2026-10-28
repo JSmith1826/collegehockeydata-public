@@ -1,92 +1,90 @@
-<!doctype html>
-<html lang="en" data-women-game-control="true">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18453b">
-  <meta name="description" content="Interactive college hockey game-control and score-state analysis.">
-  <title>Game Control · College Hockey Data</title>
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-lbu0mN0V-png-30ebb05626d3.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-CzbeNIzJ.css">
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-copy">
-      <p class="eyebrow">COLLEGE HOCKEY DATA / GAME CONTROL</p>
-      <h1>Time Leading,<br><em>Tied, and Trailing</em></h1>
-      <p>How long each team played ahead, even, or behind — and what happened after the score moved.</p>
-      <div class="hero-meta"><span id="hero-season">2025–26</span><i></i><span id="hero-status">Loading goal timelines…</span></div>
-    </div>
-    <div class="hero-rink" aria-hidden="true">
-      <div class="center-line"></div><div class="blue-line one"></div><div class="blue-line two"></div>
-      <div class="center-dot"></div><div class="puck-path a"></div><div class="puck-path b"></div><div class="puck-path c"></div>
-    </div>
-  </header>
+<!DOCTYPE html>
 
-  <main>
-    <section class="control-panel" aria-label="Game control filters">
-      <div class="section-head"><span>01 / SET THE VIEW</span><small>Available archived goal-timeline seasons</small></div>
-      <div class="control-grid">
-        <label id="competition-field" hidden>Competition<select id="competition"><option value="men">Men</option><option value="women">Women</option></select></label>
-        <label>Season<select id="season"></select></label>
-        <label>Programs<select id="conference"></select></label>
-        <label>Games<select id="scope"><option value="all">All games</option><option value="conf">Conference games</option><option value="non">Nonconference games</option></select></label>
-        <label>Order teams by<select id="sort"><option value="lead">Time leading</option><option value="control">Control margin</option><option value="tied">Time tied</option><option value="trail">Least time trailing</option><option value="hold">Lead retention</option><option value="recovery">Recovery rate</option></select></label>
-      </div>
-      <div id="filter-note" class="filter-note" role="status"></div>
-      <details id="coverage-details" class="coverage-details" hidden><summary id="coverage-summary">Goal-timeline coverage</summary><p id="coverage-note"></p><ul id="coverage-missing"></ul></details>
-    </section>
-    <section class="balance-section" aria-labelledby="balance-title">
-      <div class="section-title-row">
-        <div><span>02 / SEASON BALANCE</span><h2 id="balance-title">Time spent in every score state.</h2><p id="balance-deck">Loading team summaries…</p></div>
-        <div class="balance-summary"><small>SELECTED VIEW</small><strong id="view-games">—</strong><span>team-games</span></div>
-      </div>
-      <div id="state-legend" class="state-legend" aria-label="Select a game state to emphasize"></div>
-      <div class="balance-export" aria-label="Export game balance image">
-        <label>Image layout<select id="export-layout"><option value="portrait">Portrait / tall profile</option><option value="landscape">Landscape</option></select></label>
-        <label>Teams to export<select id="export-range"><option value="top">Top of the current list</option><option value="all">All teams in this view</option></select></label>
-        <label id="export-count-field">Number of teams<input id="export-count" type="number" min="1" step="1" value="12"></label>
-        <button id="export-png" type="button" disabled>Download PNG</button>
-        <button id="export-svg" type="button" disabled>Download SVG</button>
-        <p id="export-note">Exports follow the current filters and team order. Every team gets a full-size row.</p>
-        <p id="export-status" role="status" aria-live="polite"></p>
-      </div>
-      <div class="balance-columns"><span>PROGRAM</span><span>SHARE OF GAME TIME</span><span>LEAD / TIED / TRAIL</span></div>
-      <div id="balance-chart" class="balance-chart" aria-live="polite"></div>
-    </section>
-
-    <section class="stability-section" aria-labelledby="stability-title">
-      <div class="section-title-row compact">
-        <div><span>03 / WHAT HAPPENED NEXT</span><h2 id="stability-title">Holding leads and recovering from deficits.</h2><p>Upper right is the hard place to reach: teams that protected advantages and still recovered when they fell behind.</p></div>
-        <button id="clear-team" type="button" hidden>Show every team</button>
-      </div>
-      <div class="scatter-layout">
-        <div class="scatter-shell"><svg id="stability-chart" role="img" aria-labelledby="scatter-title scatter-desc"><title id="scatter-title">Lead retention versus recovery rate</title><desc id="scatter-desc">Each team is positioned by its results in games where it led or trailed.</desc></svg><div id="tooltip" class="tooltip" hidden></div></div>
-        <aside class="read-panel"><span>HOW TO READ IT</span><h3>Game-level outcomes</h3><p><b>Lead retention</b> is the share of games won after holding any lead.</p><p><b>Recovery rate</b> is the share of games won or tied after trailing.</p><p class="read-note">Select a logo to follow that program below.</p></aside>
-      </div>
-    </section>
-
-    <section class="game-section" aria-labelledby="game-title">
-      <div class="game-heading">
-        <div><span>04 / ONE GAME AT A TIME</span><h2 id="game-title">The score differential, goal by goal.</h2><p id="game-deck">Choose a program and game to inspect its path through sixty minutes and overtime.</p></div>
-        <div class="game-selectors"><label>Program<select id="team"></select></label><label>Game<select id="game"></select></label></div>
-      </div>
-      <div class="game-card">
-        <div class="game-lockup"><div class="team-lockup"><img id="selected-logo" alt=""><div><small id="selected-context">SELECTED PROGRAM</small><strong id="selected-team">—</strong></div></div><div class="score-lockup"><span id="selected-date">—</span><strong id="selected-score">—</strong><small id="selected-result">—</small></div></div>
-        <div class="timeline-shell"><svg id="game-chart" role="img" aria-labelledby="game-chart-title game-chart-desc"><title id="game-chart-title">Selected game score differential</title><desc id="game-chart-desc">A step chart showing when the selected team led, was tied, or trailed.</desc></svg></div>
-        <div id="goal-strip" class="goal-strip"></div>
-      </div>
-    </section>
-
-    <section class="method-section">
-      <span>05 / ABOUT THE DATA</span><h2>Built from every recorded goal.</h2>
-      <div class="method-grid"><p><b>Game balance</b>Time is accumulated between goals in seven states, from leading by three or more to trailing by three or more.</p><p><b>Overtime clock</b>Sudden-death games stop at the winning goal. Scoreless overtime and shootout games run through 65:00.</p><p><b>Data coverage</b><span id="coverage-method">This view combines historical goal timelines and recovered CHN box scores. Games with incomplete scoring timelines are excluded.</span></p></div>
-      <p class="source"><span id="source-credit">Source: College Hockey News archived box-score data</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
-    </section>
-  </main>
-</body>
+<html class="chd-unified" data-women-game-control="true" lang="en">
+<head><script>window.CHD_ENTRY_URL=location.href;try{globalThis.CHD_ALLOW_LOGO_OVERLAP=localStorage.getItem('chd-logo-overlap')==='true';}catch{}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#18453b" name="theme-color"/>
+<meta content="Interactive college hockey game-control and score-state analysis." name="description"/>
+<title>Game Control · College Hockey Data</title>
+<link href="../../assets/site/chd-icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/>
+<script crossorigin="" src="./assets/index-lbu0mN0V-png-30ebb05626d3.js?v=unified-e1fe3bc4a6f2" type="module"></script>
+<link crossorigin="" href="./assets/index-CzbeNIzJ.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/>
+<link href="/assets/chd/e1fe3bc4a6f2/shell.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/><link href="https://collegehockeydata.com/explorers/game-control/" rel="canonical"/></head>
+<body data-chd-page="study"><a class="chd-skip" href="#chd-main">Skip to analysis</a>
+<header id="chd-shell"><div class="chd-header-row"><a aria-label="College Hockey Data home" class="chd-wordmark" href="/?screen=home"><img alt="College Hockey Data" height="44" src="/assets/site/chd-horizontal.svg" width="230"/></a><button aria-controls="chd-primary-nav" aria-expanded="false" class="chd-menu-toggle" type="button"><span aria-hidden="true">☰</span> Menu</button><nav aria-label="Main navigation" class="chd-primary" id="chd-primary-nav"><a data-section="home" href="/?screen=home">Home</a><a data-section="teams" href="/?screen=team">Teams</a><a data-section="compare" href="/?screen=matchup">Compare</a><a data-section="explore" href="/explore/">Explore</a></nav><nav aria-label="Competition" class="chd-competition"><a data-competition="men" href="/?screen=home">Men</a><a data-competition="women" href="/womens/">Women</a></nav></div><div class="chd-section-row"><div aria-label="You are here" class="chd-location" hidden=""></div><nav aria-label="Related studies" class="chd-study-tabs" hidden=""></nav></div></header>
+<header class="hero chd-legacy-chrome">
+<div class="hero-copy">
+<p class="eyebrow">COLLEGE HOCKEY DATA / GAME CONTROL</p>
+<h1>Time Leading,<br/><em>Tied, and Trailing</em></h1>
+<p>How long each team played ahead, even, or behind — and what happened after the score moved.</p>
+<div class="hero-meta"><span id="hero-season">2025–26</span><i></i><span id="hero-status">Loading goal timelines…</span></div>
+</div>
+<div aria-hidden="true" class="hero-rink">
+<div class="center-line"></div><div class="blue-line one"></div><div class="blue-line two"></div>
+<div class="center-dot"></div><div class="puck-path a"></div><div class="puck-path b"></div><div class="puck-path c"></div>
+</div>
+</header>
+<main id="chd-main"><section aria-labelledby="chd-page-title" class="chd-intro"><div class="chd-context" data-chd-context=""></div><h1 data-chd-page-title="" id="chd-page-title">Game control</h1><p>Time leading, tied, and trailing, with score-state timelines.</p><div class="chd-live-labels" data-chd-live-labels=""></div></section>
+<section aria-label="Game control filters" class="control-panel">
+<div class="section-head"><span>01 / SET THE VIEW</span><small>Available archived goal-timeline seasons</small></div>
+<div class="control-grid">
+<label hidden="" id="competition-field">Competition<select id="competition"><option value="men">Men</option><option value="women">Women</option></select></label>
+<label>Season<select id="season"></select></label>
+<label>Programs<select id="conference"></select></label>
+<label>Games<select id="scope"><option value="all">All games</option><option value="conf">Conference games</option><option value="non">Nonconference games</option></select></label>
+<label>Order teams by<select id="sort"><option value="lead">Time leading</option><option value="control">Control margin</option><option value="tied">Time tied</option><option value="trail">Least time trailing</option><option value="hold">Lead retention</option><option value="recovery">Recovery rate</option></select></label>
+</div>
+<div class="filter-note" id="filter-note" role="status"></div>
+<details class="coverage-details" hidden="" id="coverage-details"><summary id="coverage-summary">Goal-timeline coverage</summary><p id="coverage-note"></p><ul id="coverage-missing"></ul></details>
+</section>
+<section aria-labelledby="balance-title" class="balance-section">
+<div class="section-title-row">
+<div><span>02 / SEASON BALANCE</span><h2 id="balance-title">Time spent in every score state.</h2><p id="balance-deck">Loading team summaries…</p></div>
+<div class="balance-summary"><small>SELECTED VIEW</small><strong id="view-games">—</strong><span>team-games</span></div>
+</div>
+<div aria-label="Select a game state to emphasize" class="state-legend" id="state-legend"></div>
+<div aria-label="Export game balance image" class="balance-export">
+<label>Image layout<select id="export-layout"><option value="portrait">Portrait / tall profile</option><option value="landscape">Landscape</option></select></label>
+<label>Teams to export<select id="export-range"><option value="top">Top of the current list</option><option value="all">All teams in this view</option></select></label>
+<label id="export-count-field">Number of teams<input id="export-count" min="1" step="1" type="number" value="12"/></label>
+<button disabled="" id="export-png" type="button">Download PNG</button>
+<button disabled="" id="export-svg" type="button">Download SVG</button>
+<p id="export-note">Exports follow the current filters and team order. Every team gets a full-size row.</p>
+<p aria-live="polite" id="export-status" role="status"></p>
+</div>
+<div class="balance-columns"><span>PROGRAM</span><span>SHARE OF GAME TIME</span><span>LEAD / TIED / TRAIL</span></div>
+<div aria-live="polite" class="balance-chart" id="balance-chart"></div>
+</section>
+<section aria-labelledby="stability-title" class="stability-section">
+<div class="section-title-row compact">
+<div><span>03 / WHAT HAPPENED NEXT</span><h2 id="stability-title">Holding leads and recovering from deficits.</h2><p>Upper right is the hard place to reach: teams that protected advantages and still recovered when they fell behind.</p></div>
+<button hidden="" id="clear-team" type="button">Show every team</button>
+</div>
+<div class="scatter-layout">
+<div class="scatter-shell"><svg aria-labelledby="scatter-title scatter-desc" id="stability-chart" role="img"><title id="scatter-title">Lead retention versus recovery rate</title><desc id="scatter-desc">Each team is positioned by its results in games where it led or trailed.</desc></svg><div class="tooltip" hidden="" id="tooltip"></div></div>
+<aside class="read-panel"><span>HOW TO READ IT</span><h3>Game-level outcomes</h3><p><b>Lead retention</b> is the share of games won after holding any lead.</p><p><b>Recovery rate</b> is the share of games won or tied after trailing.</p><p class="read-note">Select a logo to follow that program below.</p></aside>
+</div>
+</section>
+<section aria-labelledby="game-title" class="game-section">
+<div class="game-heading">
+<div><span>04 / ONE GAME AT A TIME</span><h2 id="game-title">The score differential, goal by goal.</h2><p id="game-deck">Choose a program and game to inspect its path through sixty minutes and overtime.</p></div>
+<div class="game-selectors"><label>Program<select id="team"></select></label><label>Game<select id="game"></select></label></div>
+</div>
+<div class="game-card">
+<div class="game-lockup"><div class="team-lockup"><img alt="" id="selected-logo"/><div><small id="selected-context">SELECTED PROGRAM</small><strong id="selected-team">—</strong></div></div><div class="score-lockup"><span id="selected-date">—</span><strong id="selected-score">—</strong><small id="selected-result">—</small></div></div>
+<div class="timeline-shell"><svg aria-labelledby="game-chart-title game-chart-desc" id="game-chart" role="img"><title id="game-chart-title">Selected game score differential</title><desc id="game-chart-desc">A step chart showing when the selected team led, was tied, or trailed.</desc></svg></div>
+<div class="goal-strip" id="goal-strip"></div>
+</div>
+</section>
+<section class="method-section">
+<span>05 / ABOUT THE DATA</span><h2>Built from every recorded goal.</h2>
+<div class="method-grid"><p><b>Game balance</b>Time is accumulated between goals in seven states, from leading by three or more to trailing by three or more.</p><p><b>Overtime clock</b>Sudden-death games stop at the winning goal. Scoreless overtime and shootout games run through 65:00.</p><p><b>Data coverage</b><span id="coverage-method">This view combines historical goal timelines and recovered CHN box scores. Games with incomplete scoring timelines are excluded.</span></p></div>
+<p class="source"><span id="source-credit">Source: College Hockey News archived box-score data</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+</section>
+</main>
+<footer class="chd-footer"><div><b>College Hockey Data</b><a href="/explore/">Explore</a><a href="/data-status/">Data coverage</a><a href="/about/">About &amp; reuse</a><a href="/contact/">Contact</a></div></footer><script id="chd-capabilities" type="application/json">{"performance":{"men":[2023,2024,2025,2026],"women":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"control":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"shots":{"men":[2026]},"areas":{"men":[2026]},"historical-shots":{"men":[2025,2026]},"graphics":{},"race":{"men":[2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"head-to-head":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"atlas":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"origins":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"returning":{"men":[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2021,2022,2023,2024,2025,2026]},"pathways":{"men":[1895,1896,1897,1898,1899,1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"draft":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"experience":{"men":[2000,2001,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}}</script><script src="/assets/chd/e1fe3bc4a6f2/shell.mjs?v=unified-e1fe3bc4a6f2" type="module"></script></body>
 </html>

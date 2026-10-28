@@ -1,90 +1,84 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18453B">
-  <title>Conference Race · College Hockey Data</title>
-  <meta name="description" content="Replay and explore men’s and women’s college hockey conference races.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-2q8YhbAn.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-DmEGjNkV.css">
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-copy">
-      <div class="eyebrow">COLLEGE HOCKEY DATA / CONFERENCE RACES</div>
-      <h1>Replay the<br><em>Conference Standings</em></h1>
-      <p>Scrub to any night or play the season through. Every line follows a program through its conference schedule.</p>
-      <div class="hero-meta"><span id="hero-season">2025–26</span><span>·</span><span id="hero-status">Loading the race…</span></div>
-    </div>
-    <div class="hero-motion" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  </header>
+<!DOCTYPE html>
 
-  <main>
-    <section class="control-panel" aria-label="Conference race controls">
-      <div class="section-head"><span>01 / SET THE RACE</span><small>Every control updates the chart, table, and share image</small></div>
-      <div class="control-grid">
-        <label>Competition<select id="competition"><option value="men">Men</option><option value="women">Women</option></select></label>
-        <label>Season<select id="season"></select></label>
-        <label>Conference<select id="conference"></select></label>
-        <label>Measure<select id="metric"><option value="points">Conference points</option><option value="back">Points behind leader</option><option value="pace">Points above average pace</option><option value="pct">Points percentage</option></select></label>
-        <label>Playback speed<select id="speed"><option value="1200">Measured</option><option value="650" selected>Game night</option><option value="280">Fast finish</option></select></label>
-      </div>
-      <label class="possible-control"><input id="show-possible" type="checkbox"> Show maximum possible points (dashed lines; expands the points scale)</label>
-      <label class="possible-control"><input id="show-previous" type="checkbox"> <span id="previous-reference">Show previous season winning total (expands the points scale)</span></label>
-      <div id="quality-note" class="quality-note" role="status"></div>
-    </section>
-
-    <section class="race-section" aria-labelledby="race-title">
-      <div class="race-heading">
-        <div class="conference-lockup"><img id="conference-logo" alt=""><div><span>02 / THE RACE</span><h2 id="race-title">Conference race</h2><p id="race-deck">Loading season data…</p></div></div>
-        <div class="race-date"><small>RACE THROUGH</small><strong id="race-date">—</strong><span id="race-progress">0 of 0 games</span></div>
-      </div>
-
-      <div class="race-layout">
-        <div class="chart-shell" id="chart-shell">
-          <svg id="race-chart" role="group" aria-labelledby="chart-title chart-desc"><title id="chart-title">Conference race chart</title><desc id="chart-desc">Each team advances horizontally by its conference games played. Teams with games in hand end farther left. Use the date slider below to replay the season.</desc></svg>
-          <div id="tooltip" class="tooltip" hidden></div>
-        </div>
-        <aside class="standings-panel" aria-labelledby="standings-title">
-          <div class="standings-head"><div><span>LIVE TABLE</span><h3 id="standings-title">Standings at this frame</h3></div><button id="clear-focus" type="button" hidden>Show all</button></div>
-          <div class="standings-columns"><span>TEAM</span><span>GP</span><span>PTS</span></div>
-          <div id="standings" class="standings" aria-live="polite"></div><p id="record-note" class="record-note"></p>
-        </aside>
-      </div>
-
-      <div class="playback" aria-label="Race playback">
-        <button id="play" class="play-button" type="button" aria-label="Play race"><span aria-hidden="true">▶</span><b>PLAY RACE</b></button>
-        <button id="previous" class="step-button" type="button" aria-label="Previous game date">‹</button>
-        <label class="timeline-label"><span><b id="timeline-start">START</b><b id="timeline-current">—</b><b id="timeline-end">FINISH</b></span><input id="timeline" aria-label="Race through date" type="range" min="0" max="0" value="0"></label>
-        <button id="next" class="step-button" type="button" aria-label="Next game date">›</button>
-        <button id="final-frame" class="finish-button" type="button">Final frame</button>
-      </div>
-
-      <div class="team-key"><span>FOLLOW A PROGRAM</span><div id="team-key"></div></div>
-    </section>
-
-    <section class="moments-section" aria-labelledby="moments-title">
-      <div class="moments-heading"><span>03 / TURNING POINTS</span><h2 id="moments-title">How the race changed.</h2><p>Select a moment to jump there. Lead changes and elimination from a possible shared first-place finish.</p></div>
-      <div id="moments" class="moments"></div><form id="marker-form" class="marker-form"><label>Significant date<input id="marker-date" type="date" required></label><label>Your marker<input id="marker-label" type="text" maxlength="60" placeholder="e.g. Winter break" required></label><button type="submit">Add date marker</button><p>Saved in this browser for this competition, season, and conference. Custom dates jump to the latest recorded frame on or before the date; markers are included in the chart image, but not in shared links.</p></form>
-    </section>
-
-    <section class="share-section" aria-labelledby="share-title">
-      <div><span>04 / SAVE A FRAME</span><h2 id="share-title">Download the Standings Chart</h2><p>The export uses the exact conference, measure, date, and team emphasis shown above.</p></div>
-      <div class="share-controls"><label>PNG headline<input id="export-title" type="text" placeholder="Conference race"></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download this frame <span>↗</span></button></div>
-    </section>
-
-    <section class="method-section" aria-labelledby="method-title">
-      <span>05 / ABOUT THE DATA</span><h2 id="method-title">What the lines mean.</h2>
-      <div class="method-grid"><p><b>Conference scoring</b><span id="method-scoring">Loading scoring rules...</span></p><p><b>Average pace</b>A three-point game produces a league average of 1.5 points per team appearance. Pace shows the distance above or below that line.</p><p><b>Verified results</b><span id="method-verification">Loading coverage...</span></p></div>
-      <p>The horizontal axis shows conference games played through the selected date. Teams with games in hand end farther left; the date slider controls which results are visible. The axes follow the visible results, with the full schedule length shown in the heading. Maximum possible points and the previous season's winning total are optional and off by default.</p>
-      <p>Ghosted logos mark teams whose remaining maximum is below the current leader. This is a points-based elimination test; conference tiebreakers and constraints between remaining matchups are not applied. Custom date markers show each team's position on that date; focus a program to see marker labels.</p><p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
-    </section>
-  </main>
-  <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> CONFERENCE RACE</footer>
-</body>
+<html class="chd-unified" lang="en">
+<head><script>window.CHD_ENTRY_URL=location.href;try{globalThis.CHD_ALLOW_LOGO_OVERLAP=localStorage.getItem('chd-logo-overlap')==='true';}catch{}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#18453B" name="theme-color"/>
+<title>Conference Race · College Hockey Data</title>
+<meta content="Replay and explore men’s and women’s college hockey conference races." name="description"/>
+<link href="../../assets/site/chd-icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/>
+<script crossorigin="" src="./assets/index-2q8YhbAn.js?v=unified-e1fe3bc4a6f2" type="module"></script>
+<link crossorigin="" href="./assets/index-DmEGjNkV.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/>
+<link href="/assets/chd/e1fe3bc4a6f2/shell.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/><link href="https://collegehockeydata.com/women/conference-race/" rel="canonical"/></head>
+<body data-chd-page="study"><a class="chd-skip" href="#chd-main">Skip to analysis</a>
+<header id="chd-shell"><div class="chd-header-row"><a aria-label="College Hockey Data home" class="chd-wordmark" href="/?screen=home"><img alt="College Hockey Data" height="44" src="/assets/site/chd-horizontal.svg" width="230"/></a><button aria-controls="chd-primary-nav" aria-expanded="false" class="chd-menu-toggle" type="button"><span aria-hidden="true">☰</span> Menu</button><nav aria-label="Main navigation" class="chd-primary" id="chd-primary-nav"><a data-section="home" href="/?screen=home">Home</a><a data-section="teams" href="/?screen=team">Teams</a><a data-section="compare" href="/?screen=matchup">Compare</a><a data-section="explore" href="/explore/">Explore</a></nav><nav aria-label="Competition" class="chd-competition"><a data-competition="men" href="/?screen=home">Men</a><a data-competition="women" href="/womens/">Women</a></nav></div><div class="chd-section-row"><div aria-label="You are here" class="chd-location" hidden=""></div><nav aria-label="Related studies" class="chd-study-tabs" hidden=""></nav></div></header>
+<header class="hero chd-legacy-chrome">
+<div class="hero-copy">
+<div class="eyebrow">COLLEGE HOCKEY DATA / CONFERENCE RACES</div>
+<h1>Replay the<br/><em>Conference Standings</em></h1>
+<p>Scrub to any night or play the season through. Every line follows a program through its conference schedule.</p>
+<div class="hero-meta"><span id="hero-season">2025–26</span><span>·</span><span id="hero-status">Loading the race…</span></div>
+</div>
+<div aria-hidden="true" class="hero-motion"><i></i><i></i><i></i><i></i><i></i></div>
+</header>
+<main id="chd-main"><section aria-labelledby="chd-page-title" class="chd-intro"><div class="chd-context" data-chd-context=""></div><h1 data-chd-page-title="" id="chd-page-title">Conference race</h1><p>Follow each team by conference games played. Replay any recorded date.</p><div class="chd-live-labels" data-chd-live-labels=""></div></section>
+<section aria-label="Conference race controls" class="control-panel">
+<div class="section-head"><span>01 / SET THE RACE</span><small>Every control updates the chart, table, and share image</small></div>
+<div class="control-grid">
+<label>Competition<select id="competition"><option value="men">Men</option><option value="women">Women</option></select></label>
+<label>Season<select id="season"></select></label>
+<label>Conference<select id="conference"></select></label>
+<label>Measure<select id="metric"><option value="points">Conference points</option><option value="back">Points behind leader</option><option value="pace">Points above average pace</option><option value="pct">Points percentage</option></select></label>
+<label>Playback speed<select id="speed"><option value="1200">Measured</option><option selected="" value="650">Game night</option><option value="280">Fast finish</option></select></label>
+</div>
+<label class="possible-control"><input id="show-possible" type="checkbox"/> Show maximum possible points (dashed lines; expands the points scale)</label>
+<label class="possible-control"><input id="show-previous" type="checkbox"/> <span id="previous-reference">Show previous season winning total (expands the points scale)</span></label>
+<div class="quality-note" id="quality-note" role="status"></div>
+</section>
+<section aria-labelledby="race-title" class="race-section">
+<div class="race-heading">
+<div class="conference-lockup"><img alt="" id="conference-logo"/><div><span>02 / THE RACE</span><h2 id="race-title">Conference race</h2><p id="race-deck">Loading season data…</p></div></div>
+<div class="race-date"><small>RACE THROUGH</small><strong id="race-date">—</strong><span id="race-progress">0 of 0 games</span></div>
+</div>
+<div class="race-layout">
+<div class="chart-shell" id="chart-shell">
+<svg aria-labelledby="chart-title chart-desc" id="race-chart" role="group"><title id="chart-title">Conference race chart</title><desc id="chart-desc">Each team advances horizontally by its conference games played. Teams with games in hand end farther left. Use the date slider below to replay the season.</desc></svg>
+<div class="tooltip" hidden="" id="tooltip"></div>
+</div>
+<aside aria-labelledby="standings-title" class="standings-panel">
+<div class="standings-head"><div><span>LIVE TABLE</span><h3 id="standings-title">Standings at this frame</h3></div><button hidden="" id="clear-focus" type="button">Show all</button></div>
+<div class="standings-columns"><span>TEAM</span><span>GP</span><span>PTS</span></div>
+<div aria-live="polite" class="standings" id="standings"></div><p class="record-note" id="record-note"></p>
+</aside>
+</div>
+<div aria-label="Race playback" class="playback">
+<button aria-label="Play race" class="play-button" id="play" type="button"><span aria-hidden="true">▶</span><b>PLAY RACE</b></button>
+<button aria-label="Previous game date" class="step-button" id="previous" type="button">‹</button>
+<label class="timeline-label"><span><b id="timeline-start">START</b><b id="timeline-current">—</b><b id="timeline-end">FINISH</b></span><input aria-label="Race through date" id="timeline" max="0" min="0" type="range" value="0"/></label>
+<button aria-label="Next game date" class="step-button" id="next" type="button">›</button>
+<button class="finish-button" id="final-frame" type="button">Final frame</button>
+</div>
+<div class="team-key"><span>FOLLOW A PROGRAM</span><div id="team-key"></div></div>
+</section>
+<section aria-labelledby="moments-title" class="moments-section">
+<div class="moments-heading"><span>03 / TURNING POINTS</span><h2 id="moments-title">How the race changed.</h2><p>Select a moment to jump there. Lead changes and elimination from a possible shared first-place finish.</p></div>
+<div class="moments" id="moments"></div><form class="marker-form" id="marker-form"><label>Significant date<input id="marker-date" required="" type="date"/></label><label>Your marker<input id="marker-label" maxlength="60" placeholder="e.g. Winter break" required="" type="text"/></label><button type="submit">Add date marker</button><p>Saved in this browser for this competition, season, and conference. Custom dates jump to the latest recorded frame on or before the date; markers are included in the chart image, but not in shared links.</p></form>
+</section>
+<section aria-labelledby="share-title" class="share-section">
+<div><span>04 / SAVE A FRAME</span><h2 id="share-title">Download the Standings Chart</h2><p>The export uses the exact conference, measure, date, and team emphasis shown above.</p></div>
+<div class="share-controls"><label>PNG headline<input id="export-title" placeholder="Conference race" type="text"/></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download this frame <span>↗</span></button></div>
+</section>
+<section aria-labelledby="method-title" class="method-section">
+<span>05 / ABOUT THE DATA</span><h2 id="method-title">What the lines mean.</h2>
+<div class="method-grid"><p><b>Conference scoring</b><span id="method-scoring">Loading scoring rules...</span></p><p><b>Average pace</b>A three-point game produces a league average of 1.5 points per team appearance. Pace shows the distance above or below that line.</p><p><b>Verified results</b><span id="method-verification">Loading coverage...</span></p></div>
+<p>The horizontal axis shows conference games played through the selected date. Teams with games in hand end farther left; the date slider controls which results are visible. The axes follow the visible results, with the full schedule length shown in the heading. Maximum possible points and the previous season's winning total are optional and off by default.</p>
+<p>Ghosted logos mark teams whose remaining maximum is below the current leader. This is a points-based elimination test; conference tiebreakers and constraints between remaining matchups are not applied. Custom date markers show each team's position on that date; focus a program to see marker labels.</p><p class="source">Source: <span id="source-name">College Hockey News</span> · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+</section>
+</main>
+<footer class="chd-legacy-chrome">COLLEGE HOCKEY DATA PROJECT <span>◆</span> CONFERENCE RACE</footer>
+<footer class="chd-footer"><div><b>College Hockey Data</b><a href="/explore/">Explore</a><a href="/data-status/">Data coverage</a><a href="/about/">About &amp; reuse</a><a href="/contact/">Contact</a></div></footer><script id="chd-capabilities" type="application/json">{"performance":{"men":[2023,2024,2025,2026],"women":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"control":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"shots":{"men":[2026]},"areas":{"men":[2026]},"historical-shots":{"men":[2025,2026]},"graphics":{},"race":{"men":[2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"head-to-head":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"atlas":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"origins":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"returning":{"men":[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2021,2022,2023,2024,2025,2026]},"pathways":{"men":[1895,1896,1897,1898,1899,1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"draft":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"experience":{"men":[2000,2001,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}}</script><script src="/assets/chd/e1fe3bc4a6f2/shell.mjs?v=unified-e1fe3bc4a6f2" type="module"></script></body>
 </html>

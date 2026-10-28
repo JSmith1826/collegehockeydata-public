@@ -1,7 +1,8 @@
-import {CLASSES,dateLabel,pathways,rate,format as fmt,defenseSummary} from './model.mjs';
-import {heatStops} from './shot-model/model.mjs';
-import {GOAL_LINE,BLUE_LINE,DOT_DEPTH,DOT_LEFT,DOT_RIGHT,CIRCLE_DEPTH_RADIUS,CIRCLE_LATERAL_RADIUS} from './shot-model/rink-geometry.mjs';
-import {CREASE_PATH} from './shot-model/zones.mjs';
+import {advancedLines} from '/assets/chd/e1fe3bc4a6f2/advanced-cards.mjs?v=unified-e1fe3bc4a6f2';
+import {CLASSES,dateLabel,pathways,rate,format as fmt,defenseSummary} from './model.mjs?v=unified-e1fe3bc4a6f2';
+import {heatStops} from './shot-model/model.mjs?v=unified-e1fe3bc4a6f2';
+import {GOAL_LINE,BLUE_LINE,DOT_DEPTH,DOT_LEFT,DOT_RIGHT,CIRCLE_DEPTH_RADIUS,CIRCLE_LATERAL_RADIUS} from './shot-model/rink-geometry.mjs?v=unified-e1fe3bc4a6f2';
+import {CREASE_PATH} from './shot-model/zones.mjs?v=unified-e1fe3bc4a6f2';
 
 const PAPER='#f3f5f1',INK='#17382f',MUTED='#5c7069',RULE='#d5dfda';
 function loadImage(src){return new Promise((resolve,reject)=>{const image=new Image();image.onload=()=>resolve(image);image.onerror=()=>reject(Error('A preview image could not be loaded.'));image.src=src;});}
@@ -39,7 +40,7 @@ export async function downloadPreview({data,populations,grids,sharedMax,heatImag
     ctx.restore();
   }
   function metrics(items,x,y,w){const stride=w/items.length;items.forEach(([v,label],i)=>{text(v,x+i*stride,y,48,INK,700);text(label,x+i*stride,y+37,23,MUTED,700,stride-10);});}
-  function row(name,values,x,y,width=570){text(name,x,y,31,INK,600,width-205);const stride=values.length===4?66:78;ctx.textAlign='right';values.forEach((v,j)=>text(v,x+width-(values.length-1-j)*stride,y,29,INK,400));ctx.textAlign='left';rule(x,y+16,width);}
+  function row(name,values,x,y,width=570){text(name,x,y,31,INK,600,width-(values.length===4?300:205));const stride=78;ctx.textAlign='right';values.forEach((v,j)=>text(v,x+width-(values.length-1-j)*stride,y,29,INK,400));ctx.textAlign='left';rule(x,y+16,width);}
   if(page!=='roster'){
     for(let i=0;i<2;i++){
       const t=data.teams[i],y=245+i*660,perspective=page==='defense'?'faced':'taken',p=populations[perspective][i];
@@ -48,9 +49,8 @@ export async function downloadPreview({data,populations,grids,sharedMax,heatImag
       if(page==='defense'){
         const d=defenseSummary(p);
         metrics([[fmt(rate(t.goalsAgainst,t.boxGames),2),'GA / GAME¹'],[fmt(d.shotsAgainstPerGame),'SOG FACED²'],[fmt(d.blocksPerGame),'REC. BLOCKS²']],x,y+166,w);
-        rule(x,y+229,w);text('BLOCKED OPPONENT ATTEMPTS',x,y+276,27,MUTED,700);
-        rect(x,y+300,w,24,'#dce5d6');if(d.attempts)rect(x,y+300,w*d.blocked/d.attempts,24,colors(t)[0]);
-        text(d.attempts?`${d.blocked} / ${d.attempts} recorded attempts · ${fmt(d.blockShare)}%`:'No verified attempt sample',x,y+364,31,INK,600,w);
+        rule(x,y+229,w);
+        advancedLines(data.advanced.teams[String(t.id)]?.faced,'faced').forEach((line,j)=>text(line,x,y+264+j*36,j===0?32:23,j===0?INK:MUTED,j===0?700:400,w));
         text(`GOALIES · ${t.goalieGames}/${t.boxGames} GAMES REPORTED`,x,y+422,26,MUTED,700);
         row('Goalie',['SV%','GAA'],x,y+464,w);
         t.goalies.slice(0,2).forEach((g,j)=>row(g.name,[fmt(g.savePct,3),fmt(g.gaa,2)],x,y+512+j*50,w));
@@ -58,17 +58,19 @@ export async function downloadPreview({data,populations,grids,sharedMax,heatImag
         text('Starters / availability not projected',x,y+622,25,MUTED);
       }else{
         metrics([[fmt(rate(t.boxGoals,t.boxGames),2),'GOALS / GAME'],[fmt(rate(t.boxShots,t.boxGames)),'SOG / GAME'],[t.boxShots?fmt(100*t.boxGoals/t.boxShots)+'%':'—','SHOOTING']],x,y+166,w);
-        rule(x,y+229,w);text('SCORING LEADERS · '+t.leaderSeason+(t.boxGames?'':' (PRIOR)'),x,y+279,27,MUTED,700);
-        row('Player',['G','A','PTS','SOG'],x,y+330,w);
-        t.leaders.slice(0,5).forEach((p,j)=>row(p.name,[p.goals,p.assists,p.points,p.shots],x,y+383+j*48,w));
-        if(!t.leaders.length)text('No scoring rows available',x,y+398,30,MUTED);
+        rule(x,y+229,w);
+        advancedLines(data.advanced.teams[String(t.id)]?.taken,'taken').forEach((line,j)=>text(line,x,y+264+j*36,j===0?32:23,j===0?INK:MUTED,j===0?700:400,w));
+        text('SCORING LEADERS · '+t.leaderSeason+(t.boxGames?'':' (PRIOR)'),x,y+407,27,MUTED,700);
+        row('Player',['G','A','PTS','SOG'],x,y+446,w);
+        t.leaders.slice(0,3).forEach((p,j)=>row(p.name,[p.goals,p.assists,p.points,p.shots],x,y+490+j*48,w));
+        if(!t.leaders.length)text('No scoring rows available',x,y+490,30,MUTED);
       }
       text(`${p.mappedGames}/${p.games} games mapped · ${p.total} ${page==='defense'?'opponent ':''}SOG${p.beyondHalf?' · '+p.beyondHalf+' outside half':''}`,60,y+625,22,MUTED,400,625);
     }
     const gradient=ctx.createLinearGradient(60,0,420,0);heatStops('forest',false,'dark').forEach(([v,c])=>gradient.addColorStop(v,c));rect(60,1571,360,16,gradient);
     text('Less',60,1556,23,MUTED);text('More concentrated',274,1556,23,MUTED);
     text(page==='defense'?'Opponent SOG · same scale · attacking direction · rings = goals against.':'Share of mapped SOG · same scale · rings = goals. Scoring: all completed games.',60,1622,26,MUTED);
-    text(page==='defense'?'¹ All games. ² Per mapped game. Miss/block completeness not independently verified.':'Leaders: goals, points, then shots. Maps cover the verified game counts shown.',60,1662,25,MUTED);
+    text(page==='defense'?'¹ All games. ² Mapped games. GSAx = xGA − GA, team goalies; empty nets excluded.':'Leaders: goals, points, then shots. Maps cover the verified game counts shown.',60,1662,25,MUTED);
   }else{
     for(let i=0;i<2;i++){
       const t=data.teams[i],x=60+i*700,w=620;teamHeader(t,i,245,w,x);

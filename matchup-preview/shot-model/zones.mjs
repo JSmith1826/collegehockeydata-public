@@ -2,7 +2,7 @@
 // the release audit. The source `z` is authoritative; never infer it from x/y.
 // Source SVG 400 x 426.2 covers 44% of full rink length. Reproject that drawing
 // to our lateral*4.25, depth*10 coordinate convention without changing its zones.
-export {GOAL_LINE,BLUE_LINE,faceoffMarkings} from './rink-geometry.mjs';
+export {GOAL_LINE,BLUE_LINE,faceoffMarkings} from './rink-geometry.mjs?v=unified-e1fe3bc4a6f2';
 export const DESIGN_PIXELS_PER_FOOT=5,FLANK_CLIP='M0 0H425V500H0Z';
 export const CREASE_PATH='M195 55Q212.5 100 230 55Z';
 const sx=425/400,sy=440/426.2;

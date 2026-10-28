@@ -1,4 +1,4 @@
-import {REVERSED_LOGO, BLACK_LOGO} from './brand-artwork.mjs?v=ebf5c74cb573';
+import {REVERSED_LOGO, BLACK_LOGO} from './brand-artwork.mjs?v=unified-e1fe3bc4a6f2';
 
 export const EXPORT_SITE = 'CollegeHockeyData.com';
 const LOGO_RATIO = 758 / 142;

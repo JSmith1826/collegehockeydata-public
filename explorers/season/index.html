@@ -1,43 +1,45 @@
-<!doctype html>
-<html lang="en" data-women-enabled="true">
-<head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18453b"><title>College Hockey Visualized · College Hockey Data</title>
-  <meta name="description" content="Explore college hockey through interactive comparisons, visual studies, and openly exportable data.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-CA9Yl5Al.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-S3ugMv0n.css">
-</head>
-<body>
-  <a class="skip-link" href="#library">Skip to the studies</a>
-  <header class="site-header">
-    <nav aria-label="Site navigation"><a class="brand chd-brand-link" href="../../" aria-label="College Hockey Data home"><span class="chd-brand-identity"><img class="chd-brand-logo" src="../../assets/site/chd-horizontal-reversed.svg" alt="" width="758" height="142"><img class="chd-brand-compact" src="../../assets/site/chd-mark-reversed.svg" alt="" width="48" height="48"><small class="chd-brand-tagline">Independent analysis & visual studies</small></span></a><div><a href="#library">The studies</a><a href="#open-data">Open data</a><a href="../../about/">About CHD</a><a href="../../contact/">Contact</a></div></nav>
-  </header>
-  <main>
-    <div class="edition"><p>COLLEGE HOCKEY / A CLOSER LOOK</p><div><label>Preview competition<select id="competition"><option value="men">Men's Division I</option><option value="women">Women's National Collegiate</option></select></label><label>Season<select id="season"></select></label></div></div>
-    <section class="lead" aria-labelledby="lead-title">
-      <div class="lead-copy"><p class="eyebrow">FOLLOW YOUR CURIOSITY</p><h1 id="lead-title">College Hockey<br><em>Visualized</em></h1><p class="intro">Interactive charts of team performance, player hometowns, and conference standings.</p><p class="lead-note">Interactive studies for the questions that keep you watching. Pick a view, follow the evidence, and take the numbers with you.</p><a class="text-link" href="#library">Explore the studies <span aria-hidden="true">↓</span></a><nav id="study-coverage-links" class="study-coverage-links" aria-label="Browse studies by data coverage"></nav><div class="team-entry"><label for="team">Or start with your team</label><div><select id="team"><option value="">Choose a team…</option></select><a id="team-link" href="../team-stats/">Explore ↗</a></div></div></div>
-      <article class="featured" aria-labelledby="feature-title"><div class="feature-top"><div><p class="eyebrow">01 / ON THE ICE</p><div id="feature-scope"></div></div><label>Comparison<select id="preview-metric"><option value="shots">Shot balance</option><option value="goals">Scoring balance</option><option value="special">Special teams</option></select></label></div><h2 id="feature-title">Shots For vs. Shots Against</h2><p id="feature-deck">Compare each team's shots for and shots against per game.</p><div id="feature-chart" class="feature-chart" aria-live="polite"><p class="loading">Loading the comparison…</p></div><div class="feature-bottom"><p id="feature-caption"></p><a id="feature-link" href="../team-stats/">Open the full comparison ↗</a></div></article>
-    </section>
-    <div id="status" class="status" role="status"></div>
-    <section class="library" id="library" aria-labelledby="library-title">
-      <div id="studies" aria-hidden="true"></div>
-      <div class="section-heading"><div><p class="eyebrow">THE STUDY INDEX</p><h2 id="library-title">Explore the Studies</h2></div><p>Explore where players come from, how teams perform, and how seasons unfold.</p></div>
-      <section class="study-group shared-studies" id="shared-studies" aria-labelledby="shared-studies-title">
-        <div class="study-group-heading"><div><p class="eyebrow">SWITCH BETWEEN DATASETS</p><h3 id="shared-studies-title">Men + Women</h3></div><span id="shared-study-count"></span></div>
-        <div id="shared-study-links" class="shared-study-grid"></div>
-      </section>
-      <section class="study-group men-studies" id="men-studies" aria-labelledby="men-studies-title">
-        <div class="study-group-heading"><div><p class="eyebrow">MORE TO EXPLORE</p><h3 id="men-studies-title">Men only</h3></div><span id="men-study-count"></span></div>
-        <div id="study-links" class="study-index"></div>
-      </section>
-      <p id="studies-note" class="small-note"></p>
-    </section>
-    <section class="open-data" id="open-data" aria-labelledby="data-title"><div><p class="eyebrow">KEEP GOING</p><h2 id="data-title">Charts, Tables,<br>and Exports</h2><p>The picture is a starting point. Explore the table, inspect individual games, or save a chart and make something of your own.</p></div><div class="data-actions"><a id="methods-link" href="../team-stats/#method-heading">Data Sources and Calculations <span>↗</span></a><details><summary>About this data snapshot</summary><div id="coverage"></div><p id="snapshot"></p><p>Exhibitions are excluded from regular-season comparisons. Missing values stay unknown. Each metric reports its own sample.</p></details></div></section>
-  </main>
-  <footer><b>College Hockey Data</b><span>Independent analysis. Inspectable numbers. Open exports.</span><a href="../../about/#reuse">Image reuse</a><a href="../../contact/">Get in touch</a></footer>
-</body>
+<!DOCTYPE html>
+
+<html class="chd-unified" data-women-enabled="true" lang="en">
+<head><script>window.CHD_ENTRY_URL=location.href;try{globalThis.CHD_ALLOW_LOGO_OVERLAP=localStorage.getItem('chd-logo-overlap')==='true';}catch{}</script>
+<meta charset="utf-8"/><meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#18453b" name="theme-color"/><title>College Hockey Visualized · College Hockey Data</title>
+<meta content="Explore college hockey through interactive comparisons, visual studies, and openly exportable data." name="description"/>
+<link href="../../assets/site/chd-icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/>
+<script crossorigin="" src="./assets/index-CA9Yl5Al.js?v=unified-e1fe3bc4a6f2" type="module"></script>
+<link crossorigin="" href="./assets/index-S3ugMv0n.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/>
+<link href="/assets/chd/e1fe3bc4a6f2/shell.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/><link href="https://collegehockeydata.com/explorers/season/" rel="canonical"/></head>
+<body data-chd-page="study"><a class="chd-skip" href="#chd-main">Skip to analysis</a>
+<header id="chd-shell"><div class="chd-header-row"><a aria-label="College Hockey Data home" class="chd-wordmark" href="/?screen=home"><img alt="College Hockey Data" height="44" src="/assets/site/chd-horizontal.svg" width="230"/></a><button aria-controls="chd-primary-nav" aria-expanded="false" class="chd-menu-toggle" type="button"><span aria-hidden="true">☰</span> Menu</button><nav aria-label="Main navigation" class="chd-primary" id="chd-primary-nav"><a data-section="home" href="/?screen=home">Home</a><a data-section="teams" href="/?screen=team">Teams</a><a data-section="compare" href="/?screen=matchup">Compare</a><a data-section="explore" href="/explore/">Explore</a></nav><nav aria-label="Competition" class="chd-competition"><a data-competition="men" href="/?screen=home">Men</a><a data-competition="women" href="/womens/">Women</a></nav></div><div class="chd-section-row"><div aria-label="You are here" class="chd-location" hidden=""></div><nav aria-label="Related studies" class="chd-study-tabs" hidden=""></nav></div></header>
+<a class="skip-link" href="#library">Skip to the studies</a>
+<header class="site-header chd-legacy-chrome">
+<nav aria-label="Site navigation"><a aria-label="College Hockey Data home" class="brand chd-brand-link" href="../../"><span class="chd-brand-identity"><img alt="" class="chd-brand-logo" height="142" src="../../assets/site/chd-horizontal-reversed.svg" width="758"/><img alt="" class="chd-brand-compact" height="48" src="../../assets/site/chd-mark-reversed.svg" width="48"/><small class="chd-brand-tagline">Independent analysis &amp; visual studies</small></span></a><div><a href="#library">The studies</a><a href="#open-data">Open data</a><a href="../../about/">About CHD</a><a href="../../contact/">Contact</a></div></nav>
+</header>
+<main id="chd-main"><section aria-labelledby="chd-page-title" class="chd-intro"><div class="chd-context" data-chd-context=""></div><h1 data-chd-page-title="" id="chd-page-title">College Hockey Visualized</h1><p></p><div class="chd-live-labels" data-chd-live-labels=""></div></section>
+<div class="edition"><p>COLLEGE HOCKEY / A CLOSER LOOK</p><div><label>Preview competition<select id="competition"><option value="men">Men's Division I</option><option value="women">Women's National Collegiate</option></select></label><label>Season<select id="season"></select></label></div></div>
+<section aria-labelledby="lead-title" class="lead">
+<div class="lead-copy"><p class="eyebrow">FOLLOW YOUR CURIOSITY</p><h1 class="chd-legacy-title" id="lead-title">College Hockey<br/><em>Visualized</em></h1><p class="intro">Interactive charts of team performance, player hometowns, and conference standings.</p><p class="lead-note">Interactive studies for the questions that keep you watching. Pick a view, follow the evidence, and take the numbers with you.</p><a class="text-link" href="#library">Explore the studies <span aria-hidden="true">↓</span></a><nav aria-label="Browse studies by data coverage" class="study-coverage-links" id="study-coverage-links"></nav><div class="team-entry"><label for="team">Or start with your team</label><div><select id="team"><option value="">Choose a team…</option></select><a href="../team-stats/" id="team-link">Explore ↗</a></div></div></div>
+<article aria-labelledby="feature-title" class="featured"><div class="feature-top"><div><p class="eyebrow">01 / ON THE ICE</p><div id="feature-scope"></div></div><label>Comparison<select id="preview-metric"><option value="shots">Shot balance</option><option value="goals">Scoring balance</option><option value="special">Special teams</option></select></label></div><h2 id="feature-title">Shots For vs. Shots Against</h2><p id="feature-deck">Compare each team's shots for and shots against per game.</p><div aria-live="polite" class="feature-chart" id="feature-chart"><p class="loading">Loading the comparison…</p></div><div class="feature-bottom"><p id="feature-caption"></p><a href="../team-stats/" id="feature-link">Open the full comparison ↗</a></div></article>
+</section>
+<div class="status" id="status" role="status"></div>
+<section aria-labelledby="library-title" class="library" id="library">
+<div aria-hidden="true" id="studies"></div>
+<div class="section-heading"><div><p class="eyebrow">THE STUDY INDEX</p><h2 id="library-title">Explore the Studies</h2></div><p>Explore where players come from, how teams perform, and how seasons unfold.</p></div>
+<section aria-labelledby="shared-studies-title" class="study-group shared-studies" id="shared-studies">
+<div class="study-group-heading"><div><p class="eyebrow">SWITCH BETWEEN DATASETS</p><h3 id="shared-studies-title">Men + Women</h3></div><span id="shared-study-count"></span></div>
+<div class="shared-study-grid" id="shared-study-links"></div>
+</section>
+<section aria-labelledby="men-studies-title" class="study-group men-studies" id="men-studies">
+<div class="study-group-heading"><div><p class="eyebrow">MORE TO EXPLORE</p><h3 id="men-studies-title">Men only</h3></div><span id="men-study-count"></span></div>
+<div class="study-index" id="study-links"></div>
+</section>
+<p class="small-note" id="studies-note"></p>
+</section>
+<section aria-labelledby="data-title" class="open-data" id="open-data"><div><p class="eyebrow">KEEP GOING</p><h2 id="data-title">Charts, Tables,<br/>and Exports</h2><p>The picture is a starting point. Explore the table, inspect individual games, or save a chart and make something of your own.</p></div><div class="data-actions"><a href="../team-stats/#method-heading" id="methods-link">Data Sources and Calculations <span>↗</span></a><details><summary>About this data snapshot</summary><div id="coverage"></div><p id="snapshot"></p><p>Exhibitions are excluded from regular-season comparisons. Missing values stay unknown. Each metric reports its own sample.</p></details></div></section>
+</main>
+<footer class="chd-legacy-chrome"><b>College Hockey Data</b><span>Independent analysis. Inspectable numbers. Open exports.</span><a href="../../about/#reuse">Image reuse</a><a href="../../contact/">Get in touch</a></footer>
+<footer class="chd-footer"><div><b>College Hockey Data</b><a href="/explore/">Explore</a><a href="/data-status/">Data coverage</a><a href="/about/">About &amp; reuse</a><a href="/contact/">Contact</a></div></footer><script id="chd-capabilities" type="application/json">{"performance":{"men":[2023,2024,2025,2026],"women":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"control":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"shots":{"men":[2026]},"areas":{"men":[2026]},"historical-shots":{"men":[2025,2026]},"graphics":{},"race":{"men":[2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"head-to-head":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"atlas":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"origins":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"returning":{"men":[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2021,2022,2023,2024,2025,2026]},"pathways":{"men":[1895,1896,1897,1898,1899,1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"draft":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"experience":{"men":[2000,2001,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}}</script><script src="/assets/chd/e1fe3bc4a6f2/shell.mjs?v=unified-e1fe3bc4a6f2" type="module"></script><script src="/assets/chd/e1fe3bc4a6f2/review-controls.mjs?v=unified-e1fe3bc4a6f2" type="module"></script></body>
 </html>

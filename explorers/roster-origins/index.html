@@ -1,56 +1,54 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18453B">
-  <title>Roster Origins · College Hockey Data</title>
-  <meta name="description" content="Previous teams and leagues reported on college hockey rosters, by program and season.">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
-  <link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
-  <link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-Dhq4RpDP-png-293a15a33a55.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-Cqx368En.css">
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-inner">
-      <div class="kicker"><span class="kicker-line"></span><span id="hero-kicker">COLLEGE HOCKEY DATA / ROSTER STUDY 02</span></div>
-      <h1><span id="hero-line-one">Roster</span><br><em id="hero-accent">origins.</em> <span id="hero-line-two"></span></h1>
-      <p id="hero-deck">Previous teams and leagues reported on college hockey rosters, by program and season.</p>
-      <div class="hero-pills"><span id="hero-season">Loading seasons…</span><span id="hero-rosters">CHN + archived rosters</span></div>
-    </div>
-    <div class="hero-mark" aria-hidden="true"><span>ORIGIN</span><i></i></div>
-  </header>
+<!DOCTYPE html>
 
-  <main>
-    <section class="workspace" aria-label="Roster explorer controls">
-      <div class="section-head"><span class="section-num" id="section-one">01 / SET THE VIEW</span><span class="section-note" id="section-one-note">Change a control to redraw the comparison</span></div>
-      <div class="control-grid">
-        <label>Season<select id="season"></select></label>
-        <label>Conference<select id="conference"><option value="all">All teams</option></select></label>
-        <label class="team-search">Find a team<input id="search" type="search" placeholder="Search this season’s teams" autocomplete="off"></label>
-        <label>Show<select id="limit"><option value="15">Top 15</option><option value="30">Top 30</option><option value="all">All teams</option></select></label>
-        <label>Right-side value<select id="units"><option value="share">Roster share</option><option value="count">Player count</option></select></label>
-      </div>
-      <div class="filter-foot"><span id="filter-summary"></span><div id="coverage" class="coverage" role="status">Loading roster coverage…</div></div>
-    </section>
-
-    <section class="explorer" aria-labelledby="compare-title">
-      <div class="compare-head"><div><span class="section-num" id="section-two">02 / COMPARE PROGRAMS</span><h2 id="compare-title">Previous leagues by program</h2><p id="compare-deck">Select a league to rank programs and highlight its share of every roster. Categories keep their fixed order within each country and pathway group.</p></div><div class="export-tools"><label class="export-title-control">PNG headline<input id="export-title" type="text" placeholder="Automatic chart description"></label><label>PNG layout<select id="export-format"><option value="wide">Wide · top 18</option><option value="mobile">Mobile · up to 12</option></select></label><button id="export" type="button" class="export-button">Download wide PNG <span>↗</span></button></div></div>
-      <div id="legend" class="legend" aria-label="Previous league groups"></div>
-      <div class="table-head"><span>TEAM</span><span>REPORTED PREVIOUS LEAGUE</span><span id="value-heading">SHARE</span></div>
-      <div id="team-list" class="team-list"></div>
-    </section>
-
-    <section id="detail" class="detail" aria-labelledby="detail-title">
-      <div class="section-head"><span class="section-num" id="section-three">03 / FOLLOW A PROGRAM</span><span class="section-note" id="section-three-note">Select another team above to compare its history</span></div>
-      <div id="detail-content"></div>
-    </section>
-
-    <section class="method" aria-labelledby="method-title"><span class="section-num">04 / ABOUT THE DATA</span><h2 id="method-title">Definitions and coverage.</h2><div class="method-grid"><p><strong>What “origin” means</strong>The previous team and league printed on a season roster. Transfers identify reported prior NCAA Division I experience at a different program; same-program records with no earlier pathway remain visibly unknown.</p><p><strong>How draft context is used</strong>NHL selections remain visible in player tooltips, team annotations, the drafted-share ranking, and program history. The dedicated Draft History Explorer handles deeper comparisons by round and selection timing.</p><p><strong>How it stays current</strong>The page is exported from the canonical database’s derived team-construction CSV. Rebuild that CSV after a roster refresh, then regenerate the web data. Team logos come from this project’s supplied logo folder.</p></div><div class="source-line">Source: College Hockey News and archived season rosters · Classification rules v<span id="rule-version">5</span> · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div></section>
-  </main>
-  <footer><span id="footer-project">COLLEGE HOCKEY DATA PROJECT</span> <span class="footer-glyph">◆</span> <span id="footer-study">ROSTER ORIGINS</span></footer>
-</body>
+<html class="chd-unified" lang="en">
+<head><script>window.CHD_ENTRY_URL=location.href;try{globalThis.CHD_ALLOW_LOGO_OVERLAP=localStorage.getItem('chd-logo-overlap')==='true';}catch{}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#18453B" name="theme-color"/>
+<title>Roster Origins · College Hockey Data</title>
+<meta content="Previous teams and leagues reported on college hockey rosters, by program and season." name="description"/>
+<link href="../../assets/site/chd-icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/>
+<script crossorigin="" src="./assets/index-Dhq4RpDP-png-293a15a33a55.js?v=unified-e1fe3bc4a6f2" type="module"></script>
+<link crossorigin="" href="./assets/index-Cqx368En.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/>
+<link href="/assets/chd/e1fe3bc4a6f2/shell.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/><link href="https://collegehockeydata.com/explorers/roster-origins/" rel="canonical"/></head>
+<body data-chd-page="study"><a class="chd-skip" href="#chd-main">Skip to analysis</a>
+<header id="chd-shell"><div class="chd-header-row"><a aria-label="College Hockey Data home" class="chd-wordmark" href="/?screen=home"><img alt="College Hockey Data" height="44" src="/assets/site/chd-horizontal.svg" width="230"/></a><button aria-controls="chd-primary-nav" aria-expanded="false" class="chd-menu-toggle" type="button"><span aria-hidden="true">☰</span> Menu</button><nav aria-label="Main navigation" class="chd-primary" id="chd-primary-nav"><a data-section="home" href="/?screen=home">Home</a><a data-section="teams" href="/?screen=team">Teams</a><a data-section="compare" href="/?screen=matchup">Compare</a><a data-section="explore" href="/explore/">Explore</a></nav><nav aria-label="Competition" class="chd-competition"><a data-competition="men" href="/?screen=home">Men</a><a data-competition="women" href="/womens/">Women</a></nav></div><div class="chd-section-row"><div aria-label="You are here" class="chd-location" hidden=""></div><nav aria-label="Related studies" class="chd-study-tabs" hidden=""></nav></div></header>
+<header class="hero chd-legacy-chrome">
+<div class="hero-inner">
+<div class="kicker"><span class="kicker-line"></span><span id="hero-kicker">COLLEGE HOCKEY DATA / ROSTER STUDY 02</span></div>
+<h1><span id="hero-line-one">Roster</span><br/><em id="hero-accent">origins.</em> <span id="hero-line-two"></span></h1>
+<p id="hero-deck">Previous teams and leagues reported on college hockey rosters, by program and season.</p>
+<div class="hero-pills"><span id="hero-season">Loading seasons…</span><span id="hero-rosters">CHN + archived rosters</span></div>
+</div>
+<div aria-hidden="true" class="hero-mark"><span>ORIGIN</span><i></i></div>
+</header>
+<main id="chd-main"><section aria-labelledby="chd-page-title" class="chd-intro"><div class="chd-context" data-chd-context=""></div><h1 data-chd-page-title="" id="chd-page-title">Roster origins</h1><p>Compare the previous leagues represented on each roster.</p><div class="chd-live-labels" data-chd-live-labels=""></div></section>
+<section aria-label="Roster explorer controls" class="workspace">
+<div class="section-head"><span class="section-num" id="section-one">01 / SET THE VIEW</span><span class="section-note" id="section-one-note">Change a control to redraw the comparison</span></div>
+<div class="control-grid">
+<label>Season<select id="season"></select></label>
+<label>Conference<select id="conference"><option value="all">All teams</option></select></label>
+<label class="team-search">Find a team<input autocomplete="off" id="search" placeholder="Search this season’s teams" type="search"/></label>
+<label>Show<select id="limit"><option value="15">Top 15</option><option value="30">Top 30</option><option value="all">All teams</option></select></label>
+<label>Right-side value<select id="units"><option value="share">Roster share</option><option value="count">Player count</option></select></label>
+</div>
+<div class="filter-foot"><span id="filter-summary"></span><div class="coverage" id="coverage" role="status">Loading roster coverage…</div></div>
+</section>
+<section aria-labelledby="compare-title" class="explorer">
+<div class="compare-head"><div><span class="section-num" id="section-two">02 / COMPARE PROGRAMS</span><h2 id="compare-title">Previous leagues by program</h2><p id="compare-deck">Select a league to rank programs and highlight its share of every roster. Categories keep their fixed order within each country and pathway group.</p></div><div class="export-tools"><label class="export-title-control">PNG headline<input id="export-title" placeholder="Automatic chart description" type="text"/></label><label>PNG layout<select id="export-format"><option value="wide">Wide · top 18</option><option value="mobile">Mobile · up to 12</option></select></label><button class="export-button" id="export" type="button">Download wide PNG <span>↗</span></button></div></div>
+<div aria-label="Previous league groups" class="legend" id="legend"></div>
+<div class="table-head"><span>TEAM</span><span>REPORTED PREVIOUS LEAGUE</span><span id="value-heading">SHARE</span></div>
+<div class="team-list" id="team-list"></div>
+</section>
+<section aria-labelledby="detail-title" class="detail" id="detail">
+<div class="section-head"><span class="section-num" id="section-three">03 / FOLLOW A PROGRAM</span><span class="section-note" id="section-three-note">Select another team above to compare its history</span></div>
+<div id="detail-content"></div>
+</section>
+<section aria-labelledby="method-title" class="method"><span class="section-num">04 / ABOUT THE DATA</span><h2 id="method-title">Definitions and coverage.</h2><div class="method-grid"><p><strong>What “origin” means</strong>The previous team and league printed on a season roster. Transfers identify reported prior NCAA Division I experience at a different program; same-program records with no earlier pathway remain visibly unknown.</p><p><strong>How draft context is used</strong>NHL selections remain visible in player tooltips, team annotations, the drafted-share ranking, and program history. The dedicated Draft History Explorer handles deeper comparisons by round and selection timing.</p><p><strong>How it stays current</strong>The page is exported from the canonical database’s derived team-construction CSV. Rebuild that CSV after a roster refresh, then regenerate the web data. Team logos come from this project’s supplied logo folder.</p></div><div class="source-line">Source: College Hockey News and archived season rosters · Classification rules v<span id="rule-version">5</span> · Independent project by u/BakedMitten · Data export <span id="snapshot">—</span></div></section>
+</main>
+<footer class="chd-legacy-chrome"><span id="footer-project">COLLEGE HOCKEY DATA PROJECT</span> <span class="footer-glyph">◆</span> <span id="footer-study">ROSTER ORIGINS</span></footer>
+<footer class="chd-footer"><div><b>College Hockey Data</b><a href="/explore/">Explore</a><a href="/data-status/">Data coverage</a><a href="/about/">About &amp; reuse</a><a href="/contact/">Contact</a></div></footer><script id="chd-capabilities" type="application/json">{"performance":{"men":[2023,2024,2025,2026],"women":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"control":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"shots":{"men":[2026]},"areas":{"men":[2026]},"historical-shots":{"men":[2025,2026]},"graphics":{},"race":{"men":[2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"head-to-head":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"atlas":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"origins":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"returning":{"men":[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2021,2022,2023,2024,2025,2026]},"pathways":{"men":[1895,1896,1897,1898,1899,1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"draft":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"experience":{"men":[2000,2001,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}}</script><script src="/assets/chd/e1fe3bc4a6f2/shell.mjs?v=unified-e1fe3bc4a6f2" type="module"></script></body>
 </html>

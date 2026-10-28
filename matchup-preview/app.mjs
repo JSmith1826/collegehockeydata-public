@@ -1,13 +1,14 @@
-import {selectPopulation,density,heatColorAt,heatStops} from './shot-model/model.mjs';
-import {faceoffMarkings,GOAL_LINE,BLUE_LINE} from './shot-model/rink-geometry.mjs';
-import {CREASE_PATH} from './shot-model/zones.mjs';
-import {TEAM_COLORS,normalizeTeam} from './shot-model/team-style.mjs';
-import {buildCaption} from './captions.mjs';
-import {CLASSES,escapeHtml as esc,format as fmt,rate,dateLabel,eventDetails,pathways,defenseSummary} from './model.mjs';
-import {downloadPreview} from './export.mjs';
+import {advancedMarkup} from '/assets/chd/e1fe3bc4a6f2/advanced-cards.mjs?v=unified-e1fe3bc4a6f2';
+import {selectPopulation,density,heatColorAt,heatStops} from './shot-model/model.mjs?v=unified-e1fe3bc4a6f2';
+import {faceoffMarkings,GOAL_LINE,BLUE_LINE} from './shot-model/rink-geometry.mjs?v=unified-e1fe3bc4a6f2';
+import {CREASE_PATH} from './shot-model/zones.mjs?v=unified-e1fe3bc4a6f2';
+import {TEAM_COLORS,normalizeTeam} from './shot-model/team-style.mjs?v=unified-e1fe3bc4a6f2';
+import {buildCaption} from './captions.mjs?v=unified-e1fe3bc4a6f2';
+import {CLASSES,escapeHtml as esc,format as fmt,rate,dateLabel,eventDetails,pathways,defenseSummary} from './model.mjs?v=unified-e1fe3bc4a6f2';
+import {downloadPreview} from './export.mjs?v=unified-e1fe3bc4a6f2';
 
 const $=id=>document.getElementById(id);
-let source,shots,current,populations,grids,sharedMax=0;
+let source,shots,advanced,current,populations,grids,sharedMax=0;
 const loadedImages=new Map();
 const stateFor=t=>({team:String(t.id),conference:'all',scope:'all',venue:'all',opponentConference:'all',opponentTeam:'all',period:'all',outcome:'onnet',partial:false});
 const colors=t=>TEAM_COLORS[normalizeTeam(t.canonicalName||t.name)]||['#253038','#8a9c96'];
@@ -42,6 +43,7 @@ function shooting(t,i){
   let body=rink(p,grids.taken[i],sharedMax.taken,'off-'+t.id);
   body+=`<p class="map-note">${mapNote(p)}. Color = share of mapped shots; rings = goals.</p>`;
   body+=stats(stat(fmt(rate(t.boxGoals,t.boxGames),2),'Goals / game'),stat(fmt(rate(t.boxShots,t.boxGames),1),'SOG / game'),stat(fmt(rate(100*t.boxGoals,t.boxShots),1)+(t.boxShots?'%':''),'Shooting'));
+  body+=advancedMarkup(advanced.teams[String(t.id)]?.taken,'taken');
   body+=`<p class="roster-subtitle">Scoring leaders · ${esc(t.leaderSeason)}${t.boxGames?'':' · prior season'}</p>`;
   body+=t.leaders.length?table(['Player','GP','G','A','PTS','SOG'],t.leaders.map(p=>[p.name,p.gp,p.goals,p.assists,p.points,p.shots])):'<p class="map-note">No scoring rows available.</p>';
   return teamPanel(t,body);
@@ -51,6 +53,7 @@ function defense(t,i){
   let body=rink(p,grids.faced[i],sharedMax.faced,'def-'+t.id);
   body+=`<p class="map-note">${mapNote(p)} faced. Opponent’s attacking direction; rings = goals allowed.</p>`;
   body+=stats(stat(fmt(rate(t.goalsAgainst,t.boxGames),2),'GA / game · all games'),stat(fmt(d.shotsAgainstPerGame,1),'SOG faced / mapped game'),stat(fmt(d.blocksPerGame,1),'Recorded blocks / mapped game'));
+  body+=advancedMarkup(advanced.teams[String(t.id)]?.faced,'faced');
   if(d.attempts)body+=bar('Recorded blocks',d.blocked,d.attempts)+`<p class="map-note">${d.blocked} of ${d.attempts} recorded opponent attempts blocked (${fmt(d.blockShare)}%). Counts include the full rink. Miss/block completeness is not independently verified. Individual blockers are unavailable.</p>`;
   body+=`<p class="roster-subtitle">Goalies · ${t.goalieGames}/${t.boxGames} games reported</p>`;
   body+=t.goalies.length?table(['Goalie','GP','Saves','SV%','GAA'],t.goalies.map(p=>[p.name,p.games,p.saves??'—',fmt(p.savePct,3),fmt(p.gaa,2)])):'<p class="map-note">No goalie detail available in this snapshot.</p>';
@@ -73,7 +76,7 @@ function generate({focus=true}={}){
     const teams=[$('away').value,$('home').value].map(id=>source.teams.find(t=>String(t.id)===id));
     if(teams.some(t=>!t))throw Error('Choose teams from the available list.');
     const event=eventDetails(...teams,$('date').value,$('end').value,$('venue').value);
-    current={...source,teams,event};
+    current={...source,teams,event,advanced};
     populations={taken:teams.map(t=>selectPopulation(shots,stateFor(t),'taken')),faced:teams.map(t=>selectPopulation(shots,stateFor(t),'faced'))};
     grids=Object.fromEntries(['taken','faced'].map(k=>[k,populations[k].map(p=>density(p,'share'))]));
     sharedMax=Object.fromEntries(['taken','faced'].map(k=>[k,Math.max(0,...grids[k].flatMap(g=>[...g.values]))]));
@@ -105,8 +108,8 @@ $('download').addEventListener('click',async()=>{
 });
 async function boot(){
   try{
-    [source,shots]=await Promise.all(['./data/teams.json','./data/shots.json'].map(async u=>{const r=await fetch(u,{cache:'no-cache'});if(!r.ok)throw Error('The matchup snapshot could not be loaded.');return r.json();}));
-    if(source.through!==shots.through)throw Error('The shooting and roster snapshots have different cutoffs. Please return after the next update.');
+    [source,shots,advanced]=await Promise.all(['./data/teams.json','./data/shots.json','/assets/chd/e1fe3bc4a6f2/advanced-stats.json'].map(async u=>{const r=await fetch(u,{cache:'no-cache'});if(!r.ok)throw Error('The matchup snapshot could not be loaded.');return r.json();}));
+    if(source.through!==shots.through||advanced.through!==shots.through)throw Error('The shooting and roster snapshots have different cutoffs. Please return after the next update.');
     const q=new URLSearchParams(location.search),known=new Set(source.teams.map(t=>String(t.id)));
     for(const key of ['away','home']){$(key).innerHTML=source.teams.map(t=>`<option value="${t.id}">${esc(t.name)}</option>`).join('');$(key).value=known.has(q.get(key))?q.get(key):key==='away'?'30':'27';$(key).disabled=false;}
     // A future date is deliberately not auto-invented; use today in Eastern time.

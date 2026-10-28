@@ -1,95 +1,91 @@
-<!doctype html>
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#18453B">
-  <title>Roster Age &amp; Experience · College Hockey Data</title>
-  <meta name="description" content="Compare the age and experience of Division I men's college hockey rosters.">
-<link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-32.png">
-<link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-16.png">
-<link rel="icon" type="image/png" sizes="32x32" href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)">
-<link rel="icon" type="image/png" sizes="16x16" href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)">
-  <script type="module" crossorigin src="./assets/index-DqDaa-Is-png-de9cb331af7e.js"></script>
-  <link rel="stylesheet" crossorigin href="./assets/index-RHLZEYoq.css">
-</head>
-<body>
-  <header class="hero">
-    <div class="hero-copy">
-      <div class="eyebrow">COLLEGE HOCKEY DATA / ROSTER AGE</div>
-      <h1>Roster Age<br><em>&amp; Experience</em></h1>
-      <p>Compare every roster by age, academic class, and observed Division I experience.</p>
-      <div class="hero-meta"><span id="hero-season">2026–27</span><span>·</span><span id="hero-summary">Loading rosters…</span></div>
-    </div>
-    <div class="age-rings" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-  </header>
+<!DOCTYPE html>
 
-  <main>
-    <section class="control-panel" aria-label="Roster comparison controls">
-      <div class="section-head"><span>01 / SET THE ROSTERS</span><small>Every control updates each view below</small></div>
-      <div class="control-grid">
-        <label>Season<select id="season"></select></label>
-        <label>Conference<select id="conference"></select></label>
-        <label>Position<select id="position"><option value="all">All positions</option><option value="F">Forwards</option><option value="D">Defense</option><option value="G">Goaltenders</option></select></label>
-        <label>Experience definition<select id="lens"><option value="games">Prior D1 games played</option><option value="class">Academic class</option><option value="experience">Prior D1 roster seasons</option></select></label>
-      </div>
-      <div id="coverage" class="coverage"></div>
-    </section>
-
-    <section class="field-section" aria-labelledby="field-title">
-      <div class="section-title">
-        <div><span>02 / THE ROSTER FIELD</span><h2 id="field-title">AGE MEETS EXPERIENCE.</h2><p id="field-deck">Each logo is one roster. Select a team to inspect every player and season.</p></div>
-        <div class="field-key"><b>YOUNGER</b><i></i><b>OLDER</b></div>
-      </div>
-      <div class="field-layout">
-        <div id="scatter-shell" class="scatter-shell">
-          <svg id="scatter" role="img" aria-label="Team average age and experience scatter plot"></svg>
-          <div id="tooltip" class="tooltip" hidden></div>
-        </div>
-        <aside class="rank-panel">
-          <div class="rank-head"><span>QUICK READ</span><h3>Teams at the edges</h3></div>
-          <div class="rank-tabs" role="group" aria-label="Ranking measure">
-            <button class="active" data-rank="oldest">Oldest</button><button data-rank="youngest">Youngest</button><button data-rank="veteran">Most experienced</button>
-          </div>
-          <div id="edge-list" class="edge-list"></div>
-        </aside>
-      </div>
-    </section>
-
-    <section class="mix-section" aria-labelledby="mix-title">
-      <div class="mix-heading">
-        <div><span>03 / ROSTER MIX</span><h2 id="mix-title">EVERY TEAM, PLAYER BY PLAYER.</h2><p>Click a legend category to rank by it. Select any row for its roster detail.</p></div>
-        <div class="mix-controls"><label>Order teams by<select id="sort"><option value="age_desc">Average age · oldest</option><option value="age_asc">Average age · youngest</option><option value="veteran">Experienced share</option><option value="name">Team name</option></select></label><label>Rows<select id="row-limit"><option value="0">All teams</option><option value="16">Top 16</option></select></label></div>
-      </div>
-      <div id="legend" class="legend"></div>
-      <div class="bar-head"><span>TEAM</span><span id="bar-axis-title">ACADEMIC CLASS MIX</span><span>AVG AGE</span></div>
-      <div id="team-bars" class="team-bars"></div>
-    </section>
-
-    <section class="program-section" aria-labelledby="program-title">
-      <div class="program-kicker">04 / FOLLOW A PROGRAM</div>
-      <div id="program-header" class="program-header"></div>
-      <div class="program-grid">
-        <article class="distribution-card"><div class="card-head"><div><span>THIS ROSTER</span><h3>Players by age</h3></div><small>Age on October 1</small></div><div id="age-distribution" class="age-distribution"></div></article>
-        <article class="history-card"><div class="card-head"><div><span>PROGRAM HISTORY</span><h3>How the roster changed</h3></div><label>Measure<select id="history-metric"><option value="age">Average age</option><option value="veteran">Experienced share</option><option value="freshman">First-year share</option></select></label></div><svg id="history-chart" role="img" aria-label="Selected program roster history"></svg></article>
-      </div>
-      <div class="roster-card">
-        <div class="roster-head"><div><span>PLAYER DETAIL</span><h3 id="roster-title">Roster</h3></div><small>Click a column to sort</small></div>
-        <table><thead><tr><th><button data-player-sort="name">PLAYER ↕</button></th><th><button data-player-sort="position">POS ↕</button></th><th><button data-player-sort="class">CLASS ↕</button></th><th><button data-player-sort="age">AGE ↓</button></th><th><button data-player-sort="games">PRIOR D1 GP ↕</button></th><th><button data-player-sort="experience">PRIOR D1 ROSTERS ↕</button></th></tr></thead><tbody id="roster-body"></tbody></table>
-      </div>
-    </section>
-
-    <section class="share-section" aria-labelledby="share-title">
-      <div><span>05 / SAVE THE VIEW</span><h2 id="share-title">A ROSTER SNAPSHOT.</h2><p>Export the active conference, position, experience definition, ranking, and emphasis.</p></div>
-      <div class="share-controls"><label>Optional PNG headline<input id="export-title" type="text" placeholder="Roster age and experience"></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download roster chart ↗</button></div>
-    </section>
-
-    <section class="method-section">
-      <span>06 / ABOUT THE DATA</span><h2>WHAT COUNTS AS EXPERIENCE.</h2>
-      <div class="method-grid"><p><b>Age</b>Calculated on October 1 of the selected roster season from the birth date reported by College Hockey News.</p><p><b>Academic class</b>The roster’s reported freshman, sophomore, junior, senior, or graduate designation.</p><p><b>Games played</b>Distinct recorded D1 games before the selected season, including games at other programs. Exhibitions and the selected season are excluded. ≥ marks incomplete earlier box coverage; — means unknown. Goalies need recorded playing time or saves, so an unused backup does not gain an appearance. Team averages use players with known counts.</p><p><b>Observed D1 roster history</b>The number of earlier seasons in which the same player appears on a collected Division I roster. It is a roster-history measure, not an NCAA eligibility ruling.</p></div>
-      <p class="source">Source: College Hockey News rosters and recorded game statistics · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
-    </section>
-  </main>
-  <footer>COLLEGE HOCKEY DATA PROJECT <span>◆</span> ROSTER AGE &amp; EXPERIENCE</footer>
-</body>
+<html class="chd-unified" lang="en">
+<head><script>window.CHD_ENTRY_URL=location.href;try{globalThis.CHD_ALLOW_LOGO_OVERLAP=localStorage.getItem('chd-logo-overlap')==='true';}catch{}</script>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1" name="viewport"/>
+<meta content="#18453B" name="theme-color"/>
+<title>Roster Age &amp; Experience · College Hockey Data</title>
+<meta content="Compare the age and experience of Division I men's college hockey rosters." name="description"/>
+<link href="../../assets/site/chd-icon-32.png" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-16.png" rel="icon" sizes="16x16" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-32.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="32x32" type="image/png"/>
+<link href="../../assets/site/chd-icon-reversed-16.png" media="(prefers-color-scheme: dark)" rel="icon" sizes="16x16" type="image/png"/>
+<script crossorigin="" src="./assets/index-DqDaa-Is-png-de9cb331af7e.js?v=unified-e1fe3bc4a6f2" type="module"></script>
+<link crossorigin="" href="./assets/index-RHLZEYoq.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/>
+<link href="/assets/chd/e1fe3bc4a6f2/shell.css?v=unified-e1fe3bc4a6f2" rel="stylesheet"/><link href="https://collegehockeydata.com/explorers/age-experience/" rel="canonical"/></head>
+<body data-chd-page="study"><a class="chd-skip" href="#chd-main">Skip to analysis</a>
+<header id="chd-shell"><div class="chd-header-row"><a aria-label="College Hockey Data home" class="chd-wordmark" href="/?screen=home"><img alt="College Hockey Data" height="44" src="/assets/site/chd-horizontal.svg" width="230"/></a><button aria-controls="chd-primary-nav" aria-expanded="false" class="chd-menu-toggle" type="button"><span aria-hidden="true">☰</span> Menu</button><nav aria-label="Main navigation" class="chd-primary" id="chd-primary-nav"><a data-section="home" href="/?screen=home">Home</a><a data-section="teams" href="/?screen=team">Teams</a><a data-section="compare" href="/?screen=matchup">Compare</a><a data-section="explore" href="/explore/">Explore</a></nav><nav aria-label="Competition" class="chd-competition"><a data-competition="men" href="/?screen=home">Men</a><a data-competition="women" href="/womens/">Women</a></nav></div><div class="chd-section-row"><div aria-label="You are here" class="chd-location" hidden=""></div><nav aria-label="Related studies" class="chd-study-tabs" hidden=""></nav></div></header>
+<header class="hero chd-legacy-chrome">
+<div class="hero-copy">
+<div class="eyebrow">COLLEGE HOCKEY DATA / ROSTER AGE</div>
+<h1>Roster Age<br/><em>&amp; Experience</em></h1>
+<p>Compare every roster by age, academic class, and observed Division I experience.</p>
+<div class="hero-meta"><span id="hero-season">2026–27</span><span>·</span><span id="hero-summary">Loading rosters…</span></div>
+</div>
+<div aria-hidden="true" class="age-rings"><i></i><i></i><i></i><i></i><i></i></div>
+</header>
+<main id="chd-main"><section aria-labelledby="chd-page-title" class="chd-intro"><div class="chd-context" data-chd-context=""></div><h1 data-chd-page-title="" id="chd-page-title">Age &amp; experience</h1><p>Roster age, class, and prior college experience.</p><div class="chd-live-labels" data-chd-live-labels=""></div></section>
+<section aria-label="Roster comparison controls" class="control-panel">
+<div class="section-head"><span>01 / SET THE ROSTERS</span><small>Every control updates each view below</small></div>
+<div class="control-grid">
+<label>Season<select id="season"></select></label>
+<label>Conference<select id="conference"></select></label>
+<label>Position<select id="position"><option value="all">All positions</option><option value="F">Forwards</option><option value="D">Defense</option><option value="G">Goaltenders</option></select></label>
+<label>Experience definition<select id="lens"><option value="games">Prior D1 games played</option><option value="class">Academic class</option><option value="experience">Prior D1 roster seasons</option></select></label>
+</div>
+<div class="coverage" id="coverage"></div>
+</section>
+<section aria-labelledby="field-title" class="field-section">
+<div class="section-title">
+<div><span>02 / THE ROSTER FIELD</span><h2 id="field-title">AGE MEETS EXPERIENCE.</h2><p id="field-deck">Each logo is one roster. Select a team to inspect every player and season.</p></div>
+<div class="field-key"><b>YOUNGER</b><i></i><b>OLDER</b></div>
+</div>
+<div class="field-layout">
+<div class="scatter-shell" id="scatter-shell">
+<svg aria-label="Team average age and experience scatter plot" id="scatter" role="img"></svg>
+<div class="tooltip" hidden="" id="tooltip"></div>
+</div>
+<aside class="rank-panel">
+<div class="rank-head"><span>QUICK READ</span><h3>Teams at the edges</h3></div>
+<div aria-label="Ranking measure" class="rank-tabs" role="group">
+<button class="active" data-rank="oldest">Oldest</button><button data-rank="youngest">Youngest</button><button data-rank="veteran">Most experienced</button>
+</div>
+<div class="edge-list" id="edge-list"></div>
+</aside>
+</div>
+</section>
+<section aria-labelledby="mix-title" class="mix-section">
+<div class="mix-heading">
+<div><span>03 / ROSTER MIX</span><h2 id="mix-title">EVERY TEAM, PLAYER BY PLAYER.</h2><p>Click a legend category to rank by it. Select any row for its roster detail.</p></div>
+<div class="mix-controls"><label>Order teams by<select id="sort"><option value="age_desc">Average age · oldest</option><option value="age_asc">Average age · youngest</option><option value="veteran">Experienced share</option><option value="name">Team name</option></select></label><label>Rows<select id="row-limit"><option value="0">All teams</option><option value="16">Top 16</option></select></label></div>
+</div>
+<div class="legend" id="legend"></div>
+<div class="bar-head"><span>TEAM</span><span id="bar-axis-title">ACADEMIC CLASS MIX</span><span>AVG AGE</span></div>
+<div class="team-bars" id="team-bars"></div>
+</section>
+<section aria-labelledby="program-title" class="program-section">
+<div class="program-kicker">04 / FOLLOW A PROGRAM</div>
+<div class="program-header" id="program-header"></div>
+<div class="program-grid">
+<article class="distribution-card"><div class="card-head"><div><span>THIS ROSTER</span><h3>Players by age</h3></div><small>Age on October 1</small></div><div class="age-distribution" id="age-distribution"></div></article>
+<article class="history-card"><div class="card-head"><div><span>PROGRAM HISTORY</span><h3>How the roster changed</h3></div><label>Measure<select id="history-metric"><option value="age">Average age</option><option value="veteran">Experienced share</option><option value="freshman">First-year share</option></select></label></div><svg aria-label="Selected program roster history" id="history-chart" role="img"></svg></article>
+</div>
+<div class="roster-card">
+<div class="roster-head"><div><span>PLAYER DETAIL</span><h3 id="roster-title">Roster</h3></div><small>Click a column to sort</small></div>
+<table><thead><tr><th><button data-player-sort="name">PLAYER ↕</button></th><th><button data-player-sort="position">POS ↕</button></th><th><button data-player-sort="class">CLASS ↕</button></th><th><button data-player-sort="age">AGE ↓</button></th><th><button data-player-sort="games">PRIOR D1 GP ↕</button></th><th><button data-player-sort="experience">PRIOR D1 ROSTERS ↕</button></th></tr></thead><tbody id="roster-body"></tbody></table>
+</div>
+</section>
+<section aria-labelledby="share-title" class="share-section">
+<div><span>05 / SAVE THE VIEW</span><h2 id="share-title">A ROSTER SNAPSHOT.</h2><p>Export the active conference, position, experience definition, ranking, and emphasis.</p></div>
+<div class="share-controls"><label>Optional PNG headline<input id="export-title" placeholder="Roster age and experience" type="text"/></label><label>PNG layout<select id="export-layout"><option value="wide">Wide · 1600 × 1000</option><option value="mobile">Mobile · 1080 × 1350</option></select></label><button id="export" type="button">Download roster chart ↗</button></div>
+</section>
+<section class="method-section">
+<span>06 / ABOUT THE DATA</span><h2>WHAT COUNTS AS EXPERIENCE.</h2>
+<div class="method-grid"><p><b>Age</b>Calculated on October 1 of the selected roster season from the birth date reported by College Hockey News.</p><p><b>Academic class</b>The roster’s reported freshman, sophomore, junior, senior, or graduate designation.</p><p><b>Games played</b>Distinct recorded D1 games before the selected season, including games at other programs. Exhibitions and the selected season are excluded. ≥ marks incomplete earlier box coverage; — means unknown. Goalies need recorded playing time or saves, so an unused backup does not gain an appearance. Team averages use players with known counts.</p><p><b>Observed D1 roster history</b>The number of earlier seasons in which the same player appears on a collected Division I roster. It is a roster-history measure, not an NCAA eligibility ruling.</p></div>
+<p class="source">Source: College Hockey News rosters and recorded game statistics · Independent visualization by u/BakedMitten · Data build <span id="snapshot">—</span></p>
+</section>
+</main>
+<footer class="chd-legacy-chrome">COLLEGE HOCKEY DATA PROJECT <span>◆</span> ROSTER AGE &amp; EXPERIENCE</footer>
+<footer class="chd-footer"><div><b>College Hockey Data</b><a href="/explore/">Explore</a><a href="/data-status/">Data coverage</a><a href="/about/">About &amp; reuse</a><a href="/contact/">Contact</a></div></footer><script id="chd-capabilities" type="application/json">{"performance":{"men":[2023,2024,2025,2026],"women":[2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"control":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"shots":{"men":[2026]},"areas":{"men":[2026]},"historical-shots":{"men":[2025,2026]},"graphics":{},"race":{"men":[2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"head-to-head":{"men":[1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2024,2025,2026]},"atlas":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026],"women":[2026]},"origins":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"returning":{"men":[2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2021,2022,2023,2024,2025,2026]},"pathways":{"men":[1895,1896,1897,1898,1899,1900,1901,1902,1903,1904,1905,1906,1907,1908,1909,1910,1911,1912,1913,1914,1915,1916,1917,1918,1919,1920,1921,1922,1923,1924,1925,1926,1927,1928,1929,1930,1931,1932,1933,1934,1935,1936,1937,1938,1939,1940,1941,1942,1943,1944,1945,1946,1947,1948,1949,1950,1951,1952,1953,1954,1955,1956,1957,1958,1959,1960,1961,1962,1963,1964,1965,1966,1967,1968,1969,1970,1971,1972,1973,1974,1975,1976,1977,1978,1979,1980,1981,1982,1983,1984,1985,1986,1987,1988,1989,1990,1991,1992,1993,1994,1995,1996,1997,1998,1999,2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"draft":{"men":[2000,2001,2002,2003,2004,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]},"experience":{"men":[2000,2001,2002,2005,2006,2007,2008,2009,2010,2011,2012,2013,2014,2015,2016,2017,2018,2019,2020,2021,2022,2023,2024,2025,2026]}}</script><script src="/assets/chd/e1fe3bc4a6f2/shell.mjs?v=unified-e1fe3bc4a6f2" type="module"></script></body>
 </html>

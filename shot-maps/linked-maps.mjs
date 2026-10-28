@@ -1,6 +1,12 @@
+import {netGrid,netZoneValue} from './net-measures.mjs?v=unified-e1fe3bc4a6f2';
+export {netGrid,netZoneValue} from './net-measures.mjs?v=unified-e1fe3bc4a6f2';
 const esc=s=>String(s??'').replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 const num=n=>Number.isFinite(n);
 const pct=(n,d)=>d?(100*n/d).toFixed(1)+'%':'—';
+const contrastInk=hex=>{
+  const rgb=[1,3,5].map(i=>parseInt(hex.slice(i,i+2),16)/255).map(v=>v<=.04045?v/12.92:((v+.055)/1.055)**2.4);
+  return rgb.reduce((s,v,i)=>s+v*[.2126,.7152,.0722][i],0)>.25?'#10372f':'#f5f8e9';
+};
 export function goalGroups(points,plane='ice'){
   const grouped=new Map();
   for(const p of points){
@@ -25,14 +31,6 @@ export function netSample(population){
   for(const p of points){const i=Math.min(2,Math.floor(p[9]*.03))*3+Math.min(2,Math.floor(p[8]*.03));bins[i].sog++;bins[i].goals+=p[4]===0;}
   return {points,bins,total:sog.length,missing:sog.length-points.length};
 }
-export function netGrid(sample,games){
-  const width=72,height=48,values=new Float32Array(width*height);
-  // The same net-space bandwidth and normalization apply to every compared panel.
-  for(const p of sample.points){const px=p[8]*width/100,py=p[9]*height/100;
-    for(let y=Math.max(0,Math.floor(py-10));y<Math.min(height,py+11);y++)for(let x=Math.max(0,Math.floor(px-10));x<Math.min(width,px+11);x++)values[y*width+x]+=Math.exp(-((x-px)**2+(y-py)**2)/24)/Math.max(1,games);
-  }
-  return {width,height,values,max:Math.max(0,...values)};
-}
 const zones=['Upper left','Upper middle','Upper right','Middle left','Middle','Middle right','Lower left','Lower middle','Lower right'];
 export function netSVG(spec,i,state,grid,max,color,ghost){
   const sample=spec.net,canvas=document.createElement('canvas');canvas.width=grid.width;canvas.height=grid.height;
@@ -42,7 +40,7 @@ export function netSVG(spec,i,state,grid,max,color,ghost){
   const heat=state.view==='heatmap',zoneView=state.view==='zones',dark=heat&&state.theme==='dark',ink=dark?'#f5f8e9':'#18453b';
   const base=heat?color(0,max):'#eef3e9';
   const dots=state.view==='attempts'?sample.points.filter(p=>p[4]!==0).map(p=>`<circle cx="${p[8]*4.5}" cy="${p[9]*3}" r="2.2" fill="#218e76" opacity=".55"/>`).join(''):'';
-  const cells=sample.bins.map((b,n)=>{const x=n%3*150,y=Math.floor(n/3)*100;return `<g class="net-cell" tabindex="0" role="img" aria-label="${zones[n]}: ${b.sog} on-net placements, ${b.goals} goals, ${pct(b.sog,sample.points.length)} of shown placements"><title>${zones[n]} · ${b.sog} on net · ${b.goals} goals · ${pct(b.goals,b.sog)} goals per shot on net</title><rect x="${x}" y="${y}" width="150" height="100" fill="${zoneView?color(b.sog/Math.max(1,sample.points.length),.4):'transparent'}" stroke="${dark?'#c8ded566':'#18453b44'}" stroke-width="1"/>${zoneView?`<text x="${x+75}" y="${y+49}" text-anchor="middle" fill="${ink}" font-size="23" font-weight="bold" pointer-events="none">${pct(b.sog,sample.points.length)}</text><text x="${x+75}" y="${y+72}" text-anchor="middle" fill="${ink}" font-size="13" pointer-events="none">${b.sog} on net · ${b.goals} goals</text>`:`<text x="${x+10}" y="${y+21}" fill="${ink}" font-size="13" pointer-events="none" stroke="${dark?'#10372c':'#f8faf2'}" stroke-width="2" paint-order="stroke">${pct(b.sog,sample.points.length)}</text>`}</g>`;}).join('');
+  const cells=sample.bins.map((b,n)=>{const x=n%3*150,y=Math.floor(n/3)*100,value=netZoneValue(sample,n,state.measure,spec.population.mappedAppearances,spec.netBaseline),label=value===null?'\u2014':state.measure==='pergame'?value.toFixed(2):state.measure==='difference'?(value>0?'+':'')+value.toFixed(1)+' pp':value.toFixed(1)+'%',fill=zoneView?color(value??0,max):'transparent',cellInk=zoneView?contrastInk(fill):ink;return `<g class="net-cell" tabindex="0" role="img" aria-label="${zones[n]}: ${b.sog} on-net placements, ${b.goals} goals, ${label} (${state.measure})"><title>${zones[n]} · ${b.sog} on net · ${b.goals} goals · ${pct(b.goals,b.sog)} goals per shot on net</title><rect x="${x}" y="${y}" width="150" height="100" fill="${fill}" stroke="${dark?'#c8ded566':'#18453b44'}" stroke-width="1"/>${zoneView?`<text x="${x+75}" y="${y+49}" text-anchor="middle" fill="${cellInk}" font-size="23" font-weight="bold" pointer-events="none">${label}</text><text x="${x+75}" y="${y+72}" text-anchor="middle" fill="${cellInk}" font-size="13" pointer-events="none">${b.sog} on net · ${b.goals} goals</text>`:`<text x="${x+10}" y="${y+21}" fill="${ink}" font-size="13" pointer-events="none" stroke="${dark?'#10372c':'#f8faf2'}" stroke-width="2" paint-order="stroke">${pct(b.sog,sample.points.length)}</text>`}</g>`;}).join('');
   return `<svg id="net-${i}" class="study-net" viewBox="-8 -8 526 354" role="group" aria-label="${esc(spec.name+' '+spec.label.toLowerCase())}: goal-face placements, shooter perspective" xmlns="http://www.w3.org/2000/svg"><rect width="450" height="300" rx="4" fill="${base}"/>${heat?`<image href="${canvas.toDataURL()}" width="450" height="300" preserveAspectRatio="none"/>`:''}${heat&&ghost?`<image href="${ghost}" x="15" y="25" width="420" height="280" opacity=".25" pointer-events="none"/>`:''}${cells}${dots}<rect width="450" height="300" rx="3" fill="none" stroke="${ink}" stroke-width="4" pointer-events="none"/>${goalMarks(spec.population.points,'net',state.goals)}${[0,1,2].map(r=>`<text x="469" y="${r*100+56}" fill="${ink}" font-size="15" font-weight="bold">${pct(sample.bins.slice(r*3,r*3+3).reduce((s,b)=>s+b.sog,0),sample.points.length)}</text>`).join('')}${[0,1,2].map(c=>`<text x="${c*150+75}" y="332" text-anchor="middle" fill="${ink}" font-size="15" font-weight="bold">${pct(sample.bins.filter((_,i)=>i%3===c).reduce((s,b)=>s+b.sog,0),sample.points.length)}</text>`).join('')}</svg>`;
 }
 export function eventLabel(e,teams){
@@ -96,11 +94,12 @@ export async function exportPairs(root,specs,state,title,through){
     const svgs=[cards[i].querySelector('svg.rink'),cards[i].querySelector('svg.study-net')];
     for(let j=0;j<svgs.length;j++){
       const clone=svgs[j].cloneNode(true);clone.setAttribute('width',j?'800':'850');clone.setAttribute('height',j?'540':'1000');
+      if(j){const bg=document.createElementNS('http://www.w3.org/2000/svg','rect');for(const [k,v] of Object.entries({x:-8,y:-8,width:526,height:354,fill:state.view==='heatmap'&&state.theme==='dark'?'#10372c':'#eef3e9'}))bg.setAttribute(k,v);clone.insertBefore(bg,clone.firstChild);}
       const url=URL.createObjectURL(new Blob([new XMLSerializer().serializeToString(clone)],{type:'image/svg+xml'}));
       try{const img=await new Promise((resolve,reject)=>{const img=new Image();img.onload=()=>resolve(img);img.onerror=reject;img.src=url;});const h=j?350:635,w=j?520:540;ctx.drawImage(img,x+20+j*550,310,w,h);}finally{URL.revokeObjectURL(url);}
     }
-    ctx.fillStyle='#f5f8e9';ctx.font='24px Arial';const p=specs[i].population;ctx.fillText(p.outcomes[0]+' goals · '+(p.outcomes[0]+p.outcomes[1])+' SOG · '+p.allPoints.length+' attempts',x+25,1040);ctx.font='21px Arial';const focus=cards[i].querySelector('.goal-readout-top b').textContent;ctx.fillText(focus==='One goal. Two views.'?(state.goals?'Goal crosses shown':'Goal crosses hidden'):focus+' · scorer goal crosses',x+25,1080);ctx.fillText('Heatmaps and shares retain the full filtered sample.',x+25,1120);
+    ctx.fillStyle='#f5f8e9';ctx.font='24px Arial';const p=specs[i].population;ctx.fillText(p.outcomes[0]+' goals · '+(p.outcomes[0]+p.outcomes[1])+' SOG · '+p.allPoints.length+' attempts',x+25,1040);ctx.font='21px Arial';const focus=cards[i].querySelector('.goal-readout-top b').textContent;ctx.fillText(focus==='One goal. Two views.'?(state.goals?'Goal crosses shown':'Goal crosses hidden'):focus+' · scorer goal crosses',x+25,1080);ctx.fillText('Net: '+specs[i].net.points.length+' / '+specs[i].net.total+' selected SOG located; edge labels = shares.',x+25,1120);
   }
-  ctx.fillStyle='#18453b';ctx.font='24px Arial';ctx.fillText('Hudl Instat ordinary events · through '+through+' · '+state.view+' · '+state.outcome+' · period '+state.period,65,1235);ctx.font='22px Arial';ctx.fillText('Origin: shown half-rink. Net: shooter’s view, goals + saves. Missing coordinates remain unlocated. All game states.',65,1275);
+  ctx.fillStyle='#18453b';ctx.font='22px Arial';ctx.fillText('Measure: '+({share:'Share of shown attempts / located net placements',pergame:'Per mapped team game',difference:'Versus league: share difference (pp); green = above, coral = below'})[state.measure],65,1206);ctx.font='24px Arial';ctx.fillText('Hudl Instat ordinary events · through '+through+' · '+state.view+' · '+state.outcome+' · period '+state.period,65,1235);ctx.font='22px Arial';ctx.fillText('Origin: shown half-rink. Net: shooter’s view, goals + saves. Missing coordinates remain unlocated. All game states.',65,1275);
   const a=document.createElement('a');a.download='chd-paired-shot-maps-'+through+'.png';a.href=canvas.toDataURL('image/png');a.click();
 }
