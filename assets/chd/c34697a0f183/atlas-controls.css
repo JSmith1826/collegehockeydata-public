@@ -1,0 +1,64 @@
+.chd-atlas-experience{padding:0!important;margin:24px 0 40px;border:1px solid #cbd9d2;border-radius:9px;background:#fff;overflow:visible}
+.chd-atlas-experience>.section-head{display:none}
+.chd-atlas-experience .atlas-heading{padding:20px 20px 0;margin-bottom:14px}
+.chd-atlas-experience .atlas-heading h2{font-size:27px;line-height:1.12}
+.chd-atlas-experience .atlas-heading p{font-size:12px;margin:6px 0 0}
+.chd-atlas-toolbar{position:relative;display:flex;align-items:end;gap:12px;padding:0 20px 14px;flex-wrap:wrap;z-index:8}
+.chd-atlas-toolbar .chd-atlas-field,.chd-atlas-season>span{font-size:10px;font-weight:750;text-transform:uppercase;letter-spacing:.07em;color:#5c7069}
+.chd-atlas-toolbar .chd-atlas-field{flex:1;min-width:150px;max-width:330px}
+.chd-atlas-toolbar select{margin-top:5px;min-height:42px;border-radius:5px;font-size:12px}
+.chd-atlas-season{flex:0 0 auto;text-align:left!important}
+.chd-atlas-season .season-stepper{border-radius:5px;overflow:hidden;margin-top:5px}
+.chd-atlas-season .season-stepper button{min-width:39px;min-height:42px;font-size:25px}
+.chd-atlas-season .season-stepper select{border:0;margin:0;min-width:122px;width:auto;font-size:15px;padding:7px 8px}
+.chd-atlas-sr-only{position:absolute!important;width:1px!important;height:1px!important;overflow:hidden;clip-path:inset(50%);white-space:nowrap;padding:0!important}
+.chd-atlas-filters summary,.chd-atlas-fullscreen{min-height:42px;border:1px solid #b8cbc2;border-radius:5px;background:#f7f9f5;color:#173c33;padding:10px 13px;font:650 12px 'Segoe UI',sans-serif;cursor:pointer;white-space:nowrap}
+.chd-atlas-filters summary:focus-visible,.chd-atlas-fullscreen:focus-visible{outline:3px solid #6e9e43;outline-offset:3px}
+.chd-atlas-filters[open] summary{background:#e9f0e6}
+.chd-atlas-experience #fullscreen-map:not([hidden]){display:inline-flex;align-items:center;justify-content:center}
+.chd-atlas-filter-panel{position:absolute;top:100%;right:16px;z-index:20;width:min(680px,calc(100% - 32px));max-height:65dvh;overflow:auto;background:#fff;border:1px solid #b8cbc2;border-radius:8px;padding:20px;box-shadow:0 12px 36px #173c3333}
+.chd-atlas-filter-panel .workspace{padding:0!important;border:0;margin:0}
+.chd-atlas-filter-panel .workspace>.section-head[hidden]{display:none!important}
+.chd-atlas-filter-panel .time-mode{margin-bottom:12px}
+.chd-atlas-filter-panel .season-control{grid-template-columns:1fr;gap:12px;padding:12px}
+.chd-atlas-filter-panel .season-labels strong{font-size:20px}
+.chd-atlas-filter-panel .competition-picker{margin:12px 0;display:flex}
+.chd-atlas-filter-panel .control-grid{grid-template-columns:repeat(3,minmax(0,1fr));margin:12px 0}
+.chd-atlas-map-tools{border-top:1px solid #d5dfda;margin-top:16px;padding-top:14px}
+.chd-atlas-map-tools .map-actions{display:flex;align-items:center;flex-wrap:wrap}
+.chd-atlas-map-tools .map-actions button,.chd-atlas-map-tools select{min-height:42px;font-size:11px}
+.chd-atlas-experience .chd-atlas-modes{display:flex;margin:0 20px;gap:6px}
+.chd-atlas-experience .chd-atlas-modes button{flex:1;min-height:43px;padding:8px 10px;border-radius:5px;font-size:12px;text-align:center}
+.chd-atlas-experience .chd-atlas-modes button b{font:inherit;font-weight:700}
+.chd-atlas-experience .chd-atlas-modes button span{display:none}
+.chd-atlas-experience .chd-atlas-count{margin:0;padding:10px 20px;min-height:33px;font-size:11px}
+.chd-atlas-range-context{flex-basis:100%;font-size:11px;color:#5c7069}
+.chd-atlas-experience .atlas-shell{border:0;border-top:1px solid #d5dfda;box-shadow:none;min-height:580px;border-radius:0 0 9px 9px}
+.chd-atlas-experience .map-wrap{min-height:580px}
+.chd-atlas-experience .place-panel{max-height:580px}
+.chd-atlas-experience:fullscreen{margin:0;padding:12px!important;border:0;border-radius:0;overflow:hidden}
+.chd-atlas-experience:fullscreen .atlas-heading{padding-top:4px}
+.chd-atlas-experience:fullscreen .atlas-shell{display:grid}
+.chd-atlas-experience:fullscreen .atlas-shell,.chd-atlas-experience:fullscreen .map-wrap{min-height:0}
+.chd-atlas-experience:fullscreen .place-panel{max-height:none}
+@media(max-width:850px){
+ .chd-atlas-toolbar{gap:10px;padding:0 12px 12px}
+ .chd-atlas-experience .atlas-heading{padding:16px 12px 0}
+ .chd-atlas-toolbar .chd-atlas-field{min-width:130px}
+ .chd-atlas-experience .chd-atlas-modes{margin:0 12px;display:grid;grid-template-columns:repeat(2,1fr)}
+ .chd-atlas-experience .chd-atlas-count{padding:9px 12px}
+ .chd-atlas-experience .atlas-shell{grid-template-columns:minmax(0,1fr)}
+ .chd-atlas-experience:fullscreen .atlas-shell{position:relative;grid-template-columns:minmax(0,1fr)}
+ .chd-atlas-experience:fullscreen .place-panel{display:none}
+ .chd-atlas-experience:fullscreen .place-panel.has-selection{display:block;position:absolute;right:0;top:0;bottom:0;width:min(340px,90%);z-index:7;background:#fff;overflow:auto}
+ .chd-atlas-filter-panel .control-grid{grid-template-columns:1fr}
+ .chd-atlas-filter-panel{left:8px;right:8px;width:auto;padding:14px}
+}
+@media(max-width:480px){
+ .chd-atlas-toolbar .chd-atlas-field{min-width:0;flex-basis:calc(50% - 6px);max-width:none}
+ .chd-atlas-season{flex-basis:100%}
+ .chd-atlas-season .season-stepper{width:max-content}
+ .chd-atlas-fullscreen{margin-left:auto}
+ .chd-atlas-experience:fullscreen .atlas-heading h2{font-size:20px}
+ .chd-atlas-experience:fullscreen .atlas-heading p{display:none}
+}
