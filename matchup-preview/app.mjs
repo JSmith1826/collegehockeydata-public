@@ -83,13 +83,13 @@ function generate({focus=true}={}){
     for(let i=0;i<2;i++)if(populations.taken[i].total!==teams[i].mapBoxShots+(teams[i].mapCoverage?.offense?.shotDifference||0)||populations.taken[i].outcomes[0]!==teams[i].mapBoxGoals)throw Error('Map totals differ from the verified snapshot. Please try again after the next data update.');
     const gradient=heatStops('forest',false,'dark').map(([v,c])=>`${c} ${v*100}%`).join(',');
     const key=`<div class="heat-key">Less concentrated <i aria-hidden="true" style="background:linear-gradient(to right,${gradient})"></i> More concentrated · same scale for both teams · goals ○</div>`;
-    $('preview').innerHTML=`<div class="matchup-heading"><div><p class="eyebrow">THE MATCHUP</p><h2>${teams.map(t=>esc(t.name)).join(' / ')}</h2><p>${esc(event.label)}</p></div><p class="scope-pill">Snapshot through ${esc(dateLabel(source.through))}</p></div>`
+    $('preview').innerHTML=`<div class="matchup-heading"><div><p class="eyebrow">THE MATCHUP</p><h2>${teams.map(t=>esc(t.name)).join(' / ')}</h2><p>${esc(event.label)}</p></div><p class="scope-pill">Results through ${esc(dateLabel(source.resultsThrough||source.through))} · maps through ${esc(dateLabel(shots.through))}</p></div>`
       +panel('Shooting & scoring','Season stats: all completed games · maps: verified subset',teams.map(shooting).join('')).replace('</section>',key+'</section>')
       +panel('Defense & goalies','Goals allowed: all games · shot and block rates: mapped games only',teams.map(defense).join('')).replace('</section>',key+'</section>')
       +panel('How they’re built','Current roster · observed production · no projected lineups',teams.map(roster).join(''));
     $('sharing').hidden=false;updateCaption();teams.forEach(imageFor);
     history.replaceState(null,'',link());
-    const age=Math.round((Date.parse($('date').value)-Date.parse(source.through))/86400000);
+    const age=Math.round((Date.parse($('date').value)-Date.parse(source.resultsThrough||source.through))/86400000);
     $('status').textContent=age>3?`The data cutoff is ${age} days before your selected date. This preview uses the displayed snapshot; refresh the data before posting a current preview.`:'Preview ready. Check your dates and the snapshot cutoff before posting.';
     if(focus)$('preview').focus({preventScroll:true});
   }catch(e){$('status').textContent=e.message;$('preview').innerHTML='';$('sharing').hidden=true;current=null;}
@@ -116,7 +116,7 @@ async function boot(){
     const today=new Intl.DateTimeFormat('en-CA',{timeZone:'America/New_York',year:'numeric',month:'2-digit',day:'2-digit'}).format(new Date());
     $('date').value=q.get('date')|| (today>='2026-07-01'&&today<='2027-06-30'?today:'2026-10-23');
     $('end').value=q.get('end')||'';if(q.has('venue')&&[...$('venue').options].some(o=>o.value===q.get('venue')))$('venue').value=q.get('venue');
-    $('snapshot').textContent=`Data through ${dateLabel(source.through)} · ${source.teams.length} teams · changing the matchup date does not update the statistics.`;
+    $('snapshot').textContent=`Results through ${dateLabel(source.resultsThrough||source.through)} · InStat maps through ${dateLabel(shots.through)} · ${source.teams.length} teams · changing the matchup date does not update the statistics.`;
     $('generate').disabled=$('swap').disabled=false;generate({focus:false});
   }catch(e){$('snapshot').textContent=e.message;$('status').textContent='Please try again after the data snapshot is available.';}
 }
