@@ -1,1 +1,198 @@
-{"generated_at":"2026-11-08T23:15:24+00:00","domain":"collegehockeydata.com","cloudflare_web_analytics":false,"womens_section_published":true,"homepage":"team-and-league-context","study_index":"studies.html","explorers":[{"title":"College Hockey Data","slug":"season","files":19,"bytes":12424719},{"title":"Team Stat Explorer","slug":"team-stats","files":19,"bytes":12517952},{"title":"Roster Origins","slug":"roster-origins","files":34,"bytes":10036916},{"title":"Preseason Production","slug":"preseason-production","files":23,"bytes":10756782},{"title":"Scoring Origins","slug":"origin-production","files":137,"bytes":11002616},{"title":"NHL Draft History","slug":"draft-history","files":32,"bytes":1510911},{"title":"Player Atlas","slug":"player-atlas","files":40,"bytes":8840259},{"title":"Conference Race","slug":"conference-race","files":14,"bytes":329938},{"title":"Roster Age & Experience","slug":"age-experience","files":30,"bytes":2958050},{"title":"Game Control","slug":"game-control","files":34,"bytes":31685681},{"title":"Conference Matchups","slug":"conference-matchups","files":35,"bytes":2515770},{"title":"Shot Location Comparisons","slug":"shot-locations","files":6,"bytes":2948202}],"source_revision":"7365ee0375f7bb6117b66523d0d0336fdaedd412","release":"2026-10-28-unified-site","data_refresh":{"date":"2026-11-08","season":"2026-27","through":"2026-11-08","men_scored_games":276,"women_scored_games":259,"men_boxes_validated":276,"women_boxes_validated":259,"box_requests":{"men":73,"women":47},"pending_boxes":[],"scope":"Coordinated current-season data, results-history controls and source-date captions; retained historical payloads and independently dated research samples.","homepage_results_through":"2026-11-08","homepage_result_teams":62},"shot_maps":{"route":"shot-maps/","through":"2026-11-06","acceptedGames":222,"eligibleGames":276,"exactGames":222,"minorDiscrepancyTeamSides":0,"reconciliationPolicy":1},"womens_game_control_published":true,"about":"about/","image_reuse":"about/#reuse","brand_identity":"three-segment puck + Exo 2 Semibold 600","roster_corrections":{"date":"2026-10-16","season":"2026-27","roster_players":1781,"RIT":27,"Lake_Superior_State":29,"reviewed_measurement_rows":51,"private_matchup_material_included":false},"age_experience_repair":{"version":1,"generatedAt":"2026-10-20T17:07:55+00:00","scope":"Add prior-games evidence; preserve published roster identity, age, class and roster-history fields"},"visual_interface_update":{"version":2,"preparedAt":"2026-10-21T04:25:51.196Z","scope":["compact-game-control-legend","continuous-territory-palettes"],"palettes":["viridis","cividis","inferno","grayscale"],"loadingFix":"Valid empty color scale before asynchronous map/data readiness"},"new_endpoints":["teams/","matchup/","matchup-preview/","shot-maps/","data-status/","explore/"],"sources":{"mensSpatial":"Hudl Instat","goalieBasics":"Reconciled CHN game boxes","women":"CHN/NCAA"},"heldGoalieTeams":["Minnesota-Duluth","Long Island"],"unification":{"revision":2,"assetVersion":"e1fe3bc4a6f2","baseline":"4fe07df0e7f9e3d7e700c454e8c18eb507b3e044","navigation":"Home / Teams / Compare / Explore"},"data_pipeline":{"schemaVersion":1,"releaseId":"20261108T235334Z-c92069","preparedAt":"2026-11-08T23:54:45+00:00","status":"ready_with_partial_sources","statusUrl":"/data-update-status.json","resultsThrough":"2026-11-08","mapsThrough":"2026-11-06"},"team_design":{"revision":9,"assetRoot":"/assets/team-design/20261109-r9/","sharedViews":["Team","Compare"],"published":"2026-11-09","scope":"Shared layout, cohort values and MM:SS skater TOI, aligned team comparisons, player and CHN goalie context; existing source cutoffs retained.","refinement":"Goal differential uses an explicit centered zero and identical negative-left/positive-right scale for both teams; signed per-game values and average deltas are labeled."}}
+{
+  "generated_at": "2026-11-08T23:15:24+00:00",
+  "domain": "collegehockeydata.com",
+  "cloudflare_web_analytics": false,
+  "womens_section_published": true,
+  "homepage": "team-and-league-context",
+  "study_index": "studies.html",
+  "explorers": [
+    {
+      "title": "College Hockey Data",
+      "slug": "season",
+      "files": 19,
+      "bytes": 12424719
+    },
+    {
+      "title": "Team Stat Explorer",
+      "slug": "team-stats",
+      "files": 19,
+      "bytes": 12517952
+    },
+    {
+      "title": "Roster Origins",
+      "slug": "roster-origins",
+      "files": 34,
+      "bytes": 10036916
+    },
+    {
+      "title": "Preseason Production",
+      "slug": "preseason-production",
+      "files": 23,
+      "bytes": 10756782
+    },
+    {
+      "title": "Scoring Origins",
+      "slug": "origin-production",
+      "files": 137,
+      "bytes": 11002616
+    },
+    {
+      "title": "NHL Draft History",
+      "slug": "draft-history",
+      "files": 32,
+      "bytes": 1510911
+    },
+    {
+      "title": "Player Atlas",
+      "slug": "player-atlas",
+      "files": 40,
+      "bytes": 8840259
+    },
+    {
+      "title": "Conference Race",
+      "slug": "conference-race",
+      "files": 14,
+      "bytes": 329938
+    },
+    {
+      "title": "Roster Age & Experience",
+      "slug": "age-experience",
+      "files": 30,
+      "bytes": 2958050
+    },
+    {
+      "title": "Game Control",
+      "slug": "game-control",
+      "files": 34,
+      "bytes": 31685681
+    },
+    {
+      "title": "Conference Matchups",
+      "slug": "conference-matchups",
+      "files": 35,
+      "bytes": 2515770
+    },
+    {
+      "title": "Shot Location Comparisons",
+      "slug": "shot-locations",
+      "files": 6,
+      "bytes": 2948202
+    }
+  ],
+  "source_revision": "7365ee0375f7bb6117b66523d0d0336fdaedd412",
+  "release": "2026-10-28-unified-site",
+  "data_refresh": {
+    "date": "2026-11-08",
+    "season": "2026-27",
+    "through": "2026-11-08",
+    "men_scored_games": 276,
+    "women_scored_games": 259,
+    "men_boxes_validated": 276,
+    "women_boxes_validated": 259,
+    "box_requests": {
+      "men": 73,
+      "women": 47
+    },
+    "pending_boxes": [],
+    "scope": "Coordinated current-season data, results-history controls and source-date captions; retained historical payloads and independently dated research samples.",
+    "homepage_results_through": "2026-11-08",
+    "homepage_result_teams": 62
+  },
+  "shot_maps": {
+    "route": "shot-maps/",
+    "through": "2026-11-06",
+    "acceptedGames": 222,
+    "eligibleGames": 276,
+    "exactGames": 222,
+    "minorDiscrepancyTeamSides": 0,
+    "reconciliationPolicy": 1
+  },
+  "womens_game_control_published": true,
+  "about": "about/",
+  "image_reuse": "about/#reuse",
+  "brand_identity": "three-segment puck + Exo 2 Semibold 600",
+  "roster_corrections": {
+    "date": "2026-10-16",
+    "season": "2026-27",
+    "roster_players": 1781,
+    "RIT": 27,
+    "Lake_Superior_State": 29,
+    "reviewed_measurement_rows": 51,
+    "private_matchup_material_included": false
+  },
+  "age_experience_repair": {
+    "version": 1,
+    "generatedAt": "2026-10-20T17:07:55+00:00",
+    "scope": "Add prior-games evidence; preserve published roster identity, age, class and roster-history fields"
+  },
+  "visual_interface_update": {
+    "version": 2,
+    "preparedAt": "2026-10-21T04:25:51.196Z",
+    "scope": [
+      "compact-game-control-legend",
+      "continuous-territory-palettes"
+    ],
+    "palettes": [
+      "viridis",
+      "cividis",
+      "inferno",
+      "grayscale"
+    ],
+    "loadingFix": "Valid empty color scale before asynchronous map/data readiness"
+  },
+  "new_endpoints": [
+    "teams/",
+    "matchup/",
+    "matchup-preview/",
+    "shot-maps/",
+    "data-status/",
+    "explore/"
+  ],
+  "sources": {
+    "mensSpatial": "Hudl Instat",
+    "goalieBasics": "Reconciled CHN game boxes",
+    "women": "CHN/NCAA"
+  },
+  "heldGoalieTeams": [
+    "Minnesota-Duluth",
+    "Long Island"
+  ],
+  "unification": {
+    "revision": 2,
+    "assetVersion": "e1fe3bc4a6f2",
+    "baseline": "4fe07df0e7f9e3d7e700c454e8c18eb507b3e044",
+    "navigation": "Home / Teams / Compare / Explore"
+  },
+  "data_pipeline": {
+    "schemaVersion": 1,
+    "releaseId": "20261108T235334Z-c92069",
+    "preparedAt": "2026-11-08T23:54:45+00:00",
+    "status": "ready_with_partial_sources",
+    "statusUrl": "/data-update-status.json",
+    "resultsThrough": "2026-11-08",
+    "mapsThrough": "2026-11-06"
+  },
+  "team_design": {
+    "revision": 9,
+    "assetRoot": "/assets/team-design/20261109-r9/",
+    "sharedViews": [
+      "Team",
+      "Compare"
+    ],
+    "published": "2026-11-09",
+    "scope": "Shared layout, cohort values and MM:SS skater TOI, aligned team comparisons, player and CHN goalie context; existing source cutoffs retained.",
+    "refinement": "Goal differential uses an explicit centered zero and identical negative-left/positive-right scale for both teams; signed per-game values and average deltas are labeled."
+  },
+  "conference_race_interface": {
+    "revision": 1,
+    "updated": "2026-11-09",
+    "routes": [
+      "explorers/conference-race",
+      "women/conference-race"
+    ],
+    "desktopConferenceButtons": true,
+    "defaultView": "fit",
+    "fixedView": "view=fixed; full schedule on X, all loaded results on Y",
+    "dataChanged": false
+  }
+}
