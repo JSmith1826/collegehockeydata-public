@@ -270,7 +270,7 @@
 2281178,2026-11-06,"[298, 307]",True,CHN_non_exhibition_schedule_match,271
 2281898,2026-11-06,"[297, 302]",True,CHN_non_exhibition_schedule_match,275
 2281917,2026-11-06,"[335, 142412]",True,CHN_non_exhibition_schedule_match,285
-2281921,2026-11-06,"[315, 319]",False,incomplete_battle_streams_or_overview,279
+2281921,2026-11-06,"[315, 319]",True,CHN_non_exhibition_schedule_match,279
 2283394,2026-11-06,"[77747, 79847]",True,CHN_non_exhibition_schedule_match,269
 2283947,2026-11-06,"[336, 337]",False,duplicate_schedule_identity,286
 2259557,2026-11-07,"[284, 73879]",True,CHN_non_exhibition_schedule_match,300
