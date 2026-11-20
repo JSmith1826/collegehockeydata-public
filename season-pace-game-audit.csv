@@ -11554,3 +11554,5 @@ year,key,date,away,home,included,reason,ot,source_basis,source_match,profile_cap
 2026,366,2026-11-14,29,44,True,,,validated_current_CHN_results,,,
 2026,367,2026-11-14,35,56,True,,,validated_current_CHN_results,,,
 2026,368,2026-11-14,2,61,True,,ot,validated_current_CHN_results,,,
+2026,369,2026-11-18,34,41,True,,ot,validated_current_CHN_results,,,
+2026,371,2026-11-19,12,23,True,,,validated_current_CHN_results,,,
